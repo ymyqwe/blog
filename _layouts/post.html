@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+{% include music.html %}
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% endif %}
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date:"%B %-d, %Y" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container post-content">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="tags post-tags">
+                    {% for tag in page.tags %}
+                    <div class="taghover"><a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a></div>
+                    {% endfor %}
+                </div>
+				{{ content }}
+
+                
+
+                <ul class="pager post-pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">下一篇 <i class="fa fa-arrow-right"></i></a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+
+                <!-- {% if site.duoshuo_username %} -->
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="{{page.id}}"
+                        data-title="{{page.title}}"
+                        data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                <!-- {% endif %} -->
+
+
+                <div id="disqus_thread"></div>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+<!-- Comments provided by Disqus -->
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//freelancist.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//freelancist.disqus.com/count.js" async></script>
+
+
+<!-- anchor.js  Used to add icons after heading-->
+<script type="text/javascript" src="{{ site.baseurl}}/js/anchor.min.js"></script>
+<script type="text/javascript">
+    anchors.options = {
+        placement: 'right'
+    }
+    anchors.add('.post-content h2')
+</script>
+

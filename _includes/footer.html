@@ -1,0 +1,73 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    {% if site.zhihu_username %}
+                    <li class="social">
+                        <a href="https://www.zhihu.com/people/{{ site.zhihu_username }}" target="_blank">
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.weibo_username %}
+                    <li class="social">
+                        <a href="http://weibo.com/{{ site.weibo_username }}" target="_blank">
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.RSS %}
+                    <li class="social">
+                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.twitter_username %}
+                    <li class="social">
+                        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.facebook_username %}
+                    <li class="social">
+                        <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank">
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.github_username %}
+                    <li class="social">
+                        <a href="https://github.com/{{ site.github_username }}" class="social" target="_blank">
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Main.js -->
+<script src="{{ "/js/main.js " | prepend: site.baseurl }}"></script>
+
+<!-- Highlight.js  -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
