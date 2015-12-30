@@ -574,6 +574,7 @@ a.tag {
 }
 a.tag:hover {
   color: #efefef;
+  text-decoration: none;
 }
 .post-tags  {
   padding: 10px 10px 20px;
@@ -619,9 +620,10 @@ a.tag:hover {
   -o-transition: all linear .5s;
 }
 #tag_cloud a:hover {
+  color:#fff;
   border-radius: 3px;
   background: #0CC;
-  /*border: 1px ;*/
+  border-color: #0CC;
   /*color:#FFF;*/
 }
 /*Tags*/
