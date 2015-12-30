@@ -394,6 +394,7 @@ form .row:first-child .floating-label-form-group {
 }
 .tag-text {
   font-size:18px;
+  font-family: -apple-system,"Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 .one-tag-list > .post-preview > a > h2 {
   font-size: 18px;
@@ -542,7 +543,6 @@ form .row:first-child .floating-label-form-group {
   line-height: 0;
 }
 a.tag {
-    font-family: Consolas,"Courier New",Courier;
     font-weight: 400;
     font-style: normal;
     color: #404040;
@@ -571,15 +571,22 @@ a.tag {
   border: 1px solid #0CC;
   /*border:none;*/
   border-radius: 3px;
+  text-decoration: none;
 }
 a.tag:hover {
   color: #efefef;
-  text-decoration: none;
 }
 .post-tags  {
   padding: 10px 10px 20px;
   border-bottom: 1px dashed #808080;
   position:relative;
+}
+.post-tags .taghover {
+  font-size:12px;
+  line-height: 24px;
+}
+.post-tags:hover .taghover a {
+  text-decoration: none;
 }
 .post-tags:after  {
   content: '\f0fb';
@@ -620,10 +627,9 @@ a.tag:hover {
   -o-transition: all linear .5s;
 }
 #tag_cloud a:hover {
-  color:#fff;
   border-radius: 3px;
-  background: #0CC;
-  border-color: #0CC;
+  /*background: #0CC;*/
+  /*border: 1px ;*/
   /*color:#FFF;*/
 }
 /*Tags*/
