@@ -3,8 +3,8 @@ title: 自由灯塔
 header-img: img/bg1.jpg
 email: your-email@yourdomain.com
 description: "Write your site description here. It will be used as your sites meta description as well!"
-baseurl: "http://ymyqwe.github.io/blog/_site"
-url: "http://ymyqwe.github.io/blog/_site"
+baseurl: "http://ymyqwe.github.io/blog"
+url: "http://ymyqwe.github.io/blog"
 
 # SNS settings
 RSS: false
