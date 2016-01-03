@@ -21,7 +21,7 @@ highlighter: pygments
 
 # Paginator settings
 paginate: 5
-paginate_path: "/page:num/"
+paginate_path: "/blog/page:num/"
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 gems: ["jekyll-paginate"]
 
