@@ -81,7 +81,7 @@ layout: default
             <hr><h5><a href="{{ site.baseurl }}/about/">关于我们</a></h5>
                 <div class="short-about">
                     {% if site.sidebar-avatar %}
-                        <img src="{{site.sidebar-avatar}}" />
+                        <img src="{{ site.sidebar-avatar | prepend: site.baseurl }}" />
                     {% endif %}
                     {% if site.sidebar-about-description %}
                         <p>{{site.sidebar-about-description}}</p>
