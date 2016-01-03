@@ -4,7 +4,7 @@ header-img: img/bg1.jpg
 email: your-email@yourdomain.com
 description: "Write your site description here. It will be used as your sites meta description as well!"
 baseurl: "http://ymyqwe.github.io/blog/_site"
-url: "http://ymyqwe.github.io/blog/"
+url: "http://ymyqwe.github.io/blog/_site"
 
 # SNS settings
 RSS: false
