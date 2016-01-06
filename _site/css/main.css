@@ -248,6 +248,11 @@ hr.small {
   color: #808080;
   padding-bottom: 1em;
 }
+.short-about img {
+  height:150px;
+  width:150px;
+  border-radius:10px;
+}
 /*Sidebar*/
 
 /*Post Preview*/

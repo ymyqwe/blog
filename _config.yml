@@ -1,15 +1,15 @@
 # Site settings
-title: 自由灯塔
-header-img: img/bg1.jpg
+title: 捕鱼港
+header-img: img/home-bg2.jpg
 email: your-email@yourdomain.com
-description: "Write your site description here. It will be used as your sites meta description as well!"
-baseurl: "/blog"
+description: "鱼头的小博客。随便写的，随便看看吧。"
+baseurl: ""
 url: ""
 
 # SNS settings
 RSS: false
 weibo_username: maniaU
-zhihu_username: maniaU
+zhihu_username: maniauuuuu
 twitter_username: ymyymy_2@hotmail.com
 github_username:  ymyqwe
 #facebook_username:  ymyymy_2@hotmail.com
@@ -21,7 +21,7 @@ highlighter: pygments
 
 # Paginator settings
 paginate: 5
-paginate_path: "/blog/_site/page:num/"
+paginate_path: "/page:num/"
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 gems: ["jekyll-paginate"]
 
@@ -33,6 +33,6 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "高山仰止 景行行止"
-sidebar-avatar: /img/lighthouse-sky.png     # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar.jpg    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
