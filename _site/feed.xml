@@ -5,17 +5,78 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 20:17:26 +0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 20:17:26 +0800</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 23:04:19 +0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 23:04:19 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Something About This Blog</title>
-        <description>
+        <title>关于这个博客</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#技术实现&quot;&gt;技术实现&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#jekyll&quot;&gt;Jekyll配置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[]()&lt;/li&gt;
+  &lt;li&gt;[]()&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。&lt;/p&gt;
+
+&lt;p&gt;大家随意看看吧。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;技术实现&lt;/h2&gt;
+
+&lt;h4 id=&quot;github-pageshttpspagesgithubcom&quot;&gt;为什么使用&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github-Pages&lt;/a&gt;？&lt;/h4&gt;
+
+&lt;p&gt;通常我们在github上放置的代码，只是代码而已。但如果你放置的是&lt;b&gt;HTML&lt;/b&gt;代码，那么你可以直接像其他网站一样浏览它的展示，所以你不需要额外购买服务器。&lt;/p&gt;
+
+&lt;p&gt;而&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;可以输出静态的&lt;b&gt;HTML&lt;/b&gt;文件，使用git可以轻松将markdown转化为post，而且看到了&lt;a href=&quot;huangxuan.me&quot;&gt;Hux Blog&lt;/a&gt;这样的开源博客，于是就拿来主义了一下，同时自己修修改改，完成了搭建。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll配置&lt;/h2&gt;
+
+&lt;h4 id=&quot;jekyll-1&quot;&gt;安装Jekyll&lt;/h4&gt;
+&lt;p&gt;在terminal中，安装Jekyll，运行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;jekyll就安装成功了，然后主题fork的是&lt;a href=&quot;https://github.com/IronSummitMedia/startbootstrap-clean-blog&quot;&gt;Clean-Blog&lt;/a&gt;，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。&lt;/p&gt;
+
+&lt;p&gt;在terminal中，cd到你的jekyll文档下，运行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll serve --watch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加上了 –watch后，我们会强制jekyll在每次保存后更新站点。&lt;/p&gt;
+
+&lt;h4 id=&quot;configyml&quot;&gt;更新&lt;code&gt;_config.yml&lt;/code&gt;文件&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Site settings
+title: 鱼头的博客
+header-img: img/home-bg2.jpg
+email: ymyymy_2@hotmail.com
+description: &quot;鱼头的小博客。随便写的，随便看看吧。&quot;
+baseurl: &quot;/blog&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;将其中的各项内容替换成你自己的就好了！&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;在本地查看你的网站&lt;/h4&gt;
+
+&lt;p&gt;在浏览器中输入 &lt;code&gt;http://localhost:4000/blog&lt;/code&gt;以查看你的网站。&lt;/p&gt;
+
+&lt;h4 id=&quot;includes&quot;&gt;设置&lt;code&gt;_includes&lt;/code&gt;文件&lt;/h4&gt;
+
+&lt;p&gt;该主题中，默认的页面添加&lt;/p&gt;
+
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 +0800</pubDate>
         <link>/2016/01/07/Something-about-this-blog.html</link>
         <guid isPermaLink="true">/2016/01/07/Something-about-this-blog.html</guid>
+        
+        <category>博客</category>
+        
+        <category>生活</category>
         
         
       </item>
