@@ -5,9 +5,20 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 18:49:35 +0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 18:49:35 +0800</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 20:17:26 +0800</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 20:17:26 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Something About This Blog</title>
+        <description>
+</description>
+        <pubDate>Thu, 07 Jan 2016 00:00:00 +0800</pubDate>
+        <link>/2016/01/07/Something-about-this-blog.html</link>
+        <guid isPermaLink="true">/2016/01/07/Something-about-this-blog.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Megalomania</title>
