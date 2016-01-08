@@ -1,9 +1,10 @@
 ---
 layout:    post
 title:     "关于这个博客"
+subtitle:  "人生第一篇博客诞生啦~"
 date:      2016-1-7
 author:    "maniaU"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/blog-bg.jpg"
 tags:      博客 生活
 ---
 
