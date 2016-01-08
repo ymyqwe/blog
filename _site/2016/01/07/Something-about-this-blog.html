@@ -10,23 +10,23 @@
 
     <title>关于这个博客 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/01/07/Something-about-this-blog.html">
+    <link rel="canonical" href="/blog/2016/01/07/Something-about-this-blog.html">
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
-    <link rel="icon" href="/img/maniau.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/blog/img/maniau.ico" type="image/x-icon">
+    <link rel="icon" href="/blog/img/maniau.ico" type="image/x-icon">
     
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/blog/css/main.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/blog/css/syntax.css">
 
     <!-- Custom Fonts -->
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/blog/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Baidu Tongji -->
     <script>
@@ -77,22 +77,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">鱼头的博客</a>
+            <a class="navbar-brand" href="/blog/">鱼头的博客</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/">主页</a>
+                    <a href="/blog/">主页</a>
                 </li>
                 
                 <li>
-                    <a href="/about.html">关于我</a>
+                    <a href="/blog/about.html">关于我</a>
                 </li>
                 
                 <li>
-                    <a href="/tags.html">标签</a>
+                    <a href="/blog/tags.html">标签</a>
                 </li>
                 
             </ul>
@@ -110,7 +110,7 @@
     </div>
 </div>
 <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+<header class="intro-header" style="background-image: url('/blog/img/post-bg-01.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -133,18 +133,17 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="tags post-tags">
                     
-                    <div class="taghover"><a class="tag" href="/tags#博客" title="博客">博客</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#博客" title="博客">博客</a></div>
                     
-                    <div class="taghover"><a class="tag" href="/tags#生活" title="生活">生活</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#生活" title="生活">生活</a></div>
                     
                 </div>
 				<h3 id="section">目录</h3>
 
 <ol>
-  <li><a href="#技术实现">技术实现</a></li>
+  <li><a href="#section-1">技术实现</a></li>
   <li><a href="#jekyll">Jekyll配置</a></li>
-  <li>[]()</li>
-  <li>[]()</li>
+  <li><a href="#github-pages">Github-Pages</a></li>
 </ol>
 
 <p>学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。</p>
@@ -194,7 +193,51 @@ baseurl: "/blog"
 
 <h4 id="includes">设置<code>_includes</code>文件</h4>
 
-<p>该主题中，默认的页面添加</p>
+<p>该主题中，默认的页面会加载<code>_includes</code>文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。</p>
+
+<h4 id="markdown">利用markdown写作</h4>
+
+<p>该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。</p>
+
+<h2 id="github-pages">Github-Pages设置</h2>
+
+<p><a href="https://pages.github.com/">Github-Pages</a>文档比较简易，不过也很具有参考价值。</p>
+
+<p>Github-Pages的默认域名是 <b>your-username.github.io/your-project-name</b>。</p>
+
+<h4 id="section-3">设置你的存放目录</h4>
+
+<p>首先创建一个<a href="https://github.com/new">github repository</a>，再clone到你的电脑。</p>
+
+<p><img src="/blog/img/repository.png" alt="" /></p>
+
+<h4 id="gh-pages">创建gh-pages分支</h4>
+
+<p>在terminal中cd到你的项目目录下，创建gh-pages分支：</p>
+
+<pre><code>git checkout gh-pages
+</code></pre>
+
+<p>然后把你下载的主题文件都复制到你clone过来的目录下面。</p>
+
+<h4 id="gh-pages-1">让gh-pages成为你的默认分支（可选）</h4>
+
+<p>首先，前往项目的分支设置，将gh-pages设置成为默认分支。</p>
+
+<p><img src="/blog/img/branch.png" alt="" /></p>
+
+<p>如果你只想要一个分支，你也可以<a href="http://oli.jp/2011/github-pages-workflow/#deleting-master">删除master分支</a>，按照上面的教程来就可以了。一切搞定之后，</p>
+
+<pre><code>git add .
+git commit -m "your-message"
+git push
+</code></pre>
+
+<p>就大功告成了，去<b>your-username.github.io/your-project-name</b>查看你的网站吧！</p>
+
+<blockquote>
+  <p>第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。</p>
+</blockquote>
 
 
 
@@ -203,7 +246,7 @@ baseurl: "/blog"
                 <ul class="pager post-pager">
                     
                     <li class="previous">
-                        <a href="/2009/08/01/Megalomania.html" data-toggle="tooltip" data-placement="top" title="Megalomania"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                        <a href="/blog/2009/08/01/Megalomania.html" data-toggle="tooltip" data-placement="top" title="Megalomania"><i class="fa fa-arrow-left"></i> 上一篇</a>
                     </li>
                     
                     
@@ -239,7 +282,7 @@ baseurl: "/blog"
 
 
 <!-- anchor.js  Used to add icons after heading-->
-<script type="text/javascript" src="/js/anchor.min.js"></script>
+<script type="text/javascript" src="/blog/js/anchor.min.js"></script>
 <script type="text/javascript">
     anchors.options = {
         placement: 'right'
@@ -293,16 +336,16 @@ baseurl: "/blog"
 </footer>
 
 <!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
+<script src="/blog/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
+<script src="/blog/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
+<script src="/blog/js/clean-blog.min.js "></script>
 
 <!-- Main.js -->
-<script src="/js/main.js "></script>
+<script src="/blog/js/main.js "></script>
 
 <!-- Highlight.js  -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">

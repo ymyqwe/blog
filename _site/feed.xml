@@ -3,10 +3,10 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 07 Jan 2016 23:04:19 +0800</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 23:04:19 +0800</lastBuildDate>
+    <link>/blog/</link>
+    <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 08 Jan 2016 11:07:39 +0800</pubDate>
+    <lastBuildDate>Fri, 08 Jan 2016 11:07:39 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -14,10 +14,9 @@
         <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#技术实现&quot;&gt;技术实现&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;技术实现&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#jekyll&quot;&gt;Jekyll配置&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;[]()&lt;/li&gt;
-  &lt;li&gt;[]()&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#github-pages&quot;&gt;Github-Pages&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。&lt;/p&gt;
@@ -67,12 +66,56 @@ baseurl: &quot;/blog&quot;
 
 &lt;h4 id=&quot;includes&quot;&gt;设置&lt;code&gt;_includes&lt;/code&gt;文件&lt;/h4&gt;
 
-&lt;p&gt;该主题中，默认的页面添加&lt;/p&gt;
+&lt;p&gt;该主题中，默认的页面会加载&lt;code&gt;_includes&lt;/code&gt;文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。&lt;/p&gt;
+
+&lt;h4 id=&quot;markdown&quot;&gt;利用markdown写作&lt;/h4&gt;
+
+&lt;p&gt;该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。&lt;/p&gt;
+
+&lt;h2 id=&quot;github-pages&quot;&gt;Github-Pages设置&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github-Pages&lt;/a&gt;文档比较简易，不过也很具有参考价值。&lt;/p&gt;
+
+&lt;p&gt;Github-Pages的默认域名是 &lt;b&gt;your-username.github.io/your-project-name&lt;/b&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;设置你的存放目录&lt;/h4&gt;
+
+&lt;p&gt;首先创建一个&lt;a href=&quot;https://github.com/new&quot;&gt;github repository&lt;/a&gt;，再clone到你的电脑。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/repository.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;gh-pages&quot;&gt;创建gh-pages分支&lt;/h4&gt;
+
+&lt;p&gt;在terminal中cd到你的项目目录下，创建gh-pages分支：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout gh-pages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后把你下载的主题文件都复制到你clone过来的目录下面。&lt;/p&gt;
+
+&lt;h4 id=&quot;gh-pages-1&quot;&gt;让gh-pages成为你的默认分支（可选）&lt;/h4&gt;
+
+&lt;p&gt;首先，前往项目的分支设置，将gh-pages设置成为默认分支。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你只想要一个分支，你也可以&lt;a href=&quot;http://oli.jp/2011/github-pages-workflow/#deleting-master&quot;&gt;删除master分支&lt;/a&gt;，按照上面的教程来就可以了。一切搞定之后，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;your-message&quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;就大功告成了，去&lt;b&gt;your-username.github.io/your-project-name&lt;/b&gt;查看你的网站吧！&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。&lt;/p&gt;
+&lt;/blockquote&gt;
 
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 +0800</pubDate>
-        <link>/2016/01/07/Something-about-this-blog.html</link>
-        <guid isPermaLink="true">/2016/01/07/Something-about-this-blog.html</guid>
+        <link>/blog/2016/01/07/Something-about-this-blog.html</link>
+        <guid isPermaLink="true">/blog/2016/01/07/Something-about-this-blog.html</guid>
         
         <category>博客</category>
         
@@ -120,8 +163,8 @@ baseurl: &quot;/blog&quot;
 &lt;p&gt;食之无味，弃之不舍。&lt;/p&gt;
 </description>
         <pubDate>Sat, 01 Aug 2009 00:00:00 +0800</pubDate>
-        <link>/2009/08/01/Megalomania.html</link>
-        <guid isPermaLink="true">/2009/08/01/Megalomania.html</guid>
+        <link>/blog/2009/08/01/Megalomania.html</link>
+        <guid isPermaLink="true">/blog/2009/08/01/Megalomania.html</guid>
         
         <category>Doom-holiday</category>
         

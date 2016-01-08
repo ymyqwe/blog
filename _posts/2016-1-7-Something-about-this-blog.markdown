@@ -9,10 +9,9 @@ tags:      博客 生活
 
 ###目录
 
-1.  [技术实现](#技术实现)
+1.  [技术实现](#section-1)
 2.  [Jekyll配置](#jekyll)
-3.  []()
-4.  []()
+3.  [Github-Pages](#github-pages)
 
 学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。
 
@@ -58,6 +57,54 @@ jekyll就安装成功了，然后主题fork的是[Clean-Blog](https://github.com
 
 ####设置`_includes`文件
 
-该主题中，默认的页面添加
+该主题中，默认的页面会加载`_includes`文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。
+
+####利用markdown写作
+
+该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。
+
+##Github-Pages设置
+
+[Github-Pages](https://pages.github.com/)文档比较简易，不过也很具有参考价值。
+
+Github-Pages的默认域名是 <b>your-username.github.io/your-project-name</b>。
+
+####设置你的存放目录
+
+首先创建一个[github repository](https://github.com/new)，再clone到你的电脑。
+
+<img src="{{  site.baseurl }}/img/repository.png" alt="">
+
+####创建gh-pages分支
+
+在terminal中cd到你的项目目录下，创建gh-pages分支：
+
+	git checkout gh-pages
+
+然后把你下载的主题文件都复制到你clone过来的目录下面。
+
+####让gh-pages成为你的默认分支（可选）
+
+首先，前往项目的分支设置，将gh-pages设置成为默认分支。
+
+<img src="{{  site.baseurl }}/img/branch.png" alt="">
+
+如果你只想要一个分支，你也可以[删除master分支](http://oli.jp/2011/github-pages-workflow/#deleting-master)，按照上面的教程来就可以了。一切搞定之后，
+
+	git add .
+	git commit -m "your-message"
+	git push
+
+就大功告成了，去<b>your-username.github.io/your-project-name</b>查看你的网站吧！
+
+
+>第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。
+
+
+
+
+
+
+	
 
 
