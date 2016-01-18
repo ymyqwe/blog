@@ -5,9 +5,20 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 08 Jan 2016 18:01:21 +0800</pubDate>
-    <lastBuildDate>Fri, 08 Jan 2016 18:01:21 +0800</lastBuildDate>
+    <pubDate>Mon, 18 Jan 2016 16:55:20 +0800</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2016 16:55:20 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Will Pain Bring You What?</title>
+        <description>
+</description>
+        <pubDate>Wed, 13 Jan 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/01/13/Will-Pain-Bring-You-What.html</link>
+        <guid isPermaLink="true">/blog/2016/01/13/Will-Pain-Bring-You-What.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>关于这个博客</title>

@@ -753,6 +753,7 @@ a.anchorjs-link:hover  {
   bottom: -53px;
   right: 60px;
   display: none;
+  z-index: 1000;
 }
 #music-control.on+#music-content {
     display: block;
