@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 15 Mar 2016 22:45:10 +0800</pubDate>
-    <lastBuildDate>Tue, 15 Mar 2016 22:45:10 +0800</lastBuildDate>
+    <pubDate>Wed, 16 Mar 2016 00:06:25 +0800</pubDate>
+    <lastBuildDate>Wed, 16 Mar 2016 00:06:25 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -23,6 +23,8 @@
 
 &lt;p&gt;当然，现在还有许多其他客户端的框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;/blog/img/angular2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;angular-20-&quot;&gt;ANGULAR 2.0 (与之前有令人吃惊的变化)&lt;/h2&gt;
 
 &lt;p&gt;Angular是三个框架中最流行的。它是最初发布的，代表了客户端MVC框架从前一代的巨大提升。Angular采用了一种务实的途径，与用户之间产生了共鸣。&lt;/p&gt;
@@ -31,7 +33,43 @@
 
 &lt;p&gt;随后一个相关的软件工程奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使升级成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础。&lt;/p&gt;
 
-&lt;p&gt;已经避开了死亡，许多现在创造出来的项目仍然使用1.x版本，并且在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
+&lt;p&gt;已经避开了中途死亡，许多现在创造出来的项目仍然使用1.x版本，并且在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;在2.0版本中你应该期待什么？&lt;/h3&gt;
+
+&lt;p&gt;你可以期待许多。这个框架到目前为止正在经历最大的版本变化。&lt;/p&gt;
+
+&lt;p&gt;Angular 2.0的开发侧重于移除该框架的不必要的复杂性。他们去除并且取代了directives、controllers、modules、scopes和几乎所有其他的1.x版本的概念。它充分保留了ES2015和ES2016的特性，并且将这个框架设计成更容易学习。&lt;/p&gt;
+
+&lt;p&gt;除了让框架更轻便，2.0版本还有一些其他的显著的目标：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;性能提升&lt;/li&gt;
+  &lt;li&gt;原生app支持&lt;/li&gt;
+  &lt;li&gt;服务器端渲染&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这些改变对于Angular来说是巨大的，使用1.x版本来构建他们会十分困难。我们来详细看看这些改变以及他们对于这个框架的意义。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;性能&lt;/h4&gt;
+
+&lt;p&gt;提升性能是所有人希望的Angular的下一版本中的重要项目之一，如果你已经对Angular足够熟悉，那么你可以开始让一个app缓慢开启。总有一种方法是可以弥补性能问题的，但这个框架并不会让你避免搬石砸脚。&lt;/p&gt;
+
+&lt;p&gt;Angular在脏监测中阻碍了自己的性能。在每个监测循环中，这个框架检测了你的app中成百上千个值的改变。Angular的新模型接受了React推广的一个实践，单向数据传输和不可变的数据。通过接受这些，Angular现在只在数据改变之后更新。检测改变只会快速检测一个对象而不是所有变量。&lt;/p&gt;
+
+&lt;h4 id=&quot;app&quot;&gt;原生app&lt;/h4&gt;
+
+&lt;p&gt;使用Angular创建原生app对于2.0来说是它发展历程上一个重要的提升。Angular团队和React团队曾经对于这个问题进行过讨论。尽管他们构建2.0的原生app时背后的渲染仍然使用React的原生渲染，允许了他肩负了这项技术。这将引领一个混合app的新时代，它看起来像是原生的，但是却有跨平台的共通逻辑。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;服务器端渲染&lt;/h4&gt;
+
+&lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了第一次页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
+
+&lt;p&gt;Angularngular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
         <link>/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>

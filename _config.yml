@@ -17,7 +17,7 @@ github_username:  ymyqwe
 # Build settings
 markdown: kramdown
 input: GFM
-highlighter: pygments
+highlighter: rouge
 
 # Paginator settings
 paginate: 5
