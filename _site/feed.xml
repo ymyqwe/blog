@@ -5,9 +5,90 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 30 Jan 2016 04:46:18 +0800</pubDate>
-    <lastBuildDate>Sat, 30 Jan 2016 04:46:18 +0800</lastBuildDate>
+    <pubDate>Tue, 15 Mar 2016 22:45:10 +0800</pubDate>
+    <lastBuildDate>Tue, 15 Mar 2016 22:45:10 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;ANGULAR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;EMBER&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;REACT&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;作为前端工程师，我们活在一个令人兴奋的时代。最大的三个框架都接近或已经有重大的更新。Ember不久前发布了可以轻易从老版本更新的2.0版本。React发布了0.14，而Angular 2.x也即将要大放异彩。&lt;/p&gt;
+
+&lt;p&gt;当然，现在还有许多其他客户端的框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。&lt;/p&gt;
+
+&lt;h2 id=&quot;angular-20-&quot;&gt;ANGULAR 2.0 (与之前有令人吃惊的变化)&lt;/h2&gt;
+
+&lt;p&gt;Angular是三个框架中最流行的。它是最初发布的，代表了客户端MVC框架从前一代的巨大提升。Angular采用了一种务实的途径，与用户之间产生了共鸣。&lt;/p&gt;
+
+&lt;p&gt;但是这些都被Angular 2.0的出现危害了，Angular 2.0有点失败。不同于Ember的方法，Angular的第二版本完全重建了这个框架。这意味着对每一段代码会产生巨大的变化。这意味着从1.x版本重构代码会很难，同时从老版本升级的路径会很难。&lt;/p&gt;
+
+&lt;p&gt;随后一个相关的软件工程奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使升级成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础。&lt;/p&gt;
+
+&lt;p&gt;已经避开了死亡，许多现在创造出来的项目仍然使用1.x版本，并且在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
+        <guid isPermaLink="true">/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>翻译</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Front-End Development Notes</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;一些小笔记&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;目录&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;undefined is not a function &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;transition in safari and firefox is ignored in inline elements.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Cannot read property ‘getElementsByTagName’ of null&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot;&gt;ruby rails unable to load fontawesome &lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;undefined-is-not-a-function&quot;&gt;Undefined is not a function&lt;/h2&gt;
+&lt;p&gt;Sometimes when you use $(document).ready(function() {})
+An error occurs.
+It is a collision of jQuery library.
+TURN
+  $(document).ready(function() { })
+into
+jQuery(function($)) {  }&lt;/p&gt;
+
+&lt;h2 id=&quot;css3-transition-in-safari-and-firefox-is-ignored-in-inline-elements&quot;&gt;CSS3 transition in safari and firefox is ignored in inline elements.&lt;/h2&gt;
+&lt;p&gt;Display it in block or inline-block element.&lt;/p&gt;
+
+&lt;h2 id=&quot;cannot-read-property-getelementsbytagname-of-null&quot;&gt;Cannot read property ‘getElementsByTagName’ of null&lt;/h2&gt;
+&lt;p&gt;Document.body won’t get a value assigned to it until the body element has been created.&lt;/p&gt;
+
+&lt;h2 id=&quot;ruby-rails-unable-to-load-fontawesome&quot;&gt;ruby rails unable to load fontawesome&lt;/h2&gt;
+&lt;p&gt;Ruby rails loads fontawesome path needs to add ‘config.assets.paths « Rails.root.join(‘app’,’assets’) ‘ to the application.rb.
+Change  font-awesome.min.css to font awesome.min.css.scss.rb
+Change the url in the fontawesomw.css.scss.erb to ‘&amp;lt;%= asset_path(“font/fontawesome-webfont.eot”) + “?v=3.2.1” %&amp;gt;’
+Besides, you need to restart rails server.
+&lt;!-- ##郁闷的感情历程 --&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 30 Jan 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/01/30/Small-notes.html</link>
+        <guid isPermaLink="true">/blog/2016/01/30/Small-notes.html</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>关于这个博客</title>

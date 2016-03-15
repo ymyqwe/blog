@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
 
-    <title>关于这个博客 - 鱼头的博客</title>
+    <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/blog/2016/01/07/Something-about-this-blog.html">
+    <link rel="canonical" href="/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/blog/img/maniau.ico" type="image/x-icon">
@@ -116,11 +116,11 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     
-                    <h1>关于这个博客</h1>
+                    <h1>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架</h1>
                     
                     <h2 class="subheading">人生第一篇博客诞生啦~</h2>
                     
-                    <span class="meta">Posted by maniaU on January 7, 2016</span>
+                    <span class="meta">Posted by maniaU on March 15, 2016</span>
                 </div>
             </div>
         </div>
@@ -135,112 +135,34 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="tags post-tags">
                     
-                    <div class="taghover"><a class="tag" href="/blog/tags#博客" title="博客">博客</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#前端" title="前端">前端</a></div>
                     
-                    <div class="taghover"><a class="tag" href="/blog/tags#生活" title="生活">生活</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#技术" title="技术">技术</a></div>
+                    
+                    <div class="taghover"><a class="tag" href="/blog/tags#翻译" title="翻译">翻译</a></div>
                     
                 </div>
 				<h3 id="section">目录</h3>
 
 <ol>
-  <li><a href="#section-1">技术实现</a></li>
-  <li><a href="#jekyll">Jekyll配置</a></li>
-  <li><a href="#github-pages">Github-Pages</a></li>
+  <li><a href="#section-1">ANGULAR</a></li>
+  <li><a href="#section-2">EMBER</a></li>
+  <li><a href="#section-3">REACT</a></li>
 </ol>
 
-<p>学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。</p>
+<p>作为前端工程师，我们活在一个令人兴奋的时代。最大的三个框架都接近或已经有重大的更新。Ember不久前发布了可以轻易从老版本更新的2.0版本。React发布了0.14，而Angular 2.x也即将要大放异彩。</p>
 
-<p>大家随意看看吧。</p>
+<p>当然，现在还有许多其他客户端的框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。</p>
 
-<h2 id="section-1">技术实现</h2>
+<h2 id="angular-20-">ANGULAR 2.0 (与之前有令人吃惊的变化)</h2>
 
-<h4 id="github-pageshttpspagesgithubcom">为什么使用<a href="https://pages.github.com/">Github-Pages</a>？</h4>
+<p>Angular是三个框架中最流行的。它是最初发布的，代表了客户端MVC框架从前一代的巨大提升。Angular采用了一种务实的途径，与用户之间产生了共鸣。</p>
 
-<p>通常我们在github上放置的代码，只是代码而已。但如果你放置的是<b>HTML</b>代码，那么你可以直接像其他网站一样浏览它的展示，所以你不需要额外购买服务器。</p>
+<p>但是这些都被Angular 2.0的出现危害了，Angular 2.0有点失败。不同于Ember的方法，Angular的第二版本完全重建了这个框架。这意味着对每一段代码会产生巨大的变化。这意味着从1.x版本重构代码会很难，同时从老版本升级的路径会很难。</p>
 
-<p>而<a href="http://jekyllrb.com/">Jekyll</a>可以输出静态的<b>HTML</b>文件，使用git可以轻松将markdown转化为post，而且看到了<a href="huangxuan.me">Hux Blog</a>这样的开源博客，于是就拿来主义了一下，同时自己修修改改，完成了搭建。</p>
+<p>随后一个相关的软件工程奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使升级成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础。</p>
 
-<h2 id="jekyll">Jekyll配置</h2>
-
-<h4 id="jekyll-1">安装Jekyll</h4>
-<p>在terminal中，安装Jekyll，运行：</p>
-
-<pre><code>gem install jekyll
-</code></pre>
-
-<p>jekyll就安装成功了，然后主题fork的是<a href="https://github.com/IronSummitMedia/startbootstrap-clean-blog">Clean-Blog</a>，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。</p>
-
-<p>在terminal中，cd到你的jekyll文档下，运行：</p>
-
-<pre><code>jekyll serve --watch
-</code></pre>
-
-<p>加上了 –watch后，我们会强制jekyll在每次保存后更新站点。</p>
-
-<h4 id="configyml">更新<code>_config.yml</code>文件</h4>
-
-<pre><code># Site settings
-title: 鱼头的博客
-header-img: img/home-bg2.jpg
-email: ymyymy_2@hotmail.com
-description: "鱼头的小博客。随便写的，随便看看吧。"
-baseurl: "/blog"
-</code></pre>
-
-<p>将其中的各项内容替换成你自己的就好了！</p>
-
-<h4 id="section-2">在本地查看你的网站</h4>
-
-<p>在浏览器中输入 <code>http://localhost:4000/blog</code>以查看你的网站。</p>
-
-<h4 id="includes">设置<code>_includes</code>文件</h4>
-
-<p>该主题中，默认的页面会加载<code>_includes</code>文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。</p>
-
-<h4 id="markdown">利用markdown写作</h4>
-
-<p>该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。</p>
-
-<h2 id="github-pages">Github-Pages设置</h2>
-
-<p><a href="https://pages.github.com/">Github-Pages</a>文档比较简易，不过也很具有参考价值。</p>
-
-<p>Github-Pages的默认域名是 <b>your-username.github.io/your-project-name</b>。</p>
-
-<h4 id="section-3">设置你的存放目录</h4>
-
-<p>首先创建一个<a href="https://github.com/new">github repository</a>，再clone到你的电脑。</p>
-
-<p><img src="/blog/img/repository.png" alt="" /></p>
-
-<h4 id="gh-pages">创建gh-pages分支</h4>
-
-<p>在terminal中cd到你的项目目录下，创建gh-pages分支：</p>
-
-<pre><code>git checkout gh-pages
-</code></pre>
-
-<p>然后把你下载的主题文件都复制到你clone过来的目录下面。</p>
-
-<h4 id="gh-pages-1">让gh-pages成为你的默认分支（可选）</h4>
-
-<p>首先，前往项目的分支设置，将gh-pages设置成为默认分支。</p>
-
-<p><img src="/blog/img/branch.png" alt="" /></p>
-
-<p>如果你只想要一个分支，你也可以<a href="http://oli.jp/2011/github-pages-workflow/#deleting-master">删除master分支</a>，按照上面的教程来就可以了。一切搞定之后，</p>
-
-<pre><code>git add .
-git commit -m "your-message"
-git push
-</code></pre>
-
-<p>就大功告成了，去<b>your-username.github.io/your-project-name</b>查看你的网站吧！</p>
-
-<blockquote>
-  <p>第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。</p>
-</blockquote>
-
+<p>已经避开了死亡，许多现在创造出来的项目仍然使用1.x版本，并且在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。</p>
 
 
                 
@@ -248,13 +170,9 @@ git push
                 <ul class="pager post-pager">
                     
                     <li class="previous">
-                        <a href="/blog/2009/08/01/Megalomania.html" data-toggle="tooltip" data-placement="top" title="Megalomania"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                        <a href="/blog/2016/01/30/Small-notes.html" data-toggle="tooltip" data-placement="top" title="Front-End Development Notes"><i class="fa fa-arrow-left"></i> 上一篇</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/blog/2016/01/30/Small-notes.html" data-toggle="tooltip" data-placement="top" title="Front-End Development Notes">下一篇 <i class="fa fa-arrow-right"></i></a>
-                    </li>
                     
                 </ul>
 
