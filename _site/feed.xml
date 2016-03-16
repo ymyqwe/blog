@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 16 Mar 2016 00:06:25 +0800</pubDate>
-    <lastBuildDate>Wed, 16 Mar 2016 00:06:25 +0800</lastBuildDate>
+    <pubDate>Wed, 16 Mar 2016 18:10:21 +0800</pubDate>
+    <lastBuildDate>Wed, 16 Mar 2016 18:10:21 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;当然，现在还有许多其他客户端的框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/angular2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/angular2.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;angular-20-&quot;&gt;ANGULAR 2.0 (与之前有令人吃惊的变化)&lt;/h2&gt;
 
@@ -69,7 +69,64 @@
 
 &lt;h4 id=&quot;angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
 
-&lt;p&gt;Angularngular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。&lt;/p&gt;
+&lt;p&gt;Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SroutCore有巨大差异一样。&lt;/p&gt;
+
+&lt;p&gt;Angular 2.0是通过Typescript写的，这是一种微软添加了检查和其他增强的Javascript编程语言。事实上，最近关于它的社区中有一个民意投票，大部分开发者愿意使用Typescript。这以及一些其他的特性让我们有理由相信Angular仍将是大型企业愿意选择的框架。尽管如今开始使用2.0会有风险，但它的时代即将来临。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/ember 2.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ember-20&quot;&gt;EMBER 2.0&lt;/h2&gt;
+
+&lt;p&gt;Ember把它自己定位为一个为了具有前景的项目定制的框架。Ember在工业界中由两位传奇的软件工程师引领，Yehuda Katz和Tom Dale。与其他在这里被讨论的框架不同，Ember并非由一个特大企业构建，尽管它有一个令人惊奇的、富有激情的、活跃的社区围绕着它。&lt;/p&gt;
+
+&lt;p&gt;在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎来使用这种方法。2.0他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。&lt;/p&gt;
+
+&lt;h3 id=&quot;x&quot;&gt;2.x版本将会带来什么？&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;更加兼容诸如modules、classes、decorators之类的ES2015特性；&lt;/li&gt;
+  &lt;li&gt;弃用Mustache，启用部件的支架语法；&lt;/li&gt;
+  &lt;li&gt;布局结构变为pods，而非通过功能分组的controllers、models、components等等，顶部结构将是特性分类的；&lt;/li&gt;
+  &lt;li&gt;由于路由部件，Controllers将被删除；&lt;/li&gt;
+  &lt;li&gt;服务器端渲染器的提升将帮助降低页面加载次数并帮助提升搜索引擎优化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/ember-2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ember&quot;&gt;谁应使用Ember？&lt;/h3&gt;
+
+&lt;p&gt;Ember对于创建web app是一个方便的选择。如之前提到的一样，许多有雄心的app使用这个框架来搭建。特别是Ruby社区，对于Ruby商店来说，Ember是一个很棒的选择。许多文档、文章和博客都是通过这两种技术的结合来搭建的，&lt;a href=&quot;http://smashingboxes.com/blog/merging-rails-and-ember-cli&quot;&gt;这里是如何结合Rails和Ember的实例&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/React 1.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;react-10&quot;&gt;REACT 1.0&lt;/h2&gt;
+
+&lt;p&gt;React是这里比较的三个框架中最轻的一个。实际上，它甚至不能被认为是一个框架。它做一件事做得特别好：渲染UI部件。许多人甚至会搭配使用之前提到的框架，但是更通常的方法是搭配使用Flux。&lt;/p&gt;
+
+&lt;p&gt;Flux在MVC层面上是一种不同的方案。与React其他生态系统一样，它仍然是一个只控制一种东西的库。这种情况下，它从模型界面上的改变呈现为视图界面上的改变。它仍然不包括其他特定的框架，比如与服务器交互、验证模型或者是依赖注入。如果你需要这些功能，会有其他的库来弥补它们。&lt;/p&gt;
+
+&lt;p&gt;Facebook为了保持它们页面的UI一致，创造了React。由于它在服务器端的渲染和优越的性能，它的出现引起了轩然大波。看到Angular和React在它们的新版本上不断竞争是很有趣的。&lt;/p&gt;
+
+&lt;p&gt;React仍然在不断创新，最引人注意的是React Native。Facebook在移动端平台上有很快速的原生app。之前它们就开源了React Native的Andriod平台。这对于想要做原生app的人来说是一个不错的选择。&lt;/p&gt;
+
+&lt;h3 id=&quot;react-10-1&quot;&gt;React 1.0的发布的主要目标是什么？&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目网站修改&lt;/li&gt;
+  &lt;li&gt;文档改进&lt;/li&gt;
+  &lt;li&gt;动画操作控制优化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/react-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;react&quot;&gt;谁应使用React？&lt;/h3&gt;
+
+&lt;p&gt;React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前变得琐碎。&lt;/p&gt;
+
+&lt;p&gt;React在过去几年中成为了客户端MVC发展的领导力量，其他框架都成为了React可以做的事情的追赶者。React基本都是通过ES2015规范写成的，领先于许多浏览器支持。如果你想走在前端或利用简单框架，React是你的正确选择。&lt;/p&gt;
+
 </description>
         <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
         <link>/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
@@ -155,37 +212,40 @@ Besides, you need to restart rails server.
 &lt;h4 id=&quot;jekyll-1&quot;&gt;安装Jekyll&lt;/h4&gt;
 &lt;p&gt;在terminal中，安装Jekyll，运行：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;gem install jekyll
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;jekyll就安装成功了，然后主题fork的是&lt;a href=&quot;https://github.com/IronSummitMedia/startbootstrap-clean-blog&quot;&gt;Clean-Blog&lt;/a&gt;，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。&lt;/p&gt;
 
 &lt;p&gt;在terminal中，cd到你的jekyll文档下，运行：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;jekyll serve --watch
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve --watch
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;加上了 –watch后，我们会强制jekyll在每次保存后更新站点。&lt;/p&gt;
 
-&lt;h4 id=&quot;configyml&quot;&gt;更新&lt;code&gt;_config.yml&lt;/code&gt;文件&lt;/h4&gt;
+&lt;h4 id=&quot;configyml&quot;&gt;更新&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;文件&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;# Site settings
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Site settings
 title: 鱼头的博客
 header-img: img/home-bg2.jpg
 email: ymyymy_2@hotmail.com
 description: &quot;鱼头的小博客。随便写的，随便看看吧。&quot;
 baseurl: &quot;/blog&quot;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;将其中的各项内容替换成你自己的就好了！&lt;/p&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;在本地查看你的网站&lt;/h4&gt;
 
-&lt;p&gt;在浏览器中输入 &lt;code&gt;http://localhost:4000/blog&lt;/code&gt;以查看你的网站。&lt;/p&gt;
+&lt;p&gt;在浏览器中输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000/blog&lt;/code&gt;以查看你的网站。&lt;/p&gt;
 
-&lt;h4 id=&quot;includes&quot;&gt;设置&lt;code&gt;_includes&lt;/code&gt;文件&lt;/h4&gt;
+&lt;h4 id=&quot;includes&quot;&gt;设置&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;文件&lt;/h4&gt;
 
-&lt;p&gt;该主题中，默认的页面会加载&lt;code&gt;_includes&lt;/code&gt;文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。&lt;/p&gt;
+&lt;p&gt;该主题中，默认的页面会加载&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。&lt;/p&gt;
 
 &lt;h4 id=&quot;markdown&quot;&gt;利用markdown写作&lt;/h4&gt;
 
@@ -207,8 +267,9 @@ baseurl: &quot;/blog&quot;
 
 &lt;p&gt;在terminal中cd到你的项目目录下，创建gh-pages分支：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;git checkout gh-pages
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout gh-pages
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;然后把你下载的主题文件都复制到你clone过来的目录下面。&lt;/p&gt;
 
@@ -220,10 +281,11 @@ baseurl: &quot;/blog&quot;
 
 &lt;p&gt;如果你只想要一个分支，你也可以&lt;a href=&quot;http://oli.jp/2011/github-pages-workflow/#deleting-master&quot;&gt;删除master分支&lt;/a&gt;，按照上面的教程来就可以了。一切搞定之后，&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;git add .
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
 git commit -m &quot;your-message&quot;
 git push
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;就大功告成了，去&lt;b&gt;your-username.github.io/your-project-name&lt;/b&gt;查看你的网站吧！&lt;/p&gt;
 

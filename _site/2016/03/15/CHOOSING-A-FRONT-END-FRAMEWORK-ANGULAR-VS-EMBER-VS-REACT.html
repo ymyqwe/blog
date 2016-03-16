@@ -154,7 +154,7 @@
 
 <p>当然，现在还有许多其他客户端的框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。</p>
 
-<p><img src="/blog/img/angular2.png" alt="" /></p>
+<p><img src="/blog/img/angular2.png" alt="" style="margin:auto" /></p>
 
 <h2 id="angular-20-">ANGULAR 2.0 (与之前有令人吃惊的变化)</h2>
 
@@ -200,7 +200,64 @@
 
 <h4 id="angular">谁应该使用Angular？</h4>
 
-<p>Angularngular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。</p>
+<p>Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SroutCore有巨大差异一样。</p>
+
+<p>Angular 2.0是通过Typescript写的，这是一种微软添加了检查和其他增强的Javascript编程语言。事实上，最近关于它的社区中有一个民意投票，大部分开发者愿意使用Typescript。这以及一些其他的特性让我们有理由相信Angular仍将是大型企业愿意选择的框架。尽管如今开始使用2.0会有风险，但它的时代即将来临。</p>
+
+<p><img src="/blog/img/ember 2.0.png" alt="" style="margin:auto" /></p>
+
+<h2 id="ember-20">EMBER 2.0</h2>
+
+<p>Ember把它自己定位为一个为了具有前景的项目定制的框架。Ember在工业界中由两位传奇的软件工程师引领，Yehuda Katz和Tom Dale。与其他在这里被讨论的框架不同，Ember并非由一个特大企业构建，尽管它有一个令人惊奇的、富有激情的、活跃的社区围绕着它。</p>
+
+<p>在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎来使用这种方法。2.0他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。</p>
+
+<h3 id="x">2.x版本将会带来什么？</h3>
+
+<ul>
+  <li>更加兼容诸如modules、classes、decorators之类的ES2015特性；</li>
+  <li>弃用Mustache，启用部件的支架语法；</li>
+  <li>布局结构变为pods，而非通过功能分组的controllers、models、components等等，顶部结构将是特性分类的；</li>
+  <li>由于路由部件，Controllers将被删除；</li>
+  <li>服务器端渲染器的提升将帮助降低页面加载次数并帮助提升搜索引擎优化。</li>
+</ul>
+
+<p><img src="/blog/img/ember-2-str-weak.png" alt="" /></p>
+
+<h3 id="ember">谁应使用Ember？</h3>
+
+<p>Ember对于创建web app是一个方便的选择。如之前提到的一样，许多有雄心的app使用这个框架来搭建。特别是Ruby社区，对于Ruby商店来说，Ember是一个很棒的选择。许多文档、文章和博客都是通过这两种技术的结合来搭建的，<a href="http://smashingboxes.com/blog/merging-rails-and-ember-cli">这里是如何结合Rails和Ember的实例</a>。</p>
+
+<p>Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。</p>
+
+<p><img src="/blog/img/React 1.0.png" alt="" style="margin:auto" /></p>
+
+<h2 id="react-10">REACT 1.0</h2>
+
+<p>React是这里比较的三个框架中最轻的一个。实际上，它甚至不能被认为是一个框架。它做一件事做得特别好：渲染UI部件。许多人甚至会搭配使用之前提到的框架，但是更通常的方法是搭配使用Flux。</p>
+
+<p>Flux在MVC层面上是一种不同的方案。与React其他生态系统一样，它仍然是一个只控制一种东西的库。这种情况下，它从模型界面上的改变呈现为视图界面上的改变。它仍然不包括其他特定的框架，比如与服务器交互、验证模型或者是依赖注入。如果你需要这些功能，会有其他的库来弥补它们。</p>
+
+<p>Facebook为了保持它们页面的UI一致，创造了React。由于它在服务器端的渲染和优越的性能，它的出现引起了轩然大波。看到Angular和React在它们的新版本上不断竞争是很有趣的。</p>
+
+<p>React仍然在不断创新，最引人注意的是React Native。Facebook在移动端平台上有很快速的原生app。之前它们就开源了React Native的Andriod平台。这对于想要做原生app的人来说是一个不错的选择。</p>
+
+<h3 id="react-10-1">React 1.0的发布的主要目标是什么？</h3>
+
+<ul>
+  <li>项目网站修改</li>
+  <li>文档改进</li>
+  <li>动画操作控制优化</li>
+</ul>
+
+<p><img src="/blog/img/react-str-weak.png" alt="" /></p>
+
+<h3 id="react">谁应使用React？</h3>
+
+<p>React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前变得琐碎。</p>
+
+<p>React在过去几年中成为了客户端MVC发展的领导力量，其他框架都成为了React可以做的事情的追赶者。React基本都是通过ES2015规范写成的，领先于许多浏览器支持。如果你想走在前端或利用简单框架，React是你的正确选择。</p>
+
 
 
                 
