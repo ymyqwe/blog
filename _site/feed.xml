@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 16 Mar 2016 21:28:35 +0800</pubDate>
-    <lastBuildDate>Wed, 16 Mar 2016 21:28:35 +0800</lastBuildDate>
+    <pubDate>Thu, 17 Mar 2016 00:37:38 +0800</pubDate>
+    <lastBuildDate>Thu, 17 Mar 2016 00:37:38 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -27,13 +27,13 @@
 
 &lt;h2 id=&quot;angular-20&quot;&gt;ANGULAR 2.0&lt;/h2&gt;
 
-&lt;p&gt;Angular是三个框架中最流行的。它是最初发布的，代表了客户端MVC框架从前一代的巨大提升。Angular采用了一种务实的途径，与用户之间产生了共鸣。&lt;/p&gt;
+&lt;p&gt;Angular是三个框架中最流行的。它是最早发布的MVC客户端框架，代表了客户端MVC框架从前一代的巨大提升。Angular走了一条务实的途径，与用户之间产生了共鸣。&lt;/p&gt;
 
-&lt;p&gt;但是这些都被Angular 2.0的出现危害了，Angular 2.0有点失败。不同于Ember的方法，Angular的第二版本完全重建了这个框架。这意味着对每一段代码会产生巨大的变化。这意味着从1.x版本重构代码会很难，同时从老版本升级的路径会很难。&lt;/p&gt;
+&lt;p&gt;但是这些都被Angular 2.0的出现危害了，Angular 2.0有点失败。不同于Ember，Angular的第二版本完全重建了这个框架。这意味着对每一段代码会产生巨大的变化。这意味着从1.x版本重构代码会很难，同时从老版本升级的路径会很难。&lt;/p&gt;
 
-&lt;p&gt;随后一个相关的软件工程奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使升级成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础。&lt;/p&gt;
+&lt;p&gt;但是一个奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使版本更迭成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础中解救出来。&lt;/p&gt;
 
-&lt;p&gt;已经避开了中途死亡，许多现在创造出来的项目仍然使用1.x版本，并且在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
+&lt;p&gt;虽然已经避开了中途死亡，许多现在创造出来的项目仍然使用1.x版本，准备在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;在2.0版本中你应该期待什么？&lt;/h3&gt;
 
@@ -55,21 +55,21 @@
 
 &lt;p&gt;提升性能是所有人希望的Angular的下一版本中的重要项目之一，如果你已经对Angular足够熟悉，那么你可以开始让一个app缓慢开启。总有一种方法是可以弥补性能问题的，但这个框架并不会让你避免搬石砸脚。&lt;/p&gt;
 
-&lt;p&gt;Angular在脏监测中阻碍了自己的性能。在每个监测循环中，这个框架检测了你的app中成百上千个值的改变。Angular的新模型接受了React推广的一个实践，单向数据传输和不可变的数据。通过接受这些，Angular现在只在数据改变之后更新。检测改变只会快速检测一个对象而不是所有变量。&lt;/p&gt;
+&lt;p&gt;Angular在脏检测中阻碍了自己的性能。在每个监测循环中，这个框架检测了你的app中成百上千个值的改变。Angular的新模型接受了React推广的一个实践，单向数据传输和不可变的数据。通过接受这些，Angular现在只在数据改变之后更新。检测改变只会快速检测一个对象而不是所有变量。&lt;/p&gt;
 
 &lt;h4 id=&quot;app&quot;&gt;原生app&lt;/h4&gt;
 
-&lt;p&gt;使用Angular创建原生app对于2.0来说是它发展历程上一个重要的提升。Angular团队和React团队曾经对于这个问题进行过讨论。尽管他们构建2.0的原生app时背后的渲染仍然使用React的原生渲染，允许了他肩负了这项技术。这将引领一个混合app的新时代，它看起来像是原生的，但是却有跨平台的共通逻辑。&lt;/p&gt;
+&lt;p&gt;使用Angular创建原生app对于2.0来说是它发展历程上一个重要的提升。Angular团队和React团队曾经对于这个问题进行过讨论。尽管他们构建2.0的原生app时背后的渲染仍然使用React的原生渲染，允许他肩负了这项技术。这将引领一个混合app的新时代，它看起来像是原生的，但是却有跨平台的共通逻辑。&lt;/p&gt;
 
 &lt;h4 id=&quot;section-3&quot;&gt;服务器端渲染&lt;/h4&gt;
 
-&lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了第一次页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
+&lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了原始页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
 
-&lt;p&gt;Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SroutCore有巨大差异一样。&lt;/p&gt;
+&lt;p&gt;Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SproutCore有巨大差异一样。&lt;/p&gt;
 
 &lt;p&gt;Angular 2.0是通过Typescript写的，这是一种微软添加了检查和其他增强的Javascript编程语言。事实上，最近关于它的社区中有一个民意投票，大部分开发者愿意使用Typescript。这以及一些其他的特性让我们有理由相信Angular仍将是大型企业愿意选择的框架。尽管如今开始使用2.0会有风险，但它的时代即将来临。&lt;/p&gt;
 
@@ -79,7 +79,7 @@
 
 &lt;p&gt;Ember把它自己定位为一个为了具有前景的项目定制的框架。Ember在工业界中由两位传奇的软件工程师引领，Yehuda Katz和Tom Dale。与其他在这里被讨论的框架不同，Ember并非由一个特大企业构建，尽管它有一个令人惊奇的、富有激情的、活跃的社区围绕着它。&lt;/p&gt;
 
-&lt;p&gt;在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎来使用这种方法。2.0他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。&lt;/p&gt;
+&lt;p&gt;在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎。2.0版本他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。&lt;/p&gt;
 
 &lt;h3 id=&quot;x&quot;&gt;2.x版本将会带来什么？&lt;/h3&gt;
 
@@ -97,7 +97,7 @@
 
 &lt;p&gt;Ember对于创建web app是一个方便的选择。如之前提到的一样，许多有雄心的app使用这个框架来搭建。特别是Ruby社区，对于Ruby商店来说，Ember是一个很棒的选择。许多文档、文章和博客都是通过这两种技术的结合来搭建的，&lt;a href=&quot;http://smashingboxes.com/blog/merging-rails-and-ember-cli&quot;&gt;这里是如何结合Rails和Ember的实例&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。&lt;/p&gt;
+&lt;p&gt;Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合类库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/img/React 1.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
 
@@ -123,7 +123,7 @@
 
 &lt;h3 id=&quot;react&quot;&gt;谁应使用React？&lt;/h3&gt;
 
-&lt;p&gt;React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前变得琐碎。&lt;/p&gt;
+&lt;p&gt;React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前会变得琐碎。&lt;/p&gt;
 
 &lt;p&gt;React在过去几年中成为了客户端MVC发展的领导力量，其他框架都成为了React可以做的事情的追赶者。React基本都是通过ES2015规范写成的，领先于许多浏览器支持。如果你想走在前端或利用简单框架，React是你的正确选择。&lt;/p&gt;
 
@@ -131,9 +131,9 @@
 
 &lt;p&gt;首先，这些框架看起来似乎在趋同。尽管他们有独特的特性，许多最佳的观点在三者中是一样的。比如单向数据流，另外，像XML一样的部件很快将在三者中存在。&lt;/p&gt;
 
-&lt;p&gt;这些框架中，Ember是最容易上手的。只要你有一个网络服务器，就可以立即开展工作。而另外两个则需要你花点时间在Gulp和Webpack的配置上。你可能会在让项目布局上虚度光阴。或者可能花时间在拷贝样板项目上。而Ember则去掉了所有这些问题。&lt;/p&gt;
+&lt;p&gt;这些框架中，Ember是最容易上手的。只要你有一个网络服务器，就可以立即开展工作。而另外两个则需要你花点时间在Gulp和Webpack的配置上。你可能会在让项目布局上虚度光阴。或者可能花时间在拷贝样板项目上。而Ember则省去了所有这些问题。&lt;/p&gt;
 
-&lt;p&gt;但是，对于我来说，Ember是最需要花时间来学习的。对于如此小一个项目来说，花这么多时间有点浪费。此外，Ember有些需要你通过特殊方式去做一些事情，并且脱离这些方法是困难的。对于Rails来说这两个劣势也是老生常谈。对我来说，这意味着Ember对于许多开发者来说，他有利于长期存在的项目。&lt;/p&gt;
+&lt;p&gt;但是，对于我来说，Ember是最需要花时间来学习的。对于如此小一个项目来说，花这么多时间有点浪费。此外，Ember需要你通过特殊方式去做一些事情，并且脱离这些方法是困难的。对于Rails来说这两个劣势也是老生常谈。对我来说，这意味着Ember对于许多开发者来说，他有利于长期存在的项目。&lt;/p&gt;
 
 &lt;p&gt;比较来说，另外两个框架对于我做的任何事情都似乎能扯上关系。Angular 2.0让我惊奇，它和1.x完全不同。但是我发现了一些实例后，用它来构建app也似乎变得简单。&lt;/p&gt;
 
