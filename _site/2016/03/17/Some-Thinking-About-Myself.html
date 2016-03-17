@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
+
+    <title>前端问题小结 - 鱼头的博客</title>
+
+    <link rel="canonical" href="/blog/2016/03/17/Some-Thinking-About-Myself.html">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="/blog/img/maniau.ico" type="image/x-icon">
+    <link rel="icon" href="/blog/img/maniau.ico" type="image/x-icon">
+    
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/main.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="/blog/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Baidu Tongji -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?47f7eae7b20dc7faaaf4a69c47128a9f";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-71936889-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+   <!--  <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">鱼头的博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/blog/">主页</a>
+                </li>
+                
+                <li>
+                    <a href="/blog/about.html">关于我</a>
+                </li>
+                
+                <li>
+                    <a href="/blog/tags.html">标签</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <div id="music-panel">
+    <a id="music-control"><i class="fa fa-music"></i></a>
+    <div id="music-content">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="http://music.163.com/outchain/player?type=0&id=125657822&auto=0&height=430"></iframe>
+    </div>
+</div>
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/blog-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>前端问题小结</h1>
+                    
+                    <span class="meta">Posted by maniaU on March 17, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container post-content">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="tags post-tags">
+                    
+                    <div class="taghover"><a class="tag" href="/blog/tags#前端" title="前端">前端</a></div>
+                    
+                    <div class="taghover"><a class="tag" href="/blog/tags#技术" title="技术">技术</a></div>
+                    
+                    <div class="taghover"><a class="tag" href="/blog/tags#翻译" title="翻译">翻译</a></div>
+                    
+                </div>
+				<h3 id="title">微信修改网页title，如何保证分享结果？</h3>
+
+<h4 id="js-sdk">1.使用微信的JS-SDK</h4>
+
+<h4 id="jstitle">2.黑魔法：利用js修改微信title</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//需要jQuery
+var $body = $('body');
+document.title = 'title';
+// hack在微信等webview中无法修改document.title的情况
+var $iframe = $('&lt;iframe src="/favicon.ico"&gt;&lt;/iframe&gt;');
+$iframe.on('load',function() {
+	setTimeout(function() {
+		$iframe.off('load').remove();
+		}, 0);
+	}).appendTo($body);
+</code></pre>
+</div>
+
+<h3 id="javascript">Javascript中本地对象、内置对象和宿主对象</h3>
+
+<blockquote>
+  <p>本地对象，就是那些官方定义好了的对象。内置对象是本地对象的一种，其只包含Global对象和Math对象。而宿主对象则是那些官方未定义，你自己构建的对象加上DOM和BOM对象组成的。</p>
+</blockquote>
+
+<h3 id="section">如何优化页面加载速度</h3>
+
+<p>减少 HTTP 访问次数、CDN、minify、服务器增加缓存、CSS 放前面 JS 放后面、图片压缩、CSS Sprite。</p>
+
+<h3 id="javascript-1">读过那些Javascript的书？</h3>
+
+<p>《JavaScript高级程序设计》、《Javascript权威指南》、《Good parts of Javascript》</p>
+
+<h3 id="ajax">AJAX获取数据的两个方式及他们的区别？</h3>
+
+<ol>
+  <li>GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。当然在Ajax请求中，这种区别对用户是不可见的。</li>
+  <li>GET方式对传输的数据大小有限制，通常不能大于2KB,而POST方式传递的数据量要比GET方式大得多，理论上不受限制。</li>
+  <li>GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，GET方式会带来严重的安全问题。而POST方式相对来说就可以避免这些问题。</li>
+  <li>GET方式和POST方式传递的数据在服务器端的获取也不相同。在PHP中，GET方式的数据可以用$_GET[]获取，而POST方式可以用$_POST[]获取。两种方式都可以用$_REQUEST[]来获取。</li>
+</ol>
+
+<h3 id="bootstrap-23">BOOTSTRAP 2、3的区别</h3>
+
+<ol>
+  <li>3以移动优先；</li>
+  <li>3以扁平化为特点，2则偏向凹凸化；</li>
+  <li>3兼容性更高，如果你选择兼容IE8或6、7，那么就选择2。</li>
+</ol>
+
+
+
+                
+
+                <ul class="pager post-pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html" data-toggle="tooltip" data-placement="top" title="ANGULAR VS. EMBER VS. REACT: 选择一个前端框架"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                    </li>
+                    
+                    
+                </ul>
+
+
+                <!--  -->
+
+
+                <div id="disqus_thread"></div>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+<!-- Comments provided by Disqus -->
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//freelancist.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//freelancist.disqus.com/count.js" async></script>
+
+
+<!-- anchor.js  Used to add icons after heading-->
+<script type="text/javascript" src="/blog/js/anchor.min.js"></script>
+<script type="text/javascript">
+    anchors.options = {
+        placement: 'right'
+    }
+    anchors.add('.post-content h2')
+</script>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li class="social">
+                        <a href="https://www.zhihu.com/people/maniauuuuu" target="_blank">
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="social">
+                        <a href="http://weibo.com/maniaU" target="_blank">
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="social">
+                        <a href="https://twitter.com/ymyymy_2@hotmail.com" target="_blank">
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="social">
+                        <a href="https://github.com/ymyqwe" target="_blank">
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+<!-- Main.js -->
+<script src="/blog/js/main.js "></script>
+
+<!-- Highlight.js  -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+
+</html>

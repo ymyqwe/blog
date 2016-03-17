@@ -5,9 +5,75 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 17 Mar 2016 00:37:38 +0800</pubDate>
-    <lastBuildDate>Thu, 17 Mar 2016 00:37:38 +0800</lastBuildDate>
+    <pubDate>Thu, 17 Mar 2016 22:10:54 +0800</pubDate>
+    <lastBuildDate>Thu, 17 Mar 2016 22:10:54 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>前端问题小结</title>
+        <description>&lt;h3 id=&quot;title&quot;&gt;微信修改网页title，如何保证分享结果？&lt;/h3&gt;
+
+&lt;h4 id=&quot;js-sdk&quot;&gt;1.使用微信的JS-SDK&lt;/h4&gt;
+
+&lt;h4 id=&quot;jstitle&quot;&gt;2.黑魔法：利用js修改微信title&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//需要jQuery
+var $body = $(&#39;body&#39;);
+document.title = &#39;title&#39;;
+// hack在微信等webview中无法修改document.title的情况
+var $iframe = $(&#39;&amp;lt;iframe src=&quot;/favicon.ico&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&#39;);
+$iframe.on(&#39;load&#39;,function() {
+	setTimeout(function() {
+		$iframe.off(&#39;load&#39;).remove();
+		}, 0);
+	}).appendTo($body);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;Javascript中本地对象、内置对象和宿主对象&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本地对象，就是那些官方定义好了的对象。内置对象是本地对象的一种，其只包含Global对象和Math对象。而宿主对象则是那些官方未定义，你自己构建的对象加上DOM和BOM对象组成的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;如何优化页面加载速度&lt;/h3&gt;
+
+&lt;p&gt;减少 HTTP 访问次数、CDN、minify、服务器增加缓存、CSS 放前面 JS 放后面、图片压缩、CSS Sprite。&lt;/p&gt;
+
+&lt;h3 id=&quot;javascript-1&quot;&gt;读过那些Javascript的书？&lt;/h3&gt;
+
+&lt;p&gt;《JavaScript高级程序设计》、《Javascript权威指南》、《Good parts of Javascript》&lt;/p&gt;
+
+&lt;h3 id=&quot;ajax&quot;&gt;AJAX获取数据的两个方式及他们的区别？&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。当然在Ajax请求中，这种区别对用户是不可见的。&lt;/li&gt;
+  &lt;li&gt;GET方式对传输的数据大小有限制，通常不能大于2KB,而POST方式传递的数据量要比GET方式大得多，理论上不受限制。&lt;/li&gt;
+  &lt;li&gt;GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，GET方式会带来严重的安全问题。而POST方式相对来说就可以避免这些问题。&lt;/li&gt;
+  &lt;li&gt;GET方式和POST方式传递的数据在服务器端的获取也不相同。在PHP中，GET方式的数据可以用$_GET[]获取，而POST方式可以用$_POST[]获取。两种方式都可以用$_REQUEST[]来获取。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;bootstrap-23&quot;&gt;BOOTSTRAP 2、3的区别&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;3以移动优先；&lt;/li&gt;
+  &lt;li&gt;3以扁平化为特点，2则偏向凹凸化；&lt;/li&gt;
+  &lt;li&gt;3兼容性更高，如果你选择兼容IE8或6、7，那么就选择2。&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/03/17/Some-Thinking-About-Myself.html</link>
+        <guid isPermaLink="true">/blog/2016/03/17/Some-Thinking-About-Myself.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>翻译</category>
+        
+        
+      </item>
     
       <item>
         <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架</title>
