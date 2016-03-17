@@ -4,7 +4,7 @@ title:     "前端问题小结"
 subtitle:  
 date:      2016-3-17
 author:    "maniaU"
-header-img: "img/blog-bg.jpg"
+header-img: "img/thinking.jpg"
 tags:      前端 技术 翻译
 ---
 

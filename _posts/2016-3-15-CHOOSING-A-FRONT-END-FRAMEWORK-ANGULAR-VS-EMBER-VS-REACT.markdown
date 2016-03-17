@@ -4,7 +4,7 @@ title:     "ANGULAR VS. EMBER VS. REACT: 选择一个前端框架"
 subtitle:  "三足鼎立"
 date:      2016-3-15
 author:    "maniaU"
-header-img: "img/blog-bg.jpg"
+header-img: "img/AngularJS-EmberJS-ReactJS1.jpg"
 tags:      前端 技术 翻译
 ---
 
