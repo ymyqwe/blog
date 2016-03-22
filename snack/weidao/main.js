@@ -478,154 +478,154 @@ window.onload = function () {
 		g.src = content.shareGuide.img;
 		main.appendChild(g);
 	}
-	function shareToFre(desc) {
+	// function shareToFre(desc) {
 
-		if (!desc) {
-			desc = "小伙伴快来测测别人眼中你是哪种味道吧！";
-		} else {
-			desc = desc + "，小伙伴快来测你是哪种味道吧！";
-		}
-		// 朋友圈
-		var data = {
-            "imgUrl" : "http://file3.youboy.com/d/172/98/57/9/242169.jpg",
-            "link": "http://wx.vbaitong.com/game/weidao/",
-            "desc": desc,
-            "title": "每个人的性格都有独特的味道，有人如水果香般自由愉悦，有人如东方花香般神秘独立，有的人如青草香般坚强爽快，有的人如太阳花香般乐观优雅，小伙伴快来测测在别人眼中的你是哪种味道吧~"
-		};
+	// 	if (!desc) {
+	// 		desc = "小伙伴快来测测别人眼中你是哪种味道吧！";
+	// 	} else {
+	// 		desc = desc + "，小伙伴快来测你是哪种味道吧！";
+	// 	}
+	// 	// 朋友圈
+	// 	var data = {
+ //            "imgUrl" : "http://file3.youboy.com/d/172/98/57/9/242169.jpg",
+ //            "link": "http://wx.vbaitong.com/game/weidao/",
+ //            "desc": desc,
+ //            "title": "每个人的性格都有独特的味道，有人如水果香般自由愉悦，有人如东方花香般神秘独立，有的人如青草香般坚强爽快，有的人如太阳花香般乐观优雅，小伙伴快来测测在别人眼中的你是哪种味道吧~"
+	// 	};
 
-		// share to frends
-		var data = data;
-		var callbacks = {};
-		callbacks.ok = function() {
-			if (isNaN(sex)) sex = 0;
-			var share = document.createElement("script");
-			share.src = "";
-			document.getElementsByTagName("body")[0].appendChild(share);
-		    //this.removeEventListener("touchend",shareToFre);
-		};
+	// 	// share to frends
+	// 	var data = data;
+	// 	var callbacks = {};
+	// 	callbacks.ok = function() {
+	// 		if (isNaN(sex)) sex = 0;
+	// 		var share = document.createElement("script");
+	// 		share.src = "";
+	// 		document.getElementsByTagName("body")[0].appendChild(share);
+	// 	    //this.removeEventListener("touchend",shareToFre);
+	// 	};
 		
-		// 分享给朋友
-		var data2 = {
-            "imgUrl" : "http://file3.youboy.com/d/172/98/57/9/242169.jpg",
-            "link": "http://wx.vbaitong.com/game/weidao/",   
-            "desc": "每个人的性格都有独特的味道，有人如水果香般自由愉悦，有人如东方花香般神秘独立，有的人如青草香般坚强爽快，有的人如太阳花香般乐观优雅，小伙伴快来测测在别人眼中的你是哪种味道吧~",
-            "title": desc
-		};
+	// 	// 分享给朋友
+	// 	var data2 = {
+ //            "imgUrl" : "http://file3.youboy.com/d/172/98/57/9/242169.jpg",
+ //            "link": "http://wx.vbaitong.com/game/weidao/",   
+ //            "desc": "每个人的性格都有独特的味道，有人如水果香般自由愉悦，有人如东方花香般神秘独立，有的人如青草香般坚强爽快，有的人如太阳花香般乐观优雅，小伙伴快来测测在别人眼中的你是哪种味道吧~",
+ //            "title": desc
+	// 	};
 
-		weixinShareTimeline(data, callbacks);
+	// 	weixinShareTimeline(data, callbacks);
 
-		weixinSendAppMessage(data2, callbacks);		
-	}
-	document.addEventListener('WeixinJSBridgeReady', function(){
-		shareToFre();
-	}, false);
+	// 	weixinSendAppMessage(data2, callbacks);		
+	// }
+	// document.addEventListener('WeixinJSBridgeReady', function(){
+	// 	shareToFre();
+	// }, false);
 
 
-	// 分享到朋友圈
-	function weixinShareTimeline(data, callbacks) {
-        callbacks = callbacks || {};
-        var shareTimeline = function (theData) {
-            WeixinJSBridge.invoke('shareTimeline', {
-                "appid":theData.appId ? theData.appId : '',
-                "img_url":theData.imgUrl,
-                "link":theData.link,
-                "desc":theData.title,
-                "title":theData.desc, // 注意这里要分享出去的内容是desc
-                "img_width":"120",
-                "img_height":"120"
-            }, function (resp) {
-                switch (resp.err_msg) {
-                    // share_timeline:cancel 用户取消
-                    case 'share_timeline:cancel':
-                        callbacks.cancel && callbacks.cancel(resp);
-                        break;
-                    // share_timeline:fail　发送失败
-                    case 'share_timeline:fail':
-                        callbacks.fail && callbacks.fail(resp);
-                        break;
-                    // share_timeline:confirm 发送成功
-                    case 'share_timeline:confirm':
-                        callbacks.confirm && callbacks.confirm(resp);
-                        break;
-                    // 发送成功
-                    case 'share_timeline:ok':
-                        callbacks.ok && callbacks.ok(resp);
-                        break;
-                }
-                // 无论成功失败都会执行的回调
-                callbacks.all && callbacks.all(resp);
-            });
-        };
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-            if (callbacks.async && callbacks.ready) {
-                if(!callbacks.__dataLoadedFuncInited) {
-                    var loadedCb = callbacks.dataLoaded || new Function();
-                    callbacks.dataLoaded = function (newData) {
-                        loadedCb(newData);
-                        shareTimeline(newData);
-                    };
-                    callbacks.__dataLoadedFuncInited = true;
-                }
-                // 然后就绪
-                callbacks.ready && callbacks.ready(argv);
-            } else {
-                // 就绪状态
-                callbacks.ready && callbacks.ready(argv);
-                shareTimeline(data);
-            }
-        });
-    }
+	// // 分享到朋友圈
+	// function weixinShareTimeline(data, callbacks) {
+ //        callbacks = callbacks || {};
+ //        var shareTimeline = function (theData) {
+ //            WeixinJSBridge.invoke('shareTimeline', {
+ //                "appid":theData.appId ? theData.appId : '',
+ //                "img_url":theData.imgUrl,
+ //                "link":theData.link,
+ //                "desc":theData.title,
+ //                "title":theData.desc, // 注意这里要分享出去的内容是desc
+ //                "img_width":"120",
+ //                "img_height":"120"
+ //            }, function (resp) {
+ //                switch (resp.err_msg) {
+ //                    // share_timeline:cancel 用户取消
+ //                    case 'share_timeline:cancel':
+ //                        callbacks.cancel && callbacks.cancel(resp);
+ //                        break;
+ //                    // share_timeline:fail　发送失败
+ //                    case 'share_timeline:fail':
+ //                        callbacks.fail && callbacks.fail(resp);
+ //                        break;
+ //                    // share_timeline:confirm 发送成功
+ //                    case 'share_timeline:confirm':
+ //                        callbacks.confirm && callbacks.confirm(resp);
+ //                        break;
+ //                    // 发送成功
+ //                    case 'share_timeline:ok':
+ //                        callbacks.ok && callbacks.ok(resp);
+ //                        break;
+ //                }
+ //                // 无论成功失败都会执行的回调
+ //                callbacks.all && callbacks.all(resp);
+ //            });
+ //        };
+ //        WeixinJSBridge.on('menu:share:timeline', function (argv) {
+ //            if (callbacks.async && callbacks.ready) {
+ //                if(!callbacks.__dataLoadedFuncInited) {
+ //                    var loadedCb = callbacks.dataLoaded || new Function();
+ //                    callbacks.dataLoaded = function (newData) {
+ //                        loadedCb(newData);
+ //                        shareTimeline(newData);
+ //                    };
+ //                    callbacks.__dataLoadedFuncInited = true;
+ //                }
+ //                // 然后就绪
+ //                callbacks.ready && callbacks.ready(argv);
+ //            } else {
+ //                // 就绪状态
+ //                callbacks.ready && callbacks.ready(argv);
+ //                shareTimeline(data);
+ //            }
+ //        });
+ //    }
 	
-    // 分享给朋友
-    function weixinSendAppMessage(data, callbacks) {
-        callbacks = callbacks || {};
-        var sendAppMessage = function (theData) {
-            WeixinJSBridge.invoke('sendAppMessage', {
-                "appid":theData.appId ? theData.appId : '',
-                "img_url":theData.imgUrl,
-                "link":theData.link,
-                "desc":theData.desc,
-                "title":theData.title,
-                "img_width":"120",
-                "img_height":"120"
-            }, function (resp) {
-                switch (resp.err_msg) {
-                    // send_app_msg:cancel 用户取消
-                    case 'send_app_msg:cancel':
-                        callbacks.cancel && callbacks.cancel(resp);
-                        break;
-                    // send_app_msg:fail　发送失败
-                    case 'send_app_msg:fail':
-                        callbacks.fail && callbacks.fail(resp);
-                        break;
-                    // send_app_msg:confirm 发送成功
-                    case 'send_app_msg:confirm':
-                        callbacks.confirm && callbacks.confirm(resp);
-                        break;
-                }
-                // 无论成功失败都会执行的回调
-                callbacks.all && callbacks.all(resp);
-            });
-        };
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-            if (callbacks.async && callbacks.ready) {
-                if(!callbacks.__dataLoadedFuncInited) {
-                    var loadedCb = callbacks.dataLoaded || new Function();
-                    callbacks.dataLoaded = function (newData) {
-                        loadedCb(newData);
-                        sendAppMessage(newData);
-                    };
-                    callbacks.__dataLoadedFuncInited = true;
-                }
-                // 然后就绪
-                callbacks.ready && callbacks.ready(argv);
-            } else {
-                // 就绪状态
-                callbacks.ready && callbacks.ready(argv);
-                sendAppMessage(data);
-            }
-        });
-    }
+ //    // 分享给朋友
+ //    function weixinSendAppMessage(data, callbacks) {
+ //        callbacks = callbacks || {};
+ //        var sendAppMessage = function (theData) {
+ //            WeixinJSBridge.invoke('sendAppMessage', {
+ //                "appid":theData.appId ? theData.appId : '',
+ //                "img_url":theData.imgUrl,
+ //                "link":theData.link,
+ //                "desc":theData.desc,
+ //                "title":theData.title,
+ //                "img_width":"120",
+ //                "img_height":"120"
+ //            }, function (resp) {
+ //                switch (resp.err_msg) {
+ //                    // send_app_msg:cancel 用户取消
+ //                    case 'send_app_msg:cancel':
+ //                        callbacks.cancel && callbacks.cancel(resp);
+ //                        break;
+ //                    // send_app_msg:fail　发送失败
+ //                    case 'send_app_msg:fail':
+ //                        callbacks.fail && callbacks.fail(resp);
+ //                        break;
+ //                    // send_app_msg:confirm 发送成功
+ //                    case 'send_app_msg:confirm':
+ //                        callbacks.confirm && callbacks.confirm(resp);
+ //                        break;
+ //                }
+ //                // 无论成功失败都会执行的回调
+ //                callbacks.all && callbacks.all(resp);
+ //            });
+ //        };
+ //        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+ //            if (callbacks.async && callbacks.ready) {
+ //                if(!callbacks.__dataLoadedFuncInited) {
+ //                    var loadedCb = callbacks.dataLoaded || new Function();
+ //                    callbacks.dataLoaded = function (newData) {
+ //                        loadedCb(newData);
+ //                        sendAppMessage(newData);
+ //                    };
+ //                    callbacks.__dataLoadedFuncInited = true;
+ //                }
+ //                // 然后就绪
+ //                callbacks.ready && callbacks.ready(argv);
+ //            } else {
+ //                // 就绪状态
+ //                callbacks.ready && callbacks.ready(argv);
+ //                sendAppMessage(data);
+ //            }
+ //        });
+ //    }
 
 	init();
 };
