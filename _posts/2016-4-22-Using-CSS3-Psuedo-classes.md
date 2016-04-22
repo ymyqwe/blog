@@ -8,7 +8,7 @@ header-img: "img/railroad.jpg"
 tags:      HTML 技术 CSS3
 ---
 
-####:root
+#### :root
 	:root {
 		background-color: #fcfcfc;
 	}
@@ -19,7 +19,7 @@ tags:      HTML 技术 CSS3
 		background-color: #fcfcfc;
 	}
 
-####:NTH-CHILD(N)
+#### :NTH-CHILD(N)
 
 	ul li:nth-child(odd)	{
 		bakcground-color: #666;
