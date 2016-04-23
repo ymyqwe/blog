@@ -5,9 +5,394 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 17 Mar 2016 22:28:13 +0800</pubDate>
-    <lastBuildDate>Thu, 17 Mar 2016 22:28:13 +0800</lastBuildDate>
+    <pubDate>Sat, 23 Apr 2016 12:29:06 +0800</pubDate>
+    <lastBuildDate>Sat, 23 Apr 2016 12:29:06 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Ruby RVM is not working with ZSH</title>
+        <description>&lt;h2 id=&quot;zshruby-gem&quot;&gt;安装ZSH后RUBY GEM无法工作&lt;/h2&gt;
+
+&lt;p&gt;最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，报错显示：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs&#39;: Could not find &#39;jekyll&#39; (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
+Checked in &#39;GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0&#39;, execute `gem env` for more information
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其实，每次打开Terminal都会显示：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Warning: PATH set to RVM ruby but GEM_HOME and/or GEM_PATH not set, see:
+https://github.com/rvm/rvm/issues/3212
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到&lt;a href=&quot;https://github.com/rvm/rvm/issues/3212&quot;&gt;https://github.com/rvm/rvm/issues/3212&lt;/a&gt;上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，&lt;a href=&quot;https://rvm.io/rubies/default&quot;&gt;https://rvm.io/rubies/default&lt;/a&gt;有直接的解决方法：&lt;/p&gt;
+
+&lt;h3 id=&quot;ruby&quot;&gt;使用特定版本的ruby：&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm --default use 2.2.3
+# 把2.1.1替换为你已经安装过的ruby版本
+
+$ ruby -v
+# ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin15]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ruby-1&quot;&gt;使用你的系统版本ruby：&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm use system
+
+$ ruby -v
+# 会显示你的系统版本ruby
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ruby-2&quot;&gt;使用你设置的默认版本ruby&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm default
+
+$ ruby -v
+# 显示你的默认版本ruby
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ruby-3&quot;&gt;显示你现在设置的默认版本ruby&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm list
+
+rvm rubies
+
+ruby-2.2.1 [ x86_64 ]
+=* ruby-2.2.3 [ x86_64 ]
+
+# =&amp;gt; - current
+# =* - current &amp;amp;&amp;amp; default
+#  * - default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我使用了设置默认版本ruby就搞定了，你可以自己挑选一个方法试试看啦~&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 23 Apr 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
+        <guid isPermaLink="true">/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
+        
+        <category>RVM</category>
+        
+        <category>ZSH</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>CSS3新增伪类</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;结构型伪类&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;目标型伪类&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;UI元素状态型伪类&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;结构型伪类&lt;/h2&gt;
+
+&lt;h3 id=&quot;root&quot;&gt;:root&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:root {
+	background-color: #fcfcfc;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;:root伪类指向页面的根元素，99%的情况下是html元素，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html {
+	background-color: #fcfcfc;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;nth-childn&quot;&gt;:NTH-CHILD(N)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul li:nth-child(odd)	{
+	bakcground-color: #666;
+	color: #fff;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这些样式将被应用到奇数项的li元素中，如果你想让另外一行有其他的样式，可以这么写：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;table tr:nth-child(even) { .... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child&lt;/code&gt;也可以更精确地指向某一个元素，你可以指向list中的第三个的元素，像这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(3) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;尽管&lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;在一个数列中，注意它并不从0开始。第一个元素是&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child(1)&lt;/code&gt;，第二个是&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child(2)&lt;/code&gt;，并以此类推。&lt;/p&gt;
+
+&lt;p&gt;我们也可以这样使用：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(2n) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;无(2 × 0)&lt;/li&gt;
+  &lt;li&gt;第二个元素(2 × 1)&lt;/li&gt;
+  &lt;li&gt;第四个元素(2 × 2)&lt;/li&gt;
+  &lt;li&gt;第六个元素(2 × 3)&lt;/li&gt;
+  &lt;li&gt;第八个元素(2 × 4)&lt;/li&gt;
+  &lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面给出的例子和&lt;code class=&quot;highlighter-rouge&quot;&gt;nth-child(even)&lt;/code&gt;一样，那么我们来看看下面一个例子&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(5n) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;无(5 × 0)&lt;/li&gt;
+  &lt;li&gt;第五个元素(5 × 1)&lt;/li&gt;
+  &lt;li&gt;第十个元素(5 × 2)&lt;/li&gt;
+  &lt;li&gt;第十五个元素(5 × 3)&lt;/li&gt;
+  &lt;li&gt;第二十元素(5 × 4)&lt;/li&gt;
+  &lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你使用更长的表格或列表，我们也可以像这样添加或者扣除数字：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(4n+1) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;第一个元素((4 × 0)-1)&lt;/li&gt;
+  &lt;li&gt;第五个元素((4 × 1)-1)&lt;/li&gt;
+  &lt;li&gt;第九个元素((4 × 2)-1)&lt;/li&gt;
+  &lt;li&gt;第十三个元素((4 × 3)-1)&lt;/li&gt;
+  &lt;li&gt;第十七元素((4 × 4)-1)&lt;/li&gt;
+  &lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同时，你也可以把&lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;设置成负数，像这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(-n + x) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;比如你想要设置列表中的前五个元素，你可以这么做：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(-n + 5) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;第五个元素(-0 + 5)&lt;/li&gt;
+  &lt;li&gt;第四个元素(-1 + 5)&lt;/li&gt;
+  &lt;li&gt;第三个元素(-2 + 5)&lt;/li&gt;
+  &lt;li&gt;第二个元素(-3 + 5)&lt;/li&gt;
+  &lt;li&gt;第一个元素(-4 + 5)&lt;/li&gt;
+  &lt;li&gt;无(-5 + 5)&lt;/li&gt;
+  &lt;li&gt;无(-6 + 5)&lt;/li&gt;
+  &lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nth-last-childn&quot;&gt;NTH-LAST-CHILD(N)&lt;/h3&gt;
+
+&lt;p&gt;他操作起来就像&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child()&lt;/code&gt;的反向，从最后一个往前数。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-last-child(1) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码会选中列表中的最后一个元素，你也可以使用其他规则创建：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-last-child(2n+1) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;nth-of-typen&quot;&gt;NTH-OF-TYPE(N)&lt;/h3&gt;
+
+&lt;p&gt;现在我们将对更精确种类的元素添加样式，比如，你想给文章中第一段一个更大的字体，你可以这么做：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article p:nth-of-type(1) { font-size: 1.5em; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;又或者，你想让文章每隔一张图靠右，而另一张靠左，我们可以像下面这么做：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article img:nth-of-type(odd) { float: right; }
+article img:nth-of-type(even) { float:left; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Simon Foster创建了一个特别的&lt;a href=&quot;http://www.fortherecord.simonfosterdesign.com/&quot;&gt;信息图像表&lt;/a&gt;，他采用了如下的样式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul#genre li:nth-of-type(1) {
+  width:32.9%;
+  background:url(images/orangenoise.jpg);
+}
+ul#genre li:nth-of-type(2) {
+  width:15.2%;
+  background:url(images/bluenoise.jpg);
+}
+ul#genre li:nth-of-type(3) {
+  width:13.1%;
+  background:url(images/greennoise.jpg);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;nth-last-of-typen&quot;&gt;:NTH-LAST-OF-TYPE(N)&lt;/h3&gt;
+
+&lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;nth-last-child&lt;/code&gt;类似，&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type()&lt;/code&gt;从被选中的元素的末尾开始，向前计数。&lt;/p&gt;
+
+&lt;h3 id=&quot;first-of-typelast-of-type&quot;&gt;:FIRST-OF-TYPE与:LAST-OF-TYPE&lt;/h3&gt;
+
+&lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-of-type()&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type&lt;/code&gt;对你来说太精确了，你可以一些简化的选择器，比如，我们可以用&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article p:first-of-type { font-size: 1.5em }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;only-of-type&quot;&gt;ONLY-OF-TYPE&lt;/h3&gt;
+
+&lt;p&gt;还有另外一种&lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;选择器：&lt;code class=&quot;highlighter-rouge&quot;&gt;:only-of-type()&lt;/code&gt;。这对于选择某种父元素的唯一类型子元素来说很有用，&lt;/p&gt;
+
+&lt;p&gt;比如，你可以思考一下这两个选择器之间的区别：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p { font-size: 18px; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;与&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p:only-of-type {font-size: 18px; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;第一个选择器会选中页面中所有的p元素，而第二种会获取页面中只是它父元素中的唯一段落。&lt;/p&gt;
+
+&lt;h3 id=&quot;last-child&quot;&gt;:LAST-CHILD&lt;/h3&gt;
+
+&lt;p&gt;CSS2中包含了&lt;code class=&quot;highlighter-rouge&quot;&gt;:first-child&lt;/code&gt;特性，但是直到CSS3才出现&lt;code class=&quot;highlighter-rouge&quot;&gt;:last-child&lt;/code&gt;的确让人觉得奇怪，它仅仅选择了它父元素的最后一个子元素而已，例如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li  {
+	border-bottom: 1px solid #ccc
+}
+
+li:last-child  {
+	border-bottom: none;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这对于移除列表的底部边框很有效，你经常可以在WordPress小工具中看到他。&lt;/p&gt;
+
+&lt;h3 id=&quot;only-child&quot;&gt;:ONLY-CHILD&lt;/h3&gt;
+
+&lt;p&gt;如果某个元素只有一个子元素，你可以这么选择它：&lt;code class=&quot;highlighter-rouge&quot;&gt;only-child&lt;/code&gt;。与&lt;code class=&quot;highlighter-rouge&quot;&gt;only-of-type&lt;/code&gt;不同，无论这是什么种类的元素，你都可以选择他，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:only-child { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;empty&quot;&gt;:EMPTY&lt;/h3&gt;
+
+&lt;p&gt;最后的结构型伪类是&lt;code class=&quot;highlighter-rouge&quot;&gt;:empty&lt;/code&gt;，他选择的是没有内容，没有子元素的元素，他在处理不同数据库输出的动态内容是有用的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#results:empty {
+	background-color: #fcc; 
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;你可以在一个空的搜索框上使用这样的代码来吸引用户的注意。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;目标型伪类&lt;/h2&gt;
+
+&lt;h3 id=&quot;target&quot;&gt;:TARGET&lt;/h3&gt;
+
+&lt;p&gt;这个伪类允许我们选择基于URL的元素，如果这个元素有一个识别器（比如跟着一个#），那么&lt;code class=&quot;highlighter-rouge&quot;&gt;:target&lt;/code&gt;伪类会对使用这个ID识别器的元素增加样式。看下面这个链接：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://www.example.com/css3-pseudo-selectors#summary
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个有&lt;code class=&quot;highlighter-rouge&quot;&gt;summary&lt;/code&gt;id的版块会被如下的样式渲染：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:target {
+	background-color: #fcc;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这对于页面上的从外部内容链接过来的元素是很有效的。你也可以用它来标记一些内部的锚点。&lt;/p&gt;
+
+&lt;h2 id=&quot;ui&quot;&gt;UI元素状态型伪类&lt;/h2&gt;
+
+&lt;h3 id=&quot;enableddisabled&quot;&gt;:ENABLED和:DISABLED&lt;/h3&gt;
+
+&lt;p&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;:enabled&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:disabled&lt;/code&gt;组成了三种UI元素状态型伪类。他们允许你根据他们的状态来对元素进行样式渲染，用户或开发者设计设置他们的状态来显示样式，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input:enabled {
+	background-color: #dfd;
+}
+
+input:disabled {
+	background-color: #fdd;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这对于用户能不能填写内容来说有一个重要的反馈，你在Javascript控制的动态特性中经常可以看到他们。&lt;/p&gt;
+
+&lt;h3 id=&quot;checked&quot;&gt;:CHECKED&lt;/h3&gt;
+
+&lt;p&gt;第三个伪类是&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;，它处理了一个确认盒的状态。它也是对于用户的一个重要反馈，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input[type=radio]:checked {
+	font-weight: bold;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;否定伪类&lt;/h2&gt;
+
+&lt;h3 id=&quot;not&quot;&gt;:NOT&lt;/h3&gt;
+
+&lt;p&gt;他选择了除了你指定的那个之外的元素，比如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:not(footer) { ... }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;它选择了页面上所有元素，除了页脚。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;一些思考&lt;/h2&gt;
+
+&lt;p&gt;CSS3伪类选择器并不会占据样式表里大块大块的代码，他们是精确的，动态的，并且更可能添加页面的最后触碰，而不是设置一个整体的样式。可能你想要放弃一个列表的底部边框，或者在用户填表时给用户视觉反馈，&lt;strong&gt;这对于CSS3来说是完全可能的&lt;/strong&gt;，在他的用途变得主流时，我期望它成为网页设置及们的常用工具。&lt;/p&gt;
+
+&lt;p&gt;如果你看到这些选择器的有趣的、精彩的用途，希望在下面的留言板中给我留言！&lt;/p&gt;
+</description>
+        <pubDate>Fri, 22 Apr 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
+        <guid isPermaLink="true">/blog/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
+        
+        <category>HTML</category>
+        
+        <category>技术</category>
+        
+        <category>CSS3</category>
+        
+        
+      </item>
     
       <item>
         <title>前端问题小结</title>
@@ -334,7 +719,7 @@ baseurl: &quot;/blog&quot;
 
 &lt;h4 id=&quot;markdown&quot;&gt;利用markdown写作&lt;/h4&gt;
 
-&lt;p&gt;该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。&lt;/p&gt;
+&lt;p&gt;该静态博客使用markdown写作，对markdown不熟悉的同学可以参考&lt;a href=&quot;http://www.appinn.com/markdown/&quot;&gt;markdown中文文档&lt;/a&gt;，多加练习就会习惯。&lt;/p&gt;
 
 &lt;h2 id=&quot;github-pages&quot;&gt;Github-Pages设置&lt;/h2&gt;
 

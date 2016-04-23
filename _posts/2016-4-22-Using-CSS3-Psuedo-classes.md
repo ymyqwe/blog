@@ -8,9 +8,14 @@ header-img: "img/railroad.jpg"
 tags:      HTML 技术 CSS3
 ---
 
+### 目录
+1.  [结构型伪类](#section-1)
+2.  [目标型伪类](#section-2)
+3.  [UI元素状态型伪类](#section-3)
+
 ## 结构型伪类
 
-#### :root
+### :root
 	:root {
 		background-color: #fcfcfc;
 	}
@@ -21,7 +26,7 @@ tags:      HTML 技术 CSS3
 		background-color: #fcfcfc;
 	}
 
-#### :NTH-CHILD(N)
+### :NTH-CHILD(N)
 
 	ul li:nth-child(odd)	{
 		bakcground-color: #666;
@@ -88,7 +93,7 @@ tags:      HTML 技术 CSS3
 *  无(-6 + 5)
 *  等等
 
-#### NTH-LAST-CHILD(N)
+### NTH-LAST-CHILD(N)
 
 他操作起来就像`:nth-child()`的反向，从最后一个往前数。
 
@@ -98,7 +103,7 @@ tags:      HTML 技术 CSS3
 
 	li:nth-last-child(2n+1) { ... }
 
-#### NTH-OF-TYPE(N)
+### NTH-OF-TYPE(N)
 
 现在我们将对更精确种类的元素添加样式，比如，你想给文章中第一段一个更大的字体，你可以这么做：
 
@@ -124,17 +129,17 @@ Simon Foster创建了一个特别的[信息图像表](http://www.fortherecord.si
 	  background:url(images/greennoise.jpg);
 	}
 
-#### :NTH-LAST-OF-TYPE(N)
+### :NTH-LAST-OF-TYPE(N)
 
 与`nth-last-child`类似，`:nth-last-of-type()`从被选中的元素的末尾开始，向前计数。
 
-#### :FIRST-OF-TYPE与:LAST-OF-TYPE
+### :FIRST-OF-TYPE与:LAST-OF-TYPE
 
 如果`:nth-of-type()`和`:nth-last-of-type`对你来说太精确了，你可以一些简化的选择器，比如，我们可以用
 
 	article p:first-of-type { font-size: 1.5em }
 
-#### ONLY-OF-TYPE
+### ONLY-OF-TYPE
 
 还有另外一种`type`选择器：`:only-of-type()`。这对于选择某种父元素的唯一类型子元素来说很有用，
 
@@ -148,7 +153,7 @@ Simon Foster创建了一个特别的[信息图像表](http://www.fortherecord.si
 
 第一个选择器会选中页面中所有的p元素，而第二种会获取页面中只是它父元素中的唯一段落。
 
-#### :LAST-CHILD
+### :LAST-CHILD
 
 CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的确让人觉得奇怪，它仅仅选择了它父元素的最后一个子元素而已，例如：
 
@@ -162,13 +167,13 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 
 这对于移除列表的底部边框很有效，你经常可以在WordPress小工具中看到他。
 
-#### :ONLY-CHILD
+### :ONLY-CHILD
 
 如果某个元素只有一个子元素，你可以这么选择它：`only-child`。与`only-of-type`不同，无论这是什么种类的元素，你都可以选择他，比如：
 
 	li:only-child { ... }
 
-#### :EMPTY
+### :EMPTY
 
 最后的结构型伪类是`:empty`，他选择的是没有内容，没有子元素的元素，他在处理不同数据库输出的动态内容是有用的。
 
@@ -180,7 +185,7 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 
 ## 目标型伪类
 
-#### :TARGET
+### :TARGET
 
 这个伪类允许我们选择基于URL的元素，如果这个元素有一个识别器（比如跟着一个#），那么`:target`伪类会对使用这个ID识别器的元素增加样式。看下面这个链接：
 
@@ -196,7 +201,7 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 
 ## UI元素状态型伪类
 
-#### :ENABLED和:DISABLED
+### :ENABLED和:DISABLED
 
 和`:checked`、`:enabled`和`:disabled`组成了三种UI元素状态型伪类。他们允许你根据他们的状态来对元素进行样式渲染，用户或开发者设计设置他们的状态来显示样式，比如：
 
@@ -210,7 +215,7 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 
 这对于用户能不能填写内容来说有一个重要的反馈，你在Javascript控制的动态特性中经常可以看到他们。
 
-#### :CHECKED
+### :CHECKED
 
 第三个伪类是`:checked`，它处理了一个确认盒的状态。它也是对于用户的一个重要反馈，比如：
 
@@ -220,7 +225,7 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 
 ## 否定伪类
 
-#### :NOT
+### :NOT
 
 他选择了除了你指定的那个之外的元素，比如：
 

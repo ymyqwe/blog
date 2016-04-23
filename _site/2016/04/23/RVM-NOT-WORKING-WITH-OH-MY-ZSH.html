@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
 
-    <title>前端问题小结 - 鱼头的博客</title>
+    <title>Ruby RVM is not working with ZSH - 鱼头的博客</title>
 
-    <link rel="canonical" href="/blog/2016/03/17/Some-Thinking-About-Myself.html">
+    <link rel="canonical" href="/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/blog/img/maniau.ico" type="image/x-icon">
@@ -110,15 +110,15 @@
     </div>
 </div>
 <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/blog/img/thinking.jpg')">
+<header class="intro-header" style="background-image: url('/blog/img/railroad.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     
-                    <h1>前端问题小结</h1>
+                    <h1>Ruby RVM is not working with ZSH</h1>
                     
-                    <span class="meta">Posted by maniaU on March 17, 2016</span>
+                    <span class="meta">Posted by maniaU on April 23, 2016</span>
                 </div>
             </div>
         </div>
@@ -133,62 +133,73 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="tags post-tags">
                     
-                    <div class="taghover"><a class="tag" href="/blog/tags#前端" title="前端">前端</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#RVM" title="RVM">RVM</a></div>
                     
-                    <div class="taghover"><a class="tag" href="/blog/tags#技术" title="技术">技术</a></div>
-                    
-                    <div class="taghover"><a class="tag" href="/blog/tags#翻译" title="翻译">翻译</a></div>
+                    <div class="taghover"><a class="tag" href="/blog/tags#ZSH" title="ZSH">ZSH</a></div>
                     
                 </div>
-				<h3 id="title">微信修改网页title，如何保证分享结果？</h3>
+				<h2 id="zshruby-gem">安装ZSH后RUBY GEM无法工作</h2>
 
-<h4 id="js-sdk">1.使用微信的JS-SDK</h4>
+<p>最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，报错显示：</p>
 
-<h4 id="jstitle">2.黑魔法：利用js修改微信title</h4>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>//需要jQuery
-var $body = $('body');
-document.title = 'title';
-// hack在微信等webview中无法修改document.title的情况
-var $iframe = $('&lt;iframe src="/favicon.ico"&gt;&lt;/iframe&gt;');
-$iframe.on('load',function() {
-	setTimeout(function() {
-		$iframe.off('load').remove();
-		}, 0);
-	}).appendTo($body);
+<div class="highlighter-rouge"><pre class="highlight"><code>/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': Could not find 'jekyll' (&gt;= 0) among 11 total gem(s) (Gem::LoadError)
+Checked in 'GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0', execute `gem env` for more information
 </code></pre>
 </div>
 
-<h3 id="javascript">Javascript中本地对象、内置对象和宿主对象</h3>
+<p>其实，每次打开Terminal都会显示：</p>
 
-<blockquote>
-  <p>本地对象，就是那些官方定义好了的对象。内置对象是本地对象的一种，其只包含Global对象和Math对象。而宿主对象则是那些官方未定义，你自己构建的对象加上DOM和BOM对象组成的。</p>
-</blockquote>
+<div class="highlighter-rouge"><pre class="highlight"><code>Warning: PATH set to RVM ruby but GEM_HOME and/or GEM_PATH not set, see:
+https://github.com/rvm/rvm/issues/3212
+</code></pre>
+</div>
 
-<h3 id="section">如何优化页面加载速度</h3>
+<p>他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到<a href="https://github.com/rvm/rvm/issues/3212">https://github.com/rvm/rvm/issues/3212</a>上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，<a href="https://rvm.io/rubies/default">https://rvm.io/rubies/default</a>有直接的解决方法：</p>
 
-<p>减少 HTTP 访问次数、CDN、minify、服务器增加缓存、CSS 放前面 JS 放后面、图片压缩、CSS Sprite。</p>
+<h3 id="ruby">使用特定版本的ruby：</h3>
 
-<h3 id="javascript-1">读过那些Javascript的书？</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm --default use 2.2.3
+# 把2.1.1替换为你已经安装过的ruby版本
 
-<p>《JavaScript高级程序设计》、《Javascript权威指南》、《Good parts of Javascript》</p>
+$ ruby -v
+# ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin15]
+</code></pre>
+</div>
 
-<h3 id="ajax">AJAX获取数据的两个方式及他们的区别？</h3>
+<h3 id="ruby-1">使用你的系统版本ruby：</h3>
 
-<ol>
-  <li>GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。当然在Ajax请求中，这种区别对用户是不可见的。</li>
-  <li>GET方式对传输的数据大小有限制，通常不能大于2KB,而POST方式传递的数据量要比GET方式大得多，理论上不受限制。</li>
-  <li>GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，GET方式会带来严重的安全问题。而POST方式相对来说就可以避免这些问题。</li>
-  <li>GET方式和POST方式传递的数据在服务器端的获取也不相同。在PHP中，GET方式的数据可以用$_GET[]获取，而POST方式可以用$_POST[]获取。两种方式都可以用$_REQUEST[]来获取。</li>
-</ol>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm use system
 
-<h3 id="bootstrap-23">BOOTSTRAP 2、3的区别</h3>
+$ ruby -v
+# 会显示你的系统版本ruby
+</code></pre>
+</div>
 
-<ol>
-  <li>3以移动优先；</li>
-  <li>3以扁平化为特点，2则偏向凹凸化；</li>
-  <li>3兼容性更高，如果你选择兼容IE8或6、7，那么就选择2。</li>
-</ol>
+<h3 id="ruby-2">使用你设置的默认版本ruby</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm default
+
+$ ruby -v
+# 显示你的默认版本ruby
+</code></pre>
+</div>
+
+<h3 id="ruby-3">显示你现在设置的默认版本ruby</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm list
+
+rvm rubies
+
+ruby-2.2.1 [ x86_64 ]
+=* ruby-2.2.3 [ x86_64 ]
+
+# =&gt; - current
+# =* - current &amp;&amp; default
+#  * - default
+</code></pre>
+</div>
+
+<p>我使用了设置默认版本ruby就搞定了，你可以自己挑选一个方法试试看啦~</p>
 
 
 
@@ -197,13 +208,9 @@ $iframe.on('load',function() {
                 <ul class="pager post-pager">
                     
                     <li class="previous">
-                        <a href="/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html" data-toggle="tooltip" data-placement="top" title="ANGULAR VS. EMBER VS. REACT: 选择一个前端框架"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                        <a href="/blog/2016/04/22/Using-CSS3-Psuedo-classes.html" data-toggle="tooltip" data-placement="top" title="CSS3新增伪类"><i class="fa fa-arrow-left"></i> 上一篇</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/blog/2016/04/22/Using-CSS3-Psuedo-classes.html" data-toggle="tooltip" data-placement="top" title="CSS3新增伪类">下一篇 <i class="fa fa-arrow-right"></i></a>
-                    </li>
                     
                 </ul>
 

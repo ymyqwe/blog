@@ -62,7 +62,7 @@ jekyll就安装成功了，然后主题fork的是[Clean-Blog](https://github.com
 
 #### 利用markdown写作
 
-该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档]（http://www.appinn.com/markdown/），多加练习就会习惯。
+该静态博客使用markdown写作，对markdown不熟悉的同学可以参考[markdown中文文档](http://www.appinn.com/markdown/)，多加练习就会习惯。
 
 ## Github-Pages设置
 

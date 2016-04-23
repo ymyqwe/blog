@@ -130,6 +130,80 @@
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
         
 <div class="post-preview">
+    <a href="/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html">
+        <h2 class="post-title">           
+            Ruby RVM is not working with ZSH
+        </h2>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/blog/tags#RVM" title="RVM">RVM</a></div>
+            
+                <div class="taghover"><a class="tag" href="/blog/tags#ZSH" title="ZSH">ZSH</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            安装ZSH后RUBY GEM无法工作
+
+最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，报错显示：
+
+/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_sp...
+    </div>   
+    <p class="post-meta">Posted by maniaU on April 23, 2016</p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/04/22/Using-CSS3-Psuedo-classes.html">
+        <h2 class="post-title">           
+            CSS3新增伪类
+        </h2>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/blog/tags#HTML" title="HTML">HTML</a></div>
+            
+                <div class="taghover"><a class="tag" href="/blog/tags#技术" title="技术">技术</a></div>
+            
+                <div class="taghover"><a class="tag" href="/blog/tags#CSS3" title="CSS3">CSS3</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            目录
+
+  结构型伪类
+  目标型伪类
+  UI元素状态型伪类
+
+
+结构型伪类
+
+:root
+:root {
+	background-color: #fcfcfc;
+}
+
+
+
+:root伪类指向页面的根元素，99%的情况下是html元素，比如：
+
+html {
+	background-color: #fcfcfc;
+}
+
+
+
+:NTH-CHILD(N)
+
+ul li:nth-child(od...
+    </div>   
+    <p class="post-meta">Posted by maniaU on April 22, 2016</p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/blog/2016/03/17/Some-Thinking-About-Myself.html">
         <h2 class="post-title">           
             前端问题小结
@@ -229,49 +303,17 @@ var $iframe = $('&lt;iframe src="/fav...
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="/blog/2016/01/07/Something-about-this-blog.html">
-        <h2 class="post-title">           
-            关于这个博客
-        </h2>
-        
-        <h3 class="post-subtitle">
-            人生第一篇博客诞生啦~
-        </h3>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/blog/tags#博客" title="博客">博客</a></div>
-            
-                <div class="taghover"><a class="tag" href="/blog/tags#生活" title="生活">生活</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            目录
-
-
-  技术实现
-  Jekyll配置
-  Github-Pages
-
-
-学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。
-
-大家随意看看吧。
-
-技术实现
-
-为什么使用Github-Pages？
-
-通常我们在github上放置的代码，只是代码而已。但如果你放置的是HTML代码，那么你可以直接像其他网站一样浏览它...
-    </div>   
-    <p class="post-meta">Posted by maniaU on January 7, 2016</p>
-</div>
-<hr>
-
 
 <!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/blog/page2/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
 
  
     </div>
@@ -415,8 +457,8 @@ var $iframe = $('&lt;iframe src="/fav...
 <script src="/blog/js/main.js "></script>
 
 <!-- Highlight.js  -->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js"></script>
 <script type="text/javascript">
     hljs.initHighlightingOnLoad();
 </script>
