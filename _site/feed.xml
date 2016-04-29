@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 23 Apr 2016 12:43:00 +0800</pubDate>
-    <lastBuildDate>Sat, 23 Apr 2016 12:43:00 +0800</lastBuildDate>
+    <pubDate>Fri, 29 Apr 2016 14:56:05 +0800</pubDate>
+    <lastBuildDate>Fri, 29 Apr 2016 14:56:05 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -431,20 +431,20 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;h3 id=&quot;ajax&quot;&gt;AJAX获取数据的两个方式及他们的区别？&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。当然在Ajax请求中，这种区别对用户是不可见的。&lt;/li&gt;
   &lt;li&gt;GET方式对传输的数据大小有限制，通常不能大于2KB,而POST方式传递的数据量要比GET方式大得多，理论上不受限制。&lt;/li&gt;
   &lt;li&gt;GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，GET方式会带来严重的安全问题。而POST方式相对来说就可以避免这些问题。&lt;/li&gt;
   &lt;li&gt;GET方式和POST方式传递的数据在服务器端的获取也不相同。在PHP中，GET方式的数据可以用$_GET[]获取，而POST方式可以用$_POST[]获取。两种方式都可以用$_REQUEST[]来获取。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;bootstrap-23&quot;&gt;BOOTSTRAP 2、3的区别&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;3以移动优先；&lt;/li&gt;
   &lt;li&gt;3以扁平化为特点，2则偏向凹凸化；&lt;/li&gt;
   &lt;li&gt;3兼容性更高，如果你选择兼容IE8或6、7，那么就选择2。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 </description>
         <pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
