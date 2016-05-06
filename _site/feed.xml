@@ -5,9 +5,26 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Apr 2016 14:56:05 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Apr 2016 14:56:05 +0800</lastBuildDate>
+    <pubDate>Fri, 06 May 2016 17:30:01 +0800</pubDate>
+    <lastBuildDate>Fri, 06 May 2016 17:30:01 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>监控屏幕触摸事件</title>
+        <description>
+</description>
+        <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
+        <link>/blog/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">/blog/2016/05/05/Events-about-Click-and-touch.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>HTML5</category>
+        
+        
+      </item>
     
       <item>
         <title>Ruby RVM is not working with ZSH</title>

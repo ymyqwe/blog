@@ -4,7 +4,7 @@ title:     "Ruby RVM is not working with ZSH"
 subtitle:  
 date:      2016-4-23
 author:    "maniaU"
-header-img: "img/railroad.jpg"
+header-img: "img/ruby.jpg"
 tags:      RVM ZSH 
 ---
 
