@@ -779,9 +779,10 @@ a.anchorjs-link:hover  {
 /*404*/
 
 
-:target {
-  color:#0CC;
-  border-bottom: .25em solid #0CC;
+h2:target {
+  color: #0CC;
+  border-bottom: .2em solid #0CC;
+  padding-bottom: 0.2em;
   margin-bottom: .5em;
 }
 img::selection {
