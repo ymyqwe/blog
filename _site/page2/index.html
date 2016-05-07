@@ -358,6 +358,19 @@
 <script src="http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js"></script>
 <script type="text/javascript">
     hljs.initHighlightingOnLoad();
+
+    $('pre code').each(function(){
+        var lines = $(this).text().split('\n').length - 1;
+        var $numbering = $('<ul/>').addClass('pre-numbering');
+        $(this)
+            .addClass('has-numbering')
+            .parent()
+            .append($numbering);
+        for(i=1;i<=lines;i++){
+            $numbering.append($('<li/>').text(i));
+        }
+    });
+    $('.pre-numbering li').css("height",$('pre code').height()/lines);
 </script>
 
 </body>

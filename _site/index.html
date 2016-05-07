@@ -146,8 +146,10 @@
             
     </div>     
     <div class="post-content-preview">
-            
+            最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：
 
+var canvas = $("#canvas");
+var context = canvas[0].g...
     </div>   
     <p class="post-meta">Posted by maniaU on May 5, 2016</p>
 </div>
@@ -455,6 +457,19 @@ var $iframe = $('&lt;iframe src="/fav...
 <script src="http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js"></script>
 <script type="text/javascript">
     hljs.initHighlightingOnLoad();
+
+    $('pre code').each(function(){
+        var lines = $(this).text().split('\n').length - 1;
+        var $numbering = $('<ul/>').addClass('pre-numbering');
+        $(this)
+            .addClass('has-numbering')
+            .parent()
+            .append($numbering);
+        for(i=1;i<=lines;i++){
+            $numbering.append($('<li/>').text(i));
+        }
+    });
+    $('.pre-numbering li').css("height",$('pre code').height()/lines);
 </script>
 
 </body>

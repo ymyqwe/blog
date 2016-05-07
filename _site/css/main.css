@@ -769,12 +769,13 @@ a.anchorjs-link:hover  {
   height: 100%;
 }
 .page-fullscreen footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    padding-bottom: 20px;
-    opacity: .6;
-    color: #fff;;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20px;
+  opacity: .6;
+  color: #fff;
+}
 /*404*/
 
 
@@ -792,5 +793,37 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  webkit-tap-highlight-color: #0CC;
+  -webkit-tap-highlight-color: #0CC;
+}
+
+pre {
+    position: relative;
+    margin-bottom: 24px;
+    border-radius: 3px;
+    border: 1px solid #C3CCD0;
+    background: #FFF;
+    overflow: hidden;
+}
+
+pre code {
+  display: block;
+  padding: 12px 24px;
+  overflow-y: auto;
+}
+
+code.has-numbering {
+    margin-left: 21px;
+}
+
+.pre-numbering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    padding: 12px 2px 12px 0;
+    border-right: 1px solid #C3CCD0;
+    border-radius: 3px 0 0 3px;
+    background-color: #EEE;
+    text-align: right;
+    color: #AAA;
 }

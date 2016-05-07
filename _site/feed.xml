@@ -5,13 +5,54 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 06 May 2016 17:30:01 +0800</pubDate>
-    <lastBuildDate>Fri, 06 May 2016 17:30:01 +0800</lastBuildDate>
+    <pubDate>Sat, 07 May 2016 18:08:56 +0800</pubDate>
+    <lastBuildDate>Sat, 07 May 2016 18:08:56 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>监控屏幕触摸事件</title>
-        <description>
+        <description>&lt;p&gt;最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = $(&quot;#canvas&quot;);
+var context = canvas[0].getContext(&quot;2d&quot;);
+//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
+
+canvas.bind(&#39;touchstart&#39;, function(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+})
+   	
+canvas.bind(&#39;touchmove&#39;, function(eve) {
+    e = eve;
+})
+
+canvas.bind(&#39;touchend&#39;, function(eve) {
+    console.log(e.originalEvent.touches.length);
+    clearInterval(inter);
+})
+
+//循环函数
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.targetTouches[0];
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中使用到了jquery包装的事件，因此&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
         <link>/blog/2016/05/05/Events-about-Click-and-touch.html</link>
