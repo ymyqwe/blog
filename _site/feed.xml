@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 07 May 2016 18:30:07 +0800</pubDate>
-    <lastBuildDate>Sat, 07 May 2016 18:30:07 +0800</lastBuildDate>
+    <pubDate>Mon, 09 May 2016 15:59:53 +0800</pubDate>
+    <lastBuildDate>Mon, 09 May 2016 15:59:53 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -39,6 +39,7 @@ canvas.bind(&#39;touchend&#39;, function(eve) {
 function interFun(e) {
     console.log(e);
     var touch = e.originalEvent.targetTouches[0];
+    // jQuery event so we use originalEvent
     var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
     var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
     console.log(mouseX);
@@ -52,7 +53,53 @@ function interFun(e) {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;其中使用到了jquery包装的事件，因此&lt;/p&gt;
+&lt;p&gt;其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent&quot;&gt;MDN TouchEvent&lt;/a&gt;的文档&lt;/p&gt;
+
+&lt;h4 id=&quot;targettouchestouchstart&quot;&gt;targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。&lt;/h4&gt;
+&lt;p&gt;#### touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。&lt;/p&gt;
+
+&lt;p&gt;同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = document.getElementById(&quot;canvas&quot;);
+var context = canvas.getContext(&quot;2d&quot;);
+//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
+
+canvas.addEventListener(&quot;touchstart&quot;, TouchStart);
+canvas.addEventListener(&quot;touchmove&quot;, TouchMove);
+canvas.addEventListener(&quot;touchend&quot;, TouchEnd);
+
+function TouchStart(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+}
+function TouchMove(eve) {
+    e = eve;
+}
+function TouchEnd(eve) {
+    e = eve;
+    clearInterval(inter);
+}
+
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.touches[0];
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas.offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas.offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
         <link>/blog/2016/05/05/Events-about-Click-and-touch.html</link>
