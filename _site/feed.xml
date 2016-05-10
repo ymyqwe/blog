@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/blog/</link>
     <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 09 May 2016 15:59:53 +0800</pubDate>
-    <lastBuildDate>Mon, 09 May 2016 15:59:53 +0800</lastBuildDate>
+    <pubDate>Wed, 11 May 2016 00:10:47 +0800</pubDate>
+    <lastBuildDate>Wed, 11 May 2016 00:10:47 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -118,9 +118,10 @@ function interFun(e) {
         <title>Ruby RVM is not working with ZSH</title>
         <description>&lt;h2 id=&quot;zshruby-gem&quot;&gt;安装ZSH后RUBY GEM无法工作&lt;/h2&gt;
 
-&lt;p&gt;最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，报错显示：&lt;/p&gt;
+&lt;p&gt;最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs&#39;: Could not find &#39;jekyll&#39; (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs&#39;: 
+Could not find &#39;jekyll&#39; (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
 Checked in &#39;GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0&#39;, execute `gem env` for more information
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

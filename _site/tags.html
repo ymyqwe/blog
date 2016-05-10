@@ -71,36 +71,73 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <div class="hamburger hamburger--slider">
+                <div class="hamburger-box">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </div>
             <a class="navbar-brand" href="/blog/">鱼头的博客</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/blog/">主页</a>
-                </li>
-                
-                <li>
-                    <a href="/blog/about.html">关于我</a>
-                </li>
-                
-                <li>
-                    <a href="/blog/tags.html">标签</a>
-                </li>
-                
-            </ul>
+        <div id="u-navbar">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">主页</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/blog/about.html">关于我</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/blog/tags.html">标签</a>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
         <!-- /.navbar-collapse -->
+
     </div>
     <!-- /.container -->
 </nav>
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    var body = document.body;
+    var navbar = document.querySelector("#u-navbar");
+    var collapse = document.querySelector(".navbar-collapse");
+
+    var _u_nav_ = {
+        close: function(){
+            navbar.classList.remove("in");
+            hamburger.classList.remove("is-active");
+        },
+        open: function(){
+            navbar.classList.add("in");
+            hamburger.classList.add("is-active");
+        }
+    }
+
+    hamburger.addEventListener('click', function() {
+
+        if (navbar.className.indexOf('in') >= 0) {
+            _u_nav_.close();
+        } else {
+            _u_nav_.open();
+        }
+    });
+
+    document.addEventListener('click', function(e){
+        console.log(e.target);
+        if(e.target.className.indexOf('hamburger') >= 0 ) return;
+        // if(e.target.className == 'hamburger-box') return;
+        // if(e.target.className ==)
+        // if(e.target.className == 'hamburger-box') return;
+        _u_nav_.close();
+    })
+</script>
 
 
     <!-- Page Header -->

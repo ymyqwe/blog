@@ -10,9 +10,10 @@ tags:      RVM ZSH
 
 ##  安装ZSH后RUBY GEM无法工作
 
-最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，报错显示：
+最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：
 
-	/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': Could not find 'jekyll' (>= 0) among 11 total gem(s) (Gem::LoadError)
+	/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': 
+	Could not find 'jekyll' (>= 0) among 11 total gem(s) (Gem::LoadError)
 	Checked in 'GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0', execute `gem env` for more information
 
 其实，每次打开Terminal都会显示：
