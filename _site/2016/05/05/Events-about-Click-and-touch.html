@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
 
-    <title>Ruby RVM is not working with ZSH - 鱼头的博客</title>
+    <title>监控屏幕触摸事件 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html">
+    <link rel="canonical" href="/2016/05/05/Events-about-Click-and-touch.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -113,15 +113,15 @@
     </div>
 </div>
 <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/ruby.jpg')">
+<header class="intro-header" style="background-image: url('/img/touch.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     
-                    <h1>Ruby RVM is not working with ZSH</h1>
+                    <h1>监控屏幕触摸事件</h1>
                     
-                    <span class="meta">Posted by maniaU on April 23, 2016</span>
+                    <span class="meta">Posted by maniaU on May 5, 2016</span>
                 </div>
             </div>
         </div>
@@ -136,74 +136,101 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="tags post-tags">
                     
-                    <div class="taghover"><a class="tag" href="/tags#RVM" title="RVM">RVM</a></div>
+                    <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
                     
-                    <div class="taghover"><a class="tag" href="/tags#ZSH" title="ZSH">ZSH</a></div>
+                    <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
+                    
+                    <div class="taghover"><a class="tag" href="/tags#HTML5" title="HTML5">HTML5</a></div>
                     
                 </div>
-				<h2 id="zshruby-gem">安装ZSH后RUBY GEM无法工作</h2>
+				<p>最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：</p>
 
-<p>最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = $("#canvas");
+var context = canvas[0].getContext("2d");
+//$("#canvas")[0] equals to document.getElementById("canvas")
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': 
-Could not find 'jekyll' (&gt;= 0) among 11 total gem(s) (Gem::LoadError)
-Checked in 'GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0', execute `gem env` for more information
+canvas.bind('touchstart', function(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+})
+   	
+canvas.bind('touchmove', function(eve) {
+    e = eve;
+})
+
+canvas.bind('touchend', function(eve) {
+    console.log(e.originalEvent.touches.length);
+    clearInterval(inter);
+})
+
+//循环函数
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.targetTouches[0];
+    // jQuery event so we use originalEvent
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
 </code></pre>
 </div>
 
-<p>其实，每次打开Terminal都会显示：</p>
+<p>其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考<a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent">MDN TouchEvent</a>的文档</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Warning: PATH set to RVM ruby but GEM_HOME and/or GEM_PATH not set, see:
-https://github.com/rvm/rvm/issues/3212
+<h4 id="targettouchestouchstart">targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。</h4>
+<p>#### touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。</p>
+
+<p>同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+//$("#canvas")[0] equals to document.getElementById("canvas")
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
+
+canvas.addEventListener("touchstart", TouchStart);
+canvas.addEventListener("touchmove", TouchMove);
+canvas.addEventListener("touchend", TouchEnd);
+
+function TouchStart(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+}
+function TouchMove(eve) {
+    e = eve;
+}
+function TouchEnd(eve) {
+    e = eve;
+    clearInterval(inter);
+}
+
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.touches[0];
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas.offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas.offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
 </code></pre>
 </div>
-
-<p>他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到<a href="https://github.com/rvm/rvm/issues/3212">https://github.com/rvm/rvm/issues/3212</a>上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，<a href="https://rvm.io/rubies/default">https://rvm.io/rubies/default</a>有直接的解决方法：</p>
-
-<h3 id="ruby">使用特定版本的ruby：</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm --default use 2.2.3
-# 把2.1.1替换为你已经安装过的ruby版本
-
-$ ruby -v
-# ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin15]
-</code></pre>
-</div>
-
-<h3 id="ruby-1">使用你的系统版本ruby：</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm use system
-
-$ ruby -v
-# 会显示你的系统版本ruby
-</code></pre>
-</div>
-
-<h3 id="ruby-2">使用你设置的默认版本ruby</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm default
-
-$ ruby -v
-# 显示你的默认版本ruby
-</code></pre>
-</div>
-
-<h3 id="ruby-3">显示你现在设置的默认版本ruby</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rvm list
-
-rvm rubies
-
-ruby-2.2.1 [ x86_64 ]
-=* ruby-2.2.3 [ x86_64 ]
-
-# =&gt; - current
-# =* - current &amp;&amp; default
-#  * - default
-</code></pre>
-</div>
-
-<p>我使用了设置默认版本ruby就搞定了，你可以自己挑选一个方法试试看啦~</p>
 
 
 
@@ -212,13 +239,9 @@ ruby-2.2.1 [ x86_64 ]
                 <ul class="pager post-pager">
                     
                     <li class="previous">
-                        <a href="/2016/04/22/Using-CSS3-Psuedo-classes.html" data-toggle="tooltip" data-placement="top" title="CSS3新增伪类"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                        <a href="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html" data-toggle="tooltip" data-placement="top" title="Ruby RVM is not working with ZSH"><i class="fa fa-arrow-left"></i> 上一篇</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2016/05/05/Events-about-Click-and-touch.html" data-toggle="tooltip" data-placement="top" title="监控屏幕触摸事件">下一篇 <i class="fa fa-arrow-right"></i></a>
-                    </li>
                     
                 </ul>
 
