@@ -3,10 +3,10 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/blog/</link>
-    <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 14 May 2016 13:53:10 +0800</pubDate>
-    <lastBuildDate>Sat, 14 May 2016 13:53:10 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 14 May 2016 14:00:29 +0800</pubDate>
+    <lastBuildDate>Sat, 14 May 2016 14:00:29 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -102,8 +102,8 @@ function interFun(e) {
 
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/05/05/Events-about-Click-and-touch.html</link>
-        <guid isPermaLink="true">/blog/2016/05/05/Events-about-Click-and-touch.html</guid>
+        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
         
         <category>前端</category>
         
@@ -182,8 +182,8 @@ ruby-2.2.1 [ x86_64 ]
 
 </description>
         <pubDate>Sat, 23 Apr 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
-        <guid isPermaLink="true">/blog/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
+        <link>/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
+        <guid isPermaLink="true">/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
         
         <category>RVM</category>
         
@@ -488,8 +488,8 @@ input:disabled {
 &lt;p&gt;如果你看到这些选择器的有趣的、精彩的用途，希望在下面的留言板中给我留言！&lt;/p&gt;
 </description>
         <pubDate>Fri, 22 Apr 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
-        <guid isPermaLink="true">/blog/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
+        <link>/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
+        <guid isPermaLink="true">/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
         
         <category>HTML</category>
         
@@ -554,8 +554,8 @@ $iframe.on(&#39;load&#39;,function() {
 
 </description>
         <pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/03/17/Some-Thinking-About-Myself.html</link>
-        <guid isPermaLink="true">/blog/2016/03/17/Some-Thinking-About-Myself.html</guid>
+        <link>/2016/03/17/Some-Thinking-About-Myself.html</link>
+        <guid isPermaLink="true">/2016/03/17/Some-Thinking-About-Myself.html</guid>
         
         <category>前端</category>
         
@@ -580,7 +580,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;当然，现在还有许多其他客户端框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/angular2.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular2.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;angular-20&quot;&gt;ANGULAR 2.0&lt;/h2&gt;
 
@@ -622,7 +622,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了原始页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
 
@@ -630,7 +630,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;Angular 2.0是通过Typescript写的，这是一种微软添加了检查和其他增强的Javascript编程语言。事实上，最近关于它的社区中有一个民意投票，大部分开发者愿意使用Typescript。这以及一些其他的特性让我们有理由相信Angular仍将是大型企业愿意选择的框架。尽管如今开始使用2.0会有风险，但它的时代即将来临。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/ember 2.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ember 2.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ember-20&quot;&gt;EMBER 2.0&lt;/h2&gt;
 
@@ -648,7 +648,7 @@ $iframe.on(&#39;load&#39;,function() {
   &lt;li&gt;服务器端渲染器的提升将帮助降低页面加载次数并帮助提升搜索引擎优化。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/ember-2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ember-2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;ember&quot;&gt;谁应使用Ember？&lt;/h3&gt;
 
@@ -656,7 +656,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合类库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/React 1.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/React 1.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;react-10&quot;&gt;REACT 1.0&lt;/h2&gt;
 
@@ -676,7 +676,7 @@ $iframe.on(&#39;load&#39;,function() {
   &lt;li&gt;动画操作控制优化&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/react-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/react-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;react&quot;&gt;谁应使用React？&lt;/h3&gt;
 
@@ -696,7 +696,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;在最终版本中，Angular app的行数最少。但是用React写的时候很容易会这样想：『我应该把这一块逻辑拖出来独立』。这样增加了代码的行数但是将来做改变会变得容易。在Angular和Ember中，持续添加代码到模板、添加功能到部件很容易。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/wins.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/wins.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;section-5&quot;&gt;谁赢了？&lt;/h3&gt;
 
@@ -705,8 +705,8 @@ $iframe.on(&#39;load&#39;,function() {
 &lt;p&gt;说了这么多，这三个框架都是很有未来的，这些框架的下一代会更加闪耀，并且支持服务器端渲染，Angular和React会支持iOS和Andriod的原生UI控件。通过这些控件，我们能比过去做更多的事。&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
-        <guid isPermaLink="true">/blog/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
+        <link>/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
+        <guid isPermaLink="true">/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
         
         <category>前端</category>
         
@@ -753,8 +753,8 @@ Besides, you need to restart rails server.
 
 </description>
         <pubDate>Sat, 30 Jan 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/01/30/Small-notes.html</link>
-        <guid isPermaLink="true">/blog/2016/01/30/Small-notes.html</guid>
+        <link>/2016/01/30/Small-notes.html</link>
+        <guid isPermaLink="true">/2016/01/30/Small-notes.html</guid>
         
         <category>技术</category>
         
@@ -837,7 +837,7 @@ baseurl: &quot;/blog&quot;
 
 &lt;p&gt;首先创建一个&lt;a href=&quot;https://github.com/new&quot;&gt;github repository&lt;/a&gt;，再clone到你的电脑。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/repository.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/repository.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;gh-pages&quot;&gt;创建gh-pages分支&lt;/h4&gt;
 
@@ -853,7 +853,7 @@ baseurl: &quot;/blog&quot;
 
 &lt;p&gt;首先，前往项目的分支设置，将gh-pages设置成为默认分支。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;如果你只想要一个分支，你也可以&lt;a href=&quot;http://oli.jp/2011/github-pages-workflow/#deleting-master&quot;&gt;删除master分支&lt;/a&gt;，按照上面的教程来就可以了。一切搞定之后，&lt;/p&gt;
 
@@ -871,8 +871,8 @@ git push
 
 </description>
         <pubDate>Thu, 07 Jan 2016 00:00:00 +0800</pubDate>
-        <link>/blog/2016/01/07/Something-about-this-blog.html</link>
-        <guid isPermaLink="true">/blog/2016/01/07/Something-about-this-blog.html</guid>
+        <link>/2016/01/07/Something-about-this-blog.html</link>
+        <guid isPermaLink="true">/2016/01/07/Something-about-this-blog.html</guid>
         
         <category>博客</category>
         
