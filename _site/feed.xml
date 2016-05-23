@@ -5,9 +5,33 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 14 May 2016 15:14:05 +0800</pubDate>
-    <lastBuildDate>Sat, 14 May 2016 15:14:05 +0800</lastBuildDate>
+    <pubDate>Mon, 23 May 2016 12:29:52 +0800</pubDate>
+    <lastBuildDate>Mon, 23 May 2016 12:29:52 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Python中文ASCII编码问题</title>
+        <description>&lt;p&gt;最近在研究网页使用微信登陆拉取用户信息，而我使用的是tornado框架，拉取信息成功后，在网页前端输出的是正常的中文字符，但是在后台使用python print却是”\xe8\xe6”这样的字符，一查之后发现是控制台输出窗口按照&lt;code class=&quot;highlighter-rouge&quot;&gt;ASCII&lt;/code&gt;编码输出了&lt;code class=&quot;highlighter-rouge&quot;&gt;utf8&lt;/code&gt;编码字符串的结果。&lt;/p&gt;
+
+&lt;p&gt;如果想在控制台检查输出的结果，只要将要输出的信息添加上以上代码就可以了！&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;abc.decode(&#39;utf-8&#39;)
+#abc为你获取到的数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
+        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
+        
+        <category>技术</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
     
       <item>
         <title>监控屏幕触摸事件</title>
