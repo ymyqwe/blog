@@ -64,7 +64,7 @@ tags:      RVM ZSH
 
 5.25更新
 
-[新的解决办法戳我](https://stackoverflow.com/questions/27784961/received-warning-message-path-set-to-rvm-after-updating-ruby-version-using-rvm/28080063#28080063)。
+[新的解决办法戳我](https://stackoverflow.com/questions/27784961/received-warning-message-path-set-to-rvm-after-updating-ruby-version-using-rvm/28080063)。
 
 希望大家自取~
 
