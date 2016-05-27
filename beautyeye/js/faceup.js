@@ -34,7 +34,7 @@ var resultb;
 var line = document.getElementById('line');
 var body = document.getElementById('body');
 var sharebtn = document.getElementById('sharebtn');
-var mask = document.getElementById('mask');
+var mask = document.getElementById(df
 
 
     //点击图片上传头像
@@ -75,6 +75,9 @@ var mask = document.getElementById('mask');
         };
     }
 
+if asb {
+    
+}
 //上传按钮
 var previewFile2 = function loadImage() {
     var file = realUploadBtn.files[0];
