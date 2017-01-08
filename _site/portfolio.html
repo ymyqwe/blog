@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
 
-    <title>关于这个博客 - 鱼头的博客</title>
+    <title>portfolio - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/01/07/Something-about-this-blog.html">
+    <link rel="canonical" href="/portfolio.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -142,201 +142,19 @@
 
 
 
-    <div id="music-panel">
-    <a id="music-control"><i class="fa fa-music"></i></a>
-    <div id="music-content">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="http://music.163.com/outchain/player?type=0&id=125657822&auto=0&height=430"></iframe>
-    </div>
-</div>
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/blog-bg.jpg')">
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    
-                    <h1>关于这个博客</h1>
-                    
-                    <h2 class="subheading">人生第一篇博客诞生啦~</h2>
-                    
-                    <span class="meta">Posted by maniaU on January 7, 2016</span>
+                <div class="site-heading" id="tag-heading">
+                    <h1>portfolio</h1>
+                    <span class="subheading">本人的作品</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-
-
-<!-- Post Content -->
-<article>
-    <div class="container post-content">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="tags post-tags">
-                    
-                    <div class="taghover"><a class="tag" href="/tags#博客" title="博客">博客</a></div>
-                    
-                    <div class="taghover"><a class="tag" href="/tags#生活" title="生活">生活</a></div>
-                    
-                </div>
-				<h3 id="section">目录</h3>
-
-<ol>
-  <li><a href="#section-1">技术实现</a></li>
-  <li><a href="#jekyll">Jekyll配置</a></li>
-  <li><a href="#github-pages">Github-Pages</a></li>
-</ol>
-
-<p>学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。</p>
-
-<p>大家随意看看吧。</p>
-
-<h2 id="section-1">技术实现</h2>
-
-<h4 id="github-pageshttpspagesgithubcom">为什么使用<a href="https://pages.github.com/">Github-Pages</a>？</h4>
-
-<p>通常我们在github上放置的代码，只是代码而已。但如果你放置的是<b>HTML</b>代码，那么你可以直接像其他网站一样浏览它的展示，所以你不需要额外购买服务器。</p>
-
-<p>而<a href="http://jekyllrb.com/">Jekyll</a>可以输出静态的<b>HTML</b>文件，使用git可以轻松将markdown转化为post，而且看到了<a href="huangxuan.me">Hux Blog</a>这样的开源博客，于是就拿来主义了一下，同时自己修修改改，完成了搭建。</p>
-
-<h2 id="jekyll">Jekyll配置</h2>
-
-<h4 id="jekyll-1">安装Jekyll</h4>
-<p>在terminal中，安装Jekyll，运行：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll
-</code></pre>
-</div>
-
-<p>jekyll就安装成功了，然后主题fork的是<a href="https://github.com/IronSummitMedia/startbootstrap-clean-blog">Clean-Blog</a>，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。</p>
-
-<p>在terminal中，cd到你的jekyll文档下，运行：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>jekyll serve --watch
-</code></pre>
-</div>
-
-<p>加上了 –watch后，我们会强制jekyll在每次保存后更新站点。</p>
-
-<h4 id="configyml">更新<code class="highlighter-rouge">_config.yml</code>文件</h4>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># Site settings
-title: 鱼头的博客
-header-img: img/home-bg2.jpg
-email: ymyymy_2@hotmail.com
-description: "鱼头的小博客。随便写的，随便看看吧。"
-baseurl: "/blog"
-</code></pre>
-</div>
-
-<p>将其中的各项内容替换成你自己的就好了！</p>
-
-<h4 id="section-2">在本地查看你的网站</h4>
-
-<p>在浏览器中输入 <code class="highlighter-rouge">http://localhost:4000/blog</code>以查看你的网站。</p>
-
-<h4 id="includes">设置<code class="highlighter-rouge">_includes</code>文件</h4>
-
-<p>该主题中，默认的页面会加载<code class="highlighter-rouge">_includes</code>文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。</p>
-
-<h4 id="markdown">利用markdown写作</h4>
-
-<p>该静态博客使用markdown写作，对markdown不熟悉的同学可以参考<a href="http://www.appinn.com/markdown/">markdown中文文档</a>，多加练习就会习惯。</p>
-
-<h2 id="github-pages">Github-Pages设置</h2>
-
-<p><a href="https://pages.github.com/">Github-Pages</a>文档比较简易，不过也很具有参考价值。</p>
-
-<p>Github-Pages的默认域名是 <b>your-username.github.io/your-project-name</b>。</p>
-
-<h4 id="section-3">设置你的存放目录</h4>
-
-<p>首先创建一个<a href="https://github.com/new">github repository</a>，再clone到你的电脑。</p>
-
-<p><img src="/img/repository.png" alt="" /></p>
-
-<h4 id="gh-pages">创建gh-pages分支</h4>
-
-<p>在terminal中cd到你的项目目录下，创建gh-pages分支：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout gh-pages
-</code></pre>
-</div>
-
-<p>然后把你下载的主题文件都复制到你clone过来的目录下面。</p>
-
-<h4 id="gh-pages-1">让gh-pages成为你的默认分支（可选）</h4>
-
-<p>首先，前往项目的分支设置，将gh-pages设置成为默认分支。</p>
-
-<p><img src="/img/branch.png" alt="" /></p>
-
-<p>如果你只想要一个分支，你也可以<a href="http://oli.jp/2011/github-pages-workflow/#deleting-master">删除master分支</a>，按照上面的教程来就可以了。一切搞定之后，</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git add .
-git commit -m "your-message"
-git push
-</code></pre>
-</div>
-
-<p>就大功告成了，去<b>your-username.github.io/your-project-name</b>查看你的网站吧！</p>
-
-<blockquote>
-  <p>第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。</p>
-</blockquote>
-
-
-
-                
-
-                <ul class="pager post-pager">
-                    
-                    
-                    <li class="next">
-                        <a href="/2016/01/30/Small-notes.html" data-toggle="tooltip" data-placement="top" title="Front-End Development Notes">下一篇 <i class="fa fa-arrow-right"></i></a>
-                    </li>
-                    
-                </ul>
-
-
-                <!--  -->
-
-
-                <div id="disqus_thread"></div>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
-
-
-<!-- Comments provided by Disqus -->
-<script>
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-
-    s.src = '//freelancist.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script id="dsq-count-scr" src="//freelancist.disqus.com/count.js" async></script>
-
-
-<!-- anchor.js  Used to add icons after heading-->
-<script type="text/javascript" src="/js/anchor.min.js"></script>
-<script type="text/javascript">
-    anchors.options = {
-        placement: 'right'
-    }
-    anchors.add('.post-content h2')
-</script>
-
-
 
     <!-- Footer -->
 <footer>
