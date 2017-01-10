@@ -135,13 +135,19 @@ layout: default
     </body>
     <script>
             var view_page = document.getElementsByClassName('view-page')
+            var qr_code = document.getElementsByClassName('qr-code')
             console.log
             var initWidth = window.innerWidth;
             if (initWidth>500) {
                 for (var i = 0; i<view_page.length; i++) {
                     view_page[i].setAttribute('href', 'javascript:void(0)')
                 }
+            } else {
+                for (var j = 0; j<qr_code.length;j++) {
+                    qr_code[j].parentNode.removeChild(qr_code[j])
+                }
             }
+
             // window.addEventListener('resize', function() {
             //     var CWidth = window.innerWidth;
             //     if (CWidth>500) {
