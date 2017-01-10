@@ -34,7 +34,7 @@ var resultb;
 var line = document.getElementById('line');
 var body = document.getElementById('body');
 var sharebtn = document.getElementById('sharebtn');
-var mask = document.getElementById(df
+var mask = document.getElementById('mask');
 
 
     //点击图片上传头像
@@ -74,10 +74,6 @@ var mask = document.getElementById(df
             privacy.style.display = 'none';
         };
     }
-
-if asb {
-    
-}
 //上传按钮
 var previewFile2 = function loadImage() {
     var file = realUploadBtn.files[0];
@@ -219,6 +215,7 @@ confirm.onclick = function faceplusana() {
             //获取眼部坐标
             eyeX = rect.center[0] * 2.30;
             eyeY = rect.center[1] * 3.10;
+            console.log(eyeX, eyeY);
             eyeLength = rect.length * 2.30;
             eyeHeight = rect.width * 3.10;
             eyeRatioX = 1 - rect.width / canvas.height;
