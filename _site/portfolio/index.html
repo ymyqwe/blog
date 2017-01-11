@@ -251,9 +251,9 @@
 
                 <div class="one-post">
                     <div class="no-hover">
-                        <h3>Liuliu Data Managing Site</h3>
+                        <h3 class="post-title">Liuliu Data Managing Site</h3>
                         <p>
-                        Data in Liuliu application is complicated and hard to maintain. In this project, operation staff can operate data easily.
+                        Data in Liuliu application is complicated and hard to maintain. In this project, operation staff can arrange data like user posts, product information and SKU with ease.
                         <br>
                         Bootstrap, jQuery and many plugins are used in this project to ensure fluent experience.
                         </p>
@@ -274,7 +274,6 @@
     <script>
             var view_page = document.getElementsByClassName('view-page')
             var qr_code = document.getElementsByClassName('qr-code')
-            console.log
             var initWidth = window.innerWidth;
             if (initWidth>500) {
                 for (var i = 0; i<view_page.length; i++) {
@@ -282,7 +281,7 @@
                 }
             } else {
                 for (var j = 0; j<qr_code.length;j++) {
-                    qr_code[j].parentNode.removeChild(qr_code[j])
+                    qr_code[j].setAttribute('src', '')
                 }
             }
 

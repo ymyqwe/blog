@@ -10,7 +10,7 @@
 
     <title>监控屏幕触摸事件 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/05/05/Events-about-Click-and-touch.html">
+    <link rel="canonical" href="/2016/05/05/Compass-develope.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -178,96 +178,29 @@
                     
                     <div class="taghover"><a class="tag" href="/tags#HTML5" title="HTML5">HTML5</a></div>
                     
+                    <div class="taghover"><a class="tag" href="/tags#SASS" title="SASS">SASS</a></div>
+                    
                 </div>
-				<p>最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：</p>
+				<p>Encoding.default_external = ‘utf-8’</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = $("#canvas");
-var context = canvas[0].getContext("2d");
-//$("#canvas")[0] equals to document.getElementById("canvas")
-var inter;  //循环变量
-var e;   //鼠标事件全局变量
+<p>@charset ‘utf-8’;</p>
 
-canvas.bind('touchstart', function(eve) {
-    e = eve;
-    inter = setInterval(function() {
-        interFun(e);
-    }, 50)
-})
-   	
-canvas.bind('touchmove', function(eve) {
-    e = eve;
-})
+<p>$ClientWidth:750px;//UI效果图的宽度一半
+@function pxToRem($px){
+      @return 10<em>$px/$ClientWidth/1</em>1rem;
+}</p>
 
-canvas.bind('touchend', function(eve) {
-    console.log(e.originalEvent.touches.length);
-    clearInterval(inter);
-})
+<p>@mixin font-dpr ($font-size) {
+    font-size: $font-size;
+    [data-dpr=”2”] &amp; {
+        font-size: $font-size * 2;
+    }
+    [data-dpr=”3”] &amp; {
+        font-size: $font-size * 3;
+    }
+}</p>
 
-//循环函数
-function interFun(e) {
-    console.log(e);
-    var touch = e.originalEvent.targetTouches[0];
-    // jQuery event so we use originalEvent
-    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
-    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
-    console.log(mouseX);
-    console.log(mouseY);
-    context.beginPath();
-    drawStar(context, mouseX, mouseY);
-    context.closePath();
-    context.fill();
-    context.stroke();
-}
-</code></pre>
-</div>
-
-<p>其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考<a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent">MDN TouchEvent</a>的文档</p>
-
-<h4 id="targettouchestouchstart">targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。</h4>
-<p>#### touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。</p>
-
-<p>同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d");
-//$("#canvas")[0] equals to document.getElementById("canvas")
-var inter;  //循环变量
-var e;   //鼠标事件全局变量
-
-canvas.addEventListener("touchstart", TouchStart);
-canvas.addEventListener("touchmove", TouchMove);
-canvas.addEventListener("touchend", TouchEnd);
-
-function TouchStart(eve) {
-    e = eve;
-    inter = setInterval(function() {
-        interFun(e);
-    }, 50)
-}
-function TouchMove(eve) {
-    e = eve;
-}
-function TouchEnd(eve) {
-    e = eve;
-    clearInterval(inter);
-}
-
-function interFun(e) {
-    console.log(e);
-    var touch = e.originalEvent.touches[0];
-    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas.offsetLeft;
-    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas.offsetTop;
-    console.log(mouseX);
-    console.log(mouseY);
-    context.beginPath();
-    drawStar(context, mouseX, mouseY);
-    context.closePath();
-    context.fill();
-    context.stroke();
-}
-</code></pre>
-</div>
-
+<p>css2rem</p>
 
 
                 
@@ -275,12 +208,12 @@ function interFun(e) {
                 <ul class="pager post-pager">
                     
                     <li class="previous">
-                        <a href="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html" data-toggle="tooltip" data-placement="top" title="Ruby RVM is not working with ZSH"><i class="fa fa-arrow-left"></i> 上一篇</a>
+                        <a href="/2016/05/05/Events-about-Click-and-touch.html" data-toggle="tooltip" data-placement="top" title="监控屏幕触摸事件"><i class="fa fa-arrow-left"></i> 上一篇</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2016/05/05/Compass-develope.html" data-toggle="tooltip" data-placement="top" title="监控屏幕触摸事件">下一篇 <i class="fa fa-arrow-right"></i></a>
+                        <a href="/2016/05/23/Python-Chinese-Encoding.html" data-toggle="tooltip" data-placement="top" title="Python中文ASCII编码问题">下一篇 <i class="fa fa-arrow-right"></i></a>
                     </li>
                     
                 </ul>

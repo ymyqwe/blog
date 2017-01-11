@@ -199,6 +199,41 @@ abc.decode('utf-8')
 <hr>
 
 <div class="post-preview">
+    <a href="/2016/05/05/Compass-develope.html">
+        <h2 class="post-title">           
+            监控屏幕触摸事件
+        </h2>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#HTML5" title="HTML5">HTML5</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#SASS" title="SASS">SASS</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            Encoding.default_external = ‘utf-8’
+
+@charset ‘utf-8’;
+
+$ClientWidth:750px;//UI效果图的宽度一半
+@function pxToRem($px){
+      @return 10$px/$ClientWidth/11rem;
+}
+
+@mixin font-dpr ($font-size) {
+    font-si...
+    </div>   
+    <p class="post-meta">Posted by maniaU on May 5, 2016</p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2016/05/05/Events-about-Click-and-touch.html">
         <h2 class="post-title">           
             监控屏幕触摸事件
@@ -295,39 +330,6 @@ html {
 ul li:nth-child(od...
     </div>   
     <p class="post-meta">Posted by maniaU on April 22, 2016</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/03/17/Some-Thinking-About-Myself.html">
-        <h2 class="post-title">           
-            前端问题小结
-        </h2>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#翻译" title="翻译">翻译</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            微信修改网页title，如何保证分享结果？
-
-1.使用微信的JS-SDK
-
-2.黑魔法：利用js修改微信title
-
-//需要jQuery
-var $body = $('body');
-document.title = 'title';
-// hack在微信等webview中无法修改document.title的情况
-var $iframe = $('&lt;iframe src="/fav...
-    </div>   
-    <p class="post-meta">Posted by maniaU on March 17, 2016</p>
 </div>
 <hr>
 
