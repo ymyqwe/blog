@@ -5,9 +5,185 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 11 Jan 2017 20:39:21 +0800</pubDate>
-    <lastBuildDate>Wed, 11 Jan 2017 20:39:21 +0800</lastBuildDate>
+    <pubDate>Tue, 17 Jan 2017 13:48:52 +0800</pubDate>
+    <lastBuildDate>Tue, 17 Jan 2017 13:48:52 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>使用Compass开发移动页面</title>
+        <description>&lt;h3 id=&quot;compass&quot;&gt;Compass开发移动页面&lt;/h3&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;安装Compass&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass开发注意点&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Compass开发移动页面&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;compass-1&quot;&gt;安装Compass&lt;/h2&gt;
+
+&lt;h3 id=&quot;ruby&quot;&gt;安装Ruby&lt;/h3&gt;
+
+&lt;p&gt;安装Ruby就不在这边赘述了，请参考官方文档：&lt;a href=&quot;https://www.ruby-lang.org/zh_cn/documentation/installation/&quot;&gt;安装Ruby&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;compass-2&quot;&gt;安装Compass&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem update --system
+$ gem install compass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;compass-3&quot;&gt;创建Compass项目&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ compass create &amp;lt;myproject&amp;gt;
+$ cd myproject
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;注意：&lt;i&gt;$是终端的占位符，你不需要输入它。&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;就会生成如下的目录&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--sass
+--css
+--images
+--config.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中config.rb就是项目的配置文件，配置文件中包含。&lt;/p&gt;
+
+&lt;h3 id=&quot;compass-4&quot;&gt;编译compass项目&lt;/h3&gt;
+
+&lt;p&gt;compass的编译命令为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ compass compile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。&lt;/p&gt;
+
+&lt;h2 id=&quot;compass-5&quot;&gt;Compass配置文件注意事项&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;配置文件注释问题&lt;/h3&gt;
+
+&lt;p&gt;一般来说，编译后的css文件是默认有注释的，可以在配置文件中添加如下内容来取消注释&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;line_comments = false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样的话就能取消注释，大大缩小css文件的大小。&lt;/p&gt;
+
+&lt;h3 id=&quot;compass-6&quot;&gt;compass无法编译中文&lt;/h3&gt;
+
+&lt;p&gt;开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Encoding.default_external = &#39;utf-8&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;同时，在你的scss文件加入&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@charset &#39;utf-8&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样compass就可以编译中文了。&lt;/p&gt;
+
+&lt;h3 id=&quot;css&quot;&gt;生产环境自动压缩css文件&lt;/h3&gt;
+
+&lt;p&gt;默认编译的css文件是不压缩的，但是我们发布的时候为了节省资源，css文件都需要压缩，可以在配置文件中加入如下内容&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;output_stlye = :compressed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;或者在编译的时候加上&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compass compile --output_stlye compressed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;compass-7&quot;&gt;Compass开发移动页面&lt;/h2&gt;
+
+&lt;h3 id=&quot;rem&quot;&gt;使用rem适配移动端&lt;/h3&gt;
+
+&lt;p&gt;Amfe阿里无线前端团队双11技术连载分享中提到了&lt;a href=&quot;https://github.com/amfe/article/issues/17&quot;&gt;手淘H5页面是如何实现多终端匹配&lt;/a&gt;，本文主要是在他们的基础上进行。&lt;/p&gt;
+
+&lt;p&gt;rem的原理是根据html根元素的font-size值对元素进行大小设置，一般的根元素即为&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;，比如在根元素设定font-size = 75px，
+那么1rem的代表的长度为1 * 75px。&lt;/p&gt;
+
+&lt;h3 id=&quot;compasspxrem&quot;&gt;使用Compass转换px，rem&lt;/h3&gt;
+
+&lt;p&gt;由于rem是写在css里面的，但是设计稿一般给的是px，所以需要将px转化为rem，如果你使用的是sublime text，有一个&lt;a href=&quot;https://github.com/flashlizi/cssrem&quot;&gt;cssrem&lt;/a&gt;插件可以供你使用，但是仍然需要每次输入px再按键转化为rem。&lt;/p&gt;
+
+&lt;p&gt;使用Compass我们可以利用函数来转化&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$originWidth: 750px;
+//设计稿的宽度
+@function pxToRem($px) {
+    @return 10*$px/$ClientWidth/1*1rem;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;再按如下方式使用&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;div {
+    width: pxToRem(750px);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样就得到一个宽度为10rem(整个屏幕)的div了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;高清屏下面字体大小设置&lt;/h3&gt;
+
+&lt;p&gt;设备像素比简称为dpr，定义了物理像素和设备独立响度的关系。它的值可以按下面的公式计算得到：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;设备像素比 = 物理像素 / 设备独立像素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;看下图可以明确解释dpr&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/dpr.jpg&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;众所周知，iPhone6的设备宽度和高度为375pt * 667pt,可以理解为设备的独立像素；而其dpr为2，根据上面公式，我们可以很轻松得知其物理像素为750pt * 1334pt。&lt;/p&gt;
+
+&lt;p&gt;屏幕增大之后，页面元素也会随之增大，但是有些比如段落文字的内容我们并不想增大，这时候不适合用rem作为字体单位，我们还是使用px，可以用如下@mixin来解决：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@mixin font-dpr ($font-size) {
+    font-size: $font-size;
+    [data-dpr=&quot;2&quot;] &amp;amp; {
+        font-size: $font-size * 2;
+    }
+    [data-dpr=&quot;3&quot;] &amp;amp; {
+        font-size: $font-size * 3;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样基本就可以解决移动端大部分的适配问题了。&lt;/p&gt;
+
+&lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
+        <link>/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>HTML5</category>
+        
+        <category>SASS</category>
+        
+        
+      </item>
     
       <item>
         <title>Python中文ASCII编码问题</title>
@@ -29,44 +205,6 @@
         <category>技术</category>
         
         <category>Python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>监控屏幕触摸事件</title>
-        <description>&lt;p&gt;Encoding.default_external = ‘utf-8’&lt;/p&gt;
-
-&lt;p&gt;@charset ‘utf-8’;&lt;/p&gt;
-
-&lt;p&gt;$ClientWidth:750px;//UI效果图的宽度一半
-@function pxToRem($px){
-      @return 10&lt;em&gt;$px/$ClientWidth/1&lt;/em&gt;1rem;
-}&lt;/p&gt;
-
-&lt;p&gt;@mixin font-dpr ($font-size) {
-    font-size: $font-size;
-    [data-dpr=”2”] &amp;amp; {
-        font-size: $font-size * 2;
-    }
-    [data-dpr=”3”] &amp;amp; {
-        font-size: $font-size * 3;
-    }
-}&lt;/p&gt;
-
-&lt;p&gt;css2rem&lt;/p&gt;
-</description>
-        <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/05/Compass-develope.html</link>
-        <guid isPermaLink="true">/2016/05/05/Compass-develope.html</guid>
-        
-        <category>前端</category>
-        
-        <category>技术</category>
-        
-        <category>HTML5</category>
-        
-        <category>SASS</category>
         
         
       </item>
