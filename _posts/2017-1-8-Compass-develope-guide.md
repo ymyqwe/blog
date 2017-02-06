@@ -10,11 +10,11 @@ tags:      前端 技术 HTML5 SASS
 
 ### 目录
 1.  [安装Compass](#section-1)
-2.  [Compass开发注意点](#section-2)
+2.  [Compass配置文件注意事项](#section-2)
 3.  [Compass开发移动页面](#section-3)
 
 
-## 安装Compass
+## 安装
 
 ### 安装Ruby
 
@@ -51,7 +51,7 @@ compass的编译命令为
 运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。
 
 
-## Compass配置文件注意事项
+## 配置文件注意事项
 
 ### 配置文件注释问题
 
@@ -83,7 +83,7 @@ compass的编译命令为
 
     compass compile --output_stlye compressed
 
-## Compass开发移动页面
+## 开发移动页面
 
 ### 使用rem适配移动端
 

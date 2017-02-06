@@ -923,13 +923,6 @@ a.anchorjs-link:hover  {
 }
 /*404*/
 
-
-article h2:target {
-  color: #0CC;
-  border-bottom: .2em solid #0CC;
-  padding-bottom: 0.2em;
-  margin-bottom: .5em;
-}
 img::selection {
   color: white;
   background: transparent;

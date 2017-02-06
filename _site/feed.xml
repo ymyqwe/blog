@@ -5,9 +5,230 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 06 Feb 2017 18:01:00 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Feb 2017 18:01:00 +0800</lastBuildDate>
+    <pubDate>Tue, 07 Feb 2017 00:41:56 +0800</pubDate>
+    <lastBuildDate>Tue, 07 Feb 2017 00:41:56 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>使用Npm, Webpack开发React应用</title>
+        <description>&lt;p&gt;通过React，Facebook确确实实改变了我们对于前端开发UI组件的思路。尽管React的学习路线并不陡峭，但是对于初学者来说，它的一些工具(&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;，&lt;a href=&quot;https://webpack.github.io/docs/&quot;&gt;Webpack&lt;/a&gt;)和类库却是一个难点。&lt;/p&gt;
+
+&lt;p&gt;尽管这些工具对于React并不是必须的，但是为充分利用&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，&lt;a href=&quot;https://facebook.github.io/react/docs/jsx-in-depth.html&quot;&gt;JSX&lt;/a&gt;和打包的精髓，我们需要它们。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#webpack&quot;&gt;安装、配置Webpack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#babel-loader&quot;&gt;设置Babel-Loader&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#hello-react&quot;&gt;Hello React&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#webpack-1&quot;&gt;便捷化使用webpack&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;webpack&quot;&gt;安装、配置Webpack&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://webpack.github.io/docs/&quot;&gt;Webpack&lt;/a&gt;是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持&lt;a href=&quot;http://webpack.github.io/docs/loaders.html&quot;&gt;加载器&lt;/a&gt;，这对于React来说简直是一个完美的工具。&lt;/p&gt;
+
+&lt;p&gt;首先，进入项目文件，安装webpack(请先安装node、npm)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i webpack -S
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用Webpack的最佳方法是通过一个配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;webpack.config.js&lt;/code&gt;来开展工作&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch webpack.config.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;更新配置文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var webpack = require(&#39;webpack&#39;);
+var path = require(&#39;path&#39;);
+
+var BUILD_DIR = path.resolve(__dirname, &#39;src/client/public&#39;);
+var APP_DIR = path.resolve(__dirname, &#39;src/client/app&#39;);
+
+var config = {
+  entry: APP_DIR + &#39;/index.jsx&#39;,
+  output: {
+    path: BUILD_DIR,
+    filename: &#39;bundle.js&#39;
+  }
+};
+
+module.exports = config;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;APP_DIR&lt;/code&gt;是React应用的目录路径，&lt;code class=&quot;highlighter-rouge&quot;&gt;BUILD_DIR&lt;/code&gt;则是打包文件的输出路径。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt;对象中，&lt;i&gt;entry&lt;/i&gt;表示入口文件，Webpack也支持多入口文件，这边 &lt;i&gt;src/client/app&lt;/i&gt; 目录下的 &lt;i&gt;index.js&lt;/i&gt; 就是应用的入口文件。&lt;i&gt;output&lt;/i&gt; 则表示打包过程完成之后Webpack需要作的输出。这里我们会创建 &lt;i&gt;bundle.js&lt;/i&gt; 到 &lt;i&gt;src/client/public&lt;/i&gt;。&lt;/p&gt;
+
+&lt;p&gt;接下来，在 &lt;i&gt;./src/client/app&lt;/i&gt;中创建 &lt;i&gt;index.js&lt;/i&gt;文件，添加如下代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;console.log(&#39;Hello World!&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在终端中运行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码通过开发者模式运行webpack并且在 &lt;i&gt;src/client/public&lt;/i&gt;中打包生成了 &lt;i&gt;bundle.js&lt;/i&gt;文件和关联的 &lt;i&gt;bundle.js.map&lt;/i&gt;文件。&lt;/p&gt;
+
+&lt;p&gt;随后，在 &lt;i&gt;src/client&lt;/i&gt;目录下创建 &lt;i&gt;index.html&lt;/i&gt;文件，并引入 &lt;i&gt;bundle.js&lt;/i&gt;文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;React Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;public/bundle.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果此时你打开浏览器，在console log中就可以看到&lt;code class=&quot;highlighter-rouge&quot;&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;babel-loader&quot;&gt;设置Babel-Loader&lt;/h3&gt;
+
+&lt;p&gt;React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不是在所有浏览器种都支持的。因此，我们需要一个语法转换器，这时候就需要balel了。&lt;/p&gt;
+
+&lt;p&gt;首先安装如下npm包&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i babel-loader babel-preset-es-2015 babel-preset-react -S
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;i&gt;babel-preset-es2015&lt;/i&gt;用于翻译ES6，&lt;i&gt;babel-preset-react&lt;/i&gt;则用于翻译JSX语法。与webpack一样，&lt;i&gt;babel-loader&lt;/i&gt;也需要配置文件，这边我们需要告诉他使用ES6，JSX插件。&lt;/p&gt;
+
+&lt;p&gt;创建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件并作如下修改&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch .babelrc
+
+{
+    &quot;presets&quot;: [&quot;es2015&quot;, &quot;react&quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下一步是告诉webpack打包时使用babel-loader，打开 &lt;i&gt;webpack.config.js&lt;/i&gt;并作如下更新&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//  ...
+var config = {
+    //  ...
+    module : {
+        loaders : [
+            {
+                test : /\.js$/,
+                include : APP_DIR,
+                loader : &#39;babel-loader&#39;
+            }
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;i&gt;loaders&lt;/i&gt;属性接受作为数组的加载器，此处我们使用了 &lt;i&gt;babel-loader&lt;/i&gt;。 每个 &lt;i&gt;loader&lt;/i&gt;属性需要通过 &lt;i&gt;test&lt;/i&gt;属性指定文件扩展。这里我们用正则表达式同时指定了 &lt;i&gt;.js&lt;/i&gt;和 &lt;i&gt;.jsx&lt;/i&gt;文件。&lt;i&gt;include&lt;/i&gt;属性则指定了查找这些文件扩展的目录。&lt;i&gt;loader&lt;/i&gt;代表了加载器的名字。&lt;/p&gt;
+
+&lt;p&gt;安装完毕后，我们来写一些React代码。&lt;/p&gt;
+
+&lt;h3 id=&quot;hello-react&quot;&gt;Hello React&lt;/h3&gt;
+
+&lt;p&gt;首先安装react和react-dom&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i react react-dom -S
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;用如下内容替换 &lt;i&gt;index.js&lt;/i&gt;中的代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import React from &#39;react&#39;;
+import {render} from &#39;react-dom&#39;;
+
+class App extends React.Component {
+    render() {
+        return &amp;lt;p&amp;gt; Hello React! &amp;lt;/p&amp;gt;;
+    }
+}
+
+render(&amp;lt;App /&amp;gt;, document.getElementById(&#39;app&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后执行如下指令来更新打包文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后到浏览器中，你可以看到 &lt;i&gt;Hello React&lt;/i&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;webpack-1&quot;&gt;便捷化使用webpack&lt;/h3&gt;
+
+&lt;h4 id=&quot;webpack-2&quot;&gt;通过webpack监控变化&lt;/h4&gt;
+
+&lt;p&gt;当你每次改变文件时执行webpack指令不是一个高效的工作方式。我们可以执行如下指令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d --watch
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样webpack就以监控模式运行，无论检测到什么变化，它会重新自动打包文件。&lt;/p&gt;
+
+&lt;p&gt;如果你不喜欢刷新浏览器，那你可以使用&lt;a href=&quot;http://gaearon.github.io/react-hot-loader/getstarted/&quot;&gt;react-hot-loader&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;npm&quot;&gt;使用npm作为执行工具&lt;/h4&gt;
+
+&lt;p&gt;你可以使用npm来执行webpack的指令，更新&lt;code class=&quot;highlighter-rouge&quot;&gt;packages.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;webpack -d --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;webpack -p&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后在终端执行&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run build&lt;/code&gt;就可以执行webpack的生产模式，它可以自动压缩打包文件，而&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run dev&lt;/code&gt;则通过监控模式运行webpack&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;做一个小项目&lt;/h4&gt;
+
+&lt;p&gt;接下来我们来做一个小的React项目，一个监控移动端手势的来控制图片大小、旋转角度的app。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.yumingyuan.me/gestures/index.html&quot;&gt;View Demo&lt;/a&gt;(请用移动端打开哦~)&lt;/p&gt;
+
+&lt;p&gt;项目源码&lt;a href=&quot;https://github.com/ymyqwe/gestures&quot;&gt;在此&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;该项目fork自&lt;a href=&quot;https://github.com/eeandrew/gestures&quot;&gt;eeandrew/gestures&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
+        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack-and-Express.html</link>
+        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack-and-Express.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>React</category>
+        
+        <category>Webpack</category>
+        
+        
+      </item>
     
       <item>
         <title>React Tornado的配合使用</title>
@@ -16,12 +237,12 @@
 &lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;Babel配置&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Tornado数据处理&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;React组件开发&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#babel&quot;&gt;Babel配置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tornado&quot;&gt;Tornado数据处理&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#react&quot;&gt;React组件开发&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;babel&quot;&gt;babel配置&lt;/h2&gt;
+&lt;h2 id=&quot;babel&quot;&gt;Babel配置&lt;/h2&gt;
 
 &lt;p&gt;虽然目前大多数浏览器已经支持了&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，但是仍然避免不了有一些特性无法在现代浏览器中使用。&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;是JavaScript语法转换器，可以将ES6代码转换成浏览器支持的代码。&lt;/p&gt;
 
@@ -269,24 +490,24 @@ class Container extends React.Component {
         <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;安装Compass&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass开发注意点&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass配置文件注意事项&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Compass开发移动页面&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;compass&quot;&gt;安装Compass&lt;/h2&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;安装&lt;/h2&gt;
 
 &lt;h3 id=&quot;ruby&quot;&gt;安装Ruby&lt;/h3&gt;
 
 &lt;p&gt;安装Ruby就不在这边赘述了，请参考官方文档：&lt;a href=&quot;https://www.ruby-lang.org/zh_cn/documentation/installation/&quot;&gt;安装Ruby&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-1&quot;&gt;安装Compass&lt;/h3&gt;
+&lt;h3 id=&quot;compass&quot;&gt;安装Compass&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem update --system
 $ gem install compass
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;compass-2&quot;&gt;创建Compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;compass-1&quot;&gt;创建Compass项目&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ compass create &amp;lt;myproject&amp;gt;
 $ cd myproject
@@ -306,7 +527,7 @@ $ cd myproject
 
 &lt;p&gt;其中config.rb就是项目的配置文件，配置文件中包含。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-3&quot;&gt;编译compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;compass-2&quot;&gt;编译compass项目&lt;/h3&gt;
 
 &lt;p&gt;compass的编译命令为&lt;/p&gt;
 
@@ -316,9 +537,9 @@ $ cd myproject
 
 &lt;p&gt;运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。&lt;/p&gt;
 
-&lt;h2 id=&quot;compass-4&quot;&gt;Compass配置文件注意事项&lt;/h2&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;配置文件注意事项&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;配置文件注释问题&lt;/h3&gt;
+&lt;h3 id=&quot;section-3&quot;&gt;配置文件注释问题&lt;/h3&gt;
 
 &lt;p&gt;一般来说，编译后的css文件是默认有注释的，可以在配置文件中添加如下内容来取消注释&lt;/p&gt;
 
@@ -328,7 +549,7 @@ $ cd myproject
 
 &lt;p&gt;这样的话就能取消注释，大大缩小css文件的大小。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-5&quot;&gt;compass无法编译中文&lt;/h3&gt;
+&lt;h3 id=&quot;compass-3&quot;&gt;compass无法编译中文&lt;/h3&gt;
 
 &lt;p&gt;开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入&lt;/p&gt;
 
@@ -358,7 +579,7 @@ $ cd myproject
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;compass-6&quot;&gt;Compass开发移动页面&lt;/h2&gt;
+&lt;h2 id=&quot;section-4&quot;&gt;开发移动页面&lt;/h2&gt;
 
 &lt;h3 id=&quot;rem&quot;&gt;使用rem适配移动端&lt;/h3&gt;
 
@@ -391,7 +612,7 @@ $ cd myproject
 
 &lt;p&gt;这样就得到一个宽度为10rem(整个屏幕)的div了。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;高清屏下面字体大小设置&lt;/h3&gt;
+&lt;h3 id=&quot;section-5&quot;&gt;高清屏下面字体大小设置&lt;/h3&gt;
 
 &lt;p&gt;设备像素比简称为dpr，定义了物理像素和设备独立响度的关系。它的值可以按下面的公式计算得到：&lt;/p&gt;
 
@@ -1218,126 +1439,6 @@ Besides, you need to restart rails server.
         <guid isPermaLink="true">/2016/01/30/Small-notes.html</guid>
         
         <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>关于这个博客</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;技术实现&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#jekyll&quot;&gt;Jekyll配置&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#github-pages&quot;&gt;Github-Pages&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。&lt;/p&gt;
-
-&lt;p&gt;大家随意看看吧。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;技术实现&lt;/h2&gt;
-
-&lt;h4 id=&quot;github-pageshttpspagesgithubcom&quot;&gt;为什么使用&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github-Pages&lt;/a&gt;？&lt;/h4&gt;
-
-&lt;p&gt;通常我们在github上放置的代码，只是代码而已。但如果你放置的是&lt;b&gt;HTML&lt;/b&gt;代码，那么你可以直接像其他网站一样浏览它的展示，所以你不需要额外购买服务器。&lt;/p&gt;
-
-&lt;p&gt;而&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;可以输出静态的&lt;b&gt;HTML&lt;/b&gt;文件，使用git可以轻松将markdown转化为post，而且看到了&lt;a href=&quot;huangxuan.me&quot;&gt;Hux Blog&lt;/a&gt;这样的开源博客，于是就拿来主义了一下，同时自己修修改改，完成了搭建。&lt;/p&gt;
-
-&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll配置&lt;/h2&gt;
-
-&lt;h4 id=&quot;jekyll-1&quot;&gt;安装Jekyll&lt;/h4&gt;
-&lt;p&gt;在terminal中，安装Jekyll，运行：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;jekyll就安装成功了，然后主题fork的是&lt;a href=&quot;https://github.com/IronSummitMedia/startbootstrap-clean-blog&quot;&gt;Clean-Blog&lt;/a&gt;，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。&lt;/p&gt;
-
-&lt;p&gt;在terminal中，cd到你的jekyll文档下，运行：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve --watch
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;加上了 –watch后，我们会强制jekyll在每次保存后更新站点。&lt;/p&gt;
-
-&lt;h4 id=&quot;configyml&quot;&gt;更新&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;文件&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Site settings
-title: 鱼头的博客
-header-img: img/home-bg2.jpg
-email: ymyymy_2@hotmail.com
-description: &quot;鱼头的小博客。随便写的，随便看看吧。&quot;
-baseurl: &quot;/blog&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;将其中的各项内容替换成你自己的就好了！&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;在本地查看你的网站&lt;/h4&gt;
-
-&lt;p&gt;在浏览器中输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000/blog&lt;/code&gt;以查看你的网站。&lt;/p&gt;
-
-&lt;h4 id=&quot;includes&quot;&gt;设置&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;文件&lt;/h4&gt;
-
-&lt;p&gt;该主题中，默认的页面会加载&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;文件夹中的页面，比如header、footer，所以想要更新页面的header和footer只需要在_includes文件夹中更新header.html和footer.html。在需要引用的页面添加代码即可。本博客中另外添加了网易云音乐的播放，为music.html，同样只需要引用即可。&lt;/p&gt;
-
-&lt;h4 id=&quot;markdown&quot;&gt;利用markdown写作&lt;/h4&gt;
-
-&lt;p&gt;该静态博客使用markdown写作，对markdown不熟悉的同学可以参考&lt;a href=&quot;http://www.appinn.com/markdown/&quot;&gt;markdown中文文档&lt;/a&gt;，多加练习就会习惯。&lt;/p&gt;
-
-&lt;h2 id=&quot;github-pages&quot;&gt;Github-Pages设置&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github-Pages&lt;/a&gt;文档比较简易，不过也很具有参考价值。&lt;/p&gt;
-
-&lt;p&gt;Github-Pages的默认域名是 &lt;b&gt;your-username.github.io/your-project-name&lt;/b&gt;。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;设置你的存放目录&lt;/h4&gt;
-
-&lt;p&gt;首先创建一个&lt;a href=&quot;https://github.com/new&quot;&gt;github repository&lt;/a&gt;，再clone到你的电脑。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/repository.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;gh-pages&quot;&gt;创建gh-pages分支&lt;/h4&gt;
-
-&lt;p&gt;在terminal中cd到你的项目目录下，创建gh-pages分支：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout gh-pages
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;然后把你下载的主题文件都复制到你clone过来的目录下面。&lt;/p&gt;
-
-&lt;h4 id=&quot;gh-pages-1&quot;&gt;让gh-pages成为你的默认分支（可选）&lt;/h4&gt;
-
-&lt;p&gt;首先，前往项目的分支设置，将gh-pages设置成为默认分支。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/branch.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果你只想要一个分支，你也可以&lt;a href=&quot;http://oli.jp/2011/github-pages-workflow/#deleting-master&quot;&gt;删除master分支&lt;/a&gt;，按照上面的教程来就可以了。一切搞定之后，&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
-git commit -m &quot;your-message&quot;
-git push
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;就大功告成了，去&lt;b&gt;your-username.github.io/your-project-name&lt;/b&gt;查看你的网站吧！&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;第一次写博客，肯定会有不好的地方，欢迎大家拍砖哈。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-</description>
-        <pubDate>Thu, 07 Jan 2016 00:00:00 +0800</pubDate>
-        <link>/2016/01/07/Something-about-this-blog.html</link>
-        <guid isPermaLink="true">/2016/01/07/Something-about-this-blog.html</guid>
-        
-        <category>博客</category>
-        
-        <category>生活</category>
         
         
       </item>

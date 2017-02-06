@@ -13,11 +13,11 @@ tags:      前端 技术 React
 
 ### 目录
 
-1.  [Babel配置](#section-1)
-2.  [Tornado数据处理](#section-2)
-3.  [React组件开发](#section-3)
+1.  [Babel配置](#babel)
+2.  [Tornado数据处理](#tornado)
+3.  [React组件开发](#react)
 
-## babel配置
+## Babel配置
 
 虽然目前大多数浏览器已经支持了[ES6](http://es6-features.org/#Constants)，但是仍然避免不了有一些特性无法在现代浏览器中使用。[Babel](https://babeljs.io/)是JavaScript语法转换器，可以将ES6代码转换成浏览器支持的代码。
 

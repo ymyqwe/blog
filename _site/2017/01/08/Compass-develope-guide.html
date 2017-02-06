@@ -184,24 +184,24 @@
 				<h3 id="section">目录</h3>
 <ol>
   <li><a href="#section-1">安装Compass</a></li>
-  <li><a href="#section-2">Compass开发注意点</a></li>
+  <li><a href="#section-2">Compass配置文件注意事项</a></li>
   <li><a href="#section-3">Compass开发移动页面</a></li>
 </ol>
 
-<h2 id="compass">安装Compass</h2>
+<h2 id="section-1">安装</h2>
 
 <h3 id="ruby">安装Ruby</h3>
 
 <p>安装Ruby就不在这边赘述了，请参考官方文档：<a href="https://www.ruby-lang.org/zh_cn/documentation/installation/">安装Ruby</a></p>
 
-<h3 id="compass-1">安装Compass</h3>
+<h3 id="compass">安装Compass</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ gem update --system
 $ gem install compass
 </code></pre>
 </div>
 
-<h3 id="compass-2">创建Compass项目</h3>
+<h3 id="compass-1">创建Compass项目</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ compass create &lt;myproject&gt;
 $ cd myproject
@@ -221,7 +221,7 @@ $ cd myproject
 
 <p>其中config.rb就是项目的配置文件，配置文件中包含。</p>
 
-<h3 id="compass-3">编译compass项目</h3>
+<h3 id="compass-2">编译compass项目</h3>
 
 <p>compass的编译命令为</p>
 
@@ -231,9 +231,9 @@ $ cd myproject
 
 <p>运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。</p>
 
-<h2 id="compass-4">Compass配置文件注意事项</h2>
+<h2 id="section-2">配置文件注意事项</h2>
 
-<h3 id="section-1">配置文件注释问题</h3>
+<h3 id="section-3">配置文件注释问题</h3>
 
 <p>一般来说，编译后的css文件是默认有注释的，可以在配置文件中添加如下内容来取消注释</p>
 
@@ -243,7 +243,7 @@ $ cd myproject
 
 <p>这样的话就能取消注释，大大缩小css文件的大小。</p>
 
-<h3 id="compass-5">compass无法编译中文</h3>
+<h3 id="compass-3">compass无法编译中文</h3>
 
 <p>开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入</p>
 
@@ -273,7 +273,7 @@ $ cd myproject
 </code></pre>
 </div>
 
-<h2 id="compass-6">Compass开发移动页面</h2>
+<h2 id="section-4">开发移动页面</h2>
 
 <h3 id="rem">使用rem适配移动端</h3>
 
@@ -306,7 +306,7 @@ $ cd myproject
 
 <p>这样就得到一个宽度为10rem(整个屏幕)的div了。</p>
 
-<h3 id="section-2">高清屏下面字体大小设置</h3>
+<h3 id="section-5">高清屏下面字体大小设置</h3>
 
 <p>设备像素比简称为dpr，定义了物理像素和设备独立响度的关系。它的值可以按下面的公式计算得到：</p>
 
