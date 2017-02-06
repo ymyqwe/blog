@@ -8,8 +8,6 @@ header-img: "img/responsive-web-design.jpg"
 tags:      前端 技术 HTML5 SASS
 ---
 
-### Compass开发移动页面
-
 ### 目录
 1.  [安装Compass](#section-1)
 2.  [Compass开发注意点](#section-2)

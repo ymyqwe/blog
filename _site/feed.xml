@@ -5,35 +5,288 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 05 Feb 2017 22:43:25 +0800</pubDate>
-    <lastBuildDate>Sun, 05 Feb 2017 22:43:25 +0800</lastBuildDate>
+    <pubDate>Mon, 06 Feb 2017 15:10:55 +0800</pubDate>
+    <lastBuildDate>Mon, 06 Feb 2017 15:10:55 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>使用Compass开发移动页面</title>
-        <description>&lt;h3 id=&quot;compass&quot;&gt;Compass开发移动页面&lt;/h3&gt;
+        <title>React Tornado的配合使用</title>
+        <description>&lt;p&gt;最近准备把公司的项目使用react来开发，由于公司的服务端使用的是tornado，因此在开发过程中也遇到了一些困难，因此将开发中遇到的一些问题记下来。&lt;/p&gt;
 
 &lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;Babel配置&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Tornado数据处理&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;React组件开发&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;babel&quot;&gt;babel配置&lt;/h2&gt;
+
+&lt;p&gt;虽然目前大多数浏览器已经支持了&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，但是仍然避免不了有一些特性无法在现代浏览器中使用。&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;是JavaScript语法转换器，可以将ES6代码转换成浏览器支持的代码。&lt;/p&gt;
+
+&lt;p&gt;学习babel可以通过其手册&lt;a href=&quot;https://github.com/thejameskyle/babel-handbook/blob/master/translations/zh-Hans/README.md&quot;&gt;Babel handbook&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;babel-cli&quot;&gt;安装babel-cli&lt;/h3&gt;
+
+&lt;p&gt;假设node和npm已经安装好，输入如下代码安装babel&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g babel-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装完成后就可以编译文件了&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ babel index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果要输出到指定文件，可输入如下指令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ babel index.js --output-file compiled.js
+//或者
+$ babel index.js -o compiled.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;或者可以修改整个目录&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ babel src -d lib
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;npmbabel-cli&quot;&gt;使用npm配置babel-cli&lt;/h3&gt;
+
+&lt;p&gt;首先初始化项目&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm init
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;再安装babel&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install --save-dev babel-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;中添加scripts命令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel src -d lib&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当然，这时候还不能编译，因为还没有配置&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件，在项目的根目录下创建.babelrc文件。为了让babel将ES6转为ES5，安装如下依赖&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install --save-dev babel-preset-es2015
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装完成后，创建&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件，添加如下参数&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此时我们就安装完所有的配置了，在终端中输入命令&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm run build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后即可编译ES6版本的React啦。&lt;/p&gt;
+
+&lt;h2 id=&quot;tornado&quot;&gt;Tornado数据处理&lt;/h2&gt;
+
+&lt;p&gt;一般来说，Tornado的数据是通过render_string方法，但是render_string会将函数的参数全部转为字符串，假如我们得到的数据是new_list，则在html的js中，需要如下所写&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var new_list = { % raw new_list % }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样我们得到的数据就是对象或者数组格式的，可以直接在react中操作。&lt;/p&gt;
+
+&lt;p&gt;如果数据是调用get或post接口返回的数据，则要求在接口输出数据的时候格式为json，假设调用接口返回的是send_line函数，则需要如下写接口&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def send_line(self, response={}):
+    self.set_header(&quot;Content-Type&quot;, &quot;application/json; charset=UTF-8&quot;)
+    data = json.dumps(response)
+    self.finish(data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后将数据通过&lt;code class=&quot;highlighter-rouge&quot;&gt;send_line&lt;/code&gt;返回即可.&lt;/p&gt;
+
+&lt;h2 id=&quot;react&quot;&gt;React组件开发&lt;/h2&gt;
+
+&lt;h3 id=&quot;getinitialstate&quot;&gt;getInitialState&lt;/h3&gt;
+
+&lt;p&gt;该方法用于初始化&lt;code class=&quot;highlighter-rouge&quot;&gt;this.state&lt;/code&gt;的值，只在组件装在前调用一次。如果使用ES6语法，使用该方法会报错，需要在构造函数中初始化状态，比如&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { data: new_list }
+    }
+    render() {
+        // ...
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;生命周期函数&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;装载组件触发&lt;/h4&gt;
+
+&lt;h5 id=&quot;componentwillmount&quot;&gt;componentWillMount&lt;/h5&gt;
+
+&lt;p&gt;只会在装载之前调用一次，在&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;之前调用，可以在这个方法里调用&lt;code class=&quot;highlighter-rouge&quot;&gt;setState&lt;/code&gt;改变状态，并且不会导致额外调用一次&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;componentdidmount&quot;&gt;componentDidMount&lt;/h5&gt;
+
+&lt;p&gt;只会在装载完成之后调用一次，在&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;之后调用，从这里开始可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;ReactDOM.findDOMNode(this)&lt;/code&gt;获取到组件的DOM节点。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;更新组件触发&lt;/h4&gt;
+
+&lt;p&gt;这些方法不会再首次&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;组件的周期调用&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;componentWillReceiveProps&lt;/li&gt;
+  &lt;li&gt;shouldComponentUpdate&lt;/li&gt;
+  &lt;li&gt;componentWillUpdate&lt;/li&gt;
+  &lt;li&gt;componentDidUpdate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;卸载组件触发&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;componentWillUnmount&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;循环插入子元素&lt;/h3&gt;
+
+&lt;p&gt;如果组件中包含通过循环插入的子元素，为了保证重新渲染UI的时候能够正确显示这些子元素，每个元素都需要通过一个特定的key属性指定一个唯一值。具体原因是因为
+Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github.io/react/docs/reconciliation.html&quot;&gt;React官方文档&lt;/a&gt;，由于mongoDB的所有数据都有一个特定的id，因此正好可以使用，看下面的例子&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Posts extends React.Component {
+    render() {
+        const onePost = this.props.data.map(function(post) {
+            return (
+                &amp;lt;Post key={post[&#39;_id&#39;]}/&amp;gt;
+                )
+        });
+        return (
+            &amp;lt;div&amp;gt;
+                {onePost}
+            &amp;lt;/div&amp;gt;
+            )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;组件间的通信&lt;/h3&gt;
+
+&lt;p&gt;一般来说，父子间的组件是易于维护的模式，所以一般将组件封装到大的组件里，而父子组件间的通信则比较容易，比如在父组件给子组件设置props，然后子组件就可以通过props访问到父组件的数据及方法。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Refresh extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick() {
+        this.props.handleRefresh()
+    }
+    render() {
+        return(
+            &amp;lt;div className=&quot;refresh&quot; onClick={this.handleClick}&amp;gt;
+            &amp;lt;/div&amp;gt;
+            )
+    }
+}
+
+class Container extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleRefresh = this.handleRefresh.bind(this);
+        this.state = {data: new_list}
+    }
+    componentWillReceiveProps(nextProps) {
+        this.handleRefresh(nextProps)
+    }
+    handleRefresh(props) {
+        $.ajax({
+            url:&#39;your-url&#39;,
+            type: &#39;GET&#39;,
+        })
+        .done(function(res) {
+            this.setState({data: res})
+        }.bind(this))
+    }
+    render() {
+        return (
+            &amp;lt;div className=&quot;bg&quot;&amp;gt;
+                &amp;lt;Postlist data={this.state.data}/&amp;gt;
+                &amp;lt;BottomButton /&amp;gt;
+                &amp;lt;Refresh handleRefresh={this.handleRefresh}/&amp;gt;
+            &amp;lt;/div&amp;gt;
+            )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以上代码显示了在一开始加载初始数据，如果点击刷新按钮(Refresh)，则会通过ajax加载新的数据，并且刷新父组件(Container)的数据，并且传输给子组件(Postlist)&lt;/p&gt;
+
+&lt;p&gt;现在就来开始全面拥抱React吧！&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
+        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>React</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用Compass开发移动页面</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;安装Compass&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass开发注意点&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Compass开发移动页面&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;compass-1&quot;&gt;安装Compass&lt;/h2&gt;
+&lt;h2 id=&quot;compass&quot;&gt;安装Compass&lt;/h2&gt;
 
 &lt;h3 id=&quot;ruby&quot;&gt;安装Ruby&lt;/h3&gt;
 
 &lt;p&gt;安装Ruby就不在这边赘述了，请参考官方文档：&lt;a href=&quot;https://www.ruby-lang.org/zh_cn/documentation/installation/&quot;&gt;安装Ruby&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-2&quot;&gt;安装Compass&lt;/h3&gt;
+&lt;h3 id=&quot;compass-1&quot;&gt;安装Compass&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem update --system
 $ gem install compass
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;compass-3&quot;&gt;创建Compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;compass-2&quot;&gt;创建Compass项目&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ compass create &amp;lt;myproject&amp;gt;
 $ cd myproject
@@ -53,7 +306,7 @@ $ cd myproject
 
 &lt;p&gt;其中config.rb就是项目的配置文件，配置文件中包含。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-4&quot;&gt;编译compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;compass-3&quot;&gt;编译compass项目&lt;/h3&gt;
 
 &lt;p&gt;compass的编译命令为&lt;/p&gt;
 
@@ -63,7 +316,7 @@ $ cd myproject
 
 &lt;p&gt;运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。&lt;/p&gt;
 
-&lt;h2 id=&quot;compass-5&quot;&gt;Compass配置文件注意事项&lt;/h2&gt;
+&lt;h2 id=&quot;compass-4&quot;&gt;Compass配置文件注意事项&lt;/h2&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;配置文件注释问题&lt;/h3&gt;
 
@@ -75,7 +328,7 @@ $ cd myproject
 
 &lt;p&gt;这样的话就能取消注释，大大缩小css文件的大小。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-6&quot;&gt;compass无法编译中文&lt;/h3&gt;
+&lt;h3 id=&quot;compass-5&quot;&gt;compass无法编译中文&lt;/h3&gt;
 
 &lt;p&gt;开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入&lt;/p&gt;
 
@@ -105,7 +358,7 @@ $ cd myproject
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;compass-7&quot;&gt;Compass开发移动页面&lt;/h2&gt;
+&lt;h2 id=&quot;compass-6&quot;&gt;Compass开发移动页面&lt;/h2&gt;
 
 &lt;h3 id=&quot;rem&quot;&gt;使用rem适配移动端&lt;/h3&gt;
 
