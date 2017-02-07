@@ -5,8 +5,8 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 07 Feb 2017 00:41:56 +0800</pubDate>
-    <lastBuildDate>Tue, 07 Feb 2017 00:41:56 +0800</lastBuildDate>
+    <pubDate>Tue, 07 Feb 2017 10:59:53 +0800</pubDate>
+    <lastBuildDate>Tue, 07 Feb 2017 10:59:53 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -62,7 +62,7 @@ module.exports = config;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;APP_DIR&lt;/code&gt;是React应用的目录路径，&lt;code class=&quot;highlighter-rouge&quot;&gt;BUILD_DIR&lt;/code&gt;则是打包文件的输出路径。&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt;对象中，&lt;i&gt;entry&lt;/i&gt;表示入口文件，Webpack也支持多入口文件，这边 &lt;i&gt;src/client/app&lt;/i&gt; 目录下的 &lt;i&gt;index.js&lt;/i&gt; 就是应用的入口文件。&lt;i&gt;output&lt;/i&gt; 则表示打包过程完成之后Webpack需要作的输出。这里我们会创建 &lt;i&gt;bundle.js&lt;/i&gt; 到 &lt;i&gt;src/client/public&lt;/i&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt;对象中，&lt;i&gt;entry&lt;/i&gt;表示入口文件，Webpack也支持多入口文件，&lt;i&gt;src/client/app&lt;/i&gt; 目录下的 &lt;i&gt;index.js&lt;/i&gt; 就是应用的入口文件。&lt;i&gt;output&lt;/i&gt; 则表示打包过程完成之后Webpack需要作的输出。这里我们会创建 &lt;i&gt;bundle.js&lt;/i&gt; 到 &lt;i&gt;src/client/public&lt;/i&gt;。&lt;/p&gt;
 
 &lt;p&gt;接下来，在 &lt;i&gt;./src/client/app&lt;/i&gt;中创建 &lt;i&gt;index.js&lt;/i&gt;文件，添加如下代码&lt;/p&gt;
 
@@ -110,14 +110,18 @@ module.exports = config;
 
 &lt;p&gt;&lt;i&gt;babel-preset-es2015&lt;/i&gt;用于翻译ES6，&lt;i&gt;babel-preset-react&lt;/i&gt;则用于翻译JSX语法。与webpack一样，&lt;i&gt;babel-loader&lt;/i&gt;也需要配置文件，这边我们需要告诉他使用ES6，JSX插件。&lt;/p&gt;
 
-&lt;p&gt;创建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件并作如下修改&lt;/p&gt;
+&lt;p&gt;创建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch .babelrc
-
-{
-    &quot;presets&quot;: [&quot;es2015&quot;, &quot;react&quot;]
-}
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;作如下修改&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;下一步是告诉webpack打包时使用babel-loader，打开 &lt;i&gt;webpack.config.js&lt;/i&gt;并作如下更新&lt;/p&gt;
@@ -206,7 +210,7 @@ render(&amp;lt;App /&amp;gt;, document.getElementById(&#39;app&#39;));
 
 &lt;h4 id=&quot;section-1&quot;&gt;做一个小项目&lt;/h4&gt;
 
-&lt;p&gt;接下来我们来做一个小的React项目，一个监控移动端手势的来控制图片大小、旋转角度的app。&lt;/p&gt;
+&lt;p&gt;接下来我们来做一个小的React项目，一个监控移动端手势控制图片大小、旋转角度的app。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.yumingyuan.me/gestures/index.html&quot;&gt;View Demo&lt;/a&gt;(请用移动端打开哦~)&lt;/p&gt;
 
@@ -216,8 +220,8 @@ render(&amp;lt;App /&amp;gt;, document.getElementById(&#39;app&#39;));
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack-and-Express.html</link>
-        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack-and-Express.html</guid>
+        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         

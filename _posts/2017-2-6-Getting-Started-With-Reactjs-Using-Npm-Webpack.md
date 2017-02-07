@@ -52,7 +52,7 @@ tags:      前端 技术 React Webpack
 
 `APP_DIR`是React应用的目录路径，`BUILD_DIR`则是打包文件的输出路径。
 
-`config`对象中，<i>entry</i>表示入口文件，Webpack也支持多入口文件，这边 <i>src/client/app</i> 目录下的 <i>index.js</i> 就是应用的入口文件。<i>output</i> 则表示打包过程完成之后Webpack需要作的输出。这里我们会创建 <i>bundle.js</i> 到 <i>src/client/public</i>。
+`config`对象中，<i>entry</i>表示入口文件，Webpack也支持多入口文件，<i>src/client/app</i> 目录下的 <i>index.js</i> 就是应用的入口文件。<i>output</i> 则表示打包过程完成之后Webpack需要作的输出。这里我们会创建 <i>bundle.js</i> 到 <i>src/client/public</i>。
 
 接下来，在 <i>./src/client/app</i>中创建 <i>index.js</i>文件，添加如下代码
 
@@ -92,9 +92,11 @@ React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不
 
 <i>babel-preset-es2015</i>用于翻译ES6，<i>babel-preset-react</i>则用于翻译JSX语法。与webpack一样，<i>babel-loader</i>也需要配置文件，这边我们需要告诉他使用ES6，JSX插件。
 
-创建一个`.babelrc`文件并作如下修改
+创建一个`.babelrc`文件
 
     touch .babelrc
+
+作如下修改
 
     {
         "presets": ["es2015", "react"]
@@ -174,7 +176,7 @@ React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不
 
 #### 做一个小项目
 
-接下来我们来做一个小的React项目，一个监控移动端手势的来控制图片大小、旋转角度的app。
+接下来我们来做一个小的React项目，一个监控移动端手势控制图片大小、旋转角度的app。
 
 [View Demo](http://www.yumingyuan.me/gestures/index.html)(请用移动端打开哦~)
 
