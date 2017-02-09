@@ -16,7 +16,8 @@ github_username:  ymyqwe
 
 # Build settings
 markdown: kramdown
-input: GFM
+kramdown:
+  input: GFM
 highlighter: rouge
 
 # Paginator settings
