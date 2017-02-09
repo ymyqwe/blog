@@ -38,7 +38,7 @@ touch webpack.config.js
 
 更新配置文件
 
-```javascript
+```js
 var webpack = require('webpack');
 var path = require('path');
 
@@ -64,7 +64,7 @@ module.exports = config;
 
 接下来，在 <i>./src/client/app</i>中创建 <i>index.js</i>文件，添加如下代码
 
-```javascript
+```js
 console.log('Hello World!');
 ```
 
@@ -116,7 +116,7 @@ touch .babelrc
 
 作如下修改
 
-```javascript
+```json
 {
     "presets": ["es2015", "react"]
 }
@@ -124,7 +124,7 @@ touch .babelrc
 
 下一步是告诉webpack打包时使用babel-loader，打开 <i>webpack.config.js</i>并作如下更新
 
-```javascript
+```js
 //  ...
 var config = {
     //  ...
@@ -154,7 +154,7 @@ npm i react react-dom -S
 
 用如下内容替换 <i>index.js</i>中的代码
 
-```javascript
+```js
 import React from 'react';
 import {render} from 'react-dom';
 
@@ -193,14 +193,12 @@ webpack -d --watch
 
 你可以使用npm来执行webpack的指令，更新`packages.json`
 
-```javascript
+```json
 {
-    //  ...
     "scripts": {
         "dev": "webpack -d --watch",
         "build": "webpack -p"
     }
-    //  ...
 }
 ```
 

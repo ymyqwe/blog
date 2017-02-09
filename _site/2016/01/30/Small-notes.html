@@ -10,7 +10,7 @@
 
     <title>Front-End Development Notes - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/01/30/Small-notes.html">
+    <link rel="canonical" href="http://localhost:4000/2016/01/30/Small-notes.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -177,9 +177,9 @@
                     <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
                     
                 </div>
-				<h3 id="section">一些小笔记</h3>
+				<h3 id="一些小笔记">一些小笔记</h3>
 
-<h3 id="section-1">目录</h3>
+<h3 id="目录">目录</h3>
 <ol>
   <li><a href="#section-1">undefined is not a function </a></li>
   <li><a href="#section-2">transition in safari and firefox is ignored in inline elements.</a></li>
@@ -187,13 +187,13 @@
   <li><a href="#section-4">ruby rails unable to load fontawesome </a></li>
 </ol>
 
-<p>##Undefined is not a function<br />
-Sometimes when you use $(document).ready(function() {})<br />
-An error occurs.<br />
-It is a collision of jQuery library.<br />
-TURN<br />
-  $(document).ready(function() { })<br />
-into<br />
+<p>##Undefined is not a function
+Sometimes when you use $(document).ready(function() {})
+An error occurs.
+It is a collision of jQuery library.
+TURN
+  $(document).ready(function() { })
+into
 jQuery(function($)) {  }</p>
 
 <h2 id="css3-transition-in-safari-and-firefox-is-ignored-in-inline-elements">CSS3 transition in safari and firefox is ignored in inline elements.</h2>
@@ -203,17 +203,17 @@ jQuery(function($)) {  }</p>
 <p>Document.body won’t get a value assigned to it until the body element has been created.</p>
 
 <h2 id="ruby-rails-unable-to-load-fontawesome">ruby rails unable to load fontawesome</h2>
-<p>Ruby rails loads fontawesome path needs to add ‘config.assets.paths « Rails.root.join(‘app’,’assets’) ‘ to the application.rb.<br />
-Change  font-awesome.min.css to font awesome.min.css.scss.rb<br />
-Change the url in the fontawesomw.css.scss.erb to ‘&lt;%= asset_path(“font/fontawesome-webfont.eot”) + “?v=3.2.1” %&gt;’<br />
-Besides, you need to restart rails server.<br />
+<p>Ruby rails loads fontawesome path needs to add ‘config.assets.paths « Rails.root.join(‘app’,’assets’) ‘ to the application.rb.
+Change  font-awesome.min.css to font awesome.min.css.scss.rb
+Change the url in the fontawesomw.css.scss.erb to ‘&lt;%= asset_path(“font/fontawesome-webfont.eot”) + “?v=3.2.1” %&gt;’
+Besides, you need to restart rails server.
 <!-- ##郁闷的感情历程 --></p>
 
 
 
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/01/30/Small-notes" data-title="Front-End Development Notes" data-url="/2016/01/30/Small-notes.html"></div>
+                    <div class="ds-thread" data-thread-key="/2016/01/30/Small-notes" data-title="Front-End Development Notes" data-url="http://localhost:4000/2016/01/30/Small-notes.html"></div>
                 </div>
                 <!-- 多说评论框 end -->
 

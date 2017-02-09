@@ -15,10 +15,11 @@ github_username:  ymyqwe
 #facebook_username:  ymyymy_2@hotmail.com
 
 # Build settings
+highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM
-highlighter: rouge
+
 
 # Paginator settings
 paginate: 5

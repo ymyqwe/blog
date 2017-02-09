@@ -10,7 +10,7 @@
 
     <title>Ruby RVM is not working with ZSH - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html">
+    <link rel="canonical" href="http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -177,7 +177,7 @@
                     <div class="taghover"><a class="tag" href="/tags#ZSH" title="ZSH">ZSH</a></div>
                     
                 </div>
-				<h2 id="zshruby-gem">安装ZSH后RUBY GEM无法工作</h2>
+				<h2 id="安装zsh后ruby-gem无法工作">安装ZSH后RUBY GEM无法工作</h2>
 
 <p>最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：</p>
 
@@ -196,7 +196,7 @@ https://github.com/rvm/rvm/issues/3212
 
 <p>他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到<a href="https://github.com/rvm/rvm/issues/3212">https://github.com/rvm/rvm/issues/3212</a>上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，<a href="https://rvm.io/rubies/default">https://rvm.io/rubies/default</a>有直接的解决方法：</p>
 
-<h3 id="ruby">使用特定版本的ruby：</h3>
+<h3 id="使用特定版本的ruby">使用特定版本的ruby：</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ rvm --default use 2.2.3
 # 把2.1.1替换为你已经安装过的ruby版本
@@ -206,7 +206,7 @@ $ ruby -v
 </code></pre>
 </div>
 
-<h3 id="ruby-1">使用你的系统版本ruby：</h3>
+<h3 id="使用你的系统版本ruby">使用你的系统版本ruby：</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ rvm use system
 
@@ -215,7 +215,7 @@ $ ruby -v
 </code></pre>
 </div>
 
-<h3 id="ruby-2">使用你设置的默认版本ruby</h3>
+<h3 id="使用你设置的默认版本ruby">使用你设置的默认版本ruby</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ rvm default
 
@@ -224,7 +224,7 @@ $ ruby -v
 </code></pre>
 </div>
 
-<h3 id="ruby-3">显示你现在设置的默认版本ruby</h3>
+<h3 id="显示你现在设置的默认版本ruby">显示你现在设置的默认版本ruby</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ rvm list
 
@@ -253,7 +253,7 @@ ruby-2.2.1 [ x86_64 ]
 
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH" data-title="Ruby RVM is not working with ZSH" data-url="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html"></div>
+                    <div class="ds-thread" data-thread-key="/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH" data-title="Ruby RVM is not working with ZSH" data-url="http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html"></div>
                 </div>
                 <!-- 多说评论框 end -->
 

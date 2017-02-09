@@ -3,11 +3,11 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 09 Feb 2017 13:13:27 +0800</pubDate>
-    <lastBuildDate>Thu, 09 Feb 2017 13:13:27 +0800</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 09 Feb 2017 14:13:08 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Feb 2017 14:13:08 +0800</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>使用Npm, Webpack开发React应用</title>
@@ -15,7 +15,7 @@
 
 &lt;p&gt;尽管这些工具对于React并不是必须的，但是为充分利用&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，&lt;a href=&quot;https://facebook.github.io/react/docs/jsx-in-depth.html&quot;&gt;JSX&lt;/a&gt;和打包的精髓，我们需要它们。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#webpack&quot;&gt;安装、配置Webpack&lt;/a&gt;&lt;/li&gt;
@@ -24,35 +24,35 @@
   &lt;li&gt;&lt;a href=&quot;#webpack-1&quot;&gt;便捷化使用webpack&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;webpack&quot;&gt;安装、配置Webpack&lt;/h3&gt;
+&lt;h3 id=&quot;安装配置webpack&quot;&gt;安装、配置Webpack&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://webpack.github.io/docs/&quot;&gt;Webpack&lt;/a&gt;是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持&lt;a href=&quot;http://webpack.github.io/docs/loaders.html&quot;&gt;加载器&lt;/a&gt;，这对于React来说简直是一个完美的工具。&lt;/p&gt;
 
 &lt;p&gt;首先，进入项目文件，安装webpack(请先安装node、npm)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i webpack -S
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i webpack -S
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;使用Webpack的最佳方法是通过一个配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;webpack.config.js&lt;/code&gt;来开展工作&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch webpack.config.js
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch webpack.config.js
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;更新配置文件&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;webpack&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'path'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BUILD_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;src/client/public&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;src/client/app&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BUILD_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'src/client/public'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'src/client/app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/index.jsx&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP_DIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/index.jsx'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BUILD_DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bundle.js'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
@@ -66,13 +66,13 @@
 
 &lt;p&gt;接下来，在 &lt;i&gt;./src/client/app&lt;/i&gt;中创建 &lt;i&gt;index.js&lt;/i&gt;文件，添加如下代码&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Hello World!&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Hello World!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;在终端中运行&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;随后，在 &lt;i&gt;src/client&lt;/i&gt;目录下创建 &lt;i&gt;index.html&lt;/i&gt;文件，并引入 &lt;i&gt;bundle.js&lt;/i&gt;文件&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-hbs highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -98,13 +98,13 @@
 
 &lt;p&gt;如果此时你打开浏览器，在console log中就可以看到&lt;code class=&quot;highlighter-rouge&quot;&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;babel-loader&quot;&gt;设置Babel-Loader&lt;/h3&gt;
+&lt;h3 id=&quot;设置babel-loader&quot;&gt;设置Babel-Loader&lt;/h3&gt;
 
 &lt;p&gt;React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不是在所有浏览器种都支持的。因此，我们需要一个语法转换器，这时候就需要balel了。&lt;/p&gt;
 
 &lt;p&gt;首先安装如下npm包&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i babel-loader babel-preset-es2015 babel-preset-react -S
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i babel-loader babel-preset-es2015 babel-preset-react -S
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -112,21 +112,21 @@
 
 &lt;p&gt;创建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch .babelrc
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch .babelrc
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;作如下修改&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;下一步是告诉webpack打包时使用babel-loader，打开 &lt;i&gt;webpack.config.js&lt;/i&gt;并作如下更新&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//  ...&lt;/span&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//  ...&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;//  ...&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -134,7 +134,7 @@
             &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                 &lt;span class=&quot;na&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;js$/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                 &lt;span class=&quot;na&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP_DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;loader&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;babel-loader&#39;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;loader&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'babel-loader'&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -150,14 +150,14 @@
 
 &lt;p&gt;首先安装react和react-dom&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i react react-dom -S
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i react react-dom -S
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;用如下内容替换 &lt;i&gt;index.js&lt;/i&gt;中的代码&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;react&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;react-dom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react-dom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -165,25 +165,25 @@
 &lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;app&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;随后执行如下指令来更新打包文件&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;随后到浏览器中，你可以看到 &lt;i&gt;Hello React&lt;/i&gt;。&lt;/p&gt;
 
-&lt;h3 id=&quot;webpack-1&quot;&gt;便捷化使用webpack&lt;/h3&gt;
+&lt;h3 id=&quot;便捷化使用webpack&quot;&gt;便捷化使用webpack&lt;/h3&gt;
 
-&lt;h4 id=&quot;webpack-2&quot;&gt;通过webpack监控变化&lt;/h4&gt;
+&lt;h4 id=&quot;通过webpack监控变化&quot;&gt;通过webpack监控变化&lt;/h4&gt;
 
 &lt;p&gt;当你每次改变文件时执行webpack指令不是一个高效的工作方式。我们可以执行如下指令&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d --watch
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;webpack -d --watch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -191,24 +191,22 @@
 
 &lt;p&gt;如果你不喜欢刷新浏览器，那你可以使用&lt;a href=&quot;http://gaearon.github.io/react-hot-loader/getstarted/&quot;&gt;react-hot-loader&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;npm&quot;&gt;使用npm作为执行工具&lt;/h4&gt;
+&lt;h4 id=&quot;使用npm作为执行工具&quot;&gt;使用npm作为执行工具&lt;/h4&gt;
 
 &lt;p&gt;你可以使用npm来执行webpack的指令，更新&lt;code class=&quot;highlighter-rouge&quot;&gt;packages.json&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//  ...&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack -d --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack -p&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//  ...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;webpack -d --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;webpack -p&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;随后在终端执行&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run build&lt;/code&gt;就可以执行webpack的生产模式，它可以自动压缩打包文件，而&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run dev&lt;/code&gt;则通过监控模式运行webpack&lt;/p&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;做一个小项目&lt;/h4&gt;
+&lt;h4 id=&quot;做一个小项目&quot;&gt;做一个小项目&lt;/h4&gt;
 
 &lt;p&gt;接下来我们来做一个小的React项目，一个监控移动端手势控制图片大小、旋转角度的app。&lt;/p&gt;
 
@@ -220,8 +218,8 @@
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -238,7 +236,7 @@
         <title>React Tornado的配合使用</title>
         <description>&lt;p&gt;最近准备把公司的项目使用react来开发，由于公司的服务端使用的是tornado，因此在开发过程中也遇到了一些困难，因此将开发中遇到的一些问题记下来。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#babel&quot;&gt;Babel配置&lt;/a&gt;&lt;/li&gt;
@@ -246,17 +244,17 @@
   &lt;li&gt;&lt;a href=&quot;#react&quot;&gt;React组件开发&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;babel&quot;&gt;Babel配置&lt;/h2&gt;
+&lt;h2 id=&quot;babel配置&quot;&gt;Babel配置&lt;/h2&gt;
 
 &lt;p&gt;虽然目前大多数浏览器已经支持了&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，但是仍然避免不了有一些特性无法在现代浏览器中使用。&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;是JavaScript语法转换器，可以将ES6代码转换成浏览器支持的代码。&lt;/p&gt;
 
 &lt;p&gt;学习babel可以通过其手册&lt;a href=&quot;https://github.com/thejameskyle/babel-handbook/blob/master/translations/zh-Hans/README.md&quot;&gt;Babel handbook&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id=&quot;babel-cli&quot;&gt;安装babel-cli&lt;/h3&gt;
+&lt;h3 id=&quot;安装babel-cli&quot;&gt;安装babel-cli&lt;/h3&gt;
 
 &lt;p&gt;假设node和npm已经安装好，输入如下代码安装babel&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;npm install -g babel-cli
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;npm install -g babel-cli
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -268,7 +266,7 @@
 
 &lt;p&gt;如果要输出到指定文件，可输入如下指令&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;babel index.js --output-file compiled.js
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;babel index.js --output-file compiled.js
 //或者
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;babel index.js -o compiled.js
 &lt;/code&gt;&lt;/pre&gt;
@@ -276,10 +274,11 @@
 
 &lt;p&gt;或者可以修改整个目录&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-sb&quot;&gt;$ babel src -d lib
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;babel src -d lib
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;npmbabel-cli&quot;&gt;使用npm配置babel-cli&lt;/h3&gt;
+&lt;h3 id=&quot;使用npm配置babel-cli&quot;&gt;使用npm配置babel-cli&lt;/h3&gt;
 
 &lt;p&gt;首先初始化项目&lt;/p&gt;
 
@@ -295,12 +294,10 @@
 
 &lt;p&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;中添加scripts命令&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel src -d lib&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -313,7 +310,7 @@
 
 &lt;p&gt;安装完成后，创建&lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt;文件，添加如下参数&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -329,11 +326,11 @@
 
 &lt;p&gt;随后即可编译ES6版本的React啦。&lt;/p&gt;
 
-&lt;h2 id=&quot;tornado&quot;&gt;Tornado数据处理&lt;/h2&gt;
+&lt;h2 id=&quot;tornado数据处理&quot;&gt;Tornado数据处理&lt;/h2&gt;
 
 &lt;p&gt;一般来说，Tornado的数据是通过render_string方法，但是render_string会将函数的参数全部转为字符串，假如我们得到的数据是new_list，则在html的js中，需要如下所写&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -341,7 +338,7 @@
 
 &lt;p&gt;如果数据是调用get或post接口返回的数据，则要求在接口输出数据的时候格式为json，假设调用接口返回的是send_line函数，则需要如下写接口&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}):&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}):&lt;/span&gt;
     &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Content-Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/json; charset=UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;finish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -350,13 +347,13 @@
 
 &lt;p&gt;随后将数据通过&lt;code class=&quot;highlighter-rouge&quot;&gt;send_line&lt;/code&gt;返回即可.&lt;/p&gt;
 
-&lt;h2 id=&quot;react&quot;&gt;React组件开发&lt;/h2&gt;
+&lt;h2 id=&quot;react组件开发&quot;&gt;React组件开发&lt;/h2&gt;
 
 &lt;h3 id=&quot;getinitialstate&quot;&gt;getInitialState&lt;/h3&gt;
 
 &lt;p&gt;该方法用于初始化&lt;code class=&quot;highlighter-rouge&quot;&gt;this.state&lt;/code&gt;的值，只在组件装在前调用一次。如果使用ES6语法，使用该方法会报错，需要在构造函数中初始化状态，比如&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kr&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;new_list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -368,9 +365,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;生命周期函数&lt;/h3&gt;
+&lt;h3 id=&quot;生命周期函数&quot;&gt;生命周期函数&lt;/h3&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;装载组件触发&lt;/h4&gt;
+&lt;h4 id=&quot;装载组件触发&quot;&gt;装载组件触发&lt;/h4&gt;
 
 &lt;h5 id=&quot;componentwillmount&quot;&gt;componentWillMount&lt;/h5&gt;
 
@@ -380,7 +377,7 @@
 
 &lt;p&gt;只会在装载完成之后调用一次，在&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;之后调用，从这里开始可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;ReactDOM.findDOMNode(this)&lt;/code&gt;获取到组件的DOM节点。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;更新组件触发&lt;/h4&gt;
+&lt;h4 id=&quot;更新组件触发&quot;&gt;更新组件触发&lt;/h4&gt;
 
 &lt;p&gt;这些方法不会再首次&lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt;组件的周期调用&lt;/p&gt;
 
@@ -391,22 +388,22 @@
   &lt;li&gt;componentDidUpdate&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;卸载组件触发&lt;/h4&gt;
+&lt;h4 id=&quot;卸载组件触发&quot;&gt;卸载组件触发&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;componentWillUnmount&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;循环插入子元素&lt;/h3&gt;
+&lt;h3 id=&quot;循环插入子元素&quot;&gt;循环插入子元素&lt;/h3&gt;
 
-&lt;p&gt;如果组件中包含通过循环插入的子元素，为了保证重新渲染UI的时候能够正确显示这些子元素，每个元素都需要通过一个特定的key属性指定一个唯一值。具体原因是因为&lt;br /&gt;
+&lt;p&gt;如果组件中包含通过循环插入的子元素，为了保证重新渲染UI的时候能够正确显示这些子元素，每个元素都需要通过一个特定的key属性指定一个唯一值。具体原因是因为
 Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github.io/react/docs/reconciliation.html&quot;&gt;React官方文档&lt;/a&gt;，由于mongoDB的所有数据都有一个特定的id，因此正好可以使用，看下面的例子&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Posts&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Posts&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onePost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;_id&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -419,11 +416,11 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;组件间的通信&lt;/h3&gt;
+&lt;h3 id=&quot;组件间的通信&quot;&gt;组件间的通信&lt;/h3&gt;
 
 &lt;p&gt;一般来说，父子间的组件是易于维护的模式，所以一般将组件封装到大的组件里，而父子组件间的通信则比较容易，比如在父组件给子组件设置props，然后子组件就可以通过props访问到父组件的数据及方法。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Refresh&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Refresh&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kr&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -451,8 +448,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;handleRefresh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ajax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;your-url&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;GET&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'your-url'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'GET'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
@@ -477,8 +474,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -491,29 +488,29 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
     
       <item>
         <title>使用Compass开发移动页面</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;安装Compass&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass配置文件注意事项&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Compass开发移动页面&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;安装&lt;/h2&gt;
+&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
 
-&lt;h3 id=&quot;ruby&quot;&gt;安装Ruby&lt;/h3&gt;
+&lt;h3 id=&quot;安装ruby&quot;&gt;安装Ruby&lt;/h3&gt;
 
 &lt;p&gt;安装Ruby就不在这边赘述了，请参考官方文档：&lt;a href=&quot;https://www.ruby-lang.org/zh_cn/documentation/installation/&quot;&gt;安装Ruby&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;compass&quot;&gt;安装Compass&lt;/h3&gt;
+&lt;h3 id=&quot;安装compass&quot;&gt;安装Compass&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gem update --system
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gem update --system
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gem install compass
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;compass-1&quot;&gt;创建Compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;创建compass项目&quot;&gt;创建Compass项目&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;compass create &amp;lt;myproject&amp;gt;
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;compass create &amp;lt;myproject&amp;gt;
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myproject
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -531,19 +528,19 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;其中config.rb就是项目的配置文件，配置文件中包含。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-2&quot;&gt;编译compass项目&lt;/h3&gt;
+&lt;h3 id=&quot;编译compass项目&quot;&gt;编译compass项目&lt;/h3&gt;
 
 &lt;p&gt;compass的编译命令为&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;compass compile
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;compass compile
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;配置文件注意事项&lt;/h2&gt;
+&lt;h2 id=&quot;配置文件注意事项&quot;&gt;配置文件注意事项&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;配置文件注释问题&lt;/h3&gt;
+&lt;h3 id=&quot;配置文件注释问题&quot;&gt;配置文件注释问题&lt;/h3&gt;
 
 &lt;p&gt;一般来说，编译后的css文件是默认有注释的，可以在配置文件中添加如下内容来取消注释&lt;/p&gt;
 
@@ -553,23 +550,23 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;这样的话就能取消注释，大大缩小css文件的大小。&lt;/p&gt;
 
-&lt;h3 id=&quot;compass-3&quot;&gt;compass无法编译中文&lt;/h3&gt;
+&lt;h3 id=&quot;compass无法编译中文&quot;&gt;compass无法编译中文&lt;/h3&gt;
 
 &lt;p&gt;开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Encoding.default_external = &#39;utf-8&#39;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Encoding.default_external = 'utf-8'
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;同时，在你的scss文件加入&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@charset &#39;utf-8&#39;;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@charset 'utf-8';
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;这样compass就可以编译中文了。&lt;/p&gt;
 
-&lt;h3 id=&quot;css&quot;&gt;生产环境自动压缩css文件&lt;/h3&gt;
+&lt;h3 id=&quot;生产环境自动压缩css文件&quot;&gt;生产环境自动压缩css文件&lt;/h3&gt;
 
 &lt;p&gt;默认编译的css文件是不压缩的，但是我们发布的时候为了节省资源，css文件都需要压缩，可以在配置文件中加入如下内容&lt;/p&gt;
 
@@ -583,22 +580,22 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;开发移动页面&lt;/h2&gt;
+&lt;h2 id=&quot;开发移动页面&quot;&gt;开发移动页面&lt;/h2&gt;
 
-&lt;h3 id=&quot;rem&quot;&gt;使用rem适配移动端&lt;/h3&gt;
+&lt;h3 id=&quot;使用rem适配移动端&quot;&gt;使用rem适配移动端&lt;/h3&gt;
 
 &lt;p&gt;Amfe阿里无线前端团队双11技术连载分享中提到了&lt;a href=&quot;https://github.com/amfe/article/issues/17&quot;&gt;手淘H5页面是如何实现多终端匹配&lt;/a&gt;，本文主要是在他们的基础上进行。&lt;/p&gt;
 
-&lt;p&gt;rem的原理是根据html根元素的font-size值对元素进行大小设置，一般的根元素即为&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;，比如在根元素设定font-size = 75px，&lt;br /&gt;
+&lt;p&gt;rem的原理是根据html根元素的font-size值对元素进行大小设置，一般的根元素即为&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;，比如在根元素设定font-size = 75px，
 那么1rem的代表的长度为1 * 75px。&lt;/p&gt;
 
-&lt;h3 id=&quot;compasspxrem&quot;&gt;使用Compass转换px，rem&lt;/h3&gt;
+&lt;h3 id=&quot;使用compass转换pxrem&quot;&gt;使用Compass转换px，rem&lt;/h3&gt;
 
 &lt;p&gt;由于rem是写在css里面的，但是设计稿一般给的是px，所以需要将px转化为rem，如果你使用的是sublime text，有一个&lt;a href=&quot;https://github.com/flashlizi/cssrem&quot;&gt;cssrem&lt;/a&gt;插件可以供你使用，但是仍然需要每次输入px再按键转化为rem。&lt;/p&gt;
 
 &lt;p&gt;使用Compass我们可以利用函数来转化&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$originWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;750px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$originWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;750px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;//设计稿的宽度
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pxToRem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;@return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ClientWidth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -608,7 +605,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;再按如下方式使用&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pxToRem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;750px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -616,7 +613,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;这样就得到一个宽度为10rem(整个屏幕)的div了。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;高清屏下面字体大小设置&lt;/h3&gt;
+&lt;h3 id=&quot;高清屏下面字体大小设置&quot;&gt;高清屏下面字体大小设置&lt;/h3&gt;
 
 &lt;p&gt;设备像素比简称为dpr，定义了物理像素和设备独立响度的关系。它的值可以按下面的公式计算得到：&lt;/p&gt;
 
@@ -626,7 +623,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;看下图可以明确解释dpr&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/img/dpr.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin:auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-hbs highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/img/dpr.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin:auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -634,7 +631,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;屏幕增大之后，页面元素也会随之增大，但是有些比如段落文字的内容我们并不想增大，这时候不适合用rem作为字体单位，我们还是使用px，可以用如下@mixin来解决：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@mixin&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;font-dpr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@mixin&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;font-dpr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;data-dpr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$font-size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -651,8 +648,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
+        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -671,7 +668,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 &lt;p&gt;如果想在控制台检查输出的结果，只要将要输出的信息添加上以上代码就可以了！&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;abc.decode(&#39;utf-8&#39;)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;abc.decode('utf-8')
 #abc为你获取到的数据
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -679,8 +676,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
 </description>
         <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
+        <link>http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</guid>
         
         <category>技术</category>
         
@@ -699,18 +696,18 @@ var context = canvas[0].getContext(&quot;2d&quot;);
 var inter;  //循环变量
 var e;   //鼠标事件全局变量
 
-canvas.bind(&#39;touchstart&#39;, function(eve) {
+canvas.bind('touchstart', function(eve) {
     e = eve;
     inter = setInterval(function() {
         interFun(e);
     }, 50)
 })
    	
-canvas.bind(&#39;touchmove&#39;, function(eve) {
+canvas.bind('touchmove', function(eve) {
     e = eve;
 })
 
-canvas.bind(&#39;touchend&#39;, function(eve) {
+canvas.bind('touchend', function(eve) {
     console.log(e.originalEvent.touches.length);
     clearInterval(inter);
 })
@@ -735,8 +732,8 @@ function interFun(e) {
 
 &lt;p&gt;其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent&quot;&gt;MDN TouchEvent&lt;/a&gt;的文档&lt;/p&gt;
 
-&lt;h4 id=&quot;targettouchestouchstart&quot;&gt;targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。&lt;/h4&gt;
-&lt;p&gt;#### touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。&lt;/p&gt;
+&lt;h4 id=&quot;targettouches代表一个仍与屏幕有接触的对象它与touchstart事件触发的元素是相同元素&quot;&gt;targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。&lt;/h4&gt;
+&lt;h4 id=&quot;touches代表所有与屏幕有接触的触摸对象无论目标元素或者状态有无变化&quot;&gt;touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。&lt;/h4&gt;
 
 &lt;p&gt;同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。&lt;/p&gt;
 
@@ -782,8 +779,8 @@ function interFun(e) {
 
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
-        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
+        <link>http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</guid>
         
         <category>前端</category>
         
@@ -796,13 +793,13 @@ function interFun(e) {
     
       <item>
         <title>Ruby RVM is not working with ZSH</title>
-        <description>&lt;h2 id=&quot;zshruby-gem&quot;&gt;安装ZSH后RUBY GEM无法工作&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;安装zsh后ruby-gem无法工作&quot;&gt;安装ZSH后RUBY GEM无法工作&lt;/h2&gt;
 
 &lt;p&gt;最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs&#39;: 
-Could not find &#39;jekyll&#39; (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
-Checked in &#39;GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0&#39;, execute `gem env` for more information
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': 
+Could not find 'jekyll' (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
+Checked in 'GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0', execute `gem env` for more information
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -815,7 +812,7 @@ https://github.com/rvm/rvm/issues/3212
 
 &lt;p&gt;他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到&lt;a href=&quot;https://github.com/rvm/rvm/issues/3212&quot;&gt;https://github.com/rvm/rvm/issues/3212&lt;/a&gt;上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，&lt;a href=&quot;https://rvm.io/rubies/default&quot;&gt;https://rvm.io/rubies/default&lt;/a&gt;有直接的解决方法：&lt;/p&gt;
 
-&lt;h3 id=&quot;ruby&quot;&gt;使用特定版本的ruby：&lt;/h3&gt;
+&lt;h3 id=&quot;使用特定版本的ruby&quot;&gt;使用特定版本的ruby：&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm --default use 2.2.3
 # 把2.1.1替换为你已经安装过的ruby版本
@@ -825,7 +822,7 @@ $ ruby -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;ruby-1&quot;&gt;使用你的系统版本ruby：&lt;/h3&gt;
+&lt;h3 id=&quot;使用你的系统版本ruby&quot;&gt;使用你的系统版本ruby：&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm use system
 
@@ -834,7 +831,7 @@ $ ruby -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;ruby-2&quot;&gt;使用你设置的默认版本ruby&lt;/h3&gt;
+&lt;h3 id=&quot;使用你设置的默认版本ruby&quot;&gt;使用你设置的默认版本ruby&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm default
 
@@ -843,7 +840,7 @@ $ ruby -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;ruby-3&quot;&gt;显示你现在设置的默认版本ruby&lt;/h3&gt;
+&lt;h3 id=&quot;显示你现在设置的默认版本ruby&quot;&gt;显示你现在设置的默认版本ruby&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm list
 
@@ -870,8 +867,8 @@ ruby-2.2.1 [ x86_64 ]
 
 </description>
         <pubDate>Sat, 23 Apr 2016 00:00:00 +0800</pubDate>
-        <link>/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
-        <guid isPermaLink="true">/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
+        <link>http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
         
         <category>RVM</category>
         
@@ -882,14 +879,14 @@ ruby-2.2.1 [ x86_64 ]
     
       <item>
         <title>CSS3新增伪类</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;结构型伪类&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;目标型伪类&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;UI元素状态型伪类&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;结构型伪类&lt;/h2&gt;
+&lt;h2 id=&quot;结构型伪类&quot;&gt;结构型伪类&lt;/h2&gt;
 
 &lt;h3 id=&quot;root&quot;&gt;:root&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:root {
@@ -1047,7 +1044,7 @@ ul#genre li:nth-of-type(3) {
 
 &lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;nth-last-child&lt;/code&gt;类似，&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type()&lt;/code&gt;从被选中的元素的末尾开始，向前计数。&lt;/p&gt;
 
-&lt;h3 id=&quot;first-of-typelast-of-type&quot;&gt;:FIRST-OF-TYPE与:LAST-OF-TYPE&lt;/h3&gt;
+&lt;h3 id=&quot;first-of-type与last-of-type&quot;&gt;:FIRST-OF-TYPE与:LAST-OF-TYPE&lt;/h3&gt;
 
 &lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-of-type()&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type&lt;/code&gt;对你来说太精确了，你可以一些简化的选择器，比如，我们可以用&lt;/p&gt;
 
@@ -1109,7 +1106,7 @@ li:last-child  {
 
 &lt;p&gt;你可以在一个空的搜索框上使用这样的代码来吸引用户的注意。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;目标型伪类&lt;/h2&gt;
+&lt;h2 id=&quot;目标型伪类&quot;&gt;目标型伪类&lt;/h2&gt;
 
 &lt;h3 id=&quot;target&quot;&gt;:TARGET&lt;/h3&gt;
 
@@ -1129,9 +1126,9 @@ li:last-child  {
 
 &lt;p&gt;这对于页面上的从外部内容链接过来的元素是很有效的。你也可以用它来标记一些内部的锚点。&lt;/p&gt;
 
-&lt;h2 id=&quot;ui&quot;&gt;UI元素状态型伪类&lt;/h2&gt;
+&lt;h2 id=&quot;ui元素状态型伪类&quot;&gt;UI元素状态型伪类&lt;/h2&gt;
 
-&lt;h3 id=&quot;enableddisabled&quot;&gt;:ENABLED和:DISABLED&lt;/h3&gt;
+&lt;h3 id=&quot;enabled和disabled&quot;&gt;:ENABLED和:DISABLED&lt;/h3&gt;
 
 &lt;p&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;:enabled&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:disabled&lt;/code&gt;组成了三种UI元素状态型伪类。他们允许你根据他们的状态来对元素进行样式渲染，用户或开发者设计设置他们的状态来显示样式，比如：&lt;/p&gt;
 
@@ -1157,7 +1154,7 @@ input:disabled {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-3&quot;&gt;否定伪类&lt;/h2&gt;
+&lt;h2 id=&quot;否定伪类&quot;&gt;否定伪类&lt;/h2&gt;
 
 &lt;h3 id=&quot;not&quot;&gt;:NOT&lt;/h3&gt;
 
@@ -1169,15 +1166,15 @@ input:disabled {
 
 &lt;p&gt;它选择了页面上所有元素，除了页脚。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-4&quot;&gt;一些思考&lt;/h2&gt;
+&lt;h2 id=&quot;一些思考&quot;&gt;一些思考&lt;/h2&gt;
 
 &lt;p&gt;CSS3伪类选择器并不会占据样式表里大块大块的代码，他们是精确的，动态的，并且更可能添加页面的最后触碰，而不是设置一个整体的样式。可能你想要放弃一个列表的底部边框，或者在用户填表时给用户视觉反馈，&lt;strong&gt;这对于CSS3来说是完全可能的&lt;/strong&gt;，在他的用途变得主流时，我期望它成为网页设置及们的常用工具。&lt;/p&gt;
 
 &lt;p&gt;如果你看到这些选择器的有趣的、精彩的用途，希望在下面的留言板中给我留言！&lt;/p&gt;
 </description>
         <pubDate>Fri, 22 Apr 2016 00:00:00 +0800</pubDate>
-        <link>/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
-        <guid isPermaLink="true">/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
+        <link>http://localhost:4000/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
         
         <category>HTML</category>
         
@@ -1190,40 +1187,40 @@ input:disabled {
     
       <item>
         <title>前端问题小结</title>
-        <description>&lt;h3 id=&quot;title&quot;&gt;微信修改网页title，如何保证分享结果？&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;微信修改网页title如何保证分享结果&quot;&gt;微信修改网页title，如何保证分享结果？&lt;/h3&gt;
 
-&lt;h4 id=&quot;js-sdk&quot;&gt;1.使用微信的JS-SDK&lt;/h4&gt;
+&lt;h4 id=&quot;1使用微信的js-sdk&quot;&gt;1.使用微信的JS-SDK&lt;/h4&gt;
 
-&lt;h4 id=&quot;jstitle&quot;&gt;2.黑魔法：利用js修改微信title&lt;/h4&gt;
+&lt;h4 id=&quot;2黑魔法利用js修改微信title&quot;&gt;2.黑魔法：利用js修改微信title&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//需要jQuery
-var $body = $(&#39;body&#39;);
-document.title = &#39;title&#39;;
+var $body = $('body');
+document.title = 'title';
 // hack在微信等webview中无法修改document.title的情况
-var $iframe = $(&#39;&amp;lt;iframe src=&quot;/favicon.ico&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&#39;);
-$iframe.on(&#39;load&#39;,function() {
+var $iframe = $('&amp;lt;iframe src=&quot;/favicon.ico&quot;&amp;gt;&amp;lt;/iframe&amp;gt;');
+$iframe.on('load',function() {
 	setTimeout(function() {
-		$iframe.off(&#39;load&#39;).remove();
+		$iframe.off('load').remove();
 		}, 0);
 	}).appendTo($body);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;javascript&quot;&gt;Javascript中本地对象、内置对象和宿主对象&lt;/h3&gt;
+&lt;h3 id=&quot;javascript中本地对象内置对象和宿主对象&quot;&gt;Javascript中本地对象、内置对象和宿主对象&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;本地对象，就是那些官方定义好了的对象。内置对象是本地对象的一种，其只包含Global对象和Math对象。而宿主对象则是那些官方未定义，你自己构建的对象加上DOM和BOM对象组成的。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;如何优化页面加载速度&lt;/h3&gt;
+&lt;h3 id=&quot;如何优化页面加载速度&quot;&gt;如何优化页面加载速度&lt;/h3&gt;
 
 &lt;p&gt;减少 HTTP 访问次数、CDN、minify、服务器增加缓存、CSS 放前面 JS 放后面、图片压缩、CSS Sprite。&lt;/p&gt;
 
-&lt;h3 id=&quot;javascript-1&quot;&gt;读过那些Javascript的书？&lt;/h3&gt;
+&lt;h3 id=&quot;读过那些javascript的书&quot;&gt;读过那些Javascript的书？&lt;/h3&gt;
 
 &lt;p&gt;《JavaScript高级程序设计》、《Javascript权威指南》、《Good parts of Javascript》&lt;/p&gt;
 
-&lt;h3 id=&quot;ajax&quot;&gt;AJAX获取数据的两个方式及他们的区别？&lt;/h3&gt;
+&lt;h3 id=&quot;ajax获取数据的两个方式及他们的区别&quot;&gt;AJAX获取数据的两个方式及他们的区别？&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。当然在Ajax请求中，这种区别对用户是不可见的。&lt;/li&gt;
@@ -1232,7 +1229,7 @@ $iframe.on(&#39;load&#39;,function() {
   &lt;li&gt;GET方式和POST方式传递的数据在服务器端的获取也不相同。在PHP中，GET方式的数据可以用$_GET[]获取，而POST方式可以用$_POST[]获取。两种方式都可以用$_REQUEST[]来获取。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;bootstrap-23&quot;&gt;BOOTSTRAP 2、3的区别&lt;/h3&gt;
+&lt;h3 id=&quot;bootstrap-23的区别&quot;&gt;BOOTSTRAP 2、3的区别&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;3以移动优先；&lt;/li&gt;
@@ -1242,8 +1239,8 @@ $iframe.on(&#39;load&#39;,function() {
 
 </description>
         <pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
-        <link>/2016/03/17/Some-Thinking-About-Myself.html</link>
-        <guid isPermaLink="true">/2016/03/17/Some-Thinking-About-Myself.html</guid>
+        <link>http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html</guid>
         
         <category>前端</category>
         
@@ -1256,7 +1253,7 @@ $iframe.on(&#39;load&#39;,function() {
     
       <item>
         <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;目录&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#angular-20&quot;&gt;ANGULAR&lt;/a&gt;&lt;/li&gt;
@@ -1280,7 +1277,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;虽然已经避开了中途死亡，许多现在创造出来的项目仍然使用1.x版本，准备在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;在2.0版本中你应该期待什么？&lt;/h3&gt;
+&lt;h3 id=&quot;在20版本中你应该期待什么&quot;&gt;在2.0版本中你应该期待什么？&lt;/h3&gt;
 
 &lt;p&gt;你可以期待许多。这个框架到目前为止正在经历最大的版本变化。&lt;/p&gt;
 
@@ -1296,23 +1293,23 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;这些改变对于Angular来说是巨大的，使用1.x版本来构建他们会十分困难。我们来详细看看这些改变以及他们对于这个框架的意义。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-2&quot;&gt;性能&lt;/h4&gt;
+&lt;h4 id=&quot;性能&quot;&gt;性能&lt;/h4&gt;
 
 &lt;p&gt;提升性能是所有人希望的Angular的下一版本中的重要项目之一，如果你已经对Angular足够熟悉，那么你可以开始让一个app缓慢开启。总有一种方法是可以弥补性能问题的，但这个框架并不会让你避免搬石砸脚。&lt;/p&gt;
 
 &lt;p&gt;Angular在脏检测中阻碍了自己的性能。在每个监测循环中，这个框架检测了你的app中成百上千个值的改变。Angular的新模型接受了React推广的一个实践，单向数据传输和不可变的数据。通过接受这些，Angular现在只在数据改变之后更新。检测改变只会快速检测一个对象而不是所有变量。&lt;/p&gt;
 
-&lt;h4 id=&quot;app&quot;&gt;原生app&lt;/h4&gt;
+&lt;h4 id=&quot;原生app&quot;&gt;原生app&lt;/h4&gt;
 
 &lt;p&gt;使用Angular创建原生app对于2.0来说是它发展历程上一个重要的提升。Angular团队和React团队曾经对于这个问题进行过讨论。尽管他们构建2.0的原生app时背后的渲染仍然使用React的原生渲染，允许他肩负了这项技术。这将引领一个混合app的新时代，它看起来像是原生的，但是却有跨平台的共通逻辑。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;服务器端渲染&lt;/h4&gt;
+&lt;h4 id=&quot;服务器端渲染&quot;&gt;服务器端渲染&lt;/h4&gt;
 
 &lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了原始页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
+&lt;h4 id=&quot;谁应该使用angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
 
 &lt;p&gt;Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SproutCore有巨大差异一样。&lt;/p&gt;
 
@@ -1326,7 +1323,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎。2.0版本他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。&lt;/p&gt;
 
-&lt;h3 id=&quot;x&quot;&gt;2.x版本将会带来什么？&lt;/h3&gt;
+&lt;h3 id=&quot;2x版本将会带来什么&quot;&gt;2.x版本将会带来什么？&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;更加兼容诸如modules、classes、decorators之类的ES2015特性；&lt;/li&gt;
@@ -1338,7 +1335,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;&lt;img src=&quot;/img/ember-2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;ember&quot;&gt;谁应使用Ember？&lt;/h3&gt;
+&lt;h3 id=&quot;谁应使用ember&quot;&gt;谁应使用Ember？&lt;/h3&gt;
 
 &lt;p&gt;Ember对于创建web app是一个方便的选择。如之前提到的一样，许多有雄心的app使用这个框架来搭建。特别是Ruby社区，对于Ruby商店来说，Ember是一个很棒的选择。许多文档、文章和博客都是通过这两种技术的结合来搭建的，&lt;a href=&quot;http://smashingboxes.com/blog/merging-rails-and-ember-cli&quot;&gt;这里是如何结合Rails和Ember的实例&lt;/a&gt;。&lt;/p&gt;
 
@@ -1356,7 +1353,7 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;React仍然在不断创新，最引人注意的是React Native。Facebook在移动端平台上有很快速的原生app。之前它们就开源了React Native的Andriod平台。这对于想要做原生app的人来说是一个不错的选择。&lt;/p&gt;
 
-&lt;h3 id=&quot;react-10-1&quot;&gt;React 1.0的发布的主要目标是什么？&lt;/h3&gt;
+&lt;h3 id=&quot;react-10的发布的主要目标是什么&quot;&gt;React 1.0的发布的主要目标是什么？&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;项目网站修改&lt;/li&gt;
@@ -1366,13 +1363,13 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;&lt;img src=&quot;/img/react-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;react&quot;&gt;谁应使用React？&lt;/h3&gt;
+&lt;h3 id=&quot;谁应使用react&quot;&gt;谁应使用React？&lt;/h3&gt;
 
 &lt;p&gt;React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前会变得琐碎。&lt;/p&gt;
 
 &lt;p&gt;React在过去几年中成为了客户端MVC发展的领导力量，其他框架都成为了React可以做的事情的追赶者。React基本都是通过ES2015规范写成的，领先于许多浏览器支持。如果你想走在前端或利用简单框架，React是你的正确选择。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;三者相比&lt;/h3&gt;
+&lt;h3 id=&quot;三者相比&quot;&gt;三者相比&lt;/h3&gt;
 
 &lt;p&gt;首先，这些框架看起来似乎在趋同。尽管他们有独特的特性，许多最佳的观点在三者中是一样的。比如单向数据流，另外，像XML一样的部件很快将在三者中存在。&lt;/p&gt;
 
@@ -1386,15 +1383,15 @@ $iframe.on(&#39;load&#39;,function() {
 
 &lt;p&gt;&lt;img src=&quot;/img/wins.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;谁赢了？&lt;/h3&gt;
+&lt;h3 id=&quot;谁赢了&quot;&gt;谁赢了？&lt;/h3&gt;
 
 &lt;p&gt;我们很容易知晓为什么这三个框架如此流行。他们都有许多优势。因此，我建议多用用他们。他们之间并没有明显的胜者。在特定的情况下用特定的框架。即时没有别的，学习所有的三种框架会帮你写更好的代码。&lt;/p&gt;
 
 &lt;p&gt;说了这么多，这三个框架都是很有未来的，这些框架的下一代会更加闪耀，并且支持服务器端渲染，Angular和React会支持iOS和Andriod的原生UI控件。通过这些控件，我们能比过去做更多的事。&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
-        <link>/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
-        <guid isPermaLink="true">/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
+        <link>http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
         
         <category>前端</category>
         
@@ -1407,9 +1404,9 @@ $iframe.on(&#39;load&#39;,function() {
     
       <item>
         <title>Front-End Development Notes</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;一些小笔记&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;一些小笔记&quot;&gt;一些小笔记&lt;/h3&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;目录&lt;/h3&gt;
+&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;undefined is not a function &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;transition in safari and firefox is ignored in inline elements.&lt;/a&gt;&lt;/li&gt;
@@ -1417,13 +1414,13 @@ $iframe.on(&#39;load&#39;,function() {
   &lt;li&gt;&lt;a href=&quot;#section-4&quot;&gt;ruby rails unable to load fontawesome &lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;##Undefined is not a function&lt;br /&gt;
-Sometimes when you use $(document).ready(function() {})&lt;br /&gt;
-An error occurs.&lt;br /&gt;
-It is a collision of jQuery library.&lt;br /&gt;
-TURN&lt;br /&gt;
-  $(document).ready(function() { })&lt;br /&gt;
-into&lt;br /&gt;
+&lt;p&gt;##Undefined is not a function
+Sometimes when you use $(document).ready(function() {})
+An error occurs.
+It is a collision of jQuery library.
+TURN
+  $(document).ready(function() { })
+into
 jQuery(function($)) {  }&lt;/p&gt;
 
 &lt;h2 id=&quot;css3-transition-in-safari-and-firefox-is-ignored-in-inline-elements&quot;&gt;CSS3 transition in safari and firefox is ignored in inline elements.&lt;/h2&gt;
@@ -1433,16 +1430,16 @@ jQuery(function($)) {  }&lt;/p&gt;
 &lt;p&gt;Document.body won’t get a value assigned to it until the body element has been created.&lt;/p&gt;
 
 &lt;h2 id=&quot;ruby-rails-unable-to-load-fontawesome&quot;&gt;ruby rails unable to load fontawesome&lt;/h2&gt;
-&lt;p&gt;Ruby rails loads fontawesome path needs to add ‘config.assets.paths « Rails.root.join(‘app’,’assets’) ‘ to the application.rb.&lt;br /&gt;
-Change  font-awesome.min.css to font awesome.min.css.scss.rb&lt;br /&gt;
-Change the url in the fontawesomw.css.scss.erb to ‘&amp;lt;%= asset_path(“font/fontawesome-webfont.eot”) + “?v=3.2.1” %&amp;gt;’&lt;br /&gt;
-Besides, you need to restart rails server.&lt;br /&gt;
+&lt;p&gt;Ruby rails loads fontawesome path needs to add ‘config.assets.paths « Rails.root.join(‘app’,’assets’) ‘ to the application.rb.
+Change  font-awesome.min.css to font awesome.min.css.scss.rb
+Change the url in the fontawesomw.css.scss.erb to ‘&amp;lt;%= asset_path(“font/fontawesome-webfont.eot”) + “?v=3.2.1” %&amp;gt;’
+Besides, you need to restart rails server.
 &lt;!-- ##郁闷的感情历程 --&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 30 Jan 2016 00:00:00 +0800</pubDate>
-        <link>/2016/01/30/Small-notes.html</link>
-        <guid isPermaLink="true">/2016/01/30/Small-notes.html</guid>
+        <link>http://localhost:4000/2016/01/30/Small-notes.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/01/30/Small-notes.html</guid>
         
         <category>技术</category>
         

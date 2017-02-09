@@ -47,7 +47,7 @@ $ babel index.js -o compiled.js
 
 或者可以修改整个目录
 
-```sb
+```zsh
 $ babel src -d lib
 ```
 
@@ -70,11 +70,9 @@ $ npm install --save-dev babel-cli
 
 ```json
 {
-    //  ...
     "scripts": {
         "build": "babel src -d lib"
     }
-    //  ...
 }
 ```
 
