@@ -88,7 +88,7 @@ React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不
 
 首先安装如下npm包
 
-    npm i babel-loader babel-preset-es-2015 babel-preset-react -S
+    npm i babel-loader babel-preset-es2015 babel-preset-react -S
 
 <i>babel-preset-es2015</i>用于翻译ES6，<i>babel-preset-react</i>则用于翻译JSX语法。与webpack一样，<i>babel-loader</i>也需要配置文件，这边我们需要告诉他使用ES6，JSX插件。
 
