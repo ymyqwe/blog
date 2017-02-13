@@ -8,9 +8,9 @@ header-img: "img/dolphins.jpg"
 tags:      React Socket.io Express 技术 
 ---
 
-对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让繁琐的jQuery繁琐的DOM操作性能提升了不少，因此也坚定了我转向React的决心。
+对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让jQuery繁琐的DOM操作提升了不少性能，因此也坚定了我转向React的决心。
 
-从前的实时刷新页面从来都是长连接或者轮询，自从接触到了websocket，实时通讯变得更优雅、更简单了。
+从前的实时刷新页面从来都是长连接或者轮询，这多少有点愚蠢，自从接触到了websocket，实时通讯变得更优雅、更简单了。
 
 本文介绍了Socket.io结合React开发的一个简易聊天室。
 
