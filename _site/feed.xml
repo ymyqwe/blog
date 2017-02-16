@@ -5,15 +5,217 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 13 Feb 2017 23:06:38 +0800</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 23:06:38 +0800</lastBuildDate>
+    <pubDate>Thu, 16 Feb 2017 23:55:05 +0800</pubDate>
+    <lastBuildDate>Thu, 16 Feb 2017 23:55:05 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>使用React, Socket.io和Express开发一个简易聊天室</title>
-        <description>&lt;p&gt;对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让繁琐的jQuery繁琐的DOM操作性能提升了不少，因此也坚定了我转向React的决心。&lt;/p&gt;
+        <title>从零开始搭建一个Linux云服务器</title>
+        <description>&lt;p&gt;最近在腾讯云上买了个服务器，准备捣鼓一些自己的项目，由于之前都是用别人现成的环境，因此如何配置一个适合自己的Linux服务器又是一个问题，现学现卖，把自己配置的过程记下来。&lt;/p&gt;
 
-&lt;p&gt;从前的实时刷新页面从来都是长连接或者轮询，自从接触到了websocket，实时通讯变得更优雅、更简单了。&lt;/p&gt;
+&lt;p&gt;不过本人也是Linux新手，所以这份教程也只是野路子，欢迎批评指点。&lt;/p&gt;
+
+&lt;h3 id=&quot;配置环境&quot;&gt;配置环境&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;本机系统：macOS Sierra v10.12.1&lt;/li&gt;
+  &lt;li&gt;服务器：腾讯云CentOS 7.2（64位）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#ssh&quot;&gt;无密码ssh登陆&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#git&quot;&gt;配置git&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;配置舒适的开发环境&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;结束语&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;无密码ssh登陆&quot;&gt;无密码ssh登陆&lt;/h2&gt;
+
+&lt;p&gt;首先，你购买之后云服务供应商会告诉你机器的账号的密码，然后直接&lt;/p&gt;
+
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中的account就是的云服务器账号，后面则是你服务器的ip地址。如果账号和密码都对的话你就应该成功登陆服务器了，但是每次都要输入密码，是不是很烦呀，这次我们就来配置一下密钥对，实现免密码登陆。&lt;/p&gt;
+
+&lt;h3 id=&quot;本地制作密钥对&quot;&gt;本地制作密钥对&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen -t rsa   &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成密钥对
+Generating public/private rsa key pair.    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成中
+Enter file &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;which to save the key&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/root/.ssh/id_rsa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 选择保存地址
+Created directory &lt;span class=&quot;s1&quot;&gt;'/root/.ssh'&lt;/span&gt;.  
+Enter passphrase &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;no passphrase&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 输入私钥密码（使用私钥的时候输入，可以为空）
+Enter same passphrase again:    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 再次输入私钥密码
+Your identification has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 私钥
+Your public key has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.pub.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 公钥
+The key fingerprint is:  
+7b:aa:08:a0:99:fc:d9:cc:d8:2e:4b:1a:c0:6b:da:e4your@local  
+The keys randomart image is:  
++--[ RSA 2048]----+  
+| |  
+| |  
+| |  
+|. |  
+|o. S |  
+|++. . |  
+|+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;o. . . |  
+|o+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oB. o |  
+|..E&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;... |  
++-----------------+  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;私钥一定要好好保护，丢失了会发生比你想象的更严重的事。&lt;/p&gt;
+
+&lt;h3 id=&quot;上传公钥到服务器&quot;&gt;上传公钥到服务器&lt;/h3&gt;
+
+&lt;p&gt;这里我们使用scp&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp ~/.ssh/id_rsa.pub account@your.server.ip:~/.ssh/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样我们就把公钥复制到服务器上了，随后我们在服务器上安装公钥，首先登陆并进入服务器的&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt;目录&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.ssh
+cat id_rsa.pub &amp;gt;&amp;gt; authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样公钥就在服务器上安装好了，但是我们还是要修改一下文件的权限，确保可以成功连接&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 600 authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;安装完之后，我们就可以不输入密码直接登陆服务器啦！&lt;/p&gt;
+
+&lt;h2 id=&quot;配置git&quot;&gt;配置git&lt;/h2&gt;
+
+&lt;p&gt;github作为最大的开源社区，上面当然有这无数的优秀开源项目，更何况是Javascript这种基本不需要配置的语言，所以配置一个git是必须的啦。&lt;/p&gt;
+
+&lt;p&gt;首先查看服务器上是否安装了git&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;command not found&lt;/code&gt;,那就赶紧安装git&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果你是基于Debian的系统，比如Ubuntu，那就试一下apt-get&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样git就安装完毕了，接下来是配置git，绑定账号（什么，你没有git账号？那还不赶紧去注册一个？&lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt;）&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &lt;span class=&quot;s2&quot;&gt;&quot;your name&quot;&lt;/span&gt;
+git config --global user.email &lt;span class=&quot;s2&quot;&gt;&quot;your email&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以上均填写你注册github时使用的信息，但是，访问git也是需要公钥的，否则就会出现&lt;code class=&quot;highlighter-rouge&quot;&gt;Permission denied (publickey).&lt;/code&gt;，随后我们就来添加公钥&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen -t rsa -C &lt;span class=&quot;s2&quot;&gt;&quot;your@github.account&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;后面的邮箱就是你的github账号，随后的步骤和上面制作密钥对差不多，这样我们的公钥就制作完了。&lt;/p&gt;
+
+&lt;p&gt;我们还需要把SSH key添加到ssh-agent中，&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot;&gt;参考这里&lt;/a&gt;，添加ssh密钥到ssh账户的时候要确保ssh-agent在运行，因此先执行如下命令&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# start the ssh-agent in the background if it's not already running&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ssh-agent -s&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+Agent pid 59566 &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 进程号
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;随后运行&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;添加到了ssh-agent之后，我们要在github中绑定公钥，复制&lt;code class=&quot;highlighter-rouge&quot;&gt;id_rsa.pub&lt;/code&gt;中的内容，前往github个人设置，随后点击&lt;i&gt;SSH and GPG keys&lt;/i&gt;，如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/github-setting.jpg&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击new ssh-key&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/new-key.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;title是你自己取的密钥名，key就把刚才复制的内容粘贴过来，粘贴完后点击&lt;i&gt;Add SSH key&lt;/i&gt;。&lt;/p&gt;
+
+&lt;p&gt;这样我们的git就配置完啦。在终端输入&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -T git@github.com
+Hi your-name! You&lt;span class=&quot;s1&quot;&gt;'ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置成功了！真棒！&lt;/p&gt;
+
+&lt;h2 id=&quot;配置舒适的开发环境&quot;&gt;配置舒适的开发环境&lt;/h2&gt;
+
+&lt;p&gt;接下来就是安装主要的开发环境了&lt;/p&gt;
+
+&lt;h3 id=&quot;zsh--oh-my-zsh&quot;&gt;zsh &amp;amp; oh-my-zsh&lt;/h3&gt;
+
+&lt;p&gt;从前的终端都是黑白的，自从有了zsh，一下子变得五颜六色（杀马特）起来，这正是我们非主流青年想要的！详情请看&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install zsh
+sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/oh-my-zsh.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;怎么样，是不是很棒！&lt;/p&gt;
+
+&lt;h3 id=&quot;tmux&quot;&gt;tmux&lt;/h3&gt;
+
+&lt;p&gt;tmux是一个终端复用软件，你可以在一个终端中打开多个会话多个窗格，并且可以保持状态，下次进入的时候依然打开这么多会话和窗格，对于终端界面实在是太方便了！他的界面如下，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tmux.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的操作指令可以见这篇&lt;a href=&quot;http://harttle.com/2015/11/06/tmux-startup.html&quot;&gt;博客&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;node--npm&quot;&gt;node &amp;amp; npm&lt;/h3&gt;
+
+&lt;p&gt;这想必就不用多做介绍了吧，如何安装在&lt;a href=&quot;https://nodejs.org/en/download/package-manager/&quot;&gt;这里&lt;/a&gt;，由于node比较大，所以安装会比较久一点。&lt;/p&gt;
+
+&lt;p&gt;而npm在国内是非常慢的，所以我用的是&lt;a href=&quot;https://npm.taobao.org/&quot;&gt;cnpm&lt;/a&gt;，它上面的包更新是几乎和npm同步的，所以除了指令是cnpm外，基本没有什么区别，但是速度可是差了好几百倍。&lt;/p&gt;
+
+&lt;h2 id=&quot;结束语&quot;&gt;结束语&lt;/h2&gt;
+
+&lt;p&gt;这样，我们的Linux环境基本就安装完啦！赶紧尽情享受Linux吧！&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        
+        <category>Linux</category>
+        
+        <category>云服务器</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用React, Socket.io和Express开发一个简易聊天室</title>
+        <description>&lt;p&gt;对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让jQuery繁琐的DOM操作提升了不少性能，因此也坚定了我转向React的决心。&lt;/p&gt;
+
+&lt;p&gt;从前的实时刷新页面从来都是长连接或者轮询，这多少有点愚蠢，自从接触到了websocket，实时通讯变得更优雅、更简单了。&lt;/p&gt;
 
 &lt;p&gt;本文介绍了Socket.io结合React开发的一个简易聊天室。&lt;/p&gt;
 
@@ -516,6 +718,12 @@ npm init
 &lt;h3 id=&quot;安装配置webpack&quot;&gt;安装、配置Webpack&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://webpack.github.io/docs/&quot;&gt;Webpack&lt;/a&gt;是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持&lt;a href=&quot;http://webpack.github.io/docs/loaders.html&quot;&gt;加载器&lt;/a&gt;，这对于React来说简直是一个完美的工具。&lt;/p&gt;
+
+&lt;p&gt;一般来说，我们会全局安装webpack，这样就可以在终端使用webpack指令&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install webpack --g
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;首先，进入项目文件，安装webpack(请先安装node、npm)&lt;/p&gt;
 
@@ -1730,157 +1938,6 @@ $iframe.on('load',function() {
         <pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html</link>
         <guid isPermaLink="true">http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html</guid>
-        
-        <category>前端</category>
-        
-        <category>技术</category>
-        
-        <category>翻译</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架</title>
-        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#angular-20&quot;&gt;ANGULAR&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#ember-20&quot;&gt;EMBER&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#react-10&quot;&gt;REACT&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;作为前端工程师，我们活在一个令人兴奋的时代。最大的三个框架都接近或已经有重大的更新。Ember不久前发布了可以轻易从老版本更新的2.0版本。React发布了0.14，而Angular 2.x也即将要大放异彩。&lt;/p&gt;
-
-&lt;p&gt;当然，现在还有许多其他客户端框架，也有一些在诸如Backbone和Knockout之类的正在衰败的库，也有一些新奇的、有趣的像Aurelia一样的新晋者，但是如今你决定要做一个web app， Angular、Ember、React是确保长效支持和活跃社区的最安全的选择。那么哪一个选择是最优的呢？让我们来分析下这些新的重要的更新带来的改变以及他们提供的优势。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/angular2.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;angular-20&quot;&gt;ANGULAR 2.0&lt;/h2&gt;
-
-&lt;p&gt;Angular是三个框架中最流行的。它是最早发布的MVC客户端框架，代表了客户端MVC框架从前一代的巨大提升。Angular走了一条务实的途径，与用户之间产生了共鸣。&lt;/p&gt;
-
-&lt;p&gt;但是这些都被Angular 2.0的出现危害了，Angular 2.0有点失败。不同于Ember，Angular的第二版本完全重建了这个框架。这意味着对每一段代码会产生巨大的变化。这意味着从1.x版本重构代码会很难，同时从老版本升级的路径会很难。&lt;/p&gt;
-
-&lt;p&gt;但是一个奇迹诞生了，Angular团队发明了允许项目同时使用Angular 1.x和2.0的方法，使版本更迭成为了一个渐进的过程。在我看来，这将Angular从特定的阻塞、对于挑战的恐惧和遗留的代码基础中解救出来。&lt;/p&gt;
-
-&lt;p&gt;虽然已经避开了中途死亡，许多现在创造出来的项目仍然使用1.x版本，准备在1.x被淘汰之后，计划逐渐接纳2.0版本。如果你愿意承担巨大的风险，并且不准备立即发布，尽管去使用新版本吧。&lt;/p&gt;
-
-&lt;h3 id=&quot;在20版本中你应该期待什么&quot;&gt;在2.0版本中你应该期待什么？&lt;/h3&gt;
-
-&lt;p&gt;你可以期待许多。这个框架到目前为止正在经历最大的版本变化。&lt;/p&gt;
-
-&lt;p&gt;Angular 2.0的开发侧重于移除该框架的不必要的复杂性。他们去除并且取代了directives、controllers、modules、scopes和几乎所有其他的1.x版本的概念。它充分保留了ES2015和ES2016的特性，并且将这个框架设计成更容易学习。&lt;/p&gt;
-
-&lt;p&gt;除了让框架更轻便，2.0版本还有一些其他的显著的目标：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;性能提升&lt;/li&gt;
-  &lt;li&gt;原生app支持&lt;/li&gt;
-  &lt;li&gt;服务器端渲染&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这些改变对于Angular来说是巨大的，使用1.x版本来构建他们会十分困难。我们来详细看看这些改变以及他们对于这个框架的意义。&lt;/p&gt;
-
-&lt;h4 id=&quot;性能&quot;&gt;性能&lt;/h4&gt;
-
-&lt;p&gt;提升性能是所有人希望的Angular的下一版本中的重要项目之一，如果你已经对Angular足够熟悉，那么你可以开始让一个app缓慢开启。总有一种方法是可以弥补性能问题的，但这个框架并不会让你避免搬石砸脚。&lt;/p&gt;
-
-&lt;p&gt;Angular在脏检测中阻碍了自己的性能。在每个监测循环中，这个框架检测了你的app中成百上千个值的改变。Angular的新模型接受了React推广的一个实践，单向数据传输和不可变的数据。通过接受这些，Angular现在只在数据改变之后更新。检测改变只会快速检测一个对象而不是所有变量。&lt;/p&gt;
-
-&lt;h4 id=&quot;原生app&quot;&gt;原生app&lt;/h4&gt;
-
-&lt;p&gt;使用Angular创建原生app对于2.0来说是它发展历程上一个重要的提升。Angular团队和React团队曾经对于这个问题进行过讨论。尽管他们构建2.0的原生app时背后的渲染仍然使用React的原生渲染，允许他肩负了这项技术。这将引领一个混合app的新时代，它看起来像是原生的，但是却有跨平台的共通逻辑。&lt;/p&gt;
-
-&lt;h4 id=&quot;服务器端渲染&quot;&gt;服务器端渲染&lt;/h4&gt;
-
-&lt;p&gt;Angular在服务器端的渲染是另一项被期待的功能。服务器端渲染加速了原始页面的加载次数，并且通过使动态页面易于加载提升了SEO。看到页面渲染加速将很大提升下一代使用Angular构建的web app的体验。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/angular2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;谁应该使用angular&quot;&gt;谁应该使用Angular？&lt;/h4&gt;
-
-&lt;p&gt;Angular很可能会以很长时间作为最流行的客户端框架，这使得任何人开始一个新项目时它会成为一个安全的选择。2.0代表了Angular从最初版本的一个巨大的改变。事实上，这样巨大的改变就如同Ember与SproutCore有巨大差异一样。&lt;/p&gt;
-
-&lt;p&gt;Angular 2.0是通过Typescript写的，这是一种微软添加了检查和其他增强的Javascript编程语言。事实上，最近关于它的社区中有一个民意投票，大部分开发者愿意使用Typescript。这以及一些其他的特性让我们有理由相信Angular仍将是大型企业愿意选择的框架。尽管如今开始使用2.0会有风险，但它的时代即将来临。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/ember 2.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;ember-20&quot;&gt;EMBER 2.0&lt;/h2&gt;
-
-&lt;p&gt;Ember把它自己定位为一个为了具有前景的项目定制的框架。Ember在工业界中由两位传奇的软件工程师引领，Yehuda Katz和Tom Dale。与其他在这里被讨论的框架不同，Ember并非由一个特大企业构建，尽管它有一个令人惊奇的、富有激情的、活跃的社区围绕着它。&lt;/p&gt;
-
-&lt;p&gt;在1.0版本之前，Ember由于它的多变的API变得繁荣。随后，Ember团队证明了可以在稍稍改变用户界面的情况下作出很大的潜在变化。他们采用了Glimmer这个高速渲染引擎。2.0版本他们移除了不能使用这个引擎的不利部分，因此使用Ember 2.x的app将会很快腾飞。&lt;/p&gt;
-
-&lt;h3 id=&quot;2x版本将会带来什么&quot;&gt;2.x版本将会带来什么？&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;更加兼容诸如modules、classes、decorators之类的ES2015特性；&lt;/li&gt;
-  &lt;li&gt;弃用Mustache，启用部件的支架语法；&lt;/li&gt;
-  &lt;li&gt;布局结构变为pods，而非通过功能分组的controllers、models、components等等，顶部结构将是特性分类的；&lt;/li&gt;
-  &lt;li&gt;由于路由部件，Controllers将被删除；&lt;/li&gt;
-  &lt;li&gt;服务器端渲染器的提升将帮助降低页面加载次数并帮助提升搜索引擎优化。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/ember-2-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;谁应使用ember&quot;&gt;谁应使用Ember？&lt;/h3&gt;
-
-&lt;p&gt;Ember对于创建web app是一个方便的选择。如之前提到的一样，许多有雄心的app使用这个框架来搭建。特别是Ruby社区，对于Ruby商店来说，Ember是一个很棒的选择。许多文档、文章和博客都是通过这两种技术的结合来搭建的，&lt;a href=&quot;http://smashingboxes.com/blog/merging-rails-and-ember-cli&quot;&gt;这里是如何结合Rails和Ember的实例&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;Ember对于那些那些包括所有工具的网站是一个最佳选择。我们通常会浪费很多时间在发现、搜索和整合类库上。Ember简化了这些流程，给你提供了惊人的价值。各种方法总有优势、劣势，但是那些希望所有东西都变得很好的人会喜欢Ember的。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/React 1.0.png&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;react-10&quot;&gt;REACT 1.0&lt;/h2&gt;
-
-&lt;p&gt;React是这里比较的三个框架中最轻的一个。实际上，它甚至不能被认为是一个框架。它做一件事做得特别好：渲染UI部件。许多人甚至会搭配使用之前提到的框架，但是更通常的方法是搭配使用Flux。&lt;/p&gt;
-
-&lt;p&gt;Flux在MVC层面上是一种不同的方案。与React其他生态系统一样，它仍然是一个只控制一种东西的库。这种情况下，它从模型界面上的改变呈现为视图界面上的改变。它仍然不包括其他特定的框架，比如与服务器交互、验证模型或者是依赖注入。如果你需要这些功能，会有其他的库来弥补它们。&lt;/p&gt;
-
-&lt;p&gt;Facebook为了保持它们页面的UI一致，创造了React。由于它在服务器端的渲染和优越的性能，它的出现引起了轩然大波。看到Angular和React在它们的新版本上不断竞争是很有趣的。&lt;/p&gt;
-
-&lt;p&gt;React仍然在不断创新，最引人注意的是React Native。Facebook在移动端平台上有很快速的原生app。之前它们就开源了React Native的Andriod平台。这对于想要做原生app的人来说是一个不错的选择。&lt;/p&gt;
-
-&lt;h3 id=&quot;react-10的发布的主要目标是什么&quot;&gt;React 1.0的发布的主要目标是什么？&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;项目网站修改&lt;/li&gt;
-  &lt;li&gt;文档改进&lt;/li&gt;
-  &lt;li&gt;动画操作控制优化&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/react-str-weak.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;谁应使用react&quot;&gt;谁应使用React？&lt;/h3&gt;
-
-&lt;p&gt;React对新和的已存的项目是很棒的选择。使用React分解你的UI并且重新构造它是很容易的。因此如果你要逐渐现代化现存的代码，React将是一个合适的选择。许多构建web app时的挑战性部分在React和Flux面前会变得琐碎。&lt;/p&gt;
-
-&lt;p&gt;React在过去几年中成为了客户端MVC发展的领导力量，其他框架都成为了React可以做的事情的追赶者。React基本都是通过ES2015规范写成的，领先于许多浏览器支持。如果你想走在前端或利用简单框架，React是你的正确选择。&lt;/p&gt;
-
-&lt;h3 id=&quot;三者相比&quot;&gt;三者相比&lt;/h3&gt;
-
-&lt;p&gt;首先，这些框架看起来似乎在趋同。尽管他们有独特的特性，许多最佳的观点在三者中是一样的。比如单向数据流，另外，像XML一样的部件很快将在三者中存在。&lt;/p&gt;
-
-&lt;p&gt;这些框架中，Ember是最容易上手的。只要你有一个网络服务器，就可以立即开展工作。而另外两个则需要你花点时间在Gulp和Webpack的配置上。你可能会在让项目布局上虚度光阴。或者可能花时间在拷贝样板项目上。而Ember则省去了所有这些问题。&lt;/p&gt;
-
-&lt;p&gt;但是，对于我来说，Ember是最需要花时间来学习的。对于如此小一个项目来说，花这么多时间有点浪费。此外，Ember需要你通过特殊方式去做一些事情，并且脱离这些方法是困难的。对于Rails来说这两个劣势也是老生常谈。对我来说，这意味着Ember对于许多开发者来说，他有利于长期存在的项目。&lt;/p&gt;
-
-&lt;p&gt;比较来说，另外两个框架对于我做的任何事情都似乎能扯上关系。Angular 2.0让我惊奇，它和1.x完全不同。但是我发现了一些实例后，用它来构建app也似乎变得简单。&lt;/p&gt;
-
-&lt;p&gt;在最终版本中，Angular app的行数最少。但是用React写的时候很容易会这样想：『我应该把这一块逻辑拖出来独立』。这样增加了代码的行数但是将来做改变会变得容易。在Angular和Ember中，持续添加代码到模板、添加功能到部件很容易。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/wins.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;谁赢了&quot;&gt;谁赢了？&lt;/h3&gt;
-
-&lt;p&gt;我们很容易知晓为什么这三个框架如此流行。他们都有许多优势。因此，我建议多用用他们。他们之间并没有明显的胜者。在特定的情况下用特定的框架。即时没有别的，学习所有的三种框架会帮你写更好的代码。&lt;/p&gt;
-
-&lt;p&gt;说了这么多，这三个框架都是很有未来的，这些框架的下一代会更加闪耀，并且支持服务器端渲染，Angular和React会支持iOS和Andriod的原生UI控件。通过这些控件，我们能比过去做更多的事。&lt;/p&gt;
-</description>
-        <pubDate>Tue, 15 Mar 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html</guid>
         
         <category>前端</category>
         

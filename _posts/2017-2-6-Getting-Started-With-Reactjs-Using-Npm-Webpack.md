@@ -24,6 +24,12 @@ tags:      前端 技术 React Webpack
 
 [Webpack](https://webpack.github.io/docs/)是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持[加载器](http://webpack.github.io/docs/loaders.html)，这对于React来说简直是一个完美的工具。
 
+一般来说，我们会全局安装webpack，这样就可以在终端使用webpack指令
+
+```sh
+npm install webpack --g
+```
+
 首先，进入项目文件，安装webpack(请先安装node、npm)
 
 ```sh

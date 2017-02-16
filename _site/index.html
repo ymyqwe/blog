@@ -169,6 +169,41 @@
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
         
 <div class="post-preview">
+    <a href="/2017/02/15/building-a-linux-server-from-scratch.html">
+        <h2 class="post-title">           
+            从零开始搭建一个Linux云服务器
+        </h2>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/tags#Linux" title="Linux">Linux</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#云服务器" title="云服务器">云服务器</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            最近在腾讯云上买了个服务器，准备捣鼓一些自己的项目，由于之前都是用别人现成的环境，因此如何配置一个适合自己的Linux服务器又是一个问题，现学现卖，把自己配置的过程记下来。
+
+不过本人也是Linux新手，所以这份教程也只是野路子，欢迎批评指点。
+
+配置环境
+
+
+  本机系统：macOS Sierra v10.12.1
+  服务器：腾讯云CentOS 7.2（64位）
+
+
+目录
+
+
+  无密码...
+    </div>   
+    <p class="post-meta">Posted by maniaU on February 15, 2017</p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2017/02/13/chatroom-developed-using-react-socketio-and-express.html">
         <h2 class="post-title">           
             使用React, Socket.io和Express开发一个简易聊天室
@@ -191,11 +226,11 @@
             
     </div>     
     <div class="post-content-preview">
-            对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让繁琐的jQuery繁琐的DOM操作性能提升了不少，因此也坚定了我转向React的决心。
+            对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让jQuery繁琐的DOM操作提升了不少性能，因此也坚定了我转向React的决心。
 
-从前的实时刷新页面从来都是长连接或者轮询，自从接触到了websocket，实时通讯变得更优雅、更简单了。
+从前的实时刷新页面从来都是长连接或者轮询，这多少有点愚蠢，自从接触到了websocket，实时通讯变得更优雅、更简单了。
 
-本文介绍了Socket.io结合React开发的一个简易聊天...
+本文介绍了Socket.io结合React开发的一...
     </div>   
     <p class="post-meta">Posted by maniaU on February 13, 2017</p>
 </div>
@@ -314,36 +349,6 @@ $ gem install compass
 $ compass create &lt;myproject&...
     </div>   
     <p class="post-meta">Posted by maniaU on January 8, 2017</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/05/23/Python-Chinese-Encoding.html">
-        <h2 class="post-title">           
-            Python中文ASCII编码问题
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#Python" title="Python">Python</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            最近在研究网页使用微信登陆拉取用户信息，而我使用的是tornado框架，拉取信息成功后，在网页前端输出的是正常的中文字符，但是在后台使用python print却是”\xe8\xe6”这样的字符，一查之后发现是控制台输出窗口按照ASCII编码输出了utf8编码字符串的结果。
-
-如果想在控制台检查输出的结果，只要将要输出的信息添加上以上代码就可以了！
-
-abc.decode('utf-8')
-...
-    </div>   
-    <p class="post-meta">Posted by maniaU on May 23, 2016</p>
 </div>
 <hr>
 
