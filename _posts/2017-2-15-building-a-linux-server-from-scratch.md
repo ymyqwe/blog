@@ -1,6 +1,6 @@
 ---
 layout:    post
-title:     "从零开始搭建一个Linux云服务器"
+title:     "从零开始配置一个Linux云服务器"
 subtitle:  Building A Linux Server from Scratch
 date:      2017-2-15
 author:    "maniaU"
