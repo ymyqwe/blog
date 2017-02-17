@@ -1,10 +1,10 @@
 ---
 layout:    post
 title:     "从零开始搭建一个Linux云服务器"
-subtitle:  
+subtitle:  Building A Linux Server from Scratch
 date:      2017-2-15
 author:    "maniaU"
-header-img: "img/bridge.jpg"
+header-img: "img/linux-server.jpg"
 tags:      Linux 云服务器
 ---
 
