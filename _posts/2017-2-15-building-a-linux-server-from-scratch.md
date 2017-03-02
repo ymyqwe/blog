@@ -6,6 +6,7 @@ date:      2017-2-15
 author:    "maniaU"
 header-img: "img/linux-server.jpg"
 tags:      Linux 云服务器
+catalog:   true
 ---
 
 最近在腾讯云上买了个服务器，准备捣鼓一些自己的项目，由于之前都是用别人现成的环境，因此如何配置一个适合自己的Linux服务器又是一个问题，现学现卖，把自己配置的过程记下来。
@@ -40,25 +41,25 @@ ssh account@your.server.ip
 ssh-keygen -t rsa   <== 生成密钥对
 Generating public/private rsa key pair.    <== 生成中
 Enter file in which to save the key(/root/.ssh/id_rsa):     <== 选择保存地址
-Created directory '/root/.ssh'.  
+Created directory '/root/.ssh'.
 Enter passphrase (empty for no passphrase):     <== 输入私钥密码（使用私钥的时候输入，可以为空）
 Enter same passphrase again:    <== 再次输入私钥密码
 Your identification has been saved in/root/.ssh/id_rsa.     <== 私钥
 Your public key has been saved in/root/.ssh/id_rsa.pub.     <== 公钥
-The key fingerprint is:  
-7b:aa:08:a0:99:fc:d9:cc:d8:2e:4b:1a:c0:6b:da:e4your@local  
-The keys randomart image is:  
-+--[ RSA 2048]----+  
-| |  
-| |  
-| |  
-|. |  
-|o. S |  
-|++. . |  
-|+=o. . . |  
-|o+=oB. o |  
-|..E==*... |  
-+-----------------+  
+The key fingerprint is:
+7b:aa:08:a0:99:fc:d9:cc:d8:2e:4b:1a:c0:6b:da:e4your@local
+The keys randomart image is:
++--[ RSA 2048]----+
+| |
+| |
+| |
+|. |
+|o. S |
+|++. . |
+|+=o. . . |
+|o+=oB. o |
+|..E==*... |
++-----------------+
 ```
 
 私钥一定要好好保护，丢失了会发生比你想象的更严重的事。

@@ -9,7 +9,6 @@ layout: default
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    
                     <h1>{{ page.title }}</h1>
                     {% if page.subtitle %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
@@ -34,6 +33,8 @@ layout: default
                 </div>
 				{{ content }}
 
+
+
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread" data-thread-key="{{page.id}}" data-title="{{page.title}}" data-url="{{site.url}}{{site.baseurl}}{{page.url}}"></div>
@@ -53,14 +54,25 @@ layout: default
                     {% endif %}
                 </ul>
 
-
-
-
-
-
-
-
             </div>
+
+            <!-- Side Catalog Container -->
+                {% if page.catalog %}
+                    <div class="
+                        col-lg-2 col-lg-offset-0
+                        visible-lg-block
+                        sidebar-container
+                        catalog-container">
+                        <div class="side-catalog">
+                            <hr class="hidden-sm hidden-xs">
+                            <h5>
+                                <a class="catalog-toggle" href="#">目录</a>
+                            </h5>
+                            <ul class="catalog-body"></ul>
+                        </div>
+                    </div>
+                {% endif %}
+
         </div>
     </div>
 </article>
@@ -90,7 +102,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
         ds.type = 'text/javascript';ds.async = true;
         ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
         ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
+        (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
 </script>
