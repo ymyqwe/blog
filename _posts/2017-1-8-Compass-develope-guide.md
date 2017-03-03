@@ -1,17 +1,13 @@
 ---
 layout:    post
 title:     "使用Compass开发移动页面"
-subtitle:  
+subtitle:
 date:      2017-1-8
 author:    "maniaU"
 header-img: "img/responsive-web-design.jpg"
 tags:      前端 技术 HTML5 SASS
+catalog:    true
 ---
-
-### 目录
-1.  [安装Compass](#section-1)
-2.  [Compass配置文件注意事项](#section-2)
-3.  [Compass开发移动页面](#section-3)
 
 
 ## 安装

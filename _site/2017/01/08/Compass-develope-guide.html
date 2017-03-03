@@ -180,14 +180,7 @@
                     <div class="taghover"><a class="tag" href="/tags#SASS" title="SASS">SASS</a></div>
                     
                 </div>
-				<h3 id="目录">目录</h3>
-<ol>
-  <li><a href="#section-1">安装Compass</a></li>
-  <li><a href="#section-2">Compass配置文件注意事项</a></li>
-  <li><a href="#section-3">Compass开发移动页面</a></li>
-</ol>
-
-<h2 id="安装">安装</h2>
+				<h2 id="安装">安装</h2>
 
 <h3 id="安装ruby">安装Ruby</h3>
 
@@ -365,6 +358,19 @@
 
             <!-- Side Catalog Container -->
                 
+                    <div class="
+                        col-lg-2 col-lg-offset-0
+                        visible-lg-block
+                        sidebar-container
+                        catalog-container">
+                        <div class="side-catalog">
+                            <h5>
+                                <a class="catalog-toggle" href="#">目录</a>
+                            </h5>
+                            <ul class="catalog-body"></ul>
+                        </div>
+                    </div>
+                
 
         </div>
     </div>
@@ -487,6 +493,44 @@ var duoshuoQuery = {short_name:"yumingyuan"};
 
 <!-- Side Catalog -->
 <script src="/js/jquery.nav.js"></script>
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-content'),a,n,t,l,i,c;
+        a = P.find('h1,h2');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    $('.catalog-body').onePageNav({
+        currentClass: "active",
+        changeHash: !1,
+        easing: "swing",
+        filter: "",
+        scrollSpeed: 700,
+        scrollOffset: 0,
+        scrollThreshold: .2,
+        begin: null,
+        end: null,
+        scrollChange: null,
+        padding: 80
+    });
+</script>
 
 
 </body>

@@ -5,27 +5,25 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 02 Mar 2017 23:34:33 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 23:34:33 +0800</lastBuildDate>
+    <pubDate>Fri, 03 Mar 2017 22:19:57 +0800</pubDate>
+    <lastBuildDate>Fri, 03 Mar 2017 22:19:57 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>前端面试问题总结</title>
         <description>&lt;p&gt;最近换了工作，前前后后也面试了不少公司，碰壁的问题有不少，自己了解但是没有答好的问题也有很多，这篇文章算是对最近面试的一个总结，虽然找到了工作，但是依然不能松懈呀！&lt;/p&gt;
 
-&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#数组去重&quot;&gt;数组去重&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#圣杯布局&quot;&gt;圣杯布局&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#浏览器的重渲染和重画&quot;&gt;Reflow和Repaint&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#offsetheight-clientheight区别&quot;&gt;offsetheight clientheight区别&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cookie是否可以跨域如何跨域&quot;&gt;cookie是否可以跨域，如何跨域&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cookie-localstorage-sessionstorage区别&quot;&gt;cookie-localstorage-sessionstorage区别&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#原生dom操作&quot;&gt;原生dom操作&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#http状态码有哪些分别代表什么意思&quot;&gt;http状态码有哪些分别代表什么意思&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#bind call apply区别&quot;&gt;bind call apply区别&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#闭包的概念&quot;&gt;闭包的概念&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;!-- ### 目录
+1. [数组去重](#数组去重)
+2. [圣杯布局](#圣杯布局)
+3. [Reflow和Repaint](#浏览器的重渲染和重画)
+4. [offsetheight clientheight区别](#offsetheight-clientheight区别)
+5. [cookie是否可以跨域，如何跨域](#cookie是否可以跨域如何跨域)
+6. [cookie-localstorage-sessionstorage区别](#cookie-localstorage-sessionstorage区别)
+7. [原生dom操作](#原生dom操作)
+8. [http状态码有哪些分别代表什么意思](#http状态码有哪些分别代表什么意思)
+9. [bind call apply区别](#bind call apply区别)
+10. [闭包的概念](#闭包的概念) --&gt;
 
 &lt;h2 id=&quot;数组去重&quot;&gt;数组去重&lt;/h2&gt;
 
@@ -267,20 +265,11 @@
 
 &lt;p&gt;不过本人也是Linux新手，所以这份教程也只是野路子，欢迎批评指点。&lt;/p&gt;
 
-&lt;h3 id=&quot;配置环境&quot;&gt;配置环境&lt;/h3&gt;
+&lt;h2 id=&quot;配置环境&quot;&gt;配置环境&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;本机系统：macOS Sierra v10.12.1&lt;/li&gt;
   &lt;li&gt;服务器：腾讯云CentOS 7.2（64位）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#无密码ssh登陆&quot;&gt;无密码ssh登陆&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#配置git&quot;&gt;配置git&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#配置舒适的开发环境&quot;&gt;配置舒适的开发环境&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#结束语&quot;&gt;结束语&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;无密码ssh登陆&quot;&gt;无密码ssh登陆&lt;/h2&gt;
@@ -917,7 +906,7 @@ npm init
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
             &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;input-box&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
                 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;input&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxLength&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;140&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;按回车提交&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+                    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxLength&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;140&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;按回车提交&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
                     &lt;span class=&quot;nx&quot;&gt;onKeyPress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleKeyPress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;button&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -958,16 +947,7 @@ npm init
 
 &lt;p&gt;尽管这些工具对于React并不是必须的，但是为充分利用&lt;a href=&quot;http://es6-features.org/#Constants&quot;&gt;ES6&lt;/a&gt;，&lt;a href=&quot;https://facebook.github.io/react/docs/jsx-in-depth.html&quot;&gt;JSX&lt;/a&gt;和打包的精髓，我们需要它们。&lt;/p&gt;
 
-&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#webpack&quot;&gt;安装、配置Webpack&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#babel-loader&quot;&gt;设置Babel-Loader&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#hello-react&quot;&gt;Hello React&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#webpack-1&quot;&gt;便捷化使用webpack&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;安装配置webpack&quot;&gt;安装、配置Webpack&lt;/h3&gt;
+&lt;h2 id=&quot;安装配置webpack&quot;&gt;安装、配置Webpack&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://webpack.github.io/docs/&quot;&gt;Webpack&lt;/a&gt;是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持&lt;a href=&quot;http://webpack.github.io/docs/loaders.html&quot;&gt;加载器&lt;/a&gt;，这对于React来说简直是一个完美的工具。&lt;/p&gt;
 
@@ -1037,7 +1017,7 @@ npm init
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        
+
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;public/bundle.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
@@ -1047,7 +1027,7 @@ npm init
 
 &lt;p&gt;如果此时你打开浏览器，在console log中就可以看到&lt;code class=&quot;highlighter-rouge&quot;&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;设置babel-loader&quot;&gt;设置Babel-Loader&lt;/h3&gt;
+&lt;h2 id=&quot;设置babel-loader&quot;&gt;设置Babel-Loader&lt;/h2&gt;
 
 &lt;p&gt;React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不是在所有浏览器种都支持的。因此，我们需要一个语法转换器，这时候就需要balel了。&lt;/p&gt;
 
@@ -1095,7 +1075,7 @@ npm init
 
 &lt;p&gt;安装完毕后，我们来写一些React代码。&lt;/p&gt;
 
-&lt;h3 id=&quot;hello-react&quot;&gt;Hello React&lt;/h3&gt;
+&lt;h2 id=&quot;hello-react&quot;&gt;Hello React&lt;/h2&gt;
 
 &lt;p&gt;首先安装react和react-dom&lt;/p&gt;
 
@@ -1126,7 +1106,7 @@ npm init
 
 &lt;p&gt;随后到浏览器中，你可以看到 &lt;i&gt;Hello React&lt;/i&gt;。&lt;/p&gt;
 
-&lt;h3 id=&quot;便捷化使用webpack&quot;&gt;便捷化使用webpack&lt;/h3&gt;
+&lt;h2 id=&quot;便捷化使用webpack&quot;&gt;便捷化使用webpack&lt;/h2&gt;
 
 &lt;h4 id=&quot;通过webpack监控变化&quot;&gt;通过webpack监控变化&lt;/h4&gt;
 
@@ -1437,14 +1417,7 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
     
       <item>
         <title>使用Compass开发移动页面</title>
-        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;安装Compass&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Compass配置文件注意事项&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Compass开发移动页面&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
 
 &lt;h3 id=&quot;安装ruby&quot;&gt;安装Ruby&lt;/h3&gt;
 
@@ -1828,14 +1801,7 @@ ruby-2.2.1 [ x86_64 ]
     
       <item>
         <title>CSS3新增伪类</title>
-        <description>&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;结构型伪类&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;目标型伪类&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;UI元素状态型伪类&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;结构型伪类&quot;&gt;结构型伪类&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;结构型伪类&quot;&gt;结构型伪类&lt;/h2&gt;
 
 &lt;h3 id=&quot;root&quot;&gt;:root&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:root {
@@ -2048,7 +2014,7 @@ li:last-child  {
 &lt;p&gt;最后的结构型伪类是&lt;code class=&quot;highlighter-rouge&quot;&gt;:empty&lt;/code&gt;，他选择的是没有内容，没有子元素的元素，他在处理不同数据库输出的动态内容是有用的。&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#results:empty {
-	background-color: #fcc; 
+	background-color: #fcc;
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

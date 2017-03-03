@@ -6,15 +6,11 @@ date:      2016-1-30
 author:    "maniaU"
 header-img: "img/railroad.jpg"
 tags:      技术
+catalog:    true
 ---
 
 ### 一些小笔记
 
-### 目录
-1.  [undefined is not a function ](#section-1)
-2.  [transition in safari and firefox is ignored in inline elements.](#section-2)
-3.  [Cannot read property 'getElementsByTagName' of null](#section-3)
-4.  [ruby rails unable to load fontawesome ](#section-4) 
 
 ##Undefined is not a function
 Sometimes when you use $(document).ready(function() {})

@@ -178,14 +178,6 @@
                 </div>
 				<h3 id="一些小笔记">一些小笔记</h3>
 
-<h3 id="目录">目录</h3>
-<ol>
-  <li><a href="#section-1">undefined is not a function </a></li>
-  <li><a href="#section-2">transition in safari and firefox is ignored in inline elements.</a></li>
-  <li><a href="#section-3">Cannot read property ‘getElementsByTagName’ of null</a></li>
-  <li><a href="#section-4">ruby rails unable to load fontawesome </a></li>
-</ol>
-
 <p>##Undefined is not a function
 Sometimes when you use $(document).ready(function() {})
 An error occurs.
@@ -234,6 +226,19 @@ Besides, you need to restart rails server.
             </div>
 
             <!-- Side Catalog Container -->
+                
+                    <div class="
+                        col-lg-2 col-lg-offset-0
+                        visible-lg-block
+                        sidebar-container
+                        catalog-container">
+                        <div class="side-catalog">
+                            <h5>
+                                <a class="catalog-toggle" href="#">目录</a>
+                            </h5>
+                            <ul class="catalog-body"></ul>
+                        </div>
+                    </div>
                 
 
         </div>
@@ -357,6 +362,44 @@ var duoshuoQuery = {short_name:"yumingyuan"};
 
 <!-- Side Catalog -->
 <script src="/js/jquery.nav.js"></script>
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-content'),a,n,t,l,i,c;
+        a = P.find('h1,h2');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    $('.catalog-body').onePageNav({
+        currentClass: "active",
+        changeHash: !1,
+        easing: "swing",
+        filter: "",
+        scrollSpeed: 700,
+        scrollOffset: 0,
+        scrollThreshold: .2,
+        begin: null,
+        end: null,
+        scrollChange: null,
+        padding: 80
+    });
+</script>
 
 
 </body>

@@ -5,7 +5,8 @@ subtitle:  "Develope A Chatroom using React, Socket.io and Express"
 date:      2017-2-13
 author:    "maniaU"
 header-img: "img/dolphins.jpg"
-tags:      React Socket.io Express 技术 
+tags:      React Socket.io Express 技术
+catalog:    true
 ---
 
 对于一直使用jQuery和zepto的我来说，React的确是一种新鲜的存在，数据和元素绑定让数据操作着实变得简单了许多，虚拟DOM也让jQuery繁琐的DOM操作提升了不少性能，因此也坚定了我转向React的决心。
@@ -459,7 +460,7 @@ export default class ChatInput extends Component {
         return(
             <div className="input-box">
                 <div className="input">
-                    <input type="text" maxLength="140" placeholder="按回车提交" value={this.state.message} 
+                    <input type="text" maxLength="140" placeholder="按回车提交" value={this.state.message}
                     onKeyPress={this.handleKeyPress.bind(this)} onChange={this.handleChange.bind(this)}/>
                 </div>
                 <div className="button">

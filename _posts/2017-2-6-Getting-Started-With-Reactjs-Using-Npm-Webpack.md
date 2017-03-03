@@ -1,11 +1,12 @@
 ---
 layout:    post
 title:     "使用Npm, Webpack开发React应用"
-subtitle:  
+subtitle:   "Develope React Application Using Npm Webpack"
 date:      2017-2-6
 author:    "maniaU"
 header-img: "img/bridge.jpg"
 tags:      前端 技术 React Webpack
+catalog:    true
 ---
 
 
@@ -13,14 +14,7 @@ tags:      前端 技术 React Webpack
 
 尽管这些工具对于React并不是必须的，但是为充分利用[ES6](http://es6-features.org/#Constants)，[JSX](https://facebook.github.io/react/docs/jsx-in-depth.html)和打包的精髓，我们需要它们。
 
-### 目录
-
-1.  [安装、配置Webpack](#webpack)
-2.  [设置Babel-Loader](#babel-loader)
-3.  [Hello React](#hello-react)
-4.  [便捷化使用webpack](#webpack-1)
-
-###  安装、配置Webpack
+##  安装、配置Webpack
 
 [Webpack](https://webpack.github.io/docs/)是一个模块打包工具，它可以通过固定配置将模块依赖打包成静态文件。Webpack支持[加载器](http://webpack.github.io/docs/loaders.html)，这对于React来说简直是一个完美的工具。
 
@@ -93,7 +87,7 @@ webpack -d
 </head>
 <body>
     <div id="app">
-        
+
     </div>
     <script src="public/bundle.js"></script>
 </body>
@@ -102,7 +96,7 @@ webpack -d
 
 如果此时你打开浏览器，在console log中就可以看到`Hello World!`
 
-### 设置Babel-Loader
+## 设置Babel-Loader
 
 React在使用JSX和ES6的时候是更有效率的，但是JSX语法和ES6并不是在所有浏览器种都支持的。因此，我们需要一个语法转换器，这时候就需要balel了。
 
@@ -150,7 +144,7 @@ var config = {
 
 安装完毕后，我们来写一些React代码。
 
-### Hello React
+## Hello React
 
 首先安装react和react-dom
 
@@ -181,7 +175,7 @@ webpack -d
 
 随后到浏览器中，你可以看到 <i>Hello React</i>。
 
-### 便捷化使用webpack
+## 便捷化使用webpack
 
 #### 通过webpack监控变化
 

@@ -1,16 +1,17 @@
 ---
 layout:    post
 title:     "前端面试问题总结"
-subtitle:
+subtitle:   "Practice Makes Perfect"
 date:      2017-2-20
 author:    "maniaU"
 header-img: "img/bridge.jpg"
 tags:      面试 前端
+catalog:    true
 ---
 
 最近换了工作，前前后后也面试了不少公司，碰壁的问题有不少，自己了解但是没有答好的问题也有很多，这篇文章算是对最近面试的一个总结，虽然找到了工作，但是依然不能松懈呀！
 
-### 目录
+<!-- ### 目录
 1. [数组去重](#数组去重)
 2. [圣杯布局](#圣杯布局)
 3. [Reflow和Repaint](#浏览器的重渲染和重画)
@@ -20,7 +21,7 @@ tags:      面试 前端
 7. [原生dom操作](#原生dom操作)
 8. [http状态码有哪些分别代表什么意思](#http状态码有哪些分别代表什么意思)
 9. [bind call apply区别](#bind call apply区别)
-10. [闭包的概念](#闭包的概念)
+10. [闭包的概念](#闭包的概念) -->
 
 
 ## 数组去重

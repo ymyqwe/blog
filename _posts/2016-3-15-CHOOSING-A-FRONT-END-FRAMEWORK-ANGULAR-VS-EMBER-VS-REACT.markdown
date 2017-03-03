@@ -6,13 +6,8 @@ date:      2016-3-15
 author:    "maniaU"
 header-img: "img/AngularJS-EmberJS-ReactJS1.jpg"
 tags:      前端 技术 翻译
+catalog:    true
 ---
-
-### 目录
-
-1.  [ANGULAR](#angular-20)
-2.  [EMBER](#ember-20)
-3.  [REACT](#react-10)
 
 作为前端工程师，我们活在一个令人兴奋的时代。最大的三个框架都接近或已经有重大的更新。Ember不久前发布了可以轻易从老版本更新的2.0版本。React发布了0.14，而Angular 2.x也即将要大放异彩。
 
@@ -22,7 +17,7 @@ tags:      前端 技术 翻译
 
 <img src="{{  site.baseurl }}/img/angular2.png" alt="" style="margin:auto">
 
-## ANGULAR 2.0 
+## ANGULAR 2.0
 
 Angular是三个框架中最流行的。它是最早发布的MVC客户端框架，代表了客户端MVC框架从前一代的巨大提升。Angular走了一条务实的途径，与用户之间产生了共鸣。
 

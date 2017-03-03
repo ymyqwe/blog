@@ -6,13 +6,8 @@ date:      2016-1-7
 author:    "maniaU"
 header-img: "img/blog-bg.jpg"
 tags:      博客 生活
+catalog:    true
 ---
-
-### 目录
-
-1.  [技术实现](#section-1)
-2.  [Jekyll配置](#jekyll)
-3.  [Github-Pages](#github-pages)
 
 学习前端怎么说也有半年多了，其实全心全意学习一样东西，半年的时间已经不短了，架设这个博客，也是为了记录自己的生活、学习细节。
 
@@ -106,6 +101,6 @@ Github-Pages的默认域名是 <b>your-username.github.io/your-project-name</b>�
 
 
 
-	
+
 
 

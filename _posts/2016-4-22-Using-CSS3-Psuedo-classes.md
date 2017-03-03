@@ -1,17 +1,13 @@
 ---
 layout:    post
 title:     "CSS3新增伪类"
-subtitle:  
+subtitle:
 date:      2016-4-22
 author:    "maniaU"
 header-img: "img/railroad.jpg"
 tags:      HTML 技术 CSS3
+catalog:    true
 ---
-
-### 目录
-1.  [结构型伪类](#section-1)
-2.  [目标型伪类](#section-2)
-3.  [UI元素状态型伪类](#section-3)
 
 ## 结构型伪类
 
@@ -178,7 +174,7 @@ CSS2中包含了`:first-child`特性，但是直到CSS3才出现`:last-child`的
 最后的结构型伪类是`:empty`，他选择的是没有内容，没有子元素的元素，他在处理不同数据库输出的动态内容是有用的。
 
 	#results:empty {
-		background-color: #fcc; 
+		background-color: #fcc;
 	}
 
 你可以在一个空的搜索框上使用这样的代码来吸引用户的注意。

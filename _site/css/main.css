@@ -1015,6 +1015,7 @@ code.has-numbering {
   text-decoration: none;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: #404040;
 }
 .side-catalog .catalog-body .h1_nav,
 .side-catalog .catalog-body .h2_nav,
@@ -1036,10 +1037,10 @@ code.has-numbering {
 }
 .side-catalog .catalog-body .active {
   border-radius: 4px;
-  background-color: #F5F5F5;
+  background-color: rgba(222,222,222,.3);
 }
 .side-catalog .catalog-body .active a {
-  color: #0085a1!important;
+  color: #0cc!important;
 }
 @media (max-width: 1200px) {
   .side-catalog {
