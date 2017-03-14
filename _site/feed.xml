@@ -3,11 +3,115 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 03 Mar 2017 22:19:57 +0800</pubDate>
-    <lastBuildDate>Fri, 03 Mar 2017 22:19:57 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 14 Mar 2017 22:46:21 +0800</pubDate>
+    <lastBuildDate>Tue, 14 Mar 2017 22:46:21 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>在Sublime Text 3中设置自己的代码片段</title>
+        <description>&lt;p&gt;写代码的时候，经常会在注释里写一下作者，创建时间等等，这样子也算留下了自己的印记，今天就教大家如何构建自己的注释代码块(Snippets)。&lt;/p&gt;
+
+&lt;h2 id=&quot;sublime-snippets代码片段&quot;&gt;Sublime Snippets(代码片段)&lt;/h2&gt;
+
+&lt;p&gt;Sublime text 3 &lt;a href=&quot;http://docs.sublimetext.info/en/latest/extensibility/snippets.html&quot;&gt;Snippets&lt;/a&gt;是你需要反复输入相同片段的文本、代码时需要的重要功能。&lt;/p&gt;
+
+&lt;p&gt;Snippets可以储存在任何一个包的文件夹下，但是为了简单，现在建议先保存在&lt;code class=&quot;highlighter-rouge&quot;&gt;Packages/User&lt;/code&gt;目录下&lt;/p&gt;
+
+&lt;p&gt;Snippets的文件格式是&lt;i&gt;.sublime-snippet&lt;/i&gt;，通常Snippet的结构如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;snippet&amp;gt;
+    &amp;lt;content&amp;gt;&amp;lt;![CDATA[Type your snippet here]]&amp;gt;&amp;lt;/content&amp;gt;
+    &amp;lt;!-- Optional: Tab trigger to activate the snippet --&amp;gt;
+    &amp;lt;tabTrigger&amp;gt;xyzzy&amp;lt;/tabTrigger&amp;gt;
+    &amp;lt;!-- Optional: Scope the tab trigger will be active in --&amp;gt;
+    &amp;lt;scope&amp;gt;source.python&amp;lt;/scope&amp;gt;
+    &amp;lt;!-- Optional: Description to show in the menu --&amp;gt;
+    &amp;lt;description&amp;gt;My Fancy Snippet&amp;lt;/description&amp;gt;
+&amp;lt;/snippet&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们只要把CDATA中的内容替换成自己的，就可以完成一个最简单的Snippets的编写。&lt;/p&gt;
+
+&lt;h2 id=&quot;创建自己的snippets&quot;&gt;创建自己的Snippets&lt;/h2&gt;
+
+&lt;p&gt;接下来我们就以自己的代码注释为例，写一个Snippet。&lt;/p&gt;
+
+&lt;p&gt;首先，在sublime菜单栏中选择&lt;strong&gt;Tools | Developer | New Snippets…&lt;/strong&gt;，然后输入&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;snippet&amp;gt;
+  &amp;lt;content&amp;gt;&amp;lt;![CDATA[
+/*
+* @author:  ManiaU
+* @createTime:  ${1:time}
+* @description:  ${2:description}
+*/
+]]&amp;gt;&amp;lt;/content&amp;gt;
+  &amp;lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&amp;gt;
+  &amp;lt;tabTrigger&amp;gt;comm&amp;lt;/tabTrigger&amp;gt;
+  &amp;lt;!-- Optional: Set a scope to limit where the snippet will trigger --&amp;gt;
+  &amp;lt;scope&amp;gt;source.js&amp;lt;/scope&amp;gt;
+&amp;lt;/snippet&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中&lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt;为Snippet的内容，&lt;code class=&quot;highlighter-rouge&quot;&gt;tabTrigger&lt;/code&gt;是你输入什么内容时可以识别为Snippet，&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt;的表示生效的文件形式，&lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt;中&lt;code class=&quot;highlighter-rouge&quot;&gt;${}&lt;/code&gt;为你输入完之后，tab键可以选中的内容，&lt;code class=&quot;highlighter-rouge&quot;&gt;${1:}&lt;/code&gt;为你输入完之后直接选中，&lt;code class=&quot;highlighter-rouge&quot;&gt;${2:}&lt;/code&gt;为按一次tab选中的内容，依此类推。&lt;/p&gt;
+
+&lt;p&gt;随后保存为&lt;i&gt;comment.sublime-snippet&lt;/i&gt;，接下来随便在一个js文件中，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;comm&lt;/code&gt;，按下tab键盘，你的Snippet就出现了。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间输入插件&quot;&gt;时间输入插件&lt;/h2&gt;
+
+&lt;p&gt;Snippet虽然生成了，但是时间还是没有搞定，接下来就创建自己的插件，在sublime菜单栏中选择&lt;strong&gt;Tools | Developer | New Plugin…&lt;/strong&gt;，输入以下内容&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sublime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sublime_plugin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;localtime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InsertDatetimeCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sublime_plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;m-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;H:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;M:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;S GMT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;localtime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;保存为&lt;i&gt;insert_datetime.py&lt;/i&gt;，然后在&lt;strong&gt;Preference | Key Bindings&lt;/strong&gt;中加上&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;keys&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;super+ctrl+t&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;command&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;insert_datetime&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这表示你按下⌘+Control+T，就可以插入时间了，配合上面的Snippet，插入注释后，加上时间和描述，就可以方便地生成自己的注释，如下&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/*
+* @author:  ManiaU
+* @createTime:  2017-03-14, 22:33:00 GMT+0800
+* @description:  This is a test!
+*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;后记&quot;&gt;后记&lt;/h2&gt;
+
+&lt;p&gt;当然，Snippets的用处不仅如此，你可以在你的环境下配置各种各样的片段，可以大大提升的工作效率，大家一起去探索吧！&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 14 Mar 2017 00:00:00 +0800</pubDate>
+        <link>/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
+        <guid isPermaLink="true">/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
+        
+        <category>技术</category>
+        
+        <category>工具</category>
+        
+        <category>效率</category>
+        
+        
+      </item>
     
       <item>
         <title>前端面试问题总结</title>
@@ -249,8 +353,8 @@
 &lt;p&gt;闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。&lt;a href=&quot;https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&amp;amp;variant=zh-cn&quot;&gt;闭包&lt;/a&gt;通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/20/question-in-interviews.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/20/question-in-interviews.html</guid>
+        <link>/2017/02/20/question-in-interviews.html</link>
+        <guid isPermaLink="true">/2017/02/20/question-in-interviews.html</guid>
         
         <category>面试</category>
         
@@ -442,8 +546,8 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 
 </description>
         <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        <link>/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">/2017/02/15/building-a-linux-server-from-scratch.html</guid>
         
         <category>Linux</category>
         
@@ -459,14 +563,6 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 &lt;p&gt;从前的实时刷新页面从来都是长连接或者轮询，这多少有点愚蠢，自从接触到了websocket，实时通讯变得更优雅、更简单了。&lt;/p&gt;
 
 &lt;p&gt;本文介绍了Socket.io结合React开发的一个简易聊天室。&lt;/p&gt;
-
-&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#安装依赖&quot;&gt;安装依赖&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#服务端实现&quot;&gt;服务端实现&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#客户端实现&quot;&gt;客户端实现&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
 
 &lt;h2 id=&quot;安装依赖&quot;&gt;安装依赖&lt;/h2&gt;
 
@@ -927,8 +1023,8 @@ npm init
 
 </description>
         <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
+        <link>/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
+        <guid isPermaLink="true">/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
         
         <category>React</category>
         
@@ -1147,8 +1243,8 @@ npm init
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -1403,8 +1499,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -1570,8 +1666,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
+        <link>/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -1598,8 +1694,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
 </description>
         <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</guid>
+        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
         
         <category>技术</category>
         
@@ -1701,8 +1797,8 @@ function interFun(e) {
 
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</guid>
+        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
         
         <category>前端</category>
         
@@ -1789,313 +1885,12 @@ ruby-2.2.1 [ x86_64 ]
 
 </description>
         <pubDate>Sat, 23 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
+        <link>/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
+        <guid isPermaLink="true">/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
         
         <category>RVM</category>
         
         <category>ZSH</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>CSS3新增伪类</title>
-        <description>&lt;h2 id=&quot;结构型伪类&quot;&gt;结构型伪类&lt;/h2&gt;
-
-&lt;h3 id=&quot;root&quot;&gt;:root&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:root {
-	background-color: #fcfcfc;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;:root伪类指向页面的根元素，99%的情况下是html元素，比如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html {
-	background-color: #fcfcfc;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;nth-childn&quot;&gt;:NTH-CHILD(N)&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul li:nth-child(odd)	{
-	bakcground-color: #666;
-	color: #fff;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这些样式将被应用到奇数项的li元素中，如果你想让另外一行有其他的样式，可以这么写：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;table tr:nth-child(even) { .... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child&lt;/code&gt;也可以更精确地指向某一个元素，你可以指向list中的第三个的元素，像这样：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(3) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;尽管&lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;在一个数列中，注意它并不从0开始。第一个元素是&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child(1)&lt;/code&gt;，第二个是&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child(2)&lt;/code&gt;，并以此类推。&lt;/p&gt;
-
-&lt;p&gt;我们也可以这样使用：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(2n) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;无(2 × 0)&lt;/li&gt;
-  &lt;li&gt;第二个元素(2 × 1)&lt;/li&gt;
-  &lt;li&gt;第四个元素(2 × 2)&lt;/li&gt;
-  &lt;li&gt;第六个元素(2 × 3)&lt;/li&gt;
-  &lt;li&gt;第八个元素(2 × 4)&lt;/li&gt;
-  &lt;li&gt;等等&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上面给出的例子和&lt;code class=&quot;highlighter-rouge&quot;&gt;nth-child(even)&lt;/code&gt;一样，那么我们来看看下面一个例子&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(5n) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;无(5 × 0)&lt;/li&gt;
-  &lt;li&gt;第五个元素(5 × 1)&lt;/li&gt;
-  &lt;li&gt;第十个元素(5 × 2)&lt;/li&gt;
-  &lt;li&gt;第十五个元素(5 × 3)&lt;/li&gt;
-  &lt;li&gt;第二十元素(5 × 4)&lt;/li&gt;
-  &lt;li&gt;等等&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如果你使用更长的表格或列表，我们也可以像这样添加或者扣除数字：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(4n+1) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;第一个元素((4 × 0)-1)&lt;/li&gt;
-  &lt;li&gt;第五个元素((4 × 1)-1)&lt;/li&gt;
-  &lt;li&gt;第九个元素((4 × 2)-1)&lt;/li&gt;
-  &lt;li&gt;第十三个元素((4 × 3)-1)&lt;/li&gt;
-  &lt;li&gt;第十七元素((4 × 4)-1)&lt;/li&gt;
-  &lt;li&gt;等等&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;同时，你也可以把&lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;设置成负数，像这样：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(-n + x) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;比如你想要设置列表中的前五个元素，你可以这么做：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-child(-n + 5) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;第五个元素(-0 + 5)&lt;/li&gt;
-  &lt;li&gt;第四个元素(-1 + 5)&lt;/li&gt;
-  &lt;li&gt;第三个元素(-2 + 5)&lt;/li&gt;
-  &lt;li&gt;第二个元素(-3 + 5)&lt;/li&gt;
-  &lt;li&gt;第一个元素(-4 + 5)&lt;/li&gt;
-  &lt;li&gt;无(-5 + 5)&lt;/li&gt;
-  &lt;li&gt;无(-6 + 5)&lt;/li&gt;
-  &lt;li&gt;等等&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;nth-last-childn&quot;&gt;NTH-LAST-CHILD(N)&lt;/h3&gt;
-
-&lt;p&gt;他操作起来就像&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child()&lt;/code&gt;的反向，从最后一个往前数。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-last-child(1) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;上面的代码会选中列表中的最后一个元素，你也可以使用其他规则创建：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:nth-last-child(2n+1) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;nth-of-typen&quot;&gt;NTH-OF-TYPE(N)&lt;/h3&gt;
-
-&lt;p&gt;现在我们将对更精确种类的元素添加样式，比如，你想给文章中第一段一个更大的字体，你可以这么做：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article p:nth-of-type(1) { font-size: 1.5em; }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;又或者，你想让文章每隔一张图靠右，而另一张靠左，我们可以像下面这么做：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article img:nth-of-type(odd) { float: right; }
-article img:nth-of-type(even) { float:left; }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Simon Foster创建了一个特别的&lt;a href=&quot;http://www.fortherecord.simonfosterdesign.com/&quot;&gt;信息图像表&lt;/a&gt;，他采用了如下的样式：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul#genre li:nth-of-type(1) {
-  width:32.9%;
-  background:url(images/orangenoise.jpg);
-}
-ul#genre li:nth-of-type(2) {
-  width:15.2%;
-  background:url(images/bluenoise.jpg);
-}
-ul#genre li:nth-of-type(3) {
-  width:13.1%;
-  background:url(images/greennoise.jpg);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;nth-last-of-typen&quot;&gt;:NTH-LAST-OF-TYPE(N)&lt;/h3&gt;
-
-&lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;nth-last-child&lt;/code&gt;类似，&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type()&lt;/code&gt;从被选中的元素的末尾开始，向前计数。&lt;/p&gt;
-
-&lt;h3 id=&quot;first-of-type与last-of-type&quot;&gt;:FIRST-OF-TYPE与:LAST-OF-TYPE&lt;/h3&gt;
-
-&lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-of-type()&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type&lt;/code&gt;对你来说太精确了，你可以一些简化的选择器，比如，我们可以用&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;article p:first-of-type { font-size: 1.5em }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;only-of-type&quot;&gt;ONLY-OF-TYPE&lt;/h3&gt;
-
-&lt;p&gt;还有另外一种&lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;选择器：&lt;code class=&quot;highlighter-rouge&quot;&gt;:only-of-type()&lt;/code&gt;。这对于选择某种父元素的唯一类型子元素来说很有用，&lt;/p&gt;
-
-&lt;p&gt;比如，你可以思考一下这两个选择器之间的区别：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p { font-size: 18px; }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;与&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p:only-of-type {font-size: 18px; }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;第一个选择器会选中页面中所有的p元素，而第二种会获取页面中只是它父元素中的唯一段落。&lt;/p&gt;
-
-&lt;h3 id=&quot;last-child&quot;&gt;:LAST-CHILD&lt;/h3&gt;
-
-&lt;p&gt;CSS2中包含了&lt;code class=&quot;highlighter-rouge&quot;&gt;:first-child&lt;/code&gt;特性，但是直到CSS3才出现&lt;code class=&quot;highlighter-rouge&quot;&gt;:last-child&lt;/code&gt;的确让人觉得奇怪，它仅仅选择了它父元素的最后一个子元素而已，例如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li  {
-	border-bottom: 1px solid #ccc
-}
-
-li:last-child  {
-	border-bottom: none;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这对于移除列表的底部边框很有效，你经常可以在WordPress小工具中看到他。&lt;/p&gt;
-
-&lt;h3 id=&quot;only-child&quot;&gt;:ONLY-CHILD&lt;/h3&gt;
-
-&lt;p&gt;如果某个元素只有一个子元素，你可以这么选择它：&lt;code class=&quot;highlighter-rouge&quot;&gt;only-child&lt;/code&gt;。与&lt;code class=&quot;highlighter-rouge&quot;&gt;only-of-type&lt;/code&gt;不同，无论这是什么种类的元素，你都可以选择他，比如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;li:only-child { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;empty&quot;&gt;:EMPTY&lt;/h3&gt;
-
-&lt;p&gt;最后的结构型伪类是&lt;code class=&quot;highlighter-rouge&quot;&gt;:empty&lt;/code&gt;，他选择的是没有内容，没有子元素的元素，他在处理不同数据库输出的动态内容是有用的。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#results:empty {
-	background-color: #fcc;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;你可以在一个空的搜索框上使用这样的代码来吸引用户的注意。&lt;/p&gt;
-
-&lt;h2 id=&quot;目标型伪类&quot;&gt;目标型伪类&lt;/h2&gt;
-
-&lt;h3 id=&quot;target&quot;&gt;:TARGET&lt;/h3&gt;
-
-&lt;p&gt;这个伪类允许我们选择基于URL的元素，如果这个元素有一个识别器（比如跟着一个#），那么&lt;code class=&quot;highlighter-rouge&quot;&gt;:target&lt;/code&gt;伪类会对使用这个ID识别器的元素增加样式。看下面这个链接：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://www.example.com/css3-pseudo-selectors#summary
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这个有&lt;code class=&quot;highlighter-rouge&quot;&gt;summary&lt;/code&gt;id的版块会被如下的样式渲染：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:target {
-	background-color: #fcc;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这对于页面上的从外部内容链接过来的元素是很有效的。你也可以用它来标记一些内部的锚点。&lt;/p&gt;
-
-&lt;h2 id=&quot;ui元素状态型伪类&quot;&gt;UI元素状态型伪类&lt;/h2&gt;
-
-&lt;h3 id=&quot;enabled和disabled&quot;&gt;:ENABLED和:DISABLED&lt;/h3&gt;
-
-&lt;p&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;:enabled&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;:disabled&lt;/code&gt;组成了三种UI元素状态型伪类。他们允许你根据他们的状态来对元素进行样式渲染，用户或开发者设计设置他们的状态来显示样式，比如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input:enabled {
-	background-color: #dfd;
-}
-
-input:disabled {
-	background-color: #fdd;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这对于用户能不能填写内容来说有一个重要的反馈，你在Javascript控制的动态特性中经常可以看到他们。&lt;/p&gt;
-
-&lt;h3 id=&quot;checked&quot;&gt;:CHECKED&lt;/h3&gt;
-
-&lt;p&gt;第三个伪类是&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;，它处理了一个确认盒的状态。它也是对于用户的一个重要反馈，比如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input[type=radio]:checked {
-	font-weight: bold;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;否定伪类&quot;&gt;否定伪类&lt;/h2&gt;
-
-&lt;h3 id=&quot;not&quot;&gt;:NOT&lt;/h3&gt;
-
-&lt;p&gt;他选择了除了你指定的那个之外的元素，比如：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:not(footer) { ... }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;它选择了页面上所有元素，除了页脚。&lt;/p&gt;
-
-&lt;h2 id=&quot;一些思考&quot;&gt;一些思考&lt;/h2&gt;
-
-&lt;p&gt;CSS3伪类选择器并不会占据样式表里大块大块的代码，他们是精确的，动态的，并且更可能添加页面的最后触碰，而不是设置一个整体的样式。可能你想要放弃一个列表的底部边框，或者在用户填表时给用户视觉反馈，&lt;strong&gt;这对于CSS3来说是完全可能的&lt;/strong&gt;，在他的用途变得主流时，我期望它成为网页设置及们的常用工具。&lt;/p&gt;
-
-&lt;p&gt;如果你看到这些选择器的有趣的、精彩的用途，希望在下面的留言板中给我留言！&lt;/p&gt;
-</description>
-        <pubDate>Fri, 22 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/04/22/Using-CSS3-Psuedo-classes.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/04/22/Using-CSS3-Psuedo-classes.html</guid>
-        
-        <category>HTML</category>
-        
-        <category>技术</category>
-        
-        <category>CSS3</category>
         
         
       </item>

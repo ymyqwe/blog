@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="鱼头的小博客。随便写的，随便看看吧。">
-
+    <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>鱼头的博客</title>
 
-    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="canonical" href="/page2/">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
     <link rel="icon" href="/img/maniau.ico" type="image/x-icon">
-    
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
@@ -34,7 +34,7 @@
     (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?3f8650a14e70f62cb4ef3d2c0b128da1";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
@@ -164,10 +164,45 @@
 
 <!-- No Sidebar -->
 
-    
+
     <!-- Post Container -->
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
         
+<div class="post-preview">
+    <a href="/2017/01/09/Problems-with-React-and-Tornado-develope.html">
+        <h2 class="post-title">           
+            React Tornado的配合使用
+        </h2>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#React" title="React">React</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            最近准备把公司的项目使用react来开发，由于公司的服务端使用的是tornado，因此在开发过程中也遇到了一些困难，因此将开发中遇到的一些问题记下来。
+
+目录
+
+
+  Babel配置
+  Tornado数据处理
+  React组件开发
+
+
+Babel配置
+
+虽然目前大多数浏览器已经支持了ES6，但是仍然避免不了有一些特性无法在现代浏览器中使用。Babel是JavaScript语法转换器，可以...
+    </div>   
+    <p class="post-meta">Posted by maniaU on January 9, 2017</p>
+</div>
+<hr>
+
 <div class="post-preview">
     <a href="/2017/01/08/Compass-develope-guide.html">
         <h2 class="post-title">           
@@ -296,50 +331,6 @@ var context = canvas[0].g...
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="/2016/04/22/Using-CSS3-Psuedo-classes.html">
-        <h2 class="post-title">           
-            CSS3新增伪类
-        </h2>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/tags#HTML" title="HTML">HTML</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#技术" title="技术">技术</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#CSS3" title="CSS3">CSS3</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            结构型伪类
-
-:root
-:root {
-	background-color: #fcfcfc;
-}
-
-
-
-:root伪类指向页面的根元素，99%的情况下是html元素，比如：
-
-html {
-	background-color: #fcfcfc;
-}
-
-
-
-:NTH-CHILD(N)
-
-ul li:nth-child(odd)	{
-	bakcground-color: #666;
-	col...
-    </div>   
-    <p class="post-meta">Posted by maniaU on April 22, 2016</p>
-</div>
-<hr>
-
 
 <!-- Pager -->
 
@@ -356,12 +347,12 @@ ul li:nth-child(odd)	{
     
 </ul>
 
- 
+
     </div>
 
     <!-- Sidebar -->
     <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12 col-xs-12 sidebar-container">
-        
+
 
         <!-- About -->
         <section class="visible-md visible-lg sidebar">

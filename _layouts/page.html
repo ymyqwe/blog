@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<header class="intro-header" style="background-image: url('/{% if page.header-img %}{{ page.header-img | prepend: site.baseurl }}{% else %}{{ site.header-img | prepend: site.baseurl}}{% endif %}')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -50,15 +50,15 @@ layout: default
 
 <!-- With Sidebar -->
 {% else %}
-    
+
     <!-- Post Container -->
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-        {{ content }} 
+        {{ content }}
     </div>
 
     <!-- Sidebar -->
     <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12 col-xs-12 sidebar-container">
-        
+
 
         <!-- About -->
         <section class="visible-md visible-lg sidebar">
