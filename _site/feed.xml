@@ -3,11 +3,49 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 14 Mar 2017 22:46:21 +0800</pubDate>
-    <lastBuildDate>Tue, 14 Mar 2017 22:46:21 +0800</lastBuildDate>
-    <generator>Jekyll v3.3.1</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 11 May 2017 23:09:53 +0800</pubDate>
+    <lastBuildDate>Thu, 11 May 2017 23:09:53 +0800</lastBuildDate>
+    <generator>Jekyll v3.4.2</generator>
+    
+      <item>
+        <title>Some Notes About Angular Js 1.x</title>
+        <description>
+</description>
+        <pubDate>Fri, 05 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/05/05/some-notes-about-angular-js-1.x.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/05/some-notes-about-angular-js-1.x.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Charles无法抓取iOS10.3.1 HTTPS请求的问题</title>
+        <description>&lt;p&gt;最近一不小心更新了Charles和iOS，没有注意到iOS 10.3.1引入了新的证书允许设置，反复重装了Charles的证书，也一直没法抓包，网上找了好久的资料，由于这个更新才出来，所以一直没有解决，后来问了做iOS开发的同事，才明白了怎么回事。&lt;/p&gt;
+
+&lt;p&gt;报错情况如下&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/GBpUd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;手机上安装好了Charles证书后，前往手机的设置-&amp;gt;通用-&amp;gt;关于本机-&amp;gt;证书信任设置，将你安装好的证书设置为信任，如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/CA.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样，就能愉快地抓取iOS上的HTTPS包了~&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
+        
+        <category>技术</category>
+        
+        <category>工具</category>
+        
+        <category>效率</category>
+        
+        
+      </item>
     
       <item>
         <title>在Sublime Text 3中设置自己的代码片段</title>
@@ -101,8 +139,8 @@
 
 </description>
         <pubDate>Tue, 14 Mar 2017 00:00:00 +0800</pubDate>
-        <link>/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
-        <guid isPermaLink="true">/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
+        <link>http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
         
         <category>技术</category>
         
@@ -353,8 +391,8 @@
 &lt;p&gt;闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。&lt;a href=&quot;https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&amp;amp;variant=zh-cn&quot;&gt;闭包&lt;/a&gt;通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/20/question-in-interviews.html</link>
-        <guid isPermaLink="true">/2017/02/20/question-in-interviews.html</guid>
+        <link>http://localhost:4000/2017/02/20/question-in-interviews.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/20/question-in-interviews.html</guid>
         
         <category>面试</category>
         
@@ -546,8 +584,8 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 
 </description>
         <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
         
         <category>Linux</category>
         
@@ -1023,8 +1061,8 @@ npm init
 
 </description>
         <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
-        <guid isPermaLink="true">/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
+        <link>http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
         
         <category>React</category>
         
@@ -1243,8 +1281,8 @@ npm init
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -1499,8 +1537,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -1666,8 +1704,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
+        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -1694,203 +1732,12 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
 </description>
         <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
+        <link>http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</guid>
         
         <category>技术</category>
         
         <category>Python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>监控屏幕触摸事件</title>
-        <description>&lt;p&gt;最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = $(&quot;#canvas&quot;);
-var context = canvas[0].getContext(&quot;2d&quot;);
-//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
-var inter;  //循环变量
-var e;   //鼠标事件全局变量
-
-canvas.bind('touchstart', function(eve) {
-    e = eve;
-    inter = setInterval(function() {
-        interFun(e);
-    }, 50)
-})
-   	
-canvas.bind('touchmove', function(eve) {
-    e = eve;
-})
-
-canvas.bind('touchend', function(eve) {
-    console.log(e.originalEvent.touches.length);
-    clearInterval(inter);
-})
-
-//循环函数
-function interFun(e) {
-    console.log(e);
-    var touch = e.originalEvent.targetTouches[0];
-    // jQuery event so we use originalEvent
-    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
-    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
-    console.log(mouseX);
-    console.log(mouseY);
-    context.beginPath();
-    drawStar(context, mouseX, mouseY);
-    context.closePath();
-    context.fill();
-    context.stroke();
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent&quot;&gt;MDN TouchEvent&lt;/a&gt;的文档&lt;/p&gt;
-
-&lt;h4 id=&quot;targettouches代表一个仍与屏幕有接触的对象它与touchstart事件触发的元素是相同元素&quot;&gt;targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。&lt;/h4&gt;
-&lt;h4 id=&quot;touches代表所有与屏幕有接触的触摸对象无论目标元素或者状态有无变化&quot;&gt;touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。&lt;/h4&gt;
-
-&lt;p&gt;同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = document.getElementById(&quot;canvas&quot;);
-var context = canvas.getContext(&quot;2d&quot;);
-//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
-var inter;  //循环变量
-var e;   //鼠标事件全局变量
-
-canvas.addEventListener(&quot;touchstart&quot;, TouchStart);
-canvas.addEventListener(&quot;touchmove&quot;, TouchMove);
-canvas.addEventListener(&quot;touchend&quot;, TouchEnd);
-
-function TouchStart(eve) {
-    e = eve;
-    inter = setInterval(function() {
-        interFun(e);
-    }, 50)
-}
-function TouchMove(eve) {
-    e = eve;
-}
-function TouchEnd(eve) {
-    e = eve;
-    clearInterval(inter);
-}
-
-function interFun(e) {
-    console.log(e);
-    var touch = e.originalEvent.touches[0];
-    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas.offsetLeft;
-    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas.offsetTop;
-    console.log(mouseX);
-    console.log(mouseY);
-    context.beginPath();
-    drawStar(context, mouseX, mouseY);
-    context.closePath();
-    context.fill();
-    context.stroke();
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
-        <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
-        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
-        
-        <category>前端</category>
-        
-        <category>技术</category>
-        
-        <category>HTML5</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ruby RVM is not working with ZSH</title>
-        <description>&lt;h2 id=&quot;安装zsh后ruby-gem无法工作&quot;&gt;安装ZSH后RUBY GEM无法工作&lt;/h2&gt;
-
-&lt;p&gt;最近到了新公司，有人介绍给了我ZSH这个插件来美化Terminal，但是安装了ZSH之后，我用Jekyll搭建的博客在本地就无法运行了，在本地没办法调试的话，每次都要上传服务器调试，会特别麻烦。terminal报错显示：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/site_ruby/2.2.0/rubygems/dependency.rb:315:in `to_specs': 
-Could not find 'jekyll' (&amp;gt;= 0) among 11 total gem(s) (Gem::LoadError)
-Checked in 'GEM_PATH=/Users/maniauuuuu/.gem/ruby/2.2.0:/Users/maniauuuuu/.rvm/rubies/ruby-2.2.3/lib/ruby/gems/2.2.0', execute `gem env` for more information
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;其实，每次打开Terminal都会显示：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Warning: PATH set to RVM ruby but GEM_HOME and/or GEM_PATH not set, see:
-https://github.com/rvm/rvm/issues/3212
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;他已经告诉你ruby RVM的路径设置了，但是GEM_HOME和GEM-PATH没有设置，你可以到&lt;a href=&quot;https://github.com/rvm/rvm/issues/3212&quot;&gt;https://github.com/rvm/rvm/issues/3212&lt;/a&gt;上去找解决方法，但是这个页面也没有给出直接的解决方法，@mpapis告诉你OMZ并没有设置路径，你可以重新设置RVM的默认路径，&lt;a href=&quot;https://rvm.io/rubies/default&quot;&gt;https://rvm.io/rubies/default&lt;/a&gt;有直接的解决方法：&lt;/p&gt;
-
-&lt;h3 id=&quot;使用特定版本的ruby&quot;&gt;使用特定版本的ruby：&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm --default use 2.2.3
-# 把2.1.1替换为你已经安装过的ruby版本
-
-$ ruby -v
-# ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin15]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;使用你的系统版本ruby&quot;&gt;使用你的系统版本ruby：&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm use system
-
-$ ruby -v
-# 会显示你的系统版本ruby
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;使用你设置的默认版本ruby&quot;&gt;使用你设置的默认版本ruby&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm default
-
-$ ruby -v
-# 显示你的默认版本ruby
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;显示你现在设置的默认版本ruby&quot;&gt;显示你现在设置的默认版本ruby&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rvm list
-
-rvm rubies
-
-ruby-2.2.1 [ x86_64 ]
-=* ruby-2.2.3 [ x86_64 ]
-
-# =&amp;gt; - current
-# =* - current &amp;amp;&amp;amp; default
-#  * - default
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;我使用了设置默认版本ruby就搞定了，你可以自己挑选一个方法试试看啦~&lt;/p&gt;
-
-&lt;p&gt;——————————————————————————————————&lt;/p&gt;
-
-&lt;p&gt;5.25更新&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/27784961/received-warning-message-path-set-to-rvm-after-updating-ruby-version-using-rvm/28080063&quot;&gt;新的解决办法戳我&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;希望大家自取~&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 23 Apr 2016 00:00:00 +0800</pubDate>
-        <link>/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</link>
-        <guid isPermaLink="true">/2016/04/23/RVM-NOT-WORKING-WITH-OH-MY-ZSH.html</guid>
-        
-        <category>RVM</category>
-        
-        <category>ZSH</category>
         
         
       </item>
