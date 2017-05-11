@@ -3,22 +3,11 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 11 May 2017 23:09:53 +0800</pubDate>
-    <lastBuildDate>Thu, 11 May 2017 23:09:53 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 11 May 2017 23:38:13 +0800</pubDate>
+    <lastBuildDate>Thu, 11 May 2017 23:38:13 +0800</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
-    
-      <item>
-        <title>Some Notes About Angular Js 1.x</title>
-        <description>
-</description>
-        <pubDate>Fri, 05 May 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/05/05/some-notes-about-angular-js-1.x.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/05/05/some-notes-about-angular-js-1.x.html</guid>
-        
-        
-      </item>
     
       <item>
         <title>Charles无法抓取iOS10.3.1 HTTPS请求的问题</title>
@@ -35,8 +24,8 @@
 &lt;p&gt;这样，就能愉快地抓取iOS上的HTTPS包了~&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
+        <link>/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
+        <guid isPermaLink="true">/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
         
         <category>技术</category>
         
@@ -139,8 +128,8 @@
 
 </description>
         <pubDate>Tue, 14 Mar 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
+        <link>/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
+        <guid isPermaLink="true">/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
         
         <category>技术</category>
         
@@ -391,8 +380,8 @@
 &lt;p&gt;闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。&lt;a href=&quot;https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&amp;amp;variant=zh-cn&quot;&gt;闭包&lt;/a&gt;通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/20/question-in-interviews.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/20/question-in-interviews.html</guid>
+        <link>/2017/02/20/question-in-interviews.html</link>
+        <guid isPermaLink="true">/2017/02/20/question-in-interviews.html</guid>
         
         <category>面试</category>
         
@@ -584,8 +573,8 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 
 </description>
         <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        <link>/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">/2017/02/15/building-a-linux-server-from-scratch.html</guid>
         
         <category>Linux</category>
         
@@ -1061,8 +1050,8 @@ npm init
 
 </description>
         <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
+        <link>/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
+        <guid isPermaLink="true">/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
         
         <category>React</category>
         
@@ -1281,8 +1270,8 @@ npm init
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -1537,8 +1526,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -1704,8 +1693,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
+        <link>/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -1732,12 +1721,117 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
 </description>
         <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</guid>
+        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
         
         <category>技术</category>
         
         <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>监控屏幕触摸事件</title>
+        <description>&lt;p&gt;最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = $(&quot;#canvas&quot;);
+var context = canvas[0].getContext(&quot;2d&quot;);
+//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
+
+canvas.bind('touchstart', function(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+})
+   	
+canvas.bind('touchmove', function(eve) {
+    e = eve;
+})
+
+canvas.bind('touchend', function(eve) {
+    console.log(e.originalEvent.touches.length);
+    clearInterval(inter);
+})
+
+//循环函数
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.targetTouches[0];
+    // jQuery event so we use originalEvent
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas[0].offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas[0].offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent&quot;&gt;MDN TouchEvent&lt;/a&gt;的文档&lt;/p&gt;
+
+&lt;h4 id=&quot;targettouches代表一个仍与屏幕有接触的对象它与touchstart事件触发的元素是相同元素&quot;&gt;targetTouches代表一个仍与屏幕有接触的对象，它与touchstart事件触发的元素是相同元素。&lt;/h4&gt;
+&lt;h4 id=&quot;touches代表所有与屏幕有接触的触摸对象无论目标元素或者状态有无变化&quot;&gt;touches代表所有与屏幕有接触的触摸对象，无论目标元素或者状态有无变化。&lt;/h4&gt;
+
+&lt;p&gt;同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var canvas = document.getElementById(&quot;canvas&quot;);
+var context = canvas.getContext(&quot;2d&quot;);
+//$(&quot;#canvas&quot;)[0] equals to document.getElementById(&quot;canvas&quot;)
+var inter;  //循环变量
+var e;   //鼠标事件全局变量
+
+canvas.addEventListener(&quot;touchstart&quot;, TouchStart);
+canvas.addEventListener(&quot;touchmove&quot;, TouchMove);
+canvas.addEventListener(&quot;touchend&quot;, TouchEnd);
+
+function TouchStart(eve) {
+    e = eve;
+    inter = setInterval(function() {
+        interFun(e);
+    }, 50)
+}
+function TouchMove(eve) {
+    e = eve;
+}
+function TouchEnd(eve) {
+    e = eve;
+    clearInterval(inter);
+}
+
+function interFun(e) {
+    console.log(e);
+    var touch = e.originalEvent.touches[0];
+    var mouseX = touch.pageX + document.body.scrollLeft - document.body.clientLeft - canvas.offsetLeft;
+    var mouseY = touch.pageY + document.body.scrollTop  - document.body.clientTop - canvas.offsetTop;
+    console.log(mouseX);
+    console.log(mouseY);
+    context.beginPath();
+    drawStar(context, mouseX, mouseY);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
+        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
+        
+        <category>前端</category>
+        
+        <category>技术</category>
+        
+        <category>HTML5</category>
         
         
       </item>
