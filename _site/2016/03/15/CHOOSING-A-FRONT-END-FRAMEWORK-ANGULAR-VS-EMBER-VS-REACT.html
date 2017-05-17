@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>ANGULAR VS. EMBER VS. REACT: 选择一个前端框架 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html">
+    <link rel="canonical" href="http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -142,12 +142,12 @@
 
 
 
-    <div id="music-panel">
+    <!-- <div id="music-panel">
     <a id="music-control"><i class="fa fa-music"></i></a>
     <div id="music-content">
     <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="https://music.163.com/outchain/player?type=0&id=125657822&auto=0&height=430"></iframe>
     </div>
-</div>
+</div> -->
 <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/AngularJS-EmberJS-ReactJS1.jpg')">
     <div class="container">
@@ -312,10 +312,15 @@
 
 
                 <!-- 多说评论框 start -->
-                <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT" data-title="ANGULAR VS. EMBER VS. REACT: 选择一个前端框架" data-url="/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html"></div>
-                </div>
+<!--                 <div class="comment">
+                    <div class="ds-thread" data-thread-key="/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT" data-title="ANGULAR VS. EMBER VS. REACT: 选择一个前端框架" data-url="http://localhost:4000/2016/03/15/CHOOSING-A-FRONT-END-FRAMEWORK-ANGULAR-VS-EMBER-VS-REACT.html"></div>
+                </div> -->
                 <!-- 多说评论框 end -->
+
+                <!-- Duoshuo is closed on 31st of May in 2017. So use Disqus again -->
+                <!-- Disqus Comment Module start -->
+                <div id="disqus_thread"></div>
+                <!-- Disqus Comment Module end -->
 
                 <ul class="pager post-pager">
                     
@@ -329,6 +334,7 @@
                     </li>
                     
                 </ul>
+
 
             </div>
 
@@ -356,21 +362,19 @@
 
 
 <!-- Comments provided by Disqus -->
-<!-- <script>
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-
-    s.src = '//freelancist.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://maniauuuuu.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script id="dsq-count-scr" src="//freelancist.disqus.com/count.js" async></script> -->
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 <!-- Comments provided by Duoshuo -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var duoshuoQuery = {short_name:"yumingyuan"};
     (function() {
         var ds = document.createElement('script');
@@ -380,7 +384,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-</script>
+</script> -->
 
 
 

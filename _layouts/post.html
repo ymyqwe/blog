@@ -36,10 +36,15 @@ layout: default
 
 
                 <!-- 多说评论框 start -->
-                <div class="comment">
+<!--                 <div class="comment">
                     <div class="ds-thread" data-thread-key="{{page.id}}" data-title="{{page.title}}" data-url="{{site.url}}{{site.baseurl}}{{page.url}}"></div>
-                </div>
+                </div> -->
                 <!-- 多说评论框 end -->
+
+                <!-- Duoshuo is closed on 31st of May in 2017. So use Disqus again -->
+                <!-- Disqus Comment Module start -->
+                <div id="disqus_thread"></div>
+                <!-- Disqus Comment Module end -->
 
                 <ul class="pager post-pager">
                     {% if page.previous.url %}
@@ -53,6 +58,7 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
+
 
             </div>
 
@@ -80,21 +86,19 @@ layout: default
 
 
 <!-- Comments provided by Disqus -->
-<!-- <script>
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-
-    s.src = '//freelancist.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://maniauuuuu.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script id="dsq-count-scr" src="//freelancist.disqus.com/count.js" async></script> -->
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 <!-- Comments provided by Duoshuo -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var duoshuoQuery = {short_name:"yumingyuan"};
     (function() {
         var ds = document.createElement('script');
@@ -104,7 +108,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-</script>
+</script> -->
 
 
 

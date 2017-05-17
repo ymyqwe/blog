@@ -3,10 +3,10 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 11 May 2017 23:38:13 +0800</pubDate>
-    <lastBuildDate>Thu, 11 May 2017 23:38:13 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 17 May 2017 23:53:59 +0800</pubDate>
+    <lastBuildDate>Wed, 17 May 2017 23:53:59 +0800</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       <item>
@@ -24,8 +24,8 @@
 &lt;p&gt;这样，就能愉快地抓取iOS上的HTTPS包了~&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
-        <link>/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
-        <guid isPermaLink="true">/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
+        <link>http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
         
         <category>技术</category>
         
@@ -128,8 +128,8 @@
 
 </description>
         <pubDate>Tue, 14 Mar 2017 00:00:00 +0800</pubDate>
-        <link>/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
-        <guid isPermaLink="true">/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
+        <link>http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
         
         <category>技术</category>
         
@@ -380,8 +380,8 @@
 &lt;p&gt;闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。&lt;a href=&quot;https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&amp;amp;variant=zh-cn&quot;&gt;闭包&lt;/a&gt;通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/20/question-in-interviews.html</link>
-        <guid isPermaLink="true">/2017/02/20/question-in-interviews.html</guid>
+        <link>http://localhost:4000/2017/02/20/question-in-interviews.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/20/question-in-interviews.html</guid>
         
         <category>面试</category>
         
@@ -573,8 +573,8 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 
 </description>
         <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
         
         <category>Linux</category>
         
@@ -1050,8 +1050,8 @@ npm init
 
 </description>
         <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
-        <guid isPermaLink="true">/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
+        <link>http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
         
         <category>React</category>
         
@@ -1270,8 +1270,8 @@ npm init
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -1526,8 +1526,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -1693,8 +1693,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
+        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -1721,8 +1721,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
 </description>
         <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
+        <link>http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/23/Python-Chinese-Encoding.html</guid>
         
         <category>技术</category>
         
@@ -1824,8 +1824,8 @@ function interFun(e) {
 
 </description>
         <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/05/Events-about-Click-and-touch.html</link>
-        <guid isPermaLink="true">/2016/05/05/Events-about-Click-and-touch.html</guid>
+        <link>http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html</guid>
         
         <category>前端</category>
         
