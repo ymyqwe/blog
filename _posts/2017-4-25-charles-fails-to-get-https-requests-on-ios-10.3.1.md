@@ -6,7 +6,7 @@ date:      2017-4-25
 author:    "maniaU"
 header-img: "img/mythical-animal.jpg"
 tags:      技术 工具 效率
-catalog:    true
+catalog:    false
 ---
 
 最近一不小心更新了Charles和iOS，没有注意到iOS 10.3.1引入了新的证书允许设置，反复重装了Charles的证书，也一直没法抓包，网上找了好久的资料，由于这个更新才出来，所以一直没有解决，后来问了做iOS开发的同事，才明白了怎么回事。
