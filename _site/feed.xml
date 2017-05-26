@@ -3,11 +3,35 @@
   <channel>
     <title>鱼头的博客</title>
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 18 May 2017 00:42:51 +0800</pubDate>
-    <lastBuildDate>Thu, 18 May 2017 00:42:51 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 25 May 2017 23:30:44 +0800</pubDate>
+    <lastBuildDate>Thu, 25 May 2017 23:30:44 +0800</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      <item>
+        <title>Immutable和PureComponent打造高性能react组件</title>
+        <description>&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cloneDeep&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'lodash/cloneDeep'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/* something */&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/* Shallow Copy */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yourObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yourObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/* Deep Copy */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yourObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cloneDeep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 17 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/05/17/Immutable-with-react-purecomponent.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/17/Immutable-with-react-purecomponent.html</guid>
+        
+        <category>React</category>
+        
+        <category>前端</category>
+        
+        
+      </item>
     
       <item>
         <title>React-Native无法在macOS Sierra 10.12上运行的问题</title>
@@ -102,8 +126,8 @@ watchman -v
 
 </description>
         <pubDate>Wed, 17 May 2017 00:00:00 +0800</pubDate>
-        <link>/2017/05/17/react-native-packager-fails-on-macos-10.12.html</link>
-        <guid isPermaLink="true">/2017/05/17/react-native-packager-fails-on-macos-10.12.html</guid>
+        <link>http://localhost:4000/2017/05/17/react-native-packager-fails-on-macos-10.12.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/17/react-native-packager-fails-on-macos-10.12.html</guid>
         
         <category>React</category>
         
@@ -127,8 +151,8 @@ watchman -v
 &lt;p&gt;这样，就能愉快地抓取iOS上的HTTPS包了~&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Apr 2017 00:00:00 +0800</pubDate>
-        <link>/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
-        <guid isPermaLink="true">/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
+        <link>http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/25/charles-fails-to-get-https-requests-on-ios-10.3.1.html</guid>
         
         <category>技术</category>
         
@@ -231,8 +255,8 @@ watchman -v
 
 </description>
         <pubDate>Tue, 14 Mar 2017 00:00:00 +0800</pubDate>
-        <link>/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
-        <guid isPermaLink="true">/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
+        <link>http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/14/setting-up-your-own-snippets-in-sublime-text-3.html</guid>
         
         <category>技术</category>
         
@@ -483,8 +507,8 @@ watchman -v
 &lt;p&gt;闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。&lt;a href=&quot;https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&amp;amp;variant=zh-cn&quot;&gt;闭包&lt;/a&gt;通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/20/question-in-interviews.html</link>
-        <guid isPermaLink="true">/2017/02/20/question-in-interviews.html</guid>
+        <link>http://localhost:4000/2017/02/20/question-in-interviews.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/20/question-in-interviews.html</guid>
         
         <category>面试</category>
         
@@ -676,8 +700,8 @@ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zs
 
 </description>
         <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
         
         <category>Linux</category>
         
@@ -1153,8 +1177,8 @@ npm init
 
 </description>
         <pubDate>Mon, 13 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
-        <guid isPermaLink="true">/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
+        <link>http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/13/chatroom-developed-using-react-socketio-and-express.html</guid>
         
         <category>React</category>
         
@@ -1373,8 +1397,8 @@ npm init
 
 </description>
         <pubDate>Mon, 06 Feb 2017 00:00:00 +0800</pubDate>
-        <link>/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
-        <guid isPermaLink="true">/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
+        <link>http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/06/Getting-Started-With-Reactjs-Using-Npm-Webpack.html</guid>
         
         <category>前端</category>
         
@@ -1629,8 +1653,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
-        <guid isPermaLink="true">/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
+        <link>http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/09/Problems-with-React-and-Tornado-develope.html</guid>
         
         <category>前端</category>
         
@@ -1796,8 +1820,8 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
 &lt;p&gt;如有问题，欢迎联系~&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-        <link>/2017/01/08/Compass-develope-guide.html</link>
-        <guid isPermaLink="true">/2017/01/08/Compass-develope-guide.html</guid>
+        <link>http://localhost:4000/2017/01/08/Compass-develope-guide.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/08/Compass-develope-guide.html</guid>
         
         <category>前端</category>
         
@@ -1806,30 +1830,6 @@ Diff的效率，具体原因可以参考&lt;a href=&quot;https://facebook.github
         <category>HTML5</category>
         
         <category>SASS</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Python中文ASCII编码问题</title>
-        <description>&lt;p&gt;最近在研究网页使用微信登陆拉取用户信息，而我使用的是tornado框架，拉取信息成功后，在网页前端输出的是正常的中文字符，但是在后台使用python print却是”\xe8\xe6”这样的字符，一查之后发现是控制台输出窗口按照&lt;code class=&quot;highlighter-rouge&quot;&gt;ASCII&lt;/code&gt;编码输出了&lt;code class=&quot;highlighter-rouge&quot;&gt;utf8&lt;/code&gt;编码字符串的结果。&lt;/p&gt;
-
-&lt;p&gt;如果想在控制台检查输出的结果，只要将要输出的信息添加上以上代码就可以了！&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;abc.decode('utf-8')
-#abc为你获取到的数据
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;怎么样，是不是很简单，快去控制台看一看吧~&lt;/p&gt;
-</description>
-        <pubDate>Mon, 23 May 2016 00:00:00 +0800</pubDate>
-        <link>/2016/05/23/Python-Chinese-Encoding.html</link>
-        <guid isPermaLink="true">/2016/05/23/Python-Chinese-Encoding.html</guid>
-        
-        <category>技术</category>
-        
-        <category>Python</category>
         
         
       </item>
