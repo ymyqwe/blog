@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>鱼头的博客</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="/">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -169,6 +169,49 @@
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
         
 <div class="post-preview">
+    <a href="/2017/06/30/tmux-usage.html">
+        <h2 class="post-title">           
+            Tmux终端服用
+        </h2>
+        
+        <h3 class="post-subtitle">
+            High performance component built with immutablejs
+        </h3>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/tags#linux" title="linux">linux</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            在vps上，虽然数据服务我们用systemctl来管理，但是其他诸如nodejs、python服务，总是需要会话保持功能。这时候就需要tmux了！
+
+安装Tmux
+
+yum install tmux
+
+
+
+使用方法
+
+开启或退出session
+
+可以使用tmux new -s yourname来指定session名，
+
+也可以直接
+
+tmux
+
+
+
+ctrl+b d就可以退出session。...
+    </div>   
+    <p class="post-meta">Posted by maniaU on June 30, 2017</p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2017/05/25/Immutable-with-react-purecomponent.html">
         <h2 class="post-title">           
             Immutable和PureComponent打造高性能react组件
@@ -301,41 +344,6 @@ Sublime text 3 Snippets是你需要反复输入相同片段的文本、代码时
 Snippets可以储存在任何一个包的文件夹下，但是为了简单，现在建议先保存在Packages/U...
     </div>   
     <p class="post-meta">Posted by maniaU on March 14, 2017</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2017/02/20/question-in-interviews.html">
-        <h2 class="post-title">           
-            前端面试问题总结
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Practice Makes Perfect
-        </h3>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/tags#面试" title="面试">面试</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            最近换了工作，前前后后也面试了不少公司，碰壁的问题有不少，自己了解但是没有答好的问题也有很多，这篇文章算是对最近面试的一个总结，虽然找到了工作，但是依然不能松懈呀！
-
-
-
-数组去重
-
-这个算是面试常问了吧，这是对JS算法最最基础的问题，但是如果要深入的话也是可以涉及到很多的问题
-
-一般方式
-
-//一般方法-&gt;使用indexOf，新建一个数组，遍历旧数组元素，如果新数组中没有旧数组元素，...
-    </div>   
-    <p class="post-meta">Posted by maniaU on February 20, 2017</p>
 </div>
 <hr>
 
