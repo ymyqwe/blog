@@ -1,6 +1,6 @@
 ---
 layout:    post
-title:     "Tmux终端服用"
+title:     "Tmux终端复用"
 subtitle:  ""
 date:      2017-6-30
 author:    "maniaU"
