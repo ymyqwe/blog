@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>监控屏幕触摸事件 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/05/05/Events-about-Click-and-touch.html">
+    <link rel="canonical" href="http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -180,7 +180,7 @@
                 </div>
 				<p>最近在开发一个新的移动端HTML5小游戏，用到了canvas，于是接触到了touch事件，对于获取触摸位置进行了一些研究，尝试了使用jquery的bind事件来感知屏幕触摸（但是jquery并不适合移动开发，请大家不要效仿，可以使用zepto或者jquery mobile），代码如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = $("#canvas");
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var canvas = $("#canvas");
 var context = canvas[0].getContext("2d");
 //$("#canvas")[0] equals to document.getElementById("canvas")
 var inter;  //循环变量
@@ -217,8 +217,7 @@ function interFun(e) {
     context.fill();
     context.stroke();
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>其中使用到了jquery包装的事件，因此我们使用了originalEvent，此处的originalEvent即为TouchEvent，可以参考<a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent">MDN TouchEvent</a>的文档</p>
 
@@ -227,7 +226,7 @@ function interFun(e) {
 
 <p>同样，我们也可以使用addEventListener方法来监控各种触摸事件，代码如下。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var canvas = document.getElementById("canvas");
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 //$("#canvas")[0] equals to document.getElementById("canvas")
 var inter;  //循环变量
@@ -264,8 +263,7 @@ function interFun(e) {
     context.fill();
     context.stroke();
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 
@@ -273,7 +271,7 @@ function interFun(e) {
 
                 <!-- 多说评论框 start -->
 <!--                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/05/05/Events-about-Click-and-touch" data-title="监控屏幕触摸事件" data-url="/2016/05/05/Events-about-Click-and-touch.html"></div>
+                    <div class="ds-thread" data-thread-key="/2016/05/05/Events-about-Click-and-touch" data-title="监控屏幕触摸事件" data-url="http://localhost:4000/2016/05/05/Events-about-Click-and-touch.html"></div>
                 </div> -->
                 <!-- 多说评论框 end -->
 
@@ -383,7 +381,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
                     </li>
                     
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2017</p>
+                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2018</p>
             </div>
         </div>
     </div>

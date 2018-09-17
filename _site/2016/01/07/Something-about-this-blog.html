@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>关于这个博客 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/01/07/Something-about-this-blog.html">
+    <link rel="canonical" href="http://localhost:4000/2016/01/07/Something-about-this-blog.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -195,30 +195,27 @@
 <h4 id="安装jekyll">安装Jekyll</h4>
 <p>在terminal中，安装Jekyll，运行：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll
+</code></pre></div></div>
 
 <p>jekyll就安装成功了，然后主题fork的是<a href="https://github.com/IronSummitMedia/startbootstrap-clean-blog">Clean-Blog</a>，这是一个相当简洁干净的博客主题，修修改改加上tags，基本就只剩下内容填充了。</p>
 
 <p>在terminal中，cd到你的jekyll文档下，运行：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>jekyll serve --watch
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve --watch
+</code></pre></div></div>
 
 <p>加上了 –watch后，我们会强制jekyll在每次保存后更新站点。</p>
 
 <h4 id="更新_configyml文件">更新<code class="highlighter-rouge">_config.yml</code>文件</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Site settings
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Site settings
 title: 鱼头的博客
 header-img: img/home-bg2.jpg
 email: ymyymy_2@hotmail.com
 description: "鱼头的小博客。随便写的，随便看看吧。"
 baseurl: "/blog"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>将其中的各项内容替换成你自己的就好了！</p>
 
@@ -250,9 +247,8 @@ baseurl: "/blog"
 
 <p>在terminal中cd到你的项目目录下，创建gh-pages分支：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout gh-pages
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout gh-pages
+</code></pre></div></div>
 
 <p>然后把你下载的主题文件都复制到你clone过来的目录下面。</p>
 
@@ -264,11 +260,10 @@ baseurl: "/blog"
 
 <p>如果你只想要一个分支，你也可以<a href="http://oli.jp/2011/github-pages-workflow/#deleting-master">删除master分支</a>，按照上面的教程来就可以了。一切搞定之后，</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git add .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
 git commit -m "your-message"
 git push
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>就大功告成了，去<b>your-username.github.io/your-project-name</b>查看你的网站吧！</p>
 
@@ -282,7 +277,7 @@ git push
 
                 <!-- 多说评论框 start -->
 <!--                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/01/07/Something-about-this-blog" data-title="关于这个博客" data-url="/2016/01/07/Something-about-this-blog.html"></div>
+                    <div class="ds-thread" data-thread-key="/2016/01/07/Something-about-this-blog" data-title="关于这个博客" data-url="http://localhost:4000/2016/01/07/Something-about-this-blog.html"></div>
                 </div> -->
                 <!-- 多说评论框 end -->
 
@@ -401,7 +396,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
                     </li>
                     
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2017</p>
+                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2018</p>
             </div>
         </div>
     </div>

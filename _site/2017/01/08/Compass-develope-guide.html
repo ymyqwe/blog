@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>使用Compass开发移动页面 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2017/01/08/Compass-develope-guide.html">
+    <link rel="canonical" href="http://localhost:4000/2017/01/08/Compass-develope-guide.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -188,28 +188,25 @@
 
 <h3 id="安装compass">安装Compass</h3>
 
-<div class="language-zsh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem update --system
-<span class="gp">$ </span>gem install compass
-</code></pre>
-</div>
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem update <span class="nt">--system</span>
+<span class="nv">$ </span>gem install compass
+</code></pre></div></div>
 
 <h3 id="创建compass项目">创建Compass项目</h3>
 
-<div class="language-zsh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>compass create &lt;myproject&gt;
-<span class="gp">$ </span><span class="nb">cd </span>myproject
-</code></pre>
-</div>
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>compass create &lt;myproject&gt;
+<span class="nv">$ </span><span class="nb">cd </span>myproject
+</code></pre></div></div>
 
 <p>注意：<i>$是终端的占位符，你不需要输入它。</i></p>
 
 <p>就会生成如下的目录</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>--sass
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--sass
 --css
 --images
 --config.rb
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>其中config.rb就是项目的配置文件，配置文件中包含。</p>
 
@@ -217,9 +214,8 @@
 
 <p>compass的编译命令为</p>
 
-<div class="language-zsh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>compass compile
-</code></pre>
-</div>
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>compass compile
+</code></pre></div></div>
 
 <p>运行该命令后，sass目录下的scss文件会被编译成css文件，保存到配置文件中的css目录。</p>
 
@@ -229,9 +225,8 @@
 
 <p>一般来说，编译后的css文件是默认有注释的，可以在配置文件中添加如下内容来取消注释</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>line_comments = false
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>line_comments = false
+</code></pre></div></div>
 
 <p>这样的话就能取消注释，大大缩小css文件的大小。</p>
 
@@ -239,15 +234,13 @@
 
 <p>开发的时候可能会用到中文注释、或者字体名称，但是compass默认是无法编译中文的，因此要在配置文件中加入</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Encoding.default_external = 'utf-8'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Encoding.default_external = 'utf-8'
+</code></pre></div></div>
 
 <p>同时，在你的scss文件加入</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@charset 'utf-8';
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@charset 'utf-8';
+</code></pre></div></div>
 
 <p>这样compass就可以编译中文了。</p>
 
@@ -255,15 +248,13 @@
 
 <p>默认编译的css文件是不压缩的，但是我们发布的时候为了节省资源，css文件都需要压缩，可以在配置文件中加入如下内容</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>output_stlye = :compressed
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output_stlye = :compressed
+</code></pre></div></div>
 
 <p>或者在编译的时候加上</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>compass compile --output_stlye compressed
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compass compile --output_stlye compressed
+</code></pre></div></div>
 
 <h2 id="开发移动页面">开发移动页面</h2>
 
@@ -280,21 +271,19 @@
 
 <p>使用Compass我们可以利用函数来转化</p>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nv">$originWidth</span><span class="p">:</span> <span class="m">750px</span><span class="p">;</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$originWidth</span><span class="p">:</span> <span class="m">750px</span><span class="p">;</span>
 <span class="c1">//设计稿的宽度
 </span><span class="k">@function</span> <span class="nf">pxToRem</span><span class="p">(</span><span class="nv">$px</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">@return</span> <span class="m">10</span><span class="o">*</span><span class="nv">$px</span><span class="o">/</span><span class="nv">$ClientWidth</span><span class="o">/</span><span class="m">1</span><span class="o">*</span><span class="m">1rem</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>再按如下方式使用</p>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="nf">pxToRem</span><span class="p">(</span><span class="m">750px</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样就得到一个宽度为10rem(整个屏幕)的div了。</p>
 
@@ -302,21 +291,19 @@
 
 <p>设备像素比简称为dpr，定义了物理像素和设备独立响度的关系。它的值可以按下面的公式计算得到：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>设备像素比 = 物理像素 / 设备独立像素
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>设备像素比 = 物理像素 / 设备独立像素
+</code></pre></div></div>
 
 <p>看下图可以明确解释dpr</p>
 
-<div class="language-hbs highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/img/dpr.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">style=</span><span class="s">"margin:auto"</span><span class="nt">&gt;</span>
-</code></pre>
-</div>
+<div class="language-hbs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/img/dpr.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">style=</span><span class="s">"margin:auto"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
 
 <p>众所周知，iPhone6的设备宽度和高度为375pt * 667pt,可以理解为设备的独立像素；而其dpr为2，根据上面公式，我们可以很轻松得知其物理像素为750pt * 1334pt。</p>
 
 <p>屏幕增大之后，页面元素也会随之增大，但是有些比如段落文字的内容我们并不想增大，这时候不适合用rem作为字体单位，我们还是使用px，可以用如下@mixin来解决：</p>
 
-<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-dpr</span> <span class="p">(</span><span class="nv">$font-size</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">font-dpr</span> <span class="p">(</span><span class="nv">$font-size</span><span class="p">)</span> <span class="p">{</span>
     <span class="nl">font-size</span><span class="p">:</span> <span class="nv">$font-size</span><span class="p">;</span>
     <span class="o">[</span><span class="nt">data-dpr</span><span class="o">=</span><span class="s2">"2"</span><span class="o">]</span> <span class="k">&amp;</span> <span class="p">{</span>
         <span class="nl">font-size</span><span class="p">:</span> <span class="nv">$font-size</span> <span class="o">*</span> <span class="m">2</span><span class="p">;</span>
@@ -325,8 +312,7 @@
         <span class="nl">font-size</span><span class="p">:</span> <span class="nv">$font-size</span> <span class="o">*</span> <span class="m">3</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样基本就可以解决移动端大部分的适配问题了。</p>
 
@@ -337,7 +323,7 @@
 
                 <!-- 多说评论框 start -->
 <!--                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2017/01/08/Compass-develope-guide" data-title="使用Compass开发移动页面" data-url="/2017/01/08/Compass-develope-guide.html"></div>
+                    <div class="ds-thread" data-thread-key="/2017/01/08/Compass-develope-guide" data-title="使用Compass开发移动页面" data-url="http://localhost:4000/2017/01/08/Compass-develope-guide.html"></div>
                 </div> -->
                 <!-- 多说评论框 end -->
 
@@ -460,7 +446,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
                     </li>
                     
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2017</p>
+                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2018</p>
             </div>
         </div>
     </div>

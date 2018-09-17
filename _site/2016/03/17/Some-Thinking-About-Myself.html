@@ -10,7 +10,7 @@
     <meta name="keywords" content="鱼头, 博客, 咻咻的男朋友, 技术, HTML5, ManiaU, 咻咻, 互联网">
     <title>前端问题小结 - 鱼头的博客</title>
 
-    <link rel="canonical" href="/2016/03/17/Some-Thinking-About-Myself.html">
+    <link rel="canonical" href="http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="/img/maniau.ico" type="image/x-icon">
@@ -184,7 +184,7 @@
 
 <h4 id="2黑魔法利用js修改微信title">2.黑魔法：利用js修改微信title</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>//需要jQuery
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//需要jQuery
 var $body = $('body');
 document.title = 'title';
 // hack在微信等webview中无法修改document.title的情况
@@ -194,8 +194,7 @@ $iframe.on('load',function() {
 		$iframe.off('load').remove();
 		}, 0);
 	}).appendTo($body);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="javascript中本地对象内置对象和宿主对象">Javascript中本地对象、内置对象和宿主对象</h3>
 
@@ -234,7 +233,7 @@ $iframe.on('load',function() {
 
                 <!-- 多说评论框 start -->
 <!--                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="/2016/03/17/Some-Thinking-About-Myself" data-title="前端问题小结" data-url="/2016/03/17/Some-Thinking-About-Myself.html"></div>
+                    <div class="ds-thread" data-thread-key="/2016/03/17/Some-Thinking-About-Myself" data-title="前端问题小结" data-url="http://localhost:4000/2016/03/17/Some-Thinking-About-Myself.html"></div>
                 </div> -->
                 <!-- 多说评论框 end -->
 
@@ -344,7 +343,7 @@ var duoshuoQuery = {short_name:"yumingyuan"};
                     </li>
                     
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2017</p>
+                <p class="copyright text-muted">Copyright &copy; 鱼头的博客 2018</p>
             </div>
         </div>
     </div>
