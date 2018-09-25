@@ -7,6 +7,7 @@ author: "maniaU"
 header-img: "img/Hole.jpg"
 tags: G2 Data-Visualization
 catalog: true
+published: false
 ---
 
 <div id="mountNode"></div>
