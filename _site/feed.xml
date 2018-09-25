@@ -5,9 +5,9 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 25 Sep 2018 17:50:03 +0800</pubDate>
-    <lastBuildDate>Tue, 25 Sep 2018 17:50:03 +0800</lastBuildDate>
-    <generator>Jekyll v3.8.4</generator>
+    <pubDate>Tue, 25 Sep 2018 21:51:48 +0800</pubDate>
+    <lastBuildDate>Tue, 25 Sep 2018 21:51:48 +0800</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
     
       <item>
         <title>新浏览器中的passive事件监听器引发的移动端交互问题</title>
@@ -124,924 +124,6 @@
         <category>Passive-eventlistener</category>
         
         <category>iOS12</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>数据可视化初探-用G2分析睡眠数据</title>
-        <description>&lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;
-
-&lt;div id=&quot;pieNode&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;radarNode&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;boxNode&quot;&gt;&lt;/div&gt;
-
-&lt;script src=&quot;/js/moment.js&quot;&gt;&lt;/script&gt;
-
-&lt;script src=&quot;https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.2.8/dist/g2.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;script src=&quot;https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.9.6/dist/data-set.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;script&gt;
-var lineData = [
-  {&quot;month&quot;: &quot;2017-1&quot;, &quot;avg&quot;: 24968.18181818182},
-  {&quot;month&quot;: &quot;2017-2&quot;, &quot;avg&quot;: 25082.222222222223},
-  {&quot;month&quot;: &quot;2017-3&quot;, &quot;avg&quot;: 24936.774193548386},
-  {&quot;month&quot;: &quot;2017-4&quot;, &quot;avg&quot;: 24396},
-  {&quot;month&quot;: &quot;2017-5&quot;, &quot;avg&quot;: 25714.285714285714},
-  {&quot;month&quot;: &quot;2017-6&quot;, &quot;avg&quot;: 22760},
-  {&quot;month&quot;: &quot;2017-7&quot;, &quot;avg&quot;: 23498},
-  {&quot;month&quot;: &quot;2017-8&quot;, &quot;avg&quot;: 23178},
-  {&quot;month&quot;: &quot;2017-9&quot;, &quot;avg&quot;: 23198.571428571428},
-  {&quot;month&quot;: &quot;2017-10&quot;, &quot;avg&quot;: 23547.09677419355},
-  {&quot;month&quot;: &quot;2017-11&quot;, &quot;avg&quot;: 24668.88888888889},
-  {&quot;month&quot;: &quot;2017-12&quot;, &quot;avg&quot;: 25668.387096774193},
-  {&quot;month&quot;: &quot;2018-1&quot;, &quot;avg&quot;: 24514.83870967742},
-  {&quot;month&quot;: &quot;2018-2&quot;, &quot;avg&quot;: 24722.068965517243},
-  {&quot;month&quot;: &quot;2018-3&quot;, &quot;avg&quot;: 22894.736842105263},
-  {&quot;month&quot;: &quot;2018-4&quot;, &quot;avg&quot;: 25377.777777777777},
-  {&quot;month&quot;: &quot;2018-5&quot;, &quot;avg&quot;: 23483.571428571428},
-  {&quot;month&quot;: &quot;2018-6&quot;, &quot;avg&quot;: 21836},
-  {&quot;month&quot;: &quot;2018-7&quot;, &quot;avg&quot;: 21698.709677419356},
-  {&quot;month&quot;: &quot;2018-8&quot;, &quot;avg&quot;: 23662.758620689656}
-]
-
-var chart = new G2.Chart({
-      container: &quot;mountNode&quot;,
-      forceFit: true,
-      padding: [20, 20, 40, 30]
-    });
-    var newData = lineData.map(element =&gt; {
-      element.avg = Number((element.avg / 3600).toFixed(2));
-      var duration = moment.duration(element.avg * 1000);
-      element.timeString = `${
-        duration.get(&quot;hours&quot;) ? duration.get(&quot;hours&quot;) + &quot;小时&quot; : &quot;&quot;
-      }${
-        duration.get(&quot;minutes&quot;) ? duration.get(&quot;minutes&quot;) + &quot;分&quot; : &quot;&quot;
-      }${duration.get(&quot;seconds&quot;)}`;
-      return element;
-    });
-    chart.source(newData);
-    chart.scale(&quot;avg&quot;, {
-      min: 5,
-      max: 8,
-      alias: &quot;睡眠平均时间(小时)&quot;
-    });
-    chart.scale(&quot;month&quot;, {range: [0, 1], alias: &quot;月份&quot;, tickCount: 10});
-    chart.tooltip();
-    chart.line().position(&quot;month*avg&quot;);
-    chart
-      .point()
-      .position(&quot;month*avg&quot;)
-      .size(4)
-      .shape(&quot;circle&quot;)
-      .style({
-        stroke: &quot;#fff&quot;,
-        lineWidth: 1
-      });
-    chart.render();
-
-
-var durationData = [
-  {&quot;duration&quot;: &quot;3小时&quot;, &quot;count&quot;: 10, &quot;percent&quot;: 0.02},
-  {&quot;duration&quot;: &quot;4小时&quot;, &quot;count&quot;: 20, &quot;percent&quot;: 0.03},
-  {&quot;duration&quot;: &quot;5小时&quot;, &quot;count&quot;: 55, &quot;percent&quot;: 0.09},
-  {&quot;duration&quot;: &quot;6小时&quot;, &quot;count&quot;: 150, &quot;percent&quot;: 0.25},
-  {&quot;duration&quot;: &quot;7小时&quot;, &quot;count&quot;: 219, &quot;percent&quot;: 0.36},
-  {&quot;duration&quot;: &quot;8小时&quot;, &quot;count&quot;: 109, &quot;percent&quot;: 0.18},
-  {&quot;duration&quot;: &quot;9小时&quot;, &quot;count&quot;: 33, &quot;percent&quot;: 0.06},
-  {&quot;duration&quot;: &quot;10小时&quot;, &quot;count&quot;: 3, &quot;percent&quot;: 0.01}
-]
-
-var pieChart = new G2.Chart({
-      container: &quot;pieNode&quot;,
-      forceFit: true
-    });
-    pieChart.source(durationData, {
-      percent: {
-        formatter: function formatter(val) {
-          val = val * 100 + &quot;%&quot;;
-          return val;
-        }
-      }
-    });
-    pieChart.coord(&quot;theta&quot;, {
-      radius: 0.75
-    });
-    pieChart.tooltip({
-      showTitle: false,
-      itemTpl:
-        '&lt;li&gt;&lt;span style=&quot;background-color:{color};&quot; class=&quot;g2-tooltip-marker&quot;&gt;&lt;/span&gt;{name}: {value}次&lt;/li&gt;'
-    });
-    pieChart
-      .intervalStack()
-      .position(&quot;percent&quot;)
-      .color(&quot;duration&quot;)
-      .label(&quot;percent&quot;, {
-        formatter: function formatter(val, item) {
-          return item.point.duration + &quot;: &quot; + val;
-        }
-      })
-      .tooltip(&quot;duration*count&quot;, function(duration, count) {
-        return {
-          name: duration,
-          value: count
-        };
-      })
-      .style({
-        lineWidth: 1,
-        stroke: &quot;#fff&quot;
-      });
-    pieChart.render();
-
-var weekdayData = [
-  {
-    &quot;weekday&quot;: &quot;星期一&quot;,
-    &quot;duration&quot;: 25189.53488372093,
-    &quot;awakeTime&quot;: 727.6744186046511,
-    &quot;lightSleepTime&quot;: 16702.325581395347,
-    &quot;soundSleepTime&quot;: 7759.53488372093
-  },
-  {
-    &quot;weekday&quot;: &quot;星期二&quot;,
-    &quot;duration&quot;: 23471.566265060243,
-    &quot;awakeTime&quot;: 612.289156626506,
-    &quot;lightSleepTime&quot;: 15579.036144578313,
-    &quot;soundSleepTime&quot;: 7280.240963855422
-  },
-  {
-    &quot;weekday&quot;: &quot;星期三&quot;,
-    &quot;duration&quot;: 24564,
-    &quot;awakeTime&quot;: 708,
-    &quot;lightSleepTime&quot;: 16171.764705882353,
-    &quot;soundSleepTime&quot;: 7684.235294117647
-  },
-  {
-    &quot;weekday&quot;: &quot;星期四&quot;,
-    &quot;duration&quot;: 23055,
-    &quot;awakeTime&quot;: 747.1428571428571,
-    &quot;lightSleepTime&quot;: 15167.857142857143,
-    &quot;soundSleepTime&quot;: 7140
-  },
-  {
-    &quot;weekday&quot;: &quot;星期五&quot;,
-    &quot;duration&quot;: 23456.55172413793,
-    &quot;awakeTime&quot;: 711.7241379310345,
-    &quot;lightSleepTime&quot;: 14666.896551724138,
-    &quot;soundSleepTime&quot;: 8077.931034482759
-  },
-  {
-    &quot;weekday&quot;: &quot;星期六&quot;,
-    &quot;duration&quot;: 24133.483146067414,
-    &quot;awakeTime&quot;: 664.0449438202247,
-    &quot;lightSleepTime&quot;: 15974.831460674157,
-    &quot;soundSleepTime&quot;: 7494.606741573034
-  },
-  {
-    &quot;weekday&quot;: &quot;星期天&quot;,
-    &quot;duration&quot;: 24564.418604651164,
-    &quot;awakeTime&quot;: 1017.2093023255813,
-    &quot;lightSleepTime&quot;: 16012.32558139535,
-    &quot;soundSleepTime&quot;: 7534.883720930233
-  }
-]
-var newWeekdayData = weekdayData.map(one =&gt; {
-  one.duration = Number((one.duration / 3600).toFixed(2));
-  one.awakeTime = Number((one.awakeTime / 3600).toFixed(2));
-  one.lightSleepTime = Number((one.lightSleepTime / 3600).toFixed(2));
-  one.soundSleepTime = Number((one.soundSleepTime / 3600).toFixed(2));
-  return one;
-});
-var DataView = DataSet.DataView
-var dv = new DataView().source(newWeekdayData);
-dv.transform({
-  type: &quot;fold&quot;,
-  fields: [&quot;duration&quot;, &quot;lightSleepTime&quot;, &quot;soundSleepTime&quot;], // 展开字段集
-  key: &quot;weekDay&quot;, // key字段
-  value: &quot;time&quot; // value字段
-});
-var radarChart = new G2.Chart({
-  container: &quot;radarNode&quot;,
-  forceFit: true,
-  padding: [20, 20, 95, 20]
-});
-radarChart.source(dv, {
-  time: {
-    min: 0,
-    max: 8
-  }
-});
-radarChart.coord(&quot;polar&quot;, {
-  radius: 0.8
-});
-radarChart.axis(&quot;weekday&quot;, {
-  line: null,
-  tickLine: null,
-  grid: {
-    lineStyle: {
-      lineDash: null
-    },
-    hideFirstLine: false
-  }
-});
-radarChart.axis(&quot;time&quot;, {
-  line: null,
-  tickLine: null,
-  grid: {
-    type: &quot;polygon&quot;,
-    lineStyle: {
-      lineDash: null
-    }
-  }
-});
-radarChart.legend(&quot;weekDay&quot;, {
-  marker: &quot;circle&quot;,
-  offset: 30
-});
-radarChart
-  .line()
-  .position(&quot;weekday*time&quot;)
-  .color(&quot;weekDay&quot;)
-  .size(2);
-radarChart
-  .point()
-  .position(&quot;weekday*time&quot;)
-  .color(&quot;weekDay&quot;)
-  .shape(&quot;circle&quot;)
-  .size(4)
-  .style({
-    stroke: &quot;#fff&quot;,
-    lineWidth: 1,
-    fillOpacity: 1
-  });
-radarChart.render();
-
-
-var boxData = [
-  {&quot;startTime&quot;: 3.6, &quot;endTime&quot;: 9.383333333333333},
-  {&quot;startTime&quot;: 1.9166666666666665, &quot;endTime&quot;: 5.483333333333333},
-  {&quot;startTime&quot;: 1.25, &quot;endTime&quot;: 9.133333333333333},
-  {&quot;startTime&quot;: 0.7666666666666667, &quot;endTime&quot;: 6.016666666666667},
-  {&quot;startTime&quot;: 0.15, &quot;endTime&quot;: 6.983333333333333},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 9.316666666666666},
-  {&quot;startTime&quot;: 3.283333333333333, &quot;endTime&quot;: 9.75},
-  {&quot;startTime&quot;: 2.066666666666667, &quot;endTime&quot;: 9.616666666666667},
-  {&quot;startTime&quot;: 2.6333333333333333, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.183333333333334},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 7.583333333333333},
-  {&quot;startTime&quot;: 2.966666666666667, &quot;endTime&quot;: 9.433333333333334},
-  {&quot;startTime&quot;: 1.8666666666666667, &quot;endTime&quot;: 9.3},
-  {&quot;startTime&quot;: 2.3833333333333333, &quot;endTime&quot;: 8.966666666666667},
-  {&quot;startTime&quot;: 1.5666666666666667, &quot;endTime&quot;: 10.066666666666666},
-  {&quot;startTime&quot;: 2.3, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 8.833333333333334},
-  {&quot;startTime&quot;: 1.1166666666666667, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 0.8333333333333334, &quot;endTime&quot;: 9.65},
-  {&quot;startTime&quot;: 1.6, &quot;endTime&quot;: 9.816666666666666},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 23.7, &quot;endTime&quot;: 9.05},
-  {&quot;startTime&quot;: 3.9833333333333334, &quot;endTime&quot;: 11.65},
-  {&quot;startTime&quot;: 2.8, &quot;endTime&quot;: 9.983333333333333},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 9.783333333333333},
-  {&quot;startTime&quot;: 2.65, &quot;endTime&quot;: 9.966666666666667},
-  {&quot;startTime&quot;: 2.466666666666667, &quot;endTime&quot;: 9.616666666666667},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 7.516666666666667},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 2.9833333333333334, &quot;endTime&quot;: 9.75},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 10.05},
-  {&quot;startTime&quot;: 2.05, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 1.6666666666666665, &quot;endTime&quot;: 9.216666666666667},
-  {&quot;startTime&quot;: 1.2833333333333332, &quot;endTime&quot;: 8.683333333333334},
-  {&quot;startTime&quot;: 2.3, &quot;endTime&quot;: 10.033333333333333},
-  {&quot;startTime&quot;: 2.2666666666666666, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 0.8666666666666667, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 3.75, &quot;endTime&quot;: 10.6},
-  {&quot;startTime&quot;: 1.7833333333333332, &quot;endTime&quot;: 10.266666666666667},
-  {&quot;startTime&quot;: 2.2, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 2.15, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 1.2333333333333334, &quot;endTime&quot;: 5.566666666666666},
-  {&quot;startTime&quot;: 0.9166666666666666, &quot;endTime&quot;: 7.9},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 8.966666666666667},
-  {&quot;startTime&quot;: 2.8666666666666667, &quot;endTime&quot;: 8.966666666666667},
-  {&quot;startTime&quot;: 2, &quot;endTime&quot;: 10.233333333333333},
-  {&quot;startTime&quot;: 1.2833333333333332, &quot;endTime&quot;: 6.6},
-  {&quot;startTime&quot;: 23.616666666666667, &quot;endTime&quot;: 8.266666666666667},
-  {&quot;startTime&quot;: 1.05, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 0.9333333333333333, &quot;endTime&quot;: 8.533333333333333},
-  {&quot;startTime&quot;: 0.7333333333333333, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 3.066666666666667, &quot;endTime&quot;: 9.566666666666666},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 8.166666666666666},
-  {&quot;startTime&quot;: 1.2833333333333332, &quot;endTime&quot;: 8.133333333333333},
-  {&quot;startTime&quot;: 0.75, &quot;endTime&quot;: 7.95},
-  {&quot;startTime&quot;: 23.95, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 1.2166666666666668, &quot;endTime&quot;: 8.533333333333333},
-  {&quot;startTime&quot;: 1.9166666666666665, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 0.9, &quot;endTime&quot;: 9.733333333333333},
-  {&quot;startTime&quot;: 3.2, &quot;endTime&quot;: 9.866666666666667},
-  {&quot;startTime&quot;: 3.8, &quot;endTime&quot;: 8.1},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 1.7666666666666666, &quot;endTime&quot;: 8.5},
-  {&quot;startTime&quot;: 0.9, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 1.1666666666666667, &quot;endTime&quot;: 7.75},
-  {&quot;startTime&quot;: 1.6666666666666665, &quot;endTime&quot;: 9.983333333333333},
-  {&quot;startTime&quot;: 1.2333333333333334, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 0.4166666666666667, &quot;endTime&quot;: 7.35},
-  {&quot;startTime&quot;: 2.0833333333333335, &quot;endTime&quot;: 8.266666666666667},
-  {&quot;startTime&quot;: 2.3666666666666667, &quot;endTime&quot;: 8.716666666666667},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 1.85, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 1.5666666666666667, &quot;endTime&quot;: 9.233333333333333},
-  {&quot;startTime&quot;: 2.1666666666666665, &quot;endTime&quot;: 7.6},
-  {&quot;startTime&quot;: 1.4, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 3.35, &quot;endTime&quot;: 9.083333333333334},
-  {&quot;startTime&quot;: 0.5666666666666667, &quot;endTime&quot;: 5.466666666666667},
-  {&quot;startTime&quot;: 1.1166666666666667, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 1.3333333333333333, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 1.6166666666666667, &quot;endTime&quot;: 8.533333333333333},
-  {&quot;startTime&quot;: 2.0833333333333335, &quot;endTime&quot;: 11.116666666666667},
-  {&quot;startTime&quot;: 0.8, &quot;endTime&quot;: 8.916666666666666},
-  {&quot;startTime&quot;: 2.8666666666666667, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 0, &quot;endTime&quot;: 8.25},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.7},
-  {&quot;startTime&quot;: 1.8, &quot;endTime&quot;: 8.683333333333334},
-  {&quot;startTime&quot;: 1.6666666666666665, &quot;endTime&quot;: 9.25},
-  {&quot;startTime&quot;: 0.8666666666666667, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 1.7666666666666666, &quot;endTime&quot;: 7.866666666666667},
-  {&quot;startTime&quot;: 2.3333333333333335, &quot;endTime&quot;: 9.016666666666667},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 1.2166666666666668, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 4.033333333333333, &quot;endTime&quot;: 9.65},
-  {&quot;startTime&quot;: 1.65, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 1.1166666666666667, &quot;endTime&quot;: 8.233333333333333},
-  {&quot;startTime&quot;: 1.3833333333333333, &quot;endTime&quot;: 4.666666666666667},
-  {&quot;startTime&quot;: 0.3333333333333333, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 0.95, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 0.6166666666666667, &quot;endTime&quot;: 6.033333333333333},
-  {&quot;startTime&quot;: 1.25, &quot;endTime&quot;: 6.916666666666667},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 8.05},
-  {&quot;startTime&quot;: 3.2333333333333334, &quot;endTime&quot;: 7.716666666666667},
-  {&quot;startTime&quot;: 0.36666666666666664, &quot;endTime&quot;: 6.733333333333333},
-  {&quot;startTime&quot;: 0.85, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 0.6, &quot;endTime&quot;: 6.216666666666667},
-  {&quot;startTime&quot;: 0.48333333333333334, &quot;endTime&quot;: 7.916666666666667},
-  {&quot;startTime&quot;: 4.3, &quot;endTime&quot;: 9.016666666666667},
-  {&quot;startTime&quot;: 23.833333333333332, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 0.16666666666666666, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 1.3333333333333333, &quot;endTime&quot;: 8.666666666666666},
-  {&quot;startTime&quot;: 1.5333333333333332, &quot;endTime&quot;: 10.233333333333333},
-  {&quot;startTime&quot;: 0.31666666666666665, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 23.85, &quot;endTime&quot;: 7.35},
-  {&quot;startTime&quot;: 0.23333333333333334, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 0.05, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 2.4333333333333336, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.7},
-  {&quot;startTime&quot;: 1.85, &quot;endTime&quot;: 8.083333333333334},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.866666666666667},
-  {&quot;startTime&quot;: 23.133333333333333, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 2.6666666666666665, &quot;endTime&quot;: 7.8},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 1.2833333333333332, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 2.0166666666666666, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 2.2666666666666666, &quot;endTime&quot;: 11.416666666666666},
-  {&quot;startTime&quot;: 1.15, &quot;endTime&quot;: 7.35},
-  {&quot;startTime&quot;: 1.8333333333333335, &quot;endTime&quot;: 7.416666666666667},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 2.4833333333333334, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 1.9166666666666665, &quot;endTime&quot;: 8.633333333333333},
-  {&quot;startTime&quot;: 1.9666666666666668, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 1.4666666666666668, &quot;endTime&quot;: 7.983333333333333},
-  {&quot;startTime&quot;: 1.4666666666666668, &quot;endTime&quot;: 8.5},
-  {&quot;startTime&quot;: 2.75, &quot;endTime&quot;: 8.416666666666666},
-  {&quot;startTime&quot;: 2.25, &quot;endTime&quot;: 7.666666666666667},
-  {&quot;startTime&quot;: 0.7, &quot;endTime&quot;: 9.683333333333334},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 2.75, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 2.2666666666666666, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 2.7666666666666666, &quot;endTime&quot;: 8.8},
-  {&quot;startTime&quot;: 2.1166666666666667, &quot;endTime&quot;: 9.033333333333333},
-  {&quot;startTime&quot;: 3.3166666666666664, &quot;endTime&quot;: 8.816666666666666},
-  {&quot;startTime&quot;: 2.95, &quot;endTime&quot;: 9.483333333333333},
-  {&quot;startTime&quot;: 1.8333333333333335, &quot;endTime&quot;: 8.683333333333334},
-  {&quot;startTime&quot;: 4.033333333333333, &quot;endTime&quot;: 8.75},
-  {&quot;startTime&quot;: 2.033333333333333, &quot;endTime&quot;: 8.966666666666667},
-  {&quot;startTime&quot;: 1.7833333333333332, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 4.616666666666667, &quot;endTime&quot;: 9.133333333333333},
-  {&quot;startTime&quot;: 0.95, &quot;endTime&quot;: 8.116666666666667},
-  {&quot;startTime&quot;: 2.8, &quot;endTime&quot;: 7.733333333333333},
-  {&quot;startTime&quot;: 1, &quot;endTime&quot;: 8.683333333333334},
-  {&quot;startTime&quot;: 3.2, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 1.4166666666666667, &quot;endTime&quot;: 4.716666666666667},
-  {&quot;startTime&quot;: 3.3166666666666664, &quot;endTime&quot;: 8.233333333333333},
-  {&quot;startTime&quot;: 1.8333333333333335, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 2.8166666666666664, &quot;endTime&quot;: 9.4},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 9},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 8.666666666666666},
-  {&quot;startTime&quot;: 1.6166666666666667, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 7.266666666666667},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.466666666666667},
-  {&quot;startTime&quot;: 3.65, &quot;endTime&quot;: 9.9},
-  {&quot;startTime&quot;: 1.2333333333333334, &quot;endTime&quot;: 7.9},
-  {&quot;startTime&quot;: 1.0833333333333333, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 0.75, &quot;endTime&quot;: 8.25},
-  {&quot;startTime&quot;: 0.7666666666666667, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 1.05, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 2.4166666666666665, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 0.9166666666666666, &quot;endTime&quot;: 8.233333333333333},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 9.916666666666666},
-  {&quot;startTime&quot;: 1.8166666666666667, &quot;endTime&quot;: 8.7},
-  {&quot;startTime&quot;: 0.95, &quot;endTime&quot;: 8.25},
-  {&quot;startTime&quot;: 1.9333333333333333, &quot;endTime&quot;: 7.683333333333334},
-  {&quot;startTime&quot;: 3.3666666666666667, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 3.0166666666666666, &quot;endTime&quot;: 8.65},
-  {&quot;startTime&quot;: 2.7, &quot;endTime&quot;: 8.266666666666667},
-  {&quot;startTime&quot;: 2.75, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 1.85, &quot;endTime&quot;: 8.883333333333333},
-  {&quot;startTime&quot;: 1.6833333333333333, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.6333333333333333, &quot;endTime&quot;: 8.983333333333333},
-  {&quot;startTime&quot;: 1.15, &quot;endTime&quot;: 8.266666666666667},
-  {&quot;startTime&quot;: 2.4333333333333336, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 2.25, &quot;endTime&quot;: 7.033333333333333},
-  {&quot;startTime&quot;: 1.9333333333333333, &quot;endTime&quot;: 8.716666666666667},
-  {&quot;startTime&quot;: 3.066666666666667, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 1.5333333333333332, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 2.8333333333333335, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 2.216666666666667, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 3.2333333333333334, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 1, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 1.7166666666666668, &quot;endTime&quot;: 6.283333333333333},
-  {&quot;startTime&quot;: 1.25, &quot;endTime&quot;: 8.816666666666666},
-  {&quot;startTime&quot;: 2.4, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 2.5666666666666664, &quot;endTime&quot;: 8.75},
-  {&quot;startTime&quot;: 3.1333333333333333, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 3.2333333333333334, &quot;endTime&quot;: 9.733333333333333},
-  {&quot;startTime&quot;: 2.3166666666666664, &quot;endTime&quot;: 7.816666666666666},
-  {&quot;startTime&quot;: 4.066666666666666, &quot;endTime&quot;: 9.066666666666666},
-  {&quot;startTime&quot;: 4.05, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 1.9166666666666665, &quot;endTime&quot;: 9.466666666666667},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 3.6166666666666667, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 23.75, &quot;endTime&quot;: 7.833333333333333},
-  {&quot;startTime&quot;: 1.1666666666666667, &quot;endTime&quot;: 8.133333333333333},
-  {&quot;startTime&quot;: 0.5666666666666667, &quot;endTime&quot;: 8.916666666666666},
-  {&quot;startTime&quot;: 3.3666666666666667, &quot;endTime&quot;: 10.133333333333333},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.183333333333334},
-  {&quot;startTime&quot;: 3.05, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 3.066666666666667, &quot;endTime&quot;: 9.1},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 8.116666666666667},
-  {&quot;startTime&quot;: 0.7333333333333333, &quot;endTime&quot;: 8.1},
-  {&quot;startTime&quot;: 0.08333333333333333, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 7.85},
-  {&quot;startTime&quot;: 22.566666666666666, &quot;endTime&quot;: 3.4166666666666665},
-  {&quot;startTime&quot;: 4.8, &quot;endTime&quot;: 9.166666666666666},
-  {&quot;startTime&quot;: 2.85, &quot;endTime&quot;: 9.783333333333333},
-  {&quot;startTime&quot;: 1.3833333333333333, &quot;endTime&quot;: 8.466666666666667},
-  {&quot;startTime&quot;: 0.6833333333333333, &quot;endTime&quot;: 8.266666666666667},
-  {&quot;startTime&quot;: 1.4833333333333334, &quot;endTime&quot;: 7.583333333333333},
-  {&quot;startTime&quot;: 1.9333333333333333, &quot;endTime&quot;: 8.016666666666667},
-  {&quot;startTime&quot;: 1.2333333333333334, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 2.8, &quot;endTime&quot;: 7.616666666666667},
-  {&quot;startTime&quot;: 0.13333333333333333, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 0.7666666666666667, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 1, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 0.9, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 2, &quot;endTime&quot;: 7.866666666666667},
-  {&quot;startTime&quot;: 1.7833333333333332, &quot;endTime&quot;: 6.916666666666667},
-  {&quot;startTime&quot;: 0.6666666666666666, &quot;endTime&quot;: 7.433333333333334},
-  {&quot;startTime&quot;: 1.5666666666666667, &quot;endTime&quot;: 10.25},
-  {&quot;startTime&quot;: 1.3833333333333333, &quot;endTime&quot;: 7.816666666666666},
-  {&quot;startTime&quot;: 1.1333333333333333, &quot;endTime&quot;: 8.016666666666667},
-  {&quot;startTime&quot;: 1.3666666666666667, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 2.216666666666667, &quot;endTime&quot;: 9.05},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 9.033333333333333},
-  {&quot;startTime&quot;: 2.283333333333333, &quot;endTime&quot;: 9.683333333333334},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 8.8},
-  {&quot;startTime&quot;: 3.283333333333333, &quot;endTime&quot;: 9.316666666666666},
-  {&quot;startTime&quot;: 4.016666666666667, &quot;endTime&quot;: 9.05},
-  {&quot;startTime&quot;: 1.0333333333333334, &quot;endTime&quot;: 8.05},
-  {&quot;startTime&quot;: 1.65, &quot;endTime&quot;: 8.116666666666667},
-  {&quot;startTime&quot;: 23.066666666666666, &quot;endTime&quot;: 5.95},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 8.183333333333334},
-  {&quot;startTime&quot;: 2.533333333333333, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 3.0166666666666666, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 0.9, &quot;endTime&quot;: 4.4},
-  {&quot;startTime&quot;: 4.816666666666666, &quot;endTime&quot;: 8.833333333333334},
-  {&quot;startTime&quot;: 3.25, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8.816666666666666},
-  {&quot;startTime&quot;: 2.7333333333333334, &quot;endTime&quot;: 10.183333333333334},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 5.4},
-  {&quot;startTime&quot;: 0.4666666666666667, &quot;endTime&quot;: 6.583333333333333},
-  {&quot;startTime&quot;: 1.25, &quot;endTime&quot;: 6.65},
-  {&quot;startTime&quot;: 2.1, &quot;endTime&quot;: 8.783333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 6.016666666666667},
-  {&quot;startTime&quot;: 1.2166666666666668, &quot;endTime&quot;: 5.766666666666667},
-  {&quot;startTime&quot;: 0.016666666666666666, &quot;endTime&quot;: 9.016666666666667},
-  {&quot;startTime&quot;: 3.3833333333333333, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 0.7166666666666667, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 9.45},
-  {&quot;startTime&quot;: 0.7166666666666667, &quot;endTime&quot;: 8.033333333333333},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 1.8, &quot;endTime&quot;: 8.716666666666667},
-  {&quot;startTime&quot;: 2.4166666666666665, &quot;endTime&quot;: 8.8},
-  {&quot;startTime&quot;: 1.9333333333333333, &quot;endTime&quot;: 10.55},
-  {&quot;startTime&quot;: 3.8666666666666667, &quot;endTime&quot;: 9.416666666666666},
-  {&quot;startTime&quot;: 2.6833333333333336, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 0.45, &quot;endTime&quot;: 7.583333333333333},
-  {&quot;startTime&quot;: 1.0833333333333333, &quot;endTime&quot;: 7.233333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.716666666666667},
-  {&quot;startTime&quot;: 0.9666666666666667, &quot;endTime&quot;: 8.2},
-  {&quot;startTime&quot;: 1.0333333333333334, &quot;endTime&quot;: 7.2},
-  {&quot;startTime&quot;: 2.4333333333333336, &quot;endTime&quot;: 8.65},
-  {&quot;startTime&quot;: 1.35, &quot;endTime&quot;: 7.966666666666667},
-  {&quot;startTime&quot;: 3.1333333333333333, &quot;endTime&quot;: 8.933333333333334},
-  {&quot;startTime&quot;: 3.1, &quot;endTime&quot;: 7.15},
-  {&quot;startTime&quot;: 0.8333333333333334, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 0.7666666666666667, &quot;endTime&quot;: 7.45},
-  {&quot;startTime&quot;: 0.85, &quot;endTime&quot;: 7.6},
-  {&quot;startTime&quot;: 0.38333333333333336, &quot;endTime&quot;: 7.566666666666666},
-  {&quot;startTime&quot;: 1.1333333333333333, &quot;endTime&quot;: 7.416666666666667},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 7.6},
-  {&quot;startTime&quot;: 1.8166666666666667, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 23.916666666666668, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.2},
-  {&quot;startTime&quot;: 2.6333333333333333, &quot;endTime&quot;: 9.266666666666667},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 23.733333333333334, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 2.1, &quot;endTime&quot;: 8.15},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.15},
-  {&quot;startTime&quot;: 1.8833333333333333, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 1.6166666666666667, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 1.6666666666666665, &quot;endTime&quot;: 7.966666666666667},
-  {&quot;startTime&quot;: 23.5, &quot;endTime&quot;: 7.133333333333334},
-  {&quot;startTime&quot;: 0.18333333333333332, &quot;endTime&quot;: 7.5},
-  {&quot;startTime&quot;: 0.38333333333333336, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 2.2, &quot;endTime&quot;: 8.5},
-  {&quot;startTime&quot;: 22.133333333333333, &quot;endTime&quot;: 5.733333333333333},
-  {&quot;startTime&quot;: 2.6, &quot;endTime&quot;: 8.916666666666666},
-  {&quot;startTime&quot;: 0.7833333333333333, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 1.05, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 1.7333333333333334, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 7.883333333333333},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 7.933333333333334},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 23.7, &quot;endTime&quot;: 6.55},
-  {&quot;startTime&quot;: 3.5, &quot;endTime&quot;: 9.533333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.65},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 9.383333333333333},
-  {&quot;startTime&quot;: 0.7, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 4.15, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 0.6166666666666667, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 7.233333333333333},
-  {&quot;startTime&quot;: 2.6, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 23.333333333333332, &quot;endTime&quot;: 7.016666666666667},
-  {&quot;startTime&quot;: 23.533333333333335, &quot;endTime&quot;: 9.916666666666666},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 8.533333333333333},
-  {&quot;startTime&quot;: 4.45, &quot;endTime&quot;: 8.666666666666666},
-  {&quot;startTime&quot;: 0.55, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 1.7333333333333334, &quot;endTime&quot;: 8.15},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 9},
-  {&quot;startTime&quot;: 0.45, &quot;endTime&quot;: 7.333333333333333},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 9.633333333333333},
-  {&quot;startTime&quot;: 0.36666666666666664, &quot;endTime&quot;: 9.683333333333334},
-  {&quot;startTime&quot;: 0.5666666666666667, &quot;endTime&quot;: 7.533333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 7.666666666666667},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 8.75},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 6.216666666666667},
-  {&quot;startTime&quot;: 23.85, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 1.7333333333333334, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 7.883333333333333},
-  {&quot;startTime&quot;: 0.9833333333333333, &quot;endTime&quot;: 7.933333333333334},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 8.85},
-  {&quot;startTime&quot;: 23.7, &quot;endTime&quot;: 6.55},
-  {&quot;startTime&quot;: 3.5, &quot;endTime&quot;: 9.533333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.65},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 9.383333333333333},
-  {&quot;startTime&quot;: 0.7, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 4.15, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 0.6166666666666667, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 7.233333333333333},
-  {&quot;startTime&quot;: 2.6, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 23.333333333333332, &quot;endTime&quot;: 7.016666666666667},
-  {&quot;startTime&quot;: 23.533333333333335, &quot;endTime&quot;: 9.916666666666666},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 8.533333333333333},
-  {&quot;startTime&quot;: 4.45, &quot;endTime&quot;: 8.666666666666666},
-  {&quot;startTime&quot;: 0.55, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 1.7333333333333334, &quot;endTime&quot;: 8.15},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 9},
-  {&quot;startTime&quot;: 0.45, &quot;endTime&quot;: 7.333333333333333},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 9.633333333333333},
-  {&quot;startTime&quot;: 0.36666666666666664, &quot;endTime&quot;: 9.683333333333334},
-  {&quot;startTime&quot;: 0.5666666666666667, &quot;endTime&quot;: 7.533333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 7.666666666666667},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 8.75},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 6.216666666666667},
-  {&quot;startTime&quot;: 23.85, &quot;endTime&quot;: 8.45},
-  {&quot;startTime&quot;: 0.9333333333333333, &quot;endTime&quot;: 6.783333333333333},
-  {&quot;startTime&quot;: 0.23333333333333334, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 8.633333333333333},
-  {&quot;startTime&quot;: 1.4333333333333333, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 2.2666666666666666, &quot;endTime&quot;: 8.133333333333333},
-  {&quot;startTime&quot;: 23.283333333333335, &quot;endTime&quot;: 7.816666666666666},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.783333333333333},
-  {&quot;startTime&quot;: 1.2, &quot;endTime&quot;: 8.633333333333333},
-  {&quot;startTime&quot;: 1.1833333333333333, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 1.1333333333333333, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.6166666666666667, &quot;endTime&quot;: 8.416666666666666},
-  {&quot;startTime&quot;: 3.4333333333333336, &quot;endTime&quot;: 9.633333333333333},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 9.016666666666667},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 7.366666666666666},
-  {&quot;startTime&quot;: 2.5166666666666666, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 2, &quot;endTime&quot;: 7.533333333333333},
-  {&quot;startTime&quot;: 1.8, &quot;endTime&quot;: 7.816666666666666},
-  {&quot;startTime&quot;: 2.466666666666667, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 1.7833333333333332, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 3.8333333333333335, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 1.8166666666666667, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 0.8666666666666667, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 1.55, &quot;endTime&quot;: 8.2},
-  {&quot;startTime&quot;: 2.3333333333333335, &quot;endTime&quot;: 8.566666666666666},
-  {&quot;startTime&quot;: 0.9666666666666667, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 9.05},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 10.283333333333333},
-  {&quot;startTime&quot;: 2.1166666666666667, &quot;endTime&quot;: 8.5},
-  {&quot;startTime&quot;: 1.3666666666666667, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 3.05, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 2.0166666666666666, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 8.016666666666667},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 10.6},
-  {&quot;startTime&quot;: 3.7666666666666666, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 0.8333333333333334, &quot;endTime&quot;: 8.416666666666666},
-  {&quot;startTime&quot;: 0.9333333333333333, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 1.6833333333333333, &quot;endTime&quot;: 7.216666666666667},
-  {&quot;startTime&quot;: 2.4833333333333334, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 1.5833333333333335, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 2.4833333333333334, &quot;endTime&quot;: 9.9},
-  {&quot;startTime&quot;: 2.15, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 3.4, &quot;endTime&quot;: 9.133333333333333},
-  {&quot;startTime&quot;: 1.7, &quot;endTime&quot;: 8.583333333333334},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 23.8, &quot;endTime&quot;: 10.916666666666666},
-  {&quot;startTime&quot;: 4.4, &quot;endTime&quot;: 10.3},
-  {&quot;startTime&quot;: 3.283333333333333, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 2.1666666666666665, &quot;endTime&quot;: 9.566666666666666},
-  {&quot;startTime&quot;: 21.9, &quot;endTime&quot;: 0.55},
-  {&quot;startTime&quot;: 2.95, &quot;endTime&quot;: 11.183333333333334},
-  {&quot;startTime&quot;: 23.9, &quot;endTime&quot;: 8.3},
-  {&quot;startTime&quot;: 4.116666666666666, &quot;endTime&quot;: 9.083333333333334},
-  {&quot;startTime&quot;: 1.3333333333333333, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 7.783333333333333},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 9.033333333333333},
-  {&quot;startTime&quot;: 3.3833333333333333, &quot;endTime&quot;: 10.516666666666667},
-  {&quot;startTime&quot;: 2.5833333333333335, &quot;endTime&quot;: 8.633333333333333},
-  {&quot;startTime&quot;: 0.85, &quot;endTime&quot;: 8.616666666666667},
-  {&quot;startTime&quot;: 1.6, &quot;endTime&quot;: 9.016666666666667},
-  {&quot;startTime&quot;: 2.15, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 0.8, &quot;endTime&quot;: 8.65},
-  {&quot;startTime&quot;: 4.416666666666667, &quot;endTime&quot;: 8.65},
-  {&quot;startTime&quot;: 2.2333333333333334, &quot;endTime&quot;: 7.916666666666667},
-  {&quot;startTime&quot;: 0.21666666666666667, &quot;endTime&quot;: 7.633333333333333},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 7.883333333333333},
-  {&quot;startTime&quot;: 0.15, &quot;endTime&quot;: 7.4},
-  {&quot;startTime&quot;: 1.2, &quot;endTime&quot;: 8.133333333333333},
-  {&quot;startTime&quot;: 0.7833333333333333, &quot;endTime&quot;: 8.7},
-  {&quot;startTime&quot;: 2.066666666666667, &quot;endTime&quot;: 9.05},
-  {&quot;startTime&quot;: 2.85, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 0.4166666666666667, &quot;endTime&quot;: 7.2},
-  {&quot;startTime&quot;: 1.2, &quot;endTime&quot;: 8.383333333333333},
-  {&quot;startTime&quot;: 0.5, &quot;endTime&quot;: 7.466666666666667},
-  {&quot;startTime&quot;: 2.6833333333333336, &quot;endTime&quot;: 8.5},
-  {&quot;startTime&quot;: 2.533333333333333, &quot;endTime&quot;: 8.733333333333333},
-  {&quot;startTime&quot;: 4.55, &quot;endTime&quot;: 10.233333333333333},
-  {&quot;startTime&quot;: 3.65, &quot;endTime&quot;: 6.733333333333333},
-  {&quot;startTime&quot;: 2.783333333333333, &quot;endTime&quot;: 8.783333333333333},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 7.133333333333334},
-  {&quot;startTime&quot;: 2.5166666666666666, &quot;endTime&quot;: 8.133333333333333},
-  {&quot;startTime&quot;: 0.5666666666666667, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 23.85, &quot;endTime&quot;: 8.416666666666666},
-  {&quot;startTime&quot;: 1.95, &quot;endTime&quot;: 8.633333333333333},
-  {&quot;startTime&quot;: 0.18333333333333332, &quot;endTime&quot;: 7.316666666666666},
-  {&quot;startTime&quot;: 0.31666666666666665, &quot;endTime&quot;: 8.4},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 8.316666666666666},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 8.033333333333333},
-  {&quot;startTime&quot;: 0.7333333333333333, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 1.75, &quot;endTime&quot;: 8.95},
-  {&quot;startTime&quot;: 1.1666666666666667, &quot;endTime&quot;: 9},
-  {&quot;startTime&quot;: 1.0666666666666667, &quot;endTime&quot;: 8.05},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 2.2, &quot;endTime&quot;: 7.5},
-  {&quot;startTime&quot;: 1.0833333333333333, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 3.15, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 0.9666666666666667, &quot;endTime&quot;: 8.933333333333334},
-  {&quot;startTime&quot;: 0.7333333333333333, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 3.033333333333333, &quot;endTime&quot;: 8.7},
-  {&quot;startTime&quot;: 1.7, &quot;endTime&quot;: 8.766666666666667},
-  {&quot;startTime&quot;: 1.3333333333333333, &quot;endTime&quot;: 8.816666666666666},
-  {&quot;startTime&quot;: 1.4333333333333333, &quot;endTime&quot;: 8.583333333333334},
-  {&quot;startTime&quot;: 1.1333333333333333, &quot;endTime&quot;: 7.15},
-  {&quot;startTime&quot;: 0.9666666666666667, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 0.75, &quot;endTime&quot;: 7.933333333333334},
-  {&quot;startTime&quot;: 1.6166666666666667, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 0.8, &quot;endTime&quot;: 7.2},
-  {&quot;startTime&quot;: 0.9666666666666667, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 0.31666666666666665, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 8.083333333333334},
-  {&quot;startTime&quot;: 2.65, &quot;endTime&quot;: 8.716666666666667},
-  {&quot;startTime&quot;: 1.5833333333333335, &quot;endTime&quot;: 7.45},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 8.05},
-  {&quot;startTime&quot;: 0.9, &quot;endTime&quot;: 7.35},
-  {&quot;startTime&quot;: 23.083333333333332, &quot;endTime&quot;: 6.783333333333333},
-  {&quot;startTime&quot;: 0.8666666666666667, &quot;endTime&quot;: 7.766666666666667},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 7.416666666666667},
-  {&quot;startTime&quot;: 1.25, &quot;endTime&quot;: 7.9},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 6.683333333333334},
-  {&quot;startTime&quot;: 2.3666666666666667, &quot;endTime&quot;: 8.233333333333333},
-  {&quot;startTime&quot;: 2.25, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 0.95, &quot;endTime&quot;: 8.183333333333334},
-  {&quot;startTime&quot;: 20.166666666666668, &quot;endTime&quot;: 0.016666666666666666},
-  {&quot;startTime&quot;: 22.716666666666665, &quot;endTime&quot;: 4.816666666666666},
-  {&quot;startTime&quot;: 22.766666666666666, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 0.6666666666666666, &quot;endTime&quot;: 7.05},
-  {&quot;startTime&quot;: 1.0333333333333334, &quot;endTime&quot;: 5.966666666666667},
-  {&quot;startTime&quot;: 23.083333333333332, &quot;endTime&quot;: 4.35},
-  {&quot;startTime&quot;: 22.733333333333334, &quot;endTime&quot;: 5.633333333333333},
-  {&quot;startTime&quot;: 23.566666666666666, &quot;endTime&quot;: 7.533333333333333},
-  {&quot;startTime&quot;: 23.166666666666668, &quot;endTime&quot;: 6.566666666666666},
-  {&quot;startTime&quot;: 0.7666666666666667, &quot;endTime&quot;: 5.566666666666666},
-  {&quot;startTime&quot;: 21.8, &quot;endTime&quot;: 6.95},
-  {&quot;startTime&quot;: 23.35, &quot;endTime&quot;: 5.933333333333334},
-  {&quot;startTime&quot;: 23.65, &quot;endTime&quot;: 7.383333333333334},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 6.166666666666667},
-  {&quot;startTime&quot;: 1.4166666666666667, &quot;endTime&quot;: 7.483333333333333},
-  {&quot;startTime&quot;: 0.06666666666666667, &quot;endTime&quot;: 2.716666666666667},
-  {&quot;startTime&quot;: 3.2333333333333334, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 1.8833333333333333, &quot;endTime&quot;: 8.033333333333333},
-  {&quot;startTime&quot;: 1.5166666666666666, &quot;endTime&quot;: 7.3},
-  {&quot;startTime&quot;: 2.216666666666667, &quot;endTime&quot;: 8.833333333333334},
-  {&quot;startTime&quot;: 1.0333333333333334, &quot;endTime&quot;: 7.016666666666667},
-  {&quot;startTime&quot;: 2.1333333333333333, &quot;endTime&quot;: 7.666666666666667},
-  {&quot;startTime&quot;: 1.2666666666666666, &quot;endTime&quot;: 7.533333333333333},
-  {&quot;startTime&quot;: 1.4, &quot;endTime&quot;: 8.483333333333333},
-  {&quot;startTime&quot;: 0.55, &quot;endTime&quot;: 7.15},
-  {&quot;startTime&quot;: 0.13333333333333333, &quot;endTime&quot;: 6.783333333333333},
-  {&quot;startTime&quot;: 1.8166666666666667, &quot;endTime&quot;: 8.35},
-  {&quot;startTime&quot;: 4.05, &quot;endTime&quot;: 9.866666666666667},
-  {&quot;startTime&quot;: 23.816666666666666, &quot;endTime&quot;: 2.5166666666666666},
-  {&quot;startTime&quot;: 1.5666666666666667, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 0.8833333333333333, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 2.8833333333333333, &quot;endTime&quot;: 8.066666666666666},
-  {&quot;startTime&quot;: 2.6166666666666667, &quot;endTime&quot;: 7.983333333333333},
-  {&quot;startTime&quot;: 4.633333333333333, &quot;endTime&quot;: 10.083333333333334},
-  {&quot;startTime&quot;: 3.35, &quot;endTime&quot;: 10.3},
-  {&quot;startTime&quot;: 4.1, &quot;endTime&quot;: 10.35},
-  {&quot;startTime&quot;: 1.8, &quot;endTime&quot;: 9.35},
-  {&quot;startTime&quot;: 0.5, &quot;endTime&quot;: 7.65},
-  {&quot;startTime&quot;: 4.283333333333333, &quot;endTime&quot;: 8.55},
-  {&quot;startTime&quot;: 1.4333333333333333, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 6.95},
-  {&quot;startTime&quot;: 1.6, &quot;endTime&quot;: 8.366666666666667},
-  {&quot;startTime&quot;: 4, &quot;endTime&quot;: 8.866666666666667},
-  {&quot;startTime&quot;: 4.916666666666667, &quot;endTime&quot;: 8.333333333333334},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 8.433333333333334},
-  {&quot;startTime&quot;: 0.18333333333333332, &quot;endTime&quot;: 8.216666666666667},
-  {&quot;startTime&quot;: 1.6333333333333333, &quot;endTime&quot;: 8.183333333333334},
-  {&quot;startTime&quot;: 1.8666666666666667, &quot;endTime&quot;: 8.283333333333333},
-  {&quot;startTime&quot;: 1.0833333333333333, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 0.21666666666666667, &quot;endTime&quot;: 6.55},
-  {&quot;startTime&quot;: 1.05, &quot;endTime&quot;: 8.05},
-  {&quot;startTime&quot;: 4.433333333333334, &quot;endTime&quot;: 8},
-  {&quot;startTime&quot;: 0.4666666666666667, &quot;endTime&quot;: 3.1166666666666667},
-  {&quot;startTime&quot;: 4.733333333333333, &quot;endTime&quot;: 7.75},
-  {&quot;startTime&quot;: 0.65, &quot;endTime&quot;: 7.516666666666667},
-  {&quot;startTime&quot;: 1.8666666666666667, &quot;endTime&quot;: 9.283333333333333},
-  {&quot;startTime&quot;: 1.85, &quot;endTime&quot;: 9.316666666666666},
-  {&quot;startTime&quot;: 1.6833333333333333, &quot;endTime&quot;: 5.933333333333334},
-  {&quot;startTime&quot;: 2.1333333333333333, &quot;endTime&quot;: 6.966666666666667},
-  {&quot;startTime&quot;: 2.2333333333333334, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 2.4333333333333336, &quot;endTime&quot;: 6.516666666666667},
-  {&quot;startTime&quot;: 23.75, &quot;endTime&quot;: 7.516666666666667},
-  {&quot;startTime&quot;: 1.9833333333333334, &quot;endTime&quot;: 9.45},
-  {&quot;startTime&quot;: 0.45, &quot;endTime&quot;: 7.716666666666667},
-  {&quot;startTime&quot;: 1.45, &quot;endTime&quot;: 7.366666666666666},
-  {&quot;startTime&quot;: 0.48333333333333334, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 0.7, &quot;endTime&quot;: 7.166666666666667},
-  {&quot;startTime&quot;: 0.7166666666666667, &quot;endTime&quot;: 6.783333333333333},
-  {&quot;startTime&quot;: 23.516666666666666, &quot;endTime&quot;: 7.233333333333333},
-  {&quot;startTime&quot;: 4, &quot;endTime&quot;: 9.55},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 8.466666666666667},
-  {&quot;startTime&quot;: 0.13333333333333333, &quot;endTime&quot;: 7.316666666666666},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 7.883333333333333},
-  {&quot;startTime&quot;: 1.9166666666666665, &quot;endTime&quot;: 7.283333333333333},
-  {&quot;startTime&quot;: 1.3, &quot;endTime&quot;: 7.383333333333334},
-  {&quot;startTime&quot;: 23.116666666666667, &quot;endTime&quot;: 7.35},
-  {&quot;startTime&quot;: 1.1, &quot;endTime&quot;: 8.6},
-  {&quot;startTime&quot;: 0.35, &quot;endTime&quot;: 8.966666666666667},
-  {&quot;startTime&quot;: 0.11666666666666667, &quot;endTime&quot;: 6.416666666666667},
-  {&quot;startTime&quot;: 0.11666666666666667, &quot;endTime&quot;: 7.166666666666667},
-  {&quot;startTime&quot;: 0.5333333333333333, &quot;endTime&quot;: 7.216666666666667},
-  {&quot;startTime&quot;: 1.8166666666666667, &quot;endTime&quot;: 6.9},
-  {&quot;startTime&quot;: 0.5166666666666667, &quot;endTime&quot;: 7.016666666666667},
-  {&quot;startTime&quot;: 2.3, &quot;endTime&quot;: 8.9},
-  {&quot;startTime&quot;: 0.18333333333333332, &quot;endTime&quot;: 9.633333333333333},
-  {&quot;startTime&quot;: 0.95, &quot;endTime&quot;: 7.15},
-  {&quot;startTime&quot;: 23.633333333333333, &quot;endTime&quot;: 7.25},
-  {&quot;startTime&quot;: 23.8, &quot;endTime&quot;: 6.766666666666667},
-  {&quot;startTime&quot;: 0.13333333333333333, &quot;endTime&quot;: 6.816666666666666},
-  {&quot;startTime&quot;: 23.766666666666666, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 2.4833333333333334, &quot;endTime&quot;: 8.8},
-  {&quot;startTime&quot;: 2.183333333333333, &quot;endTime&quot;: 8.516666666666667},
-  {&quot;startTime&quot;: 0.31666666666666665, &quot;endTime&quot;: 7.116666666666666},
-  {&quot;startTime&quot;: 0.2, &quot;endTime&quot;: 6.633333333333333},
-  {&quot;startTime&quot;: 23.833333333333332, &quot;endTime&quot;: 6.783333333333333},
-  {&quot;startTime&quot;: 0.8666666666666667, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 1.0166666666666666, &quot;endTime&quot;: 7.066666666666666},
-  {&quot;startTime&quot;: 23.616666666666667, &quot;endTime&quot;: 7.266666666666667},
-  {&quot;startTime&quot;: 1.9, &quot;endTime&quot;: 6.933333333333334},
-  {&quot;startTime&quot;: 2.7, &quot;endTime&quot;: 7.333333333333333},
-  {&quot;startTime&quot;: 3.2, &quot;endTime&quot;: 7.316666666666666},
-  {&quot;startTime&quot;: 1.5, &quot;endTime&quot;: 7.366666666666666}
-]
-var ds = new DataSet({
-  state: {
-    sizeEncoding: false
-  }
-});
-var dv = ds.createView(&quot;diamond&quot;).source(boxData);
-dv.transform({
-  type: &quot;map&quot;,
-  callback(row) {
-    // 加工数据后返回新的一行，默认返回行数据本身
-    if (row.startTime &gt; 12) {
-      row.startTime = row.startTime - 24;
-    }
-    return row;
-  }
-});
-dv.transform({
-  sizeByCount: false, // calculate bin size by binning count
-  type: &quot;bin.rectangle&quot;,
-  fields: [&quot;startTime&quot;, &quot;endTime&quot;], // 对应坐标轴上的一个点
-  bins: [20, 10]
-});
-
-var boxChart = new G2.Chart({
-  container: &quot;boxNode&quot;,
-  forceFit: true,
-});
-boxChart.source(dv);
-boxChart.legend({
-  // offset: 40
-});
-boxChart.axis(&quot;x&quot;, {
-  label: {
-    formatter: val =&gt; {
-      if (val &lt; 0) {
-        return Number(val) + 24 + &quot;:00&quot;;
-      } else {
-        return val + &quot;:00&quot;;
-      }
-    }
-  }
-});
-boxChart.axis(&quot;y&quot;, {
-  label: {
-    formatter: val =&gt; val + &quot;:00&quot;
-  }
-});
-boxChart.tooltip(false);
-boxChart
-  .polygon()
-  .position(&quot;x*y&quot;)
-  .color(&quot;count&quot;, &quot;#BAE7FF-#1890FF-#0050B3&quot;);
-boxChart.render();
-&lt;/script&gt;
-
-</description>
-        <pubDate>Sun, 16 Sep 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/09/16/First-glance-at-data-visualization.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/09/16/First-glance-at-data-visualization.html</guid>
-        
-        <category>G2</category>
-        
-        <category>Data-Visualization</category>
         
         
       </item>
@@ -1169,7 +251,7 @@ boxChart.render();
 
 &lt;h2 id=&quot;安装tmux&quot;&gt;安装Tmux&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tmux
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install tmux
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;使用方法&quot;&gt;使用方法&lt;/h2&gt;
@@ -1881,6 +963,185 @@ watchman -v
         <category>面试</category>
         
         <category>前端</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>从零开始配置一个Linux云服务器</title>
+        <description>&lt;p&gt;最近在腾讯云上买了个服务器，准备捣鼓一些自己的项目，由于之前都是用别人现成的环境，因此如何配置一个适合自己的Linux服务器又是一个问题，现学现卖，把自己配置的过程记下来。&lt;/p&gt;
+
+&lt;p&gt;不过本人也是Linux新手，所以这份教程也只是野路子，欢迎批评指点。&lt;/p&gt;
+
+&lt;h2 id=&quot;配置环境&quot;&gt;配置环境&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;本机系统：macOS Sierra v10.12.1&lt;/li&gt;
+  &lt;li&gt;服务器：腾讯云CentOS 7.2（64位）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;无密码ssh登陆&quot;&gt;无密码ssh登陆&lt;/h2&gt;
+
+&lt;p&gt;首先，你购买之后云服务供应商会告诉你机器的账号的密码，然后直接&lt;/p&gt;
+
+&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其中的account就是的云服务器账号，后面则是你服务器的ip地址。如果账号和密码都对的话你就应该成功登陆服务器了，但是每次都要输入密码，是不是很烦呀，这次我们就来配置一下密钥对，实现免密码登陆。&lt;/p&gt;
+
+&lt;h3 id=&quot;本地制作密钥对&quot;&gt;本地制作密钥对&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa   &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成密钥对
+Generating public/private rsa key pair.    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成中
+Enter file &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;which to save the key&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/root/.ssh/id_rsa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 选择保存地址
+Created directory &lt;span class=&quot;s1&quot;&gt;'/root/.ssh'&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Enter passphrase &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;no passphrase&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 输入私钥密码（使用私钥的时候输入，可以为空）
+Enter same passphrase again:    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 再次输入私钥密码
+Your identification has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 私钥
+Your public key has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.pub.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 公钥
+The key fingerprint is:
+7b:aa:08:a0:99:fc:d9:cc:d8:2e:4b:1a:c0:6b:da:e4your@local
+The keys randomart image is:
++--[ RSA 2048]----+
+| |
+| |
+| |
+|. |
+|o. S |
+|++. &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; |
+|+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;o. &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; |
+|o+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oB. o |
+|..E&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;... |
++-----------------+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;私钥一定要好好保护，丢失了会发生比你想象的更严重的事。&lt;/p&gt;
+
+&lt;h3 id=&quot;上传公钥到服务器&quot;&gt;上传公钥到服务器&lt;/h3&gt;
+
+&lt;p&gt;这里我们使用scp&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp ~/.ssh/id_rsa.pub account@your.server.ip:~/.ssh/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样我们就把公钥复制到服务器上了，随后我们在服务器上安装公钥，首先登陆并进入服务器的&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt;目录&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.ssh
+&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;id_rsa.pub &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样公钥就在服务器上安装好了，但是我们还是要修改一下文件的权限，确保可以成功连接&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 600 authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装完之后，我们就可以不输入密码直接登陆服务器啦！&lt;/p&gt;
+
+&lt;h2 id=&quot;配置git&quot;&gt;配置git&lt;/h2&gt;
+
+&lt;p&gt;github作为最大的开源社区，上面当然有这无数的优秀开源项目，更何况是Javascript这种基本不需要配置的语言，所以配置一个git是必须的啦。&lt;/p&gt;
+
+&lt;p&gt;首先查看服务器上是否安装了git&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;command not found&lt;/code&gt;,那就赶紧安装git&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你是基于Debian的系统，比如Ubuntu，那就试一下apt-get&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样git就安装完毕了，接下来是配置git，绑定账号（什么，你没有git账号？那还不赶紧去注册一个？&lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt;）&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; user.name &lt;span class=&quot;s2&quot;&gt;&quot;your name&quot;&lt;/span&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; user.email &lt;span class=&quot;s2&quot;&gt;&quot;your email&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上均填写你注册github时使用的信息，但是，访问git也是需要公钥的，否则就会出现&lt;code class=&quot;highlighter-rouge&quot;&gt;Permission denied (publickey).&lt;/code&gt;，随后我们就来添加公钥&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;your@github.account&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;后面的邮箱就是你的github账号，随后的步骤和上面制作密钥对差不多，这样我们的公钥就制作完了。&lt;/p&gt;
+
+&lt;p&gt;我们还需要把SSH key添加到ssh-agent中，&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot;&gt;参考这里&lt;/a&gt;，添加ssh密钥到ssh账户的时候要确保ssh-agent在运行，因此先执行如下命令&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# start the ssh-agent in the background if it's not already running&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ssh-agent &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+Agent pid 59566 &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 进程号
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;随后运行&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;添加到了ssh-agent之后，我们要在github中绑定公钥，复制&lt;code class=&quot;highlighter-rouge&quot;&gt;id_rsa.pub&lt;/code&gt;中的内容，前往github个人设置，随后点击&lt;i&gt;SSH and GPG keys&lt;/i&gt;，如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/github-setting.jpg&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击new ssh-key&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/new-key.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;title是你自己取的密钥名，key就把刚才复制的内容粘贴过来，粘贴完后点击&lt;i&gt;Add SSH key&lt;/i&gt;。&lt;/p&gt;
+
+&lt;p&gt;这样我们的git就配置完啦。在终端输入&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt; git@github.com
+Hi your-name! You&lt;span class=&quot;s1&quot;&gt;'ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;配置成功了！真棒！&lt;/p&gt;
+
+&lt;h2 id=&quot;配置舒适的开发环境&quot;&gt;配置舒适的开发环境&lt;/h2&gt;
+
+&lt;p&gt;接下来就是安装主要的开发环境了&lt;/p&gt;
+
+&lt;h3 id=&quot;zsh--oh-my-zsh&quot;&gt;zsh &amp;amp; oh-my-zsh&lt;/h3&gt;
+
+&lt;p&gt;从前的终端都是黑白的，自从有了zsh，一下子变得五颜六色（杀马特）起来，这正是我们非主流青年想要的！详情请看&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install zsh
+sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/oh-my-zsh.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;怎么样，是不是很棒！&lt;/p&gt;
+
+&lt;h3 id=&quot;tmux&quot;&gt;tmux&lt;/h3&gt;
+
+&lt;p&gt;tmux是一个终端复用软件，你可以在一个终端中打开多个会话多个窗格，并且可以保持状态，下次进入的时候依然打开这么多会话和窗格，对于终端界面实在是太方便了！他的界面如下，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/tmux.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的操作指令可以见这篇&lt;a href=&quot;http://harttle.com/2015/11/06/tmux-startup.html&quot;&gt;博客&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;node--npm&quot;&gt;node &amp;amp; npm&lt;/h3&gt;
+
+&lt;p&gt;这想必就不用多做介绍了吧，如何安装在&lt;a href=&quot;https://nodejs.org/en/download/package-manager/&quot;&gt;这里&lt;/a&gt;，由于node比较大，所以安装会比较久一点。&lt;/p&gt;
+
+&lt;p&gt;而npm在国内是非常慢的，所以我用的是&lt;a href=&quot;https://npm.taobao.org/&quot;&gt;cnpm&lt;/a&gt;，它上面的包更新是几乎和npm同步的，所以除了指令是cnpm外，基本没有什么区别，但是速度可是差了好几百倍。&lt;/p&gt;
+
+&lt;h2 id=&quot;结束语&quot;&gt;结束语&lt;/h2&gt;
+
+&lt;p&gt;这样，我们的Linux环境基本就安装完啦！赶紧尽情享受Linux吧！&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
+        
+        <category>Linux</category>
+        
+        <category>云服务器</category>
         
         
       </item>
