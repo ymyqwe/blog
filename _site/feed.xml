@@ -5,9 +5,128 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 17 Sep 2018 23:42:12 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Sep 2018 23:42:12 +0800</lastBuildDate>
-    <generator>Jekyll v3.6.2</generator>
+    <pubDate>Tue, 25 Sep 2018 17:46:10 +0800</pubDate>
+    <lastBuildDate>Tue, 25 Sep 2018 17:46:10 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.4</generator>
+    
+      <item>
+        <title>新浏览器中的passive事件监听器引发的移动端交互问题</title>
+        <description>&lt;p&gt;最近在做一个移动端的页面，碰到了之前不存在的问题，即使添加了 user-scalable=no 的 meta head，页面依然能缩放。&lt;/p&gt;
+
+&lt;p&gt;而弹出全屏弹窗时，页面依然能滚动，实在是让人十分厌烦的一个交互，搜寻了众多文档之后，得出了这篇文章。&lt;/p&gt;
+
+&lt;h2 id=&quot;ios10-忽略了-meta-user-scalable&quot;&gt;iOS10+ 忽略了 meta user-scalable&lt;/h2&gt;
+
+&lt;p&gt;&lt;b&gt;From release notes:&lt;/b&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To improve accessibility on websites in Safari, users can now pinch-to-zoom even when a website sets user-scalable=no in the viewport.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;因此在 iOS 10 以后的 safari 浏览器中，即使添加了这个 meta，页面依然能随意缩放。&lt;/p&gt;
+
+&lt;p&gt;因此，禁止缩放这些事，都要手动来做了。可以参考&lt;a href=&quot;https://stackoverflow.com/questions/37808180/disable-viewport-zooming-ios-10-safari&quot;&gt;Disable viewport zooming iOS 10 Safari&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;但是，更新了 iOS 12 之后，突然发现这个方法也没用，真的是 WTF 了。在网上寻找了很久的解决方案之后，发现了 passive eventlistener 这个东西，下面就来简单介绍一下。&lt;/p&gt;
+
+&lt;h2 id=&quot;eventlistener-passive-option&quot;&gt;Eventlistener passive option&lt;/h2&gt;
+
+&lt;p&gt;参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener&quot;&gt;MDN 文档&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果这个属性设置为 true，表示该函数不会调用 preventDefault()，如果调用了 preventDefault()，用户代理也只会产生一个 console warning，不会做其他的事。&lt;/p&gt;
+
+&lt;h3 id=&quot;对于提升滚动性能所做的优化&quot;&gt;对于提升滚动性能所做的优化&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;According to the specification, the default value for the passive option is always false. However, this introduces the potential for event listeners handling certain touch events (among others) to block the browser’s main thread while it is attempting to handle scrolling, resulting in possibly enormous reduction in performance during scroll handling.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To prevent this problem, some browsers (specifically, Chrome and Firefox) have changed the default value of the passive option to true for the touchstart and touchmove events on the document-level nodes Window, Document, and Document.body. This prevents the event listener from being called, so it can’t block page rendering while the user is scrolling.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;大意就是根据规范，事件监听器的 passive 属性默认是 false，但是某些情况下，浏览器的主线程尝试去控制滚动和触摸事件时，会降低滚动控制的性能，从而导致掉帧。&lt;/p&gt;
+
+&lt;p&gt;因此有些浏览器（如 Chrome、Firefox）已将文档级别的 touchstart, touchmove 事件 passive 默认值设置为 true，这样用户在滚动页面时就不会阻塞页面渲染。&lt;/p&gt;
+
+&lt;h3 id=&quot;各种各样的问题&quot;&gt;各种各样的问题&lt;/h3&gt;
+
+&lt;p&gt;Chrome 在 56 版本默认设置了顶级文档元素 passive 为 true 的属性，而 iOS 12 似乎也设置了这一属性。&lt;/p&gt;
+
+&lt;p&gt;如今大多数互联网公司，已经开始忽略适配旧浏览器，让前端实在省了不少事。然而谷歌这一动作，又让移动端出现了需要额外做的工作，包括但不限于以下几点：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;移动端弹出全屏幕 Modal 时，背景页面依然可以滚动&lt;/li&gt;
+  &lt;li&gt;iOS12 以后，无法禁止页面缩放了&lt;/li&gt;
+  &lt;li&gt;React Synthetic Event，无法阻止 Document 的滚动了&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;处理方式&quot;&gt;处理方式&lt;/h3&gt;
+
+&lt;h4 id=&quot;移动端弹出全屏幕-modal-时背景页面依然可以滚动&quot;&gt;移动端弹出全屏幕 Modal 时，背景页面依然可以滚动&lt;/h4&gt;
+
+&lt;p&gt;添加如下代码&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;forbidListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stopPropagation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 允许屏幕滚动&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'touchmove'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;forbidListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;passive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 禁止屏幕滚动&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'touchmove'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;forbidListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;passive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;需要禁用屏幕滚动的时候，调用 enable 方法，需要禁用时则调用 disable 方法&lt;/p&gt;
+
+&lt;h4 id=&quot;ios12-以后无法禁止页面缩放了&quot;&gt;iOS12 以后，无法禁止页面缩放了&lt;/h4&gt;
+
+&lt;p&gt;根据屏幕上手指数量阻止事件行为&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;forbidListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;touches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stopPropagation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但是这么写会遇到一个问题，如果先使用单个手指滚动屏幕，滚动的同时另一只手指放到屏幕上放大页面，目前尚未找到好办法来阻止这一操作。不知有没有什么好办法。&lt;/p&gt;
+
+&lt;h4 id=&quot;react-synthetic-event无法阻止-document-的滚动了&quot;&gt;React Synthetic Event，无法阻止 Document 的滚动了&lt;/h4&gt;
+
+&lt;p&gt;由于 react 团队使用了 Synthetic Event 来进行事件代理，而且 react 一直在为支持这一方式做奴隶，详见&lt;a href=&quot;https://github.com/facebook/react/issues/6436&quot;&gt;issue#6436&lt;/a&gt;，在 react 开放 api 之前，我们可以先不使用 react 的合成事件，使用原生 DOM 来处理这样的问题。&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;各大浏览器开发商，总是会因为一些人的方便，做一些并不是所有人都能适应的事，这次的 passive event listener 是一个例子，还有之前的 modal input 定位问题，&lt;a href=&quot;https://hackernoon.com/how-to-fix-the-ios-11-input-element-in-fixed-modals-bug-aaf66c7ba3f8&quot;&gt;详见&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;做业务开发嘛，总会遇到各种各样的坑，要么就是把这些坑踩掉，但是如果坑踩不掉，我们就得绕过去。或者通过 hack 的方式，或者就通过和产品、业务沟通的方式来解决。&lt;/p&gt;
+
+&lt;p&gt;总而言之，不要钻牛角尖，得去找问题的方式，能解决最好，不然就做一些妥协，毕竟我们的最终目标是向前进。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Sep 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/16/Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/16/Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</guid>
+        
+        <category>Passive-eventlistener</category>
+        
+        <category>iOS12</category>
+        
+        
+      </item>
     
       <item>
         <title>数据可视化初探-用G2分析睡眠数据</title>
@@ -1050,7 +1169,7 @@ boxChart.render();
 
 &lt;h2 id=&quot;安装tmux&quot;&gt;安装Tmux&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install tmux
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tmux
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;使用方法&quot;&gt;使用方法&lt;/h2&gt;
@@ -1762,185 +1881,6 @@ watchman -v
         <category>面试</category>
         
         <category>前端</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>从零开始配置一个Linux云服务器</title>
-        <description>&lt;p&gt;最近在腾讯云上买了个服务器，准备捣鼓一些自己的项目，由于之前都是用别人现成的环境，因此如何配置一个适合自己的Linux服务器又是一个问题，现学现卖，把自己配置的过程记下来。&lt;/p&gt;
-
-&lt;p&gt;不过本人也是Linux新手，所以这份教程也只是野路子，欢迎批评指点。&lt;/p&gt;
-
-&lt;h2 id=&quot;配置环境&quot;&gt;配置环境&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;本机系统：macOS Sierra v10.12.1&lt;/li&gt;
-  &lt;li&gt;服务器：腾讯云CentOS 7.2（64位）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;无密码ssh登陆&quot;&gt;无密码ssh登陆&lt;/h2&gt;
-
-&lt;p&gt;首先，你购买之后云服务供应商会告诉你机器的账号的密码，然后直接&lt;/p&gt;
-
-&lt;div class=&quot;language-zsh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;其中的account就是的云服务器账号，后面则是你服务器的ip地址。如果账号和密码都对的话你就应该成功登陆服务器了，但是每次都要输入密码，是不是很烦呀，这次我们就来配置一下密钥对，实现免密码登陆。&lt;/p&gt;
-
-&lt;h3 id=&quot;本地制作密钥对&quot;&gt;本地制作密钥对&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa   &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成密钥对
-Generating public/private rsa key pair.    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 生成中
-Enter file &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;which to save the key&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/root/.ssh/id_rsa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 选择保存地址
-Created directory &lt;span class=&quot;s1&quot;&gt;'/root/.ssh'&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Enter passphrase &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;no passphrase&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 输入私钥密码（使用私钥的时候输入，可以为空）
-Enter same passphrase again:    &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 再次输入私钥密码
-Your identification has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 私钥
-Your public key has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;/root/.ssh/id_rsa.pub.     &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 公钥
-The key fingerprint is:
-7b:aa:08:a0:99:fc:d9:cc:d8:2e:4b:1a:c0:6b:da:e4your@local
-The keys randomart image is:
-+--[ RSA 2048]----+
-| |
-| |
-| |
-|. |
-|o. S |
-|++. &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; |
-|+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;o. &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; |
-|o+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oB. o |
-|..E&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;... |
-+-----------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;私钥一定要好好保护，丢失了会发生比你想象的更严重的事。&lt;/p&gt;
-
-&lt;h3 id=&quot;上传公钥到服务器&quot;&gt;上传公钥到服务器&lt;/h3&gt;
-
-&lt;p&gt;这里我们使用scp&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp ~/.ssh/id_rsa.pub account@your.server.ip:~/.ssh/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;这样我们就把公钥复制到服务器上了，随后我们在服务器上安装公钥，首先登陆并进入服务器的&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt;目录&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh account@your.server.ip
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.ssh
-&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;id_rsa.pub &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; authorized_keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;这样公钥就在服务器上安装好了，但是我们还是要修改一下文件的权限，确保可以成功连接&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 600 authorized_keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;安装完之后，我们就可以不输入密码直接登陆服务器啦！&lt;/p&gt;
-
-&lt;h2 id=&quot;配置git&quot;&gt;配置git&lt;/h2&gt;
-
-&lt;p&gt;github作为最大的开源社区，上面当然有这无数的优秀开源项目，更何况是Javascript这种基本不需要配置的语言，所以配置一个git是必须的啦。&lt;/p&gt;
-
-&lt;p&gt;首先查看服务器上是否安装了git&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;command not found&lt;/code&gt;,那就赶紧安装git&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果你是基于Debian的系统，比如Ubuntu，那就试一下apt-get&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;这样git就安装完毕了，接下来是配置git，绑定账号（什么，你没有git账号？那还不赶紧去注册一个？&lt;a href=&quot;https://github.com&quot;&gt;Github&lt;/a&gt;）&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; user.name &lt;span class=&quot;s2&quot;&gt;&quot;your name&quot;&lt;/span&gt;
-git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; user.email &lt;span class=&quot;s2&quot;&gt;&quot;your email&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;以上均填写你注册github时使用的信息，但是，访问git也是需要公钥的，否则就会出现&lt;code class=&quot;highlighter-rouge&quot;&gt;Permission denied (publickey).&lt;/code&gt;，随后我们就来添加公钥&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;your@github.account&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;后面的邮箱就是你的github账号，随后的步骤和上面制作密钥对差不多，这样我们的公钥就制作完了。&lt;/p&gt;
-
-&lt;p&gt;我们还需要把SSH key添加到ssh-agent中，&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot;&gt;参考这里&lt;/a&gt;，添加ssh密钥到ssh账户的时候要确保ssh-agent在运行，因此先执行如下命令&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# start the ssh-agent in the background if it's not already running&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ssh-agent &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-Agent pid 59566 &amp;lt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 进程号
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;随后运行&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;添加到了ssh-agent之后，我们要在github中绑定公钥，复制&lt;code class=&quot;highlighter-rouge&quot;&gt;id_rsa.pub&lt;/code&gt;中的内容，前往github个人设置，随后点击&lt;i&gt;SSH and GPG keys&lt;/i&gt;，如下图&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/github-setting.jpg&quot; alt=&quot;&quot; style=&quot;margin:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;然后点击new ssh-key&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/new-key.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;title是你自己取的密钥名，key就把刚才复制的内容粘贴过来，粘贴完后点击&lt;i&gt;Add SSH key&lt;/i&gt;。&lt;/p&gt;
-
-&lt;p&gt;这样我们的git就配置完啦。在终端输入&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt; git@github.com
-Hi your-name! You&lt;span class=&quot;s1&quot;&gt;'ve successfully authenticated, but GitHub does not provide shell access.
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;配置成功了！真棒！&lt;/p&gt;
-
-&lt;h2 id=&quot;配置舒适的开发环境&quot;&gt;配置舒适的开发环境&lt;/h2&gt;
-
-&lt;p&gt;接下来就是安装主要的开发环境了&lt;/p&gt;
-
-&lt;h3 id=&quot;zsh--oh-my-zsh&quot;&gt;zsh &amp;amp; oh-my-zsh&lt;/h3&gt;
-
-&lt;p&gt;从前的终端都是黑白的，自从有了zsh，一下子变得五颜六色（杀马特）起来，这正是我们非主流青年想要的！详情请看&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install zsh
-sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/oh-my-zsh.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;怎么样，是不是很棒！&lt;/p&gt;
-
-&lt;h3 id=&quot;tmux&quot;&gt;tmux&lt;/h3&gt;
-
-&lt;p&gt;tmux是一个终端复用软件，你可以在一个终端中打开多个会话多个窗格，并且可以保持状态，下次进入的时候依然打开这么多会话和窗格，对于终端界面实在是太方便了！他的界面如下，&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/tmux.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;具体的操作指令可以见这篇&lt;a href=&quot;http://harttle.com/2015/11/06/tmux-startup.html&quot;&gt;博客&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;node--npm&quot;&gt;node &amp;amp; npm&lt;/h3&gt;
-
-&lt;p&gt;这想必就不用多做介绍了吧，如何安装在&lt;a href=&quot;https://nodejs.org/en/download/package-manager/&quot;&gt;这里&lt;/a&gt;，由于node比较大，所以安装会比较久一点。&lt;/p&gt;
-
-&lt;p&gt;而npm在国内是非常慢的，所以我用的是&lt;a href=&quot;https://npm.taobao.org/&quot;&gt;cnpm&lt;/a&gt;，它上面的包更新是几乎和npm同步的，所以除了指令是cnpm外，基本没有什么区别，但是速度可是差了好几百倍。&lt;/p&gt;
-
-&lt;h2 id=&quot;结束语&quot;&gt;结束语&lt;/h2&gt;
-
-&lt;p&gt;这样，我们的Linux环境基本就安装完啦！赶紧尽情享受Linux吧！&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 15 Feb 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/15/building-a-linux-server-from-scratch.html</guid>
-        
-        <category>Linux</category>
-        
-        <category>云服务器</category>
         
         
       </item>

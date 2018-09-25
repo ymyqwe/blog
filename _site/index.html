@@ -169,6 +169,40 @@
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
         
 <div class="post-preview">
+    <a href="/2018/09/16/Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html">
+        <h2 class="post-title">           
+            新浏览器中的passive事件监听器引发的移动端交互问题
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Interaction problem caused by passive event listener
+        </h3>
+        
+    </a>
+    <div class="tags">
+            
+                <div class="taghover"><a class="tag" href="/tags#Passive-eventlistener" title="Passive-eventlistener">Passive-eventlistener</a></div>
+            
+                <div class="taghover"><a class="tag" href="/tags#iOS12" title="iOS12">iOS12</a></div>
+            
+    </div>     
+    <div class="post-content-preview">
+            最近在做一个移动端的页面，碰到了之前不存在的问题，即使添加了 user-scalable=no 的 meta head，页面依然能缩放。
+
+而弹出全屏弹窗时，页面依然能滚动，实在是让人十分厌烦的一个交互，搜寻了众多文档之后，得出了这篇文章。
+
+iOS10+ 忽略了 meta user-scalable
+
+From release notes:
+
+
+  To improve accessibi...
+    </div>   
+    <p class="post-meta">Posted by maniaU on September 16, 2018</p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2018/09/16/First-glance-at-data-visualization.html">
         <h2 class="post-title">           
             数据可视化初探-用G2分析睡眠数据
@@ -299,45 +333,6 @@ ctrl+b d就可以退出session。
 ...
     </div>   
     <p class="post-meta">Posted by maniaU on June 30, 2017</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2017/05/25/Immutable-with-react-purecomponent.html">
-        <h2 class="post-title">           
-            Immutable和PureComponent打造高性能react组件
-        </h2>
-        
-        <h3 class="post-subtitle">
-            High performance component built with immutablejs
-        </h3>
-        
-    </a>
-    <div class="tags">
-            
-                <div class="taghover"><a class="tag" href="/tags#React" title="React">React</a></div>
-            
-                <div class="taghover"><a class="tag" href="/tags#前端" title="前端">前端</a></div>
-            
-    </div>     
-    <div class="post-content-preview">
-            Fundamental
-
-从JavaScript数据生成Immutable(支持嵌套数据):
-
-Immutable.fromJS({a: 1})
-Immutable.fromJS([1, 2])
-
-
-从JavaScript数据生成Immutable(不支持嵌套数据):
-
-Immutable.List([1, 2])
-Immutable.Map({a: 1})
-
-
-从Immutable数据生成...
-    </div>   
-    <p class="post-meta">Posted by maniaU on May 25, 2017</p>
 </div>
 <hr>
 
