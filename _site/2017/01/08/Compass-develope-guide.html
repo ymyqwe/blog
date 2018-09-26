@@ -189,7 +189,7 @@
 <h3 id="安装compass">安装Compass</h3>
 
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem update <span class="nt">--system</span>
-<span class="nv">$ </span>gem <span class="nb">install </span>compass
+<span class="nv">$ </span>gem install compass
 </code></pre></div></div>
 
 <h3 id="创建compass项目">创建Compass项目</h3>
@@ -272,8 +272,8 @@
 <p>使用Compass我们可以利用函数来转化</p>
 
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$originWidth</span><span class="p">:</span> <span class="m">750px</span><span class="p">;</span>
-<span class="c1">//设计稿的宽度</span>
-<span class="k">@function</span> <span class="nf">pxToRem</span><span class="p">(</span><span class="nv">$px</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//设计稿的宽度
+</span><span class="k">@function</span> <span class="nf">pxToRem</span><span class="p">(</span><span class="nv">$px</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">@return</span> <span class="m">10</span><span class="o">*</span><span class="nv">$px</span><span class="o">/</span><span class="nv">$ClientWidth</span><span class="o">/</span><span class="m">1</span><span class="o">*</span><span class="m">1rem</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>

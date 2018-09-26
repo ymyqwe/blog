@@ -5,9 +5,9 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 25 Sep 2018 17:46:10 +0800</pubDate>
-    <lastBuildDate>Tue, 25 Sep 2018 17:46:10 +0800</lastBuildDate>
-    <generator>Jekyll v3.8.4</generator>
+    <pubDate>Wed, 26 Sep 2018 23:02:14 +0800</pubDate>
+    <lastBuildDate>Wed, 26 Sep 2018 23:02:14 +0800</lastBuildDate>
+    <generator>Jekyll v3.6.2</generator>
     
       <item>
         <title>新浏览器中的passive事件监听器引发的移动端交互问题</title>
@@ -130,7 +130,11 @@
     
       <item>
         <title>数据可视化初探-用G2分析睡眠数据</title>
-        <description>&lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;
+        <description>&lt;p&gt;最近一直想研究研究数据可视化，想想自己买了 Misfit 的手环也差不多有一年半多了，虽然 Misfit App 上有每日和月度的统计，但是 misfit 似乎无法满足做长期数据分析的要求，不过幸好 Misfit 有开放 API，可以调用他的 API 来拉取数据，因此我取了&lt;b&gt;2017-01-01 到 2018-08-31&lt;/b&gt;期间的睡眠数据来做分析。&lt;/p&gt;
+
+&lt;h2 id=&quot;月度平均睡眠时间&quot;&gt;月度平均睡眠时间&lt;/h2&gt;
+
+&lt;div id=&quot;mountNode&quot;&gt;&lt;/div&gt;
 
 &lt;div id=&quot;pieNode&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;radarNode&quot;&gt;&lt;/div&gt;
@@ -1169,7 +1173,7 @@ boxChart.render();
 
 &lt;h2 id=&quot;安装tmux&quot;&gt;安装Tmux&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tmux
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install tmux
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;使用方法&quot;&gt;使用方法&lt;/h2&gt;

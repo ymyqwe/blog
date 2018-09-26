@@ -7,8 +7,11 @@ author: "maniaU"
 header-img: "img/Hole.jpg"
 tags: G2 Data-Visualization
 catalog: true
-published: false
 ---
+
+最近一直想研究研究数据可视化，想想自己买了 Misfit 的手环也差不多有一年半多了，虽然 Misfit App 上有每日和月度的统计，但是 misfit 似乎无法满足做长期数据分析的要求，不过幸好 Misfit 有开放 API，可以调用他的 API 来拉取数据，因此我取了<b>2017-01-01 到 2018-08-31</b>期间的睡眠数据来做分析。
+
+## 月度平均睡眠时间
 
 <div id="mountNode"></div>
 
