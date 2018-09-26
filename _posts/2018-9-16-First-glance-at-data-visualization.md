@@ -4,7 +4,7 @@ title: "数据可视化初探-用G2分析睡眠数据"
 subtitle: "Analyze sleeping data with G2"
 date: 2018-9-16
 author: "maniaU"
-header-img: "img/Hole.jpg"
+header-img: "img/star-sky.jpg"
 tags: G2 Data-Visualization
 catalog: true
 ---
