@@ -1,18 +1,10 @@
 ---
 layout: post
-<<<<<<< HEAD
 title: "新浏览器中的passive事件监听器引发的移动端交互问题"
 subtitle: "Interaction problem caused by passive event listener"
 date: 2018-9-25
 author: "maniaU"
-header-img: "img/Hole.jpg"
-=======
-title: '新浏览器中的passive事件监听器引发的移动端交互问题'
-subtitle: 'Interaction problem caused by passive event listener'
-date: 2018-9-25
-author: 'maniaU'
-header-img: 'img/brienz lake.jpeg'
->>>>>>> master
+header-img: "img/brienz lake.jpeg"
 tags: Passive-eventlistener iOS12
 catalog: true
 ---
