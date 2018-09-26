@@ -5,12 +5,12 @@
     <description>鱼头的小博客。随便写的，随便看看吧。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 27 Sep 2018 01:12:53 +0800</pubDate>
-    <lastBuildDate>Thu, 27 Sep 2018 01:12:53 +0800</lastBuildDate>
+    <pubDate>Thu, 27 Sep 2018 01:13:28 +0800</pubDate>
+    <lastBuildDate>Thu, 27 Sep 2018 01:13:28 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
-        <title>新浏览器中的passive事件监听器引发的移动端交互问题</title>
+        <title></title>
         <description>&lt;p&gt;最近在做一个移动端的页面，碰到了之前不存在的问题，即使添加了 user-scalable=no 的 meta head，页面依然能缩放。&lt;/p&gt;
 
 &lt;p&gt;而弹出全屏弹窗时，页面依然能滚动，实在是让人十分厌烦的一个交互，搜寻了众多文档之后，得出了这篇文章。&lt;/p&gt;
@@ -117,13 +117,9 @@
 
 &lt;p&gt;总而言之，不要钻牛角尖，得去找问题的方式，能解决最好，不然就做一些妥协，毕竟我们的最终目标是向前进。&lt;/p&gt;
 </description>
-        <pubDate>Tue, 25 Sep 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/09/25/Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/09/25/Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</guid>
-        
-        <category>Passive-eventlistener</category>
-        
-        <category>iOS12</category>
+        <pubDate>Thu, 27 Sep 2018 01:13:28 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/27/2018-9-25-Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/27/2018-9-25-Passive-event-listener-and-user-scalable-no-meta-in-new-web-browser.html</guid>
         
         
       </item>
