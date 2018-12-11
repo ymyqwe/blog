@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '使用React-Hooks开发聊天室2.0'
+title: '使用React-Hooks开发聊天室之2.0版本'
 date: 2018-12-10
 author: 'maniaU'
 header-img: 'img/brienz lake.jpeg'
@@ -9,37 +9,41 @@ catalog: true
 published: false
 ---
 
-## 我的React历程
+## 我的 React 历程
 
-React在前端界大行其道将近三年了，他带来的数据与UI绑定的优势，让我们告别了jQuery和DOM，让我们把注意力集中到单向数据流上，我们可以把一大个web app拆分成小的，独立的，可重用的组件，
+React 在前端界大行其道将近三年了，他带来的数据与 UI 绑定的优势，让我们告别了 jQuery 和 DOM，让我们把注意力集中到单向数据流上，我们可以把一大个 web app 拆分成小的，独立的，可重用的组件，
 
-### 初识State
-两年前我刚刚接触React，自学开发了[聊天室第一版](https://www.yumingyuan.me/2017/02/13/chatroom-developed-using-react-socketio-and-express.html)，当时对状态管理还是非常懵懂，父子通信使用的都是props传值，写一个通信，需要改三处逻辑，代码写着写着就变得不可维护。
+### 初识 State
 
-### 接触Redux
-后来我遇到了redux，便能通过actions来改变reducer，并将reducer拆分到不同组件，映射不同的UI，组件和父子通信变得更加得心应手，虽然逻辑更明晰了，但是代码也变得更加复杂，写一套redux，需要增加至少三个文件，配置redux开发，也需要花点时间，成本变得居高不下。
+两年前我刚刚接触 React，自学开发了[聊天室第一版](https://www.yumingyuan.me/2017/02/13/chatroom-developed-using-react-socketio-and-express.html)，当时对状态管理还是非常懵懂，父子通信使用的都是 props 传值，写一个通信，需要改三处逻辑，代码写着写着就变得不可维护。
 
-### 遇见Hooks
-而如今，出现了react-hooks，我们可以把所有的class组件，都变成一个纯函数，因为告别了class，也不用再为烦人的this使用bind或者箭头函数，使用了hooks，你的react代码将变得更加纯粹，明晰而又简洁。
+### 接触 Redux
 
-## 为什么要使用React-Hooks
-但是当一个APP变得足够大时，我们常常会遇到这样的问题
+后来我遇到了 redux，便能通过 actions 来改变 reducer，并将 reducer 拆分到不同组件，映射不同的 UI，组件和父子通信变得更加得心应手，虽然逻辑更明晰了，但是代码也变得更加复杂，写一套 redux，需要增加至少三个文件，配置 redux 开发，也需要花点时间，成本变得居高不下。
+
+### 遇见 Hooks
+
+而如今，出现了 react-hooks，我们可以把所有的 class 组件，都变成一个纯函数，因为告别了 class，也不用再为烦人的 this 使用 bind 或者箭头函数，使用了 hooks，你的 react 代码将变得更加纯粹，明晰而又简洁。
+
+## 为什么要使用 React-Hooks
+
+但是当一个 APP 变得足够大时，我们常常会遇到这样的问题
 
 1. 组件的通用性常常会和业务逻辑耦合在一起
 2. 当处理很多动画、外来数据时，我们的组件常常会变得不那么`纯粹`
 3. 太多的逻辑和生命周期带来的状态管理混乱
-4. render和高阶组件导致DOM结构非常复杂
+4. render 和高阶组件导致 DOM 结构非常复杂
 5. 等等
 
-说了那么多，让我们结合实例赶紧体验一下Hooks的魔力吧！
+说了那么多，让我们结合实例赶紧体验一下 Hooks 的魔力吧！
 
-## 使用React-hooks开发聊天室
+## 使用 React-hooks 开发聊天室
 
-项目源码[在此](https://github.com/ymyqwe/Websocket-React-Chatroom)，大家可以在阅读本文的时候参考源码
+项目源码[在此](https://github.com/ymyqwe/Websocket-React-Chatroom)，大家可以在阅读本文的时候参考源码，关于 webpack 和 socket.io 相关的，请参考[聊天室第一版](https://www.yumingyuan.me/2017/02/13/chatroom-developed-using-react-socketio-and-express.html)
 
-### 使用useState编写受控组件
+### 使用 useState 编写受控组件
 
-由于react使用的是单向数据流，因此我们如果要在input中改变值，必须绑定一个`onChange`事件，使用useState的写法如下，可以参考<i>src/container/App.js</i>
+由于 react 使用的是单向数据流，因此我们如果要在 input 中改变值，必须绑定一个`onChange`事件，使用 useState 的写法如下，可以参考<i>src/container/App.js</i>
 
 ```javascript
 import React, { useState } from 'react';
@@ -47,33 +51,28 @@ import React, { useState } from 'react';
 const userState = (username) => {
   const [user, setUsername] = useState(username);
   return [user, setUsername];
-}
+};
 
 const App = (props) => {
   /* ... */
   // 输入输出用户名
   const [user, setUsername] = userState();
   /* ... */
-  return (
-    <input 
-      type="text"
-      placeholder="请输入用户名"
-      onChange={(e) => setUsername(e.target.value)}
-    />)
+  return <input type="text" placeholder="请输入用户名" onChange={(e) => setUsername(e.target.value)} />;
   /* ... */
 };
 ```
 
-以上便是最简单的hooks用法，我们可以定义一个state，再声明一个改变state的方法，接下来通过调用这个方法，可以操作这个state。
+以上便是最简单的 hooks 用法，我们可以定义一个 state，再声明一个改变 state 的方法，接下来通过调用这个方法，可以操作这个 state。
 
-### 使用Context和useReducer来管理状态
+### 使用 Context 和 useReducer 来管理状态
 
-- [Context](https://reactjs.org/docs/context.html)是React官方提供的一个管理数据的方法，他可以让我们避免一级一级地把数据沿着组件树传下来，详情可以参考官方文档
-- useReducer则是hooks提供的一个类似于redux的api，让我们可以通过action的方式来管理context，或者state
+- [Context](https://reactjs.org/docs/context.html)是 React 官方提供的一个管理数据的方法，他可以让我们避免一级一级地把数据沿着组件树传下来，详情可以参考官方文档
+- useReducer 则是 hooks 提供的一个类似于 redux 的 api，让我们可以通过 action 的方式来管理 context，或者 state
 
-接下来我们就将两者结合起来使用，首先创建一个<i>context/index.js</i>文件，加入我们需要共享的状态，通过一个ContextProvider将state和改变state的dispatch方法给子组件。
+接下来我们就将两者结合起来使用，首先创建一个<i>context/index.js</i>文件，加入我们需要共享的状态，通过一个 ContextProvider 将 state 和改变 state 的 dispatch 方法给子组件。
 
-同时reducer定义三个方法，分别为，登录`LOGIN`，更新系统消息`UPDATE_SYSTEM_MESSAGE`（用户进入或者离开聊天室），更新用户消息`UPDATE_USER_MESSAGE`（用户发送消息），用来更新state。
+同时 reducer 定义三个方法，分别为，登录`LOGIN`，更新系统消息`UPDATE_SYSTEM_MESSAGE`（用户进入或者离开聊天室），更新用户消息`UPDATE_USER_MESSAGE`（用户发送消息），用来更新 state。
 
 ```javascript
 import React, { createContext, useReducer } from 'react';
@@ -113,5 +112,174 @@ const ContextConsumer = Context.Consumer;
 export { Context, ContextProvider, ContextConsumer };
 ```
 
+### 组件接入 Context
 
+写完了 context，我们将所有需要用到 context 的组件放入到`Context.Provider`的子元素中，这样就可以获取到状态 state 和方法 dispatch。
 
+<i>src/container/App.js</i>中，关键代码如下，
+
+```javascript
+import React, { useContext, useState } from 'react';
+import { Context } from '../context';
+
+const App = (props) => {
+  // 获取context中的数据
+  const { state, dispatch } = useContext(Context);
+  const handleLogin = () => {
+    const uid = generateUid();
+    const username = user ? user : `游客${uid}`;
+    dispatch({ type: 'LOGIN', payload: { uid, username } });
+    state.socket.emit('LOGIN', { uid, username });
+  };
+  /* ... */
+};
+```
+
+以上代码表示登录时出发 context 中的 dispatch 方法，并传输 uid 和 username 两个参数，对应到 context 中，则是
+
+```javascript
+function reducer(state, action) {
+  switch (action.type) {
+    case 'LOGIN':
+      return { ...state, ...action.payload };
+    /* ... */
+  }
+}
+```
+
+表示登录之后，将用户的 uid 和 username 存储到 state 中。
+
+在聊天室代码<i>src/container/ChatRoom.js</i>中，逻辑基本类似，通过 socket 接受到用户的登录、登出、发送消息等行为，更新到 context 的 state 中，具体代码如下。
+
+```javascript
+import React, { useContext, useState } from 'react';
+import Messages from './Messages';
+import ChatInput from './ChatInput';
+import { Context } from '../context';
+
+const ChatRoom = (props) => {
+  const { state, dispatch } = useContext(Context);
+  const [init, setInit] = useState(false);
+  // 更新系统消息
+  const updateSysMsg = (o, action) => {
+    const newMsg = { type: 'system', username: o.user.username, uid: o.user.uid, action: action, msgId: generateMsgId(), time: generateTime() };
+    dispatch({
+      type: 'UPDATE_SYSTEM_MESSAGE',
+      payload: {
+        onlineCount: o.onlineCount,
+        onlineUsers: o.onlineUsers,
+        message: newMsg
+      }
+    });
+  };
+
+  // 发送新消息
+  const updateMsg = (obj) => {
+    const newMsg = { type: 'chat', username: obj.username, uid: obj.uid, action: obj.message, msgId: generateMsgId(), time: generateTime() };
+    dispatch({
+      type: 'UPDATE_USER_MESSAGE',
+      payload: {
+        message: newMsg
+      }
+    });
+  };
+  // 监听消息发送
+  const ready = () => {
+    const { socket } = props;
+    setInit(true);
+    socket.on('login', (o) => {
+      updateSysMsg(o, 'login');
+    });
+    socket.on('logout', (o) => {
+      updateSysMsg(o, 'logout');
+    });
+    socket.on('message', (obj) => {
+      updateMsg(obj);
+    });
+  };
+  if (!init) {
+    ready();
+  }
+  const renderUserList = () => {
+    const users = state.onlineUsers;
+    let userhtml = '';
+    let separator = '';
+    for (const key in users) {
+      if (users.hasOwnProperty(key)) {
+        userhtml += separator + users[key];
+        separator = '、';
+      }
+    }
+    return userhtml;
+  };
+  return (
+    <div className="chat-room">
+      <div className="welcome">
+        <div className="room-action">
+          <div className="room-name">鱼头的聊天室 | {props.username}</div>
+          <div className="button">
+            <button onClick={() => window.location.reload()}>登出</button>
+          </div>
+        </div>
+      </div>
+      <div className="room-status">
+        在线人数: {state.onlineCount}, 在线列表: {renderUserList()}
+      </div>
+      <div>
+        <Messages messages={state.messages} myId={props.uid} />
+        <ChatInput myId={props.uid} myName={props.username} socket={props.socket} />
+      </div>
+    </div>
+  );
+};
+export default ChatRoom;
+```
+
+### 使用 useEffect 和 useRef 更优雅地玩转 React
+
+曾经，我们需要背下 react 的生命周期方法，并经常会因为搞不清使用哪个方法而晕头转向，有了 hooks 的 useEffect 方法，我们可以将`componentDidMount`，`componentDidUpdate`和`componentWillUnmount`合成 useEffect。
+
+```javascript
+// before
+componentDidMount() {
+  window.scrollTo(0, messageList.current.clientHeight + 50);
+}
+componentDidUpdate() {
+  window.scrollTo(0, messageList.current.clientHeight + 50);
+}
+componentWillUnmount() {
+  // DO SOMETHING
+}
+
+// after
+useEffect(() => {
+  window.scrollTo(0, messageList.current.clientHeight + 50);
+  return () => {
+    // DO SOMETHING
+  }
+});
+```
+
+可以达到完全一致的效果，怎么样，代码是不是精简了很多？
+
+至于`useRef`，使用方法则更简单了
+
+```javascript
+const messageList = useRef(null);
+
+return (
+  <div className="messages" ref={messageList}>
+    {messages.map((message) => (
+      <Message key={message.msgId} msgType={message.type} msgUser={message.username} action={message.action} isMe={uid == message.uid ? true : false} time={message.time} />
+    ))}
+  </div>
+);
+```
+
+这样子就可以轻松使用 DOM 了，而且如果绑定了 input 等元素，将 ref 暴露给父元素，也可以在父元素中调用 focus 等等的方法，至于更多的使用方法，就等大家自己去探索咯。
+
+#### 后记
+
+经过如上的核心代码，我们的聊天室就基本搞定了，当然具体细节代码大家可以自行研究。
+
+研究了一番 react-hooks，我总结出来如下优缺点，欢迎大家发表意见讨论。
