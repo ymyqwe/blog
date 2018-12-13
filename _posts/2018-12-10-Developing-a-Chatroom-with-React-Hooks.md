@@ -234,7 +234,7 @@ const ChatRoom = (props) => {
 export default ChatRoom;
 ```
 
-而在<i>`src/component/ChatRoom.js`</i>中，我们以同样的方式接入 context，获取 state 中的 messages，一一渲染，我们的聊天室核心功能就完成了！
+而在<i>`src/component/Messages.js`</i>中，我们以同样的方式接入 context，获取 state 中的 messages，一一渲染，我们的聊天室核心功能就完成了！
 
 ```jsx
 const Messages = (props) => {
