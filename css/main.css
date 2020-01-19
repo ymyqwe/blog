@@ -377,6 +377,7 @@ hr.small {
 /*Post-content*/
 .post-content a {
   color:#0CC;
+  word-break: break-all;
 }
 .post-content a:hover,
 .post-content a:focus {
