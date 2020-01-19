@@ -375,6 +375,9 @@ hr.small {
 /*Container*/
 
 /*Post-content*/
+.post-content img {
+  margin: auto;
+}
 .post-content a {
   color:#0CC;
   word-break: break-all;

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: '黑苹果Mojave 10.14.15安装实录'
-subtitle: 'Hackintosh-with-mojave-10.14.15'
+title: "黑苹果Mojave 10.14.15安装实录"
+subtitle: "Hackintosh-with-mojave-10.14.15"
 date: 2019-06-15
-author: 'maniaU'
-header-img: 'img/hacker.png'
+author: "maniaU"
+header-img: "img/hacker.png"
 tags: 苹果 硬件
 catalog: true
 ---
@@ -49,11 +49,16 @@ catalog: true
 
 - 电源：酷冷至尊 MWE 全模组 550W  444 元
 
-小白建议选择全模组电源，省去自己布线的烦恼<br />如何挑选电源功率：[https://kknews.cc/digital/xpmy34r.html](https://kknews.cc/digital/xpmy34r.html)<br />嫌麻烦也可以看下图<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1560924305944-b895723e-5742-44f7-bb61-440c1345af9c.png#align=left&display=inline&height=378&name=image.png&originHeight=378&originWidth=720&size=218058&status=done&width=720)<br />购于淘宝酷冷至尊官方旗舰店<br />
+小白建议选择全模组电源，省去自己布线的烦恼<br />如何挑选电源功率：[https://kknews.cc/digital/xpmy34r.html](https://kknews.cc/digital/xpmy34r.html)<br />嫌麻烦也可以看下图<br />
+![step1.png]({{  site.baseurl }}/img/hackintosh/step1.png)
+<br />
+购于淘宝酷冷至尊官方旗舰店<br />
 
 - 散热器 酷冷至尊 t400i  69 元
 
-这个主要是跟着机箱和 CPU 走，不超频其实盒装散热器就够了，但是作为高端玩家，怎么能用原装呢！<br />购于京东<br />散热器采购参考：[https://kknews.cc/digital/xpmy34r.html](https://kknews.cc/digital/xpmy34r.html)<br />
+这个主要是跟着机箱和 CPU 走，不超频其实盒装散热器就够了，但是作为高端玩家，怎么能用原装呢！<br />购于京东<br />散热器采购参考：
+![usb-device.png]({{  site.baseurl }}/img/hackintosh/usb-device.png)
+<br />
 
 - 机箱：NZXT H500 白色   429 元
 
@@ -124,7 +129,7 @@ catalog: true
 2. 进入 BIOS 高级设置设置 UEFI，b360m 的话是 Hard Disk BBR 那个选项，其余主板自行去网上查找，这里可以顺便把蓝牙、键盘唤醒电脑一并在高级设置里设置了
 3. 重启电脑，进入 Clover 界面，选择 Boot OS X Install from macOS Mojave，接下来会引导 macOS，在实用工具页面，格式化你的安装盘为 APFS 格式，然后再选择安装 macOS
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1560963207219-8bbcae46-13ab-441f-a7ea-e9d496187920.png#align=left&display=inline&height=384&name=image.png&originHeight=768&originWidth=1024&size=452864&status=done&width=512)<br />
+<br />
 
 4. 安装完系统之后，会有一系列的设置，跟着感觉走，或者跟着你以前的设置来就行
 5. 此时 EFI 还位于你的 U 盘安装盘中，同样通过**_diskutil_**来操作挂载 U 盘以及系统盘的 EFI 分区，将 U 盘中的 EFI 复制覆盖到你的系统盘里
@@ -147,16 +152,16 @@ OSX 下发现连上手机蓝牙之后，也是没法传输数据，连上直接�
 1. 打开**Spotlight** => **System Information**
 1. 分别检查**System Information**中的 Bluetooth 和 USB，如果都有，就是检测到了硬件，如果没有，要么就是你线没插对，或者就是坏了
 
-![屏幕快照 2019-06-21 20.42.28.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561121031567-9914a53e-8761-4ec9-914d-a3aaef0fd742.png#align=left&display=inline&height=497&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%2020.42.28.png&originHeight=497&originWidth=736&size=77871&status=done&width=736)
+![usb-device.png]({{  site.baseurl }}/img/hackintosh/usb-device.png)
 
-![屏幕快照 2019-06-21 20.42.11.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561121031580-f2262a1d-8296-4d0c-a25a-300887a3287c.png#align=left&display=inline&height=417&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%2020.42.11.png&originHeight=417&originWidth=744&size=78725&status=done&width=744)
+![bluetooth-device.png]({{  site.baseurl }}/img/hackintosh/bluetooth-device.png)
 
 #### 重置蓝牙模块
 
 1. 按住**Option**和**Shift**，点击 Menu Bar 上的蓝牙，随后点击**调试** => **重置蓝牙模块**
 2. 关闭蓝牙，删除*/Library/Preferences/com.apple.Bluetooth.plist*
 
-![屏幕快照 2019-06-21 20.43.05.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561121004800-2e3d8b5a-00ba-43b6-9014-d232eea700e3.png#align=left&display=inline&height=343&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%2020.43.05.png&originHeight=343&originWidth=534&size=248349&status=done&width=534)<br />
+![debug-bluetooth.png]({{  site.baseurl }}/img/hackintosh/debug-bluetooth.png)
 
 #### 使用开发工具检测蓝牙
 
@@ -164,15 +169,15 @@ OSX 下发现连上手机蓝牙之后，也是没法传输数据，连上直接�
 2. 打开**Additional_Tools_for_Xcode_10.2.dmg => Hardware => Bluetooth Explorer**
 3. 在 Menu bar 上点击 Device => Show Device Discovery，接下来就会显示所有检测到过的列表，就算信号很差，没有在设备列表里显示，这边也会出现。
 
-![屏幕快照 2019-06-21 21.10.27.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561122678018-26f85fd6-39f3-4ff0-8753-14cedfa2ac97.png#align=left&display=inline&height=560&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%2021.10.27.png&originHeight=560&originWidth=545&size=39442&status=done&width=545)<br />
+![bluetooth-developer.png]({{  site.baseurl }}/img/hackintosh/bluetooth-developer.png)
+<br />
 
 4.点击 Tools => RSSI sweeper，点击 start，接下来会扫描所有频段，结束后，一般会扫到你的设备。
 
-![屏幕快照 2019-06-21 21.10.27.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561123282170-03c7c8fe-bd29-4529-8f41-bd648a2e219f.png#align=left&display=inline&height=560&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%2021.10.27.png&originHeight=560&originWidth=545&size=39442&status=done&width=545)<br />
+![device-discovery.png]({{  site.baseurl }}/img/hackintosh/device-discovery.png)
+<br />
 
 5.接下来去添加你的蓝牙设备
-
-<a name="9iPPG"></a>
 
 #### 查看蓝牙设备信号
 
@@ -181,14 +186,15 @@ OSX 下发现连上手机蓝牙之后，也是没法传输数据，连上直接�
 
 -50 ~ 0dBm      信号强<br />-70 ~-50dBm  信号中<br /><-70dBm        信号弱
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561013754797-52f6113c-2136-4690-b8a3-47d208f73e0c.png#align=left&display=inline&height=405&name=image.png&originHeight=349&originWidth=480&size=179447&status=done&width=557)<br />
+![signal1.png]({{  site.baseurl }}/img/hackintosh/signal1.png)
 <br />
-<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561013810817-769ede1a-fa2e-4a19-99c8-b4fcbe2f7a49.png#align=left&display=inline&height=371&name=image.png&originHeight=724&originWidth=1082&size=374814&status=done&width=554)
+<br />
+![signal2.png]({{  site.baseurl }}/img/hackintosh/signal2.png)
 
 随后不管怎么调整信号天线，依旧很弱，因此就是信号问题，和店家反馈之后，果断换了个四天线版本。
 
-换好了无线网卡，重置蓝牙模块，信号果断强多了，虽然还不是太理想，但是也算能用了！<br />![屏幕快照 2019-06-20 22.28.08.png](https://cdn.nlark.com/yuque/0/2019/png/204489/1561045683628-c8709647-1e83-497c-a481-5ecad8842f96.png#align=left&display=inline&height=358&name=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-20%2022.28.08.png&originHeight=358&originWidth=492&size=325147&status=done&width=492)
-<a name="2luvW"></a>
+换好了无线网卡，重置蓝牙模块，信号果断强多了，虽然还不是太理想，但是也算能用了！<br />
+![signal3.png]({{  site.baseurl }}/img/hackintosh/signal3.png)
 
 ## 黑苹果软件推荐
 
