@@ -4,7 +4,7 @@ title: "小米手环4 NFC 添加加密门禁卡"
 subtitle: "Simulating Encrypted Entrance Card with Xiaomi NFC Band 4"
 date: 2020-01-19
 author: "maniaU"
-header-img: "img/hacker.png"
+header-img: "img/encryption.jpg"
 tags: 硬件
 catalog: true
 ---
